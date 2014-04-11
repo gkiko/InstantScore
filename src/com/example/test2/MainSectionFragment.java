@@ -24,6 +24,7 @@ import com.example.instantscore.adapter.SeparatedListAdapter;
 import com.example.instantscore.communication.DataFetcher;
 import com.example.instantscore.communication.DataSender;
 import com.example.instantscore.database.DBManager;
+import com.example.instantscore.database.InsertStatus;
 import com.example.instantscore.listener.CallbackListener;
 import com.example.instantscore.listener.MyChangeEvent;
 import com.example.instantscore.logic.DataParser;
@@ -49,15 +50,46 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 				Game item = (Game) separatedListAdapter.getItem(position);
 				
 
-				if (item.isSelectable()) {
-					if (!item.isSelected()) {
-						DBManager.insertMatchIntoDatabase(item);
-					} else {
+//				if (item.isSelectable()) {
+//					if (!item.isSelected()) {
+//						InsertStatus insertStatus = DBManager.insertMatchIntoDatabase(item);
+//						if(insertStatus!=InsertStatus.INSERTED_OK){
+//							String text = (insertStatus==InsertStatus.ALREADY_EXISTS ? "The match is already selected" : 
+//								"You can't choose more matches today because you've already reached your daily maximum");
+//							Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+//						}
+//					} else {
+//						Toast.makeText(getActivity().getApplicationContext(), "You can't subscribe to this match because it " +
+//								"has already finished ", Toast.LENGTH_SHORT).show();
+//					}
+//					
+//					
+//					
+//					item.setSelected();
+//					separatedListAdapter.notifyDataSetChanged();
+//				}
+//			}
+				if (!item.isSelected()) {
+					if(!item.isSelectable()){
+						Toast.makeText(getActivity().getApplicationContext(), "You can't subscribe to this match because it " +
+								"has already finished ", Toast.LENGTH_SHORT).show();
 					}
-					item.setSelected();
-					separatedListAdapter.notifyDataSetChanged();
+					else{
+						InsertStatus insertStatus = DBManager.insertMatchIntoDatabase(item);
+						if(insertStatus!=InsertStatus.INSERTED_OK){
+							String text = (insertStatus==InsertStatus.ALREADY_EXISTS ? "The match is already selected" : 
+								"You can't choose more matches today because you've already reached your daily maximum");
+							Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+						}
+						else{
+							Toast.makeText(getActivity().getApplicationContext(), "The match has been chosen", Toast.LENGTH_SHORT).show();
+						}
+					}
 				}
+				item.setSelected();
+				separatedListAdapter.notifyDataSetChanged();
 			}
+				
 		});
 
 		fetchList();

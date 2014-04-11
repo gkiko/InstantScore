@@ -14,6 +14,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.instantscore.model.Game;
 
 public class DBManager {
+
+	private static final int MAX_NUM_SELECTED_MATCHES_PER_DAY = 10;
+		
 	private static DBHelper dbHelper = null;
 
 	private static SQLiteDatabase db = null;
@@ -37,8 +40,9 @@ public class DBManager {
 	// create table matches (tournament varchar, date varchar, " +
 	// "time varchar, home_team varchar, away_team varchar, home_score varchar, away_score varchar)"
 
-	public static void insertMatchIntoDatabase(Game game) {
-		if(isAlreadyInDatabase(game)) return;
+	public static InsertStatus insertMatchIntoDatabase(Game game) {
+		if(isAlreadyInDatabase(game)) return InsertStatus.ALREADY_EXISTS;
+		if(!isSpaceForExtraMatch()) return InsertStatus.TOO_MANY_MATCHES;
 		String tournament = game.getTournament(), time = game.getTime(), homeScore = game
 				.getHomeTeamScore(), awayScore = game.getAwayTeamScore(), homeTeam = game
 				.getHomeTeam(), awayTeam = game.getAwayTeam(), date = game
@@ -55,6 +59,7 @@ public class DBManager {
 		db.insert("matches", null, values);
 		db.setTransactionSuccessful();
 		db.endTransaction();
+		return InsertStatus.INSERTED_OK;
 	}
 	
 	private static boolean isAlreadyInDatabase(Game game){
@@ -82,6 +87,10 @@ public class DBManager {
 		}
 	}
 	
+	private static boolean isSpaceForExtraMatch(){
+		return getAllMatches().size() < MAX_NUM_SELECTED_MATCHES_PER_DAY;
+	}
+	
 	public static void removeGameFromDatabase(Game game){
 		db.execSQL("delete from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+game.getAwayTeam()+"'");
 	}
@@ -95,8 +104,18 @@ public class DBManager {
 		Cursor cursor = db.rawQuery("select * from matches", null);
 
 		if (cursor.moveToFirst()) {
+			Game game = new Game();
+			game.setTournament(cursor.getString(0));
+			game.setDate(cursor.getString(1));
+			game.setTime(cursor.getString(2));
+			game.setHomeTeam(cursor.getString(3));
+			game.setAwayTeam(cursor.getString(4));
+			game.setHomeTeamScore(cursor.getString(5));
+			game.setAwayTeamScore(cursor.getString(6));
+
+			matches.add(game);
 			while (cursor.moveToNext()) {
-				Game game = new Game();
+				game = new Game();
 				game.setTournament(cursor.getString(0));
 				game.setDate(cursor.getString(1));
 				game.setTime(cursor.getString(2));

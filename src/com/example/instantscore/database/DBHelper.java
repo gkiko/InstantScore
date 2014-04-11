@@ -5,9 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-	private static final String DATABASE_NAME = "MyAutoDatabase";
+	private static final String DATABASE_NAME = "InstantScoreDatabase";
 
-	private static final int DATABASE_VERSION = 7;
+	private static final int DATABASE_VERSION = 9;
 
 	public static final String MATCHES_TABLE = "matches";
 	
@@ -15,8 +15,6 @@ public class DBHelper extends SQLiteOpenHelper {
 			"time varchar, home_team varchar, away_team varchar, home_score varchar, away_score varchar)";
 	
 	public static final String DROP_MATCHES_TABLE = "drop table if exists matches";
-	
-	public static final String DROP_STATS_TABLE = "drop table if exists statistics";
 	
 	public DBHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
