@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.instantscore.adapter.ListAdapter;
+import com.example.instantscore.database.DBManager;
 import com.example.instantscore.model.Cart;
 
 public class SelectedSectionFragment extends Fragment {
@@ -29,8 +30,8 @@ public class SelectedSectionFragment extends Fragment {
 	}
 	
 	public void updateCart(){
+		Cart.addAll(DBManager.getAllMatches());
 		selectedGameListAdapter.notifyDataSetChanged();
-		System.out.println("asdas");
 	}
 
 }

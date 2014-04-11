@@ -23,6 +23,7 @@ import com.example.instantscore.adapter.ListAdapter;
 import com.example.instantscore.adapter.SeparatedListAdapter;
 import com.example.instantscore.communication.DataFetcher;
 import com.example.instantscore.communication.DataSender;
+import com.example.instantscore.database.DBManager;
 import com.example.instantscore.listener.CallbackListener;
 import com.example.instantscore.listener.MyChangeEvent;
 import com.example.instantscore.logic.DataParser;
@@ -36,29 +37,26 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	private SeparatedListAdapter separatedListAdapter;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_section_launchpad,
-				container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
 		gamesListView = (ListView) rootView.findViewById(R.id.list1);
 		c = getActivity().getApplicationContext();
+		DBManager.init(c);
 
 		gamesListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long duration) {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long duration) {
 				Game item = (Game) separatedListAdapter.getItem(position);
-				Cart.addItem(item);
+				
 
-				// if (item.isSelectable()) {
-				// if (!item.isSelected()) {
-				// selectedListAdapter.add(item);
-				// } else {
-				// selectedListAdapter.remove(item);
-				// }
-				item.setSelected();
-				separatedListAdapter.notifyDataSetChanged();
-				// }
+				if (item.isSelectable()) {
+					if (!item.isSelected()) {
+						DBManager.insertMatchIntoDatabase(item);
+					} else {
+					}
+					item.setSelected();
+					separatedListAdapter.notifyDataSetChanged();
+				}
 			}
 		});
 
