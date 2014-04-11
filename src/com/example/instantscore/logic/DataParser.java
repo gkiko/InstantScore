@@ -49,7 +49,7 @@ public class DataParser {
 				game.setHomeTeamScore(getFirstScore(score));
 				game.setTime(time);
 				game.setTournament(tournamentName);
-				game.setGameId(id);
+				//game.setGameId(id);
 			}
 		}
 		rd.close();

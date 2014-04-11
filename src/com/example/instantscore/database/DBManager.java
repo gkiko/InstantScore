@@ -1,7 +1,10 @@
 package com.example.instantscore.database;
 
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.HashMap;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -19,6 +22,15 @@ public class DBManager {
 		if (dbHelper == null) {
 			dbHelper = new DBHelper(context);
 			db = dbHelper.getWritableDatabase();
+//			Game g = new Game();
+//			g.setHomeTeam("A");
+//			g.setAwayTeam("B");
+//			g.setHomeTeamScore("12");
+//			g.setAwayTeamScore("11");
+//			g.setDate("April 1");
+//			g.setTournament("yleebis tasi");
+//			g.setTime("59");
+//			insertMatchIntoDatabase(g);
 		}
 	}
 
@@ -26,6 +38,7 @@ public class DBManager {
 	// "time varchar, home_team varchar, away_team varchar, home_score varchar, away_score varchar)"
 
 	public static void insertMatchIntoDatabase(Game game) {
+		if(isAlreadyInDatabase(game)) return;
 		String tournament = game.getTournament(), time = game.getTime(), homeScore = game
 				.getHomeTeamScore(), awayScore = game.getAwayTeamScore(), homeTeam = game
 				.getHomeTeam(), awayTeam = game.getAwayTeam(), date = game
@@ -43,26 +56,40 @@ public class DBManager {
 		db.setTransactionSuccessful();
 		db.endTransaction();
 	}
-
-	public static void insert(String word, int freq) {
-		db.beginTransaction();
-		ContentValues values = new ContentValues();
-		values.put("word", word);
-		values.put("frequency", "" + freq);
-		db.insert("statistics", null, values);
-		db.setTransactionSuccessful();
-		db.endTransaction();
+	
+	private static boolean isAlreadyInDatabase(Game game){
+		Cursor cursor = db.rawQuery("select * from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+
+				game.getAwayTeam()+"'", null);
+		return cursor.moveToFirst();
 	}
-
-	public static Cursor getCursorOfWordsAndFrequencies() {
-		return db.rawQuery("select * from statistics", null);
+	
+	public static void removeOldMatchesFrom(HashMap<String, ArrayList<Game>> activeMatches){
+		HashSet<String> gameIdsSet = new HashSet<String>();
+		for(ArrayList<Game> listGames : activeMatches.values()){
+			for(Game game : listGames){
+				gameIdsSet.add(game.getGameId());
+			}
+		}
+		
+		List<Game> gamesFromDb = getAllMatches();
+		for(Game game : gamesFromDb){
+			String gameId = game.getGameId();
+			if(gameIdsSet.contains(gameId)){
+				continue; // everything OK
+			}
+			// otherwise remove it from database
+			removeGameFromDatabase(game);
+		}
+	}
+	
+	public static void removeGameFromDatabase(Game game){
+		db.execSQL("delete from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+game.getAwayTeam()+"'");
 	}
 
 	public static void dropTable(String tableName) {
 		db.execSQL("drop table " + tableName);
 	}
 
-	// tourn, date, time, home, away, homesc, awaysc
 	public static List<Game> getAllMatches() {
 		List<Game> matches = new ArrayList<Game>();
 		Cursor cursor = db.rawQuery("select * from matches", null);

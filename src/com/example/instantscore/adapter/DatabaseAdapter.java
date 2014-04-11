@@ -21,19 +21,8 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	
 	public DatabaseAdapter(List<Game> list, Context context){
 		ls = list;
-		Game game = new Game();
-		game.setTournament("Champions League");
-		game.setTime("FT");
-		game.setDate("April 9");
-		game.setHomeTeam("Bayern Munich");
-		game.setAwayTeam("Manchester United");
-		game.setHomeTeamScore("3");
-		game.setAwayTeamScore("1");
-	//	ls.add(game);
-		System.out.println("init called...");
 		DBManager.init(context);
 		ls = DBManager.getAllMatches();
-		System.out.println("got all matches from db, size = "+ls.size());
 		c = context;
 	}
 

@@ -2,7 +2,7 @@ package com.example.instantscore.model;
 
 public class Game {
 	private boolean isSelected = false;
-	private String tournament, date, time, homeTeam, awayTeam, homeTeamScore, awayTeamScore, gameId;
+	private String tournament, date, time, homeTeam, awayTeam, homeTeamScore, awayTeamScore;
 	
 	public String getTournament() {
 		return tournament;
@@ -69,11 +69,7 @@ public class Game {
 	}
 
 	public String getGameId() {
-		return gameId;
-	}
-
-	public void setGameId(String gameId) {
-		this.gameId = gameId;
+		return homeTeam + " VS " + awayTeam;
 	}
 	
 	public boolean isSelectable(){

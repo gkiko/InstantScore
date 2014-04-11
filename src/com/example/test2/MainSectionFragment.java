@@ -70,6 +70,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		fetcher.removeMyChangeListener(this);
 		String data = (String) evt.source;
 		HashMap<String, ArrayList<Game>> map = DataParser.parseData(data);
+		DBManager.removeOldMatchesFrom(map);
 		fillListAdapter(map);
 	}
 
