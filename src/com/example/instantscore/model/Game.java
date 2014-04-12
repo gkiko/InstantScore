@@ -73,7 +73,7 @@ public class Game {
 	}
 	
 	public boolean isSelectable(){
-		return !time.equals("FT") && !time.equals("Postp.") && !time.equals("AAW");
+		return !time.equals("FT") && !time.equals("Postp.") && !time.equals("AAW") && !time.equals("AET");
 	}
 	
 	public void setSelected(){
