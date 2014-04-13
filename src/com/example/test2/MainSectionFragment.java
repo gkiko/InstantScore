@@ -9,6 +9,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -111,9 +112,9 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	@SuppressWarnings("unchecked")
 	void submitGames() {
 		List<Game> games = Cart.getCart();
+		
 		StringBuilder sb = new StringBuilder();
-		// TODO: insert real phone number
-		sb.append("fake mobile");
+		sb.append(getNumberFromPrefs());
 		for(Game game : games){
 			sb.append("[").append(game.getGameId()).append("]");
 		}
@@ -124,5 +125,10 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		nameValuePairs.add(new BasicNameValuePair("data", sb.toString()));
 		sender.execute(nameValuePairs);
 	}
-
+	
+	private String getNumberFromPrefs(){
+		SharedPreferences sharedpreferences = c.getSharedPreferences("muprefs", Context.MODE_PRIVATE);
+		return sharedpreferences.getString("number", "");
+	}
+	
 }

@@ -7,9 +7,9 @@ import org.apache.http.client.ClientProtocolException;
 
 import android.os.AsyncTask;
 
+import com.example.instantscore.dialog.LoadingDialog;
 import com.example.instantscore.listener.CallbackListener;
 import com.example.instantscore.listener.MyChangeEvent;
-import com.example.test2.LoadingDialog;
 
 public class DataFetcher extends AsyncTask<Void, Void, String>{
 	private String urlStr = "http://ec2-54-200-128-20.us-west-2.compute.amazonaws.com:8080/InstantScore/TestServlet";

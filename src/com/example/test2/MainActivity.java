@@ -1,15 +1,20 @@
 package com.example.test2;
 
-import com.newrelic.agent.android.NewRelic;
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.DialogFragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.instantscore.dialog.NumberDialog;
+import com.newrelic.agent.android.NewRelic;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 	AppSectionsPagerAdapter mAppSectionsPagerAdapter;
@@ -54,7 +59,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    // Handle item selection
 	    switch (item.getItemId()) {
 	    case R.id.submit:
-	    	mAppSectionsPagerAdapter.onSubmit();
+	    	showDialog();
 	        return true;
 	    case R.id.refresh:
 	    	mAppSectionsPagerAdapter.onRefresh();
@@ -81,6 +86,27 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+	}
+	
+	private void showDialog() {
+	    DialogFragment newFragment = NumberDialog.newInstance();
+	    newFragment.show(getFragmentManager(), "dialog");
+	}
+	
+	public void doPositiveClick(String number) {
+		putNumberInPrefs(number);
+		mAppSectionsPagerAdapter.onSubmit();
+	}
+	
+	private void putNumberInPrefs(String number){
+		SharedPreferences sharedpreferences = getSharedPreferences("muprefs", Context.MODE_PRIVATE);
+		Editor editor = sharedpreferences.edit();
+		editor.putString("number", number);
+		editor.commit();
+	}
+
+	public void doNegativeClick() {
+	    // Do stuff here.
 	}
 	
 }

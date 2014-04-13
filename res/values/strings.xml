@@ -7,6 +7,9 @@
     
     <!-- dialog -->
     <string name="loading_hdr">Loading…</string>
+    <string name="number_dialog_hdr">Your phone number</string>
+    <string name="number_dialog_ok">Continue</string>
+    <string name="number_dialog_cancel">Cancel</string>
     
     <!-- tab titles -->
     <string-array name="titles">
