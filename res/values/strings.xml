@@ -7,5 +7,17 @@
     
     <!-- dialog -->
     <string name="loading_hdr">Loading…</string>
+    
+    <!-- tab titles -->
+    <string-array name="titles">
+        <item>Live</item>
+        <item>Local</item>
+    </string-array>
+    
+    <!-- toasts -->
+    <string name="already_finished">You can\'t subscribe to this match because it has already finished</string>
+    <string name="already_selected">The match is already selected</string>
+    <string name="limit_reached">You can\'t choose more matches today because you\'ve already reached your daily maximum</string>
+    <string name="already_chosen">The match has been chosen</string>
 
 </resources>

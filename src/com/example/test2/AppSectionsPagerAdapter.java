@@ -2,6 +2,9 @@ package com.example.test2;
 
 import java.util.ArrayList;
 
+import com.example.instantscore.database.DBManager;
+
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,9 +13,11 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 	private ArrayList<Fragment> fragmentList;
 	private MainSectionFragment fragment1;
 	private SelectedSectionFragment fragment2;
+	private Context c;
 	
-	public AppSectionsPagerAdapter(FragmentManager fm) {
+	public AppSectionsPagerAdapter(FragmentManager fm, Context c) {
 		super(fm);
+		this.c = c;
 		
 		fragment2 = new SelectedSectionFragment();
 		fragment1 = new MainSectionFragment();
@@ -21,6 +26,7 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 		fragmentList.add(fragment1);
 		fragmentList.add(fragment2);
 		
+		DBManager.init(c);
 	}
 	
 	@Override
@@ -30,12 +36,13 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return fragmentList.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return "Section " + (position + 1);
+    	String[] titles = c.getResources().getStringArray(R.array.titles);
+        return titles[position];
     }
     
     public void onRefresh(){

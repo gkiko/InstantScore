@@ -43,10 +43,8 @@ public class DataFetcher extends AsyncTask<Void, Void, String>{
 		try {
 			data = HttpClient.getHttpClientDoGetResponse(urlStr, null);
 		} catch (ClientProtocolException e) {
-			System.out.println("chemi yle: ClientProtocolException");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("chemi yle: IOException");
 			e.printStackTrace();
 		}
 		return data;

@@ -42,59 +42,40 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
 		gamesListView = (ListView) rootView.findViewById(R.id.list1);
 		c = getActivity().getApplicationContext();
-		DBManager.init(c);
 
 		gamesListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long duration) {
 				Game item = (Game) separatedListAdapter.getItem(position);
 				
-
-//				if (item.isSelectable()) {
-//					if (!item.isSelected()) {
-//						InsertStatus insertStatus = DBManager.insertMatchIntoDatabase(item);
-//						if(insertStatus!=InsertStatus.INSERTED_OK){
-//							String text = (insertStatus==InsertStatus.ALREADY_EXISTS ? "The match is already selected" : 
-//								"You can't choose more matches today because you've already reached your daily maximum");
-//							Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-//						}
-//					} else {
-//						Toast.makeText(getActivity().getApplicationContext(), "You can't subscribe to this match because it " +
-//								"has already finished ", Toast.LENGTH_SHORT).show();
-//					}
-//					
-//					
-//					
-//					item.setSelected();
-//					separatedListAdapter.notifyDataSetChanged();
-//				}
-//			}
-				if (!item.isSelected()) {
-					if(!item.isSelectable()){
-						Toast.makeText(getActivity().getApplicationContext(), "You can't subscribe to this match because it " +
-								"has already finished ", Toast.LENGTH_SHORT).show();
-					}
-					else{
-						InsertStatus insertStatus = DBManager.insertMatchIntoDatabase(item);
-						if(insertStatus!=InsertStatus.INSERTED_OK){
-							String text = (insertStatus==InsertStatus.ALREADY_EXISTS ? "The match is already selected" : 
-								"You can't choose more matches today because you've already reached your daily maximum");
-							Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-						}
-						else{
-							Toast.makeText(getActivity().getApplicationContext(), "The match has been chosen", Toast.LENGTH_SHORT).show();
-						}
-					}
+				InsertStatus insertStatus = null;
+				if(item.isSelectable()){
+					insertStatus = DBManager.insertMatchIntoDatabase(item);
+					item.setSelected();
 				}
-				item.setSelected();
+				showMessage(item, insertStatus);
+				
 				separatedListAdapter.notifyDataSetChanged();
 			}
 				
 		});
 
 		fetchList();
-
 		return rootView;
+	}
+	
+	private void showMessage(Game item, InsertStatus insertStatus){
+		int messageId;
+		if (!item.isSelectable()) {
+			messageId = R.string.already_finished;
+		} else {
+			if (insertStatus != InsertStatus.INSERTED_OK) {
+				messageId = (insertStatus == InsertStatus.ALREADY_EXISTS ? R.string.already_selected : R.string.limit_reached);
+			} else {
+				messageId = R.string.already_chosen;
+			}
+		}
+		Toast.makeText(getActivity().getApplicationContext(), c.getResources().getString(messageId), Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
