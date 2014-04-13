@@ -25,15 +25,6 @@ public class DBManager {
 		if (dbHelper == null) {
 			dbHelper = new DBHelper(context);
 			db = dbHelper.getWritableDatabase();
-//			Game g = new Game();
-//			g.setHomeTeam("A");
-//			g.setAwayTeam("B");
-//			g.setHomeTeamScore("12");
-//			g.setAwayTeamScore("11");
-//			g.setDate("April 1");
-//			g.setTournament("yleebis tasi");
-//			g.setTime("59");
-//			insertMatchIntoDatabase(g);
 		}
 	}
 
@@ -132,9 +123,7 @@ public class DBManager {
 	}
 
 	public static void updateFrequencyDatabase(String word) {
-		Cursor cursor = db.rawQuery(
-				"select frequency from statistics where word = '" + word + "'",
-				null);
+		Cursor cursor = db.rawQuery("select frequency from statistics where word = '" + word + "'",	null);
 		cursor.moveToFirst();
 		String freq = cursor.getString(0);
 		int newFreq = 1 + Integer.parseInt(freq);

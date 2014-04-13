@@ -4,10 +4,11 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.DialogFragment;
 import android.app.FragmentTransaction;
-import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
@@ -44,6 +45,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             actionBar.addTab(actionBar.newTab().setText(mAppSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
         }
         
+        if(firstTimeRun()){
+        	showPreferences();
+        }
+//        showNumberDialog();
+        
         NewRelic.withApplicationToken("AA907c3b86fbc007ff0ecb385c864207f3d89b8715").start(this.getApplication());
 	}
 
@@ -59,11 +65,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    // Handle item selection
 	    switch (item.getItemId()) {
 	    case R.id.submit:
-	    	showDialog();
+	    	mAppSectionsPagerAdapter.onSubmit();
 	        return true;
 	    case R.id.refresh:
 	    	mAppSectionsPagerAdapter.onRefresh();
 	        return true;
+	    case R.id.action_settings:
+	    	showPreferences();
+	    	return true;
 	    default:
 	        return super.onOptionsItemSelected(item);
 	    }
@@ -88,25 +97,26 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
 	
-	private void showDialog() {
+	private boolean firstTimeRun(){
+		boolean res;
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		res = prefs.getBoolean("firsttime", true);
+		
+		Editor editor = prefs.edit();
+		editor.putBoolean("firsttime", false);
+		editor.commit();
+		return res;
+	}
+	
+	private void showNumberDialog() {
 	    DialogFragment newFragment = NumberDialog.newInstance();
 	    newFragment.show(getFragmentManager(), "dialog");
 	}
 	
-	public void doPositiveClick(String number) {
-		putNumberInPrefs(number);
-		mAppSectionsPagerAdapter.onSubmit();
-	}
-	
-	private void putNumberInPrefs(String number){
-		SharedPreferences sharedpreferences = getSharedPreferences("muprefs", Context.MODE_PRIVATE);
-		Editor editor = sharedpreferences.edit();
-		editor.putString("number", number);
-		editor.commit();
-	}
-
-	public void doNegativeClick() {
-	    // Do stuff here.
+	private void showPreferences(){
+		Intent intent = new Intent();
+        intent.setClass(MainActivity.this, SettingsActivity.class);
+        startActivityForResult(intent, 0);
 	}
 	
 }

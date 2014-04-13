@@ -26,6 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.test2.SettingsFragment"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.example.test2.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

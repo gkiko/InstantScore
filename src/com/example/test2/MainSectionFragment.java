@@ -11,6 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -127,8 +128,8 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	}
 	
 	private String getNumberFromPrefs(){
-		SharedPreferences sharedpreferences = c.getSharedPreferences("muprefs", Context.MODE_PRIVATE);
-		return sharedpreferences.getString("number", "");
+		SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		return sharedpreferences.getString("phonenum", "");
 	}
 	
 }

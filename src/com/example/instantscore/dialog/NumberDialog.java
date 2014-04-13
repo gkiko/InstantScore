@@ -5,12 +5,14 @@ import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.test2.MainActivity;
 import com.example.test2.R;
 
 public class NumberDialog extends DialogFragment {
@@ -30,12 +32,14 @@ public class NumberDialog extends DialogFragment {
 		alertDialogBuilder.setTitle(R.string.number_dialog_hdr)
 		.setPositiveButton(R.string.number_dialog_ok, new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				((MainActivity)getActivity()).doPositiveClick(numberEditText.getText().toString());
+				SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+				Editor editor = sharedpreferences.edit();
+				editor.putString("phonenum", numberEditText.getText().toString());
+				editor.commit();
 			}
 		})
 		.setNegativeButton(R.string.number_dialog_cancel, new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				((MainActivity)getActivity()).doNegativeClick();
 			}
 		});
 		return alertDialogBuilder.create();

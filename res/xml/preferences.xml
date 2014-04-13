@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <EditTextPreference
+        android:key="phonenum"
+        android:title="@string/prefs_number_title"
+        android:summary="@string/prefs_number_summary" />
+    
+    <ListPreference android:key="messagelimit"
+        android:title="@string/prefs_sms_limit_title"
+        android:summary="@string/prefs_sms_limit_summary"
+        android:defaultValue="10"
+        android:enabled="false"/>
+
+</PreferenceScreen>
