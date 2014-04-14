@@ -1,19 +1,22 @@
 package com.example.instantscore.dialog;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.test2.R;
 
 public class LoadingDialog extends DialogFragment {
-
+	
+	public static LoadingDialog newInstance() {
+		LoadingDialog frag = new LoadingDialog ();
+		return frag;
+	}
+	
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		getDialog().setTitle(getResources().getString(R.string.loading_hdr));
-		return super.onCreateView(inflater, container, savedInstanceState);
+	public Dialog onCreateDialog(Bundle savedInstanceState) {
+		return ProgressDialog.show(getActivity(), null, getResources().getString(R.string.loading_hdr));
 	}
 	
 }
