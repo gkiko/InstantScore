@@ -113,24 +113,28 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	
 	@SuppressWarnings("unchecked")
 	void submitGames() {
-		List<Game> games = Cart.getCart();
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append(getNumberFromPrefs());
-		for(Game game : games){
-			sb.append("[").append(game.getGameId()).append("]");
-		}
-		Toast.makeText(c, sb.toString(), Toast.LENGTH_SHORT).show();
-		
 		DataSender sender = new DataSender();
-		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-		nameValuePairs.add(new BasicNameValuePair("data", sb.toString()));
-		sender.execute(nameValuePairs);
+		sender.execute(getSubscribtionDataToSend());
 	}
 	
-	private String getNumberFromPrefs(){
+	private List<NameValuePair> getSubscribtionDataToSend(){
+		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+		pairs.add(new BasicNameValuePair("phonenum", getFromPrefs("phonenum")));
+		pairs.add(new BasicNameValuePair("security", getFromPrefs("securitycode")));
+		
+		StringBuilder sb = new StringBuilder();
+		for(Game game : Cart.getCart()){
+			sb.append("[").append(game.getGameId()).append("]");
+		}
+		Toast.makeText(c, pairs.toString(), Toast.LENGTH_SHORT).show();
+		pairs.add(new BasicNameValuePair("data", sb.toString()));
+		
+		return pairs;
+	}
+	
+	private String getFromPrefs(String key){
 		SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-		return sharedpreferences.getString("phonenum", "");
+		return sharedpreferences.getString(key, "");
 	}
 	
 }

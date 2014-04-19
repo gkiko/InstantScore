@@ -26,8 +26,10 @@
 
     <!-- preferences -->
     <string name="prefs_number_title">Your phone number</string>
-    <string name="prefs_number_summary">SMS will be sent to </string>
+    <string name="prefs_number_summary">SMS will be sent to</string>
     <string name="prefs_sms_limit_title">Daily match limit</string>
     <string name="prefs_sms_limit_summary">Maximum nuber of matches you can subscribe to</string>
+    <string name="prefs_security_code_title">Security code</string>
+    <string name="prefs_security_code_summary">This will be used to verify your identity</string>
 
 </resources>

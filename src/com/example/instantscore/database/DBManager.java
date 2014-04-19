@@ -95,18 +95,8 @@ public class DBManager {
 		Cursor cursor = db.rawQuery("select * from matches", null);
 
 		if (cursor.moveToFirst()) {
-			Game game = new Game();
-			game.setTournament(cursor.getString(0));
-			game.setDate(cursor.getString(1));
-			game.setTime(cursor.getString(2));
-			game.setHomeTeam(cursor.getString(3));
-			game.setAwayTeam(cursor.getString(4));
-			game.setHomeTeamScore(cursor.getString(5));
-			game.setAwayTeamScore(cursor.getString(6));
-
-			matches.add(game);
-			while (cursor.moveToNext()) {
-				game = new Game();
+			do {
+				Game game = new Game();
 				game.setTournament(cursor.getString(0));
 				game.setDate(cursor.getString(1));
 				game.setTime(cursor.getString(2));
@@ -116,7 +106,7 @@ public class DBManager {
 				game.setAwayTeamScore(cursor.getString(6));
 
 				matches.add(game);
-			}
+			} while (cursor.moveToNext());
 		}
 
 		return matches;

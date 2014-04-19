@@ -6,6 +6,11 @@
         android:title="@string/prefs_number_title"
         android:summary="@string/prefs_number_summary" />
     
+    <EditTextPreference
+        android:key="securitycode"
+        android:title="@string/prefs_security_code_title"
+        android:summary="@string/prefs_security_code_summary" />
+    
     <ListPreference android:key="messagelimit"
         android:title="@string/prefs_sms_limit_title"
         android:summary="@string/prefs_sms_limit_summary"

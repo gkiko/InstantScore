@@ -2,7 +2,6 @@ package com.example.instantscore;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.DialogFragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,8 +13,6 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.instantscore.dialog.NumberDialog;
-import com.example.instantscore.R;
 import com.newrelic.agent.android.NewRelic;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -49,8 +46,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         if(firstTimeRun()){
         	showPreferences();
         }
-//        showNumberDialog();
-        
+
         NewRelic.withApplicationToken("AA907c3b86fbc007ff0ecb385c864207f3d89b8715").start(this.getApplication());
 	}
 
@@ -107,11 +103,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		editor.putBoolean("firsttime", false);
 		editor.commit();
 		return res;
-	}
-	
-	private void showNumberDialog() {
-	    DialogFragment newFragment = NumberDialog.newInstance();
-	    newFragment.show(getFragmentManager(), "dialog");
 	}
 	
 	private void showPreferences(){
