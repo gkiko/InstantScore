@@ -120,7 +120,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	private List<NameValuePair> getSubscribtionDataToSend(){
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		pairs.add(new BasicNameValuePair("phonenum", getFromPrefs("phonenum")));
-		pairs.add(new BasicNameValuePair("security", getFromPrefs("securitycode")));
+		pairs.add(new BasicNameValuePair("securitycode", getFromPrefs("securitycode")));
 		
 		StringBuilder sb = new StringBuilder();
 		for(Game game : Cart.getCart()){
