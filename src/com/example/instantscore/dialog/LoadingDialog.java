@@ -5,14 +5,9 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
-import com.example.test2.R;
+import com.example.instantscore.R;
 
 public class LoadingDialog extends DialogFragment {
-	
-	public static LoadingDialog newInstance() {
-		LoadingDialog frag = new LoadingDialog ();
-		return frag;
-	}
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {

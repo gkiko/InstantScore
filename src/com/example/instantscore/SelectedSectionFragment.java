@@ -1,4 +1,4 @@
-package com.example.test2;
+package com.example.instantscore;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.example.instantscore.adapter.ListAdapter;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.model.Cart;
+import com.example.instantscore.R;
 
 public class SelectedSectionFragment extends Fragment {
 	private ListView gamesListView;

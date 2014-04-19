@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Instant Score</string>
+    <string name="title_activity_settings">Settings</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
@@ -24,10 +25,9 @@
     <string name="already_chosen">The match has been chosen</string>
 
     <!-- preferences -->
-    <string name="prefs_number_title">Enter your phone number</string>
+    <string name="prefs_number_title">Your phone number</string>
     <string name="prefs_number_summary">SMS will be sent to </string>
-    <string name="prefs_sms_limit_title">Enter daily match limit</string>
+    <string name="prefs_sms_limit_title">Daily match limit</string>
     <string name="prefs_sms_limit_summary">Maximum nuber of matches you can subscribe to</string>
-    <string name="title_activity_settings">SettingsActivity</string>
 
 </resources>

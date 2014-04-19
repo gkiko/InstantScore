@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.test2.SettingsActivity" >
+    tools:context="com.example.instantscore.SettingsActivity" >
 
     <item
         android:id="@+id/action_settings"

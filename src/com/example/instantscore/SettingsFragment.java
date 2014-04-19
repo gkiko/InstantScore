@@ -1,4 +1,4 @@
-package com.example.test2;
+package com.example.instantscore;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;

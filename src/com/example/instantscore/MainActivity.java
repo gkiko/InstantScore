@@ -1,4 +1,4 @@
-package com.example.test2;
+package com.example.instantscore;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.instantscore.dialog.NumberDialog;
+import com.example.instantscore.R;
 import com.newrelic.agent.android.NewRelic;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {

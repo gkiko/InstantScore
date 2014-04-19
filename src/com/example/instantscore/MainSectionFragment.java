@@ -1,4 +1,4 @@
-package com.example.test2;
+package com.example.instantscore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +32,7 @@ import com.example.instantscore.listener.MyChangeEvent;
 import com.example.instantscore.logic.DataParser;
 import com.example.instantscore.model.Cart;
 import com.example.instantscore.model.Game;
+import com.example.instantscore.R;
 
 public class MainSectionFragment extends Fragment implements CallbackListener {
 	private ListView gamesListView;

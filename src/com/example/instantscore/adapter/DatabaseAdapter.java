@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.instantscore.R;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.model.Game;
 import com.example.instantscore.utils.Utils;
-import com.example.test2.R;
 
 public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;

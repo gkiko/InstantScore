@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.test2.R;
+import com.example.instantscore.R;
 
 public class NumberDialog extends DialogFragment {
 	public static NumberDialog newInstance() {

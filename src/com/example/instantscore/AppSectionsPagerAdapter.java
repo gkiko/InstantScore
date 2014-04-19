@@ -1,8 +1,9 @@
-package com.example.test2;
+package com.example.instantscore;
 
 import java.util.ArrayList;
 
 import com.example.instantscore.database.DBManager;
+import com.example.instantscore.R;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
