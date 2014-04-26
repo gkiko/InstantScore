@@ -8,27 +8,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.instantscore.R;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.model.Game;
-import com.example.instantscore.utils.Utils;
 
 public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private List<Game> ls;
 	private Context c;
 	
-	public DatabaseAdapter(List<Game> list, Context context){
-		ls = list;
-		DBManager.init(context);
-		ls = DBManager.getAllMatches();
+	public DatabaseAdapter(Context context){
 		c = context;
+		DBManager.init(c);
+		ls = DBManager.getAllMatches();
 	}
 
-	public void notifyDataSetChanged(){
-		this.notifyDataSetInvalidated();
-	}
+	// TODO: rename function. the function shiuld update list from db
+//	public void notifyDataSetChanged(){
+//		// TODO: use hashset
+//		for(Game g : DBManager.getAllMatches()){
+//			if(!ls.contains(g)){
+//				ls.add(g);
+//			}
+//		}
+//		super.notifyDataSetChanged();
+//	}
 	
 	@Override
 	public int getCount() {
@@ -50,14 +56,10 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		View v = null;
 		Container cont;
 		if(arg1 == null){
-			v = View.inflate(c, R.layout.list_item, null);
+			v = View.inflate(c, R.layout.list_item_tab_2, null);
 			cont = new Container();
-			cont.date = (TextView)v.findViewById(R.id.date);
-			cont.time = (TextView)v.findViewById(R.id.time);
 			cont.homeTeam = (TextView)v.findViewById(R.id.homeTeam);
 			cont.awayTeam = (TextView)v.findViewById(R.id.awayTeam);
-			cont.homeTeamScore = (TextView)v.findViewById(R.id.homeTeamScore);
-			cont.awayTeamScore = (TextView)v.findViewById(R.id.awayTeamScore);
 			v.setTag(cont);
 		}else{
 			v = arg1;
@@ -66,20 +68,21 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		
 		(cont.homeTeam).setText(ls.get(arg0).getHomeTeam());
 		(cont.awayTeam).setText(ls.get(arg0).getAwayTeam());
-		(cont.date).setText(Utils.formatDate(ls.get(arg0).getDate()));
-		(cont.time).setText(ls.get(arg0).getTime());
-		(cont.homeTeamScore).setText(ls.get(arg0).getHomeTeamScore());
-		(cont.awayTeamScore).setText(ls.get(arg0).getAwayTeamScore());
 		if(ls.get(arg0).isSelected()){
-			v.setBackgroundColor(c.getResources().getColor(android.R.color.holo_blue_light));
+			v.setBackgroundColor(c.getResources().getColor(android.R.color.holo_blue_dark));
 		}else{
-			v.setBackgroundColor(c.getResources().getColor(android.R.color.white));
+			v.setBackgroundColor(c.getResources().getColor(android.R.color.transparent));
 		}
 		return v;
 	}
 	
 	private class Container{
-		TextView homeTeam, awayTeam, homeTeamScore, awayTeamScore, date, time;
+		TextView homeTeam, awayTeam;
+	}
+	
+	public void setSelected(int position, boolean selected){
+		ls.get(position).setSelected(selected);
+		this.notifyDataSetChanged();
 	}
 	
 	public void add(Game g){

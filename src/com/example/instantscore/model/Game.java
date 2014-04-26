@@ -76,12 +76,18 @@ public class Game {
 		return !time.equals("FT") && !time.equals("Postp.") && !time.equals("AAW") && !time.equals("AET");
 	}
 	
-	public void setSelected(){
-		isSelected = !isSelected;
+	public void setSelected(boolean selected){
+		isSelected = selected;
 	}
 	
 	public boolean isSelected(){
 		return isSelected;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		Game other = (Game)o;
+		return getGameId().equals(other.getGameId());
+	}
+
 }
