@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 public class SettingsFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener{
 	public static final String KEY_PHONE_NUM = "phonenum";

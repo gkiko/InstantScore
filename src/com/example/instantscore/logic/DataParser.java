@@ -12,13 +12,37 @@ import java.util.StringTokenizer;
 import com.example.instantscore.model.Game;
 
 public class DataParser {
-	public static HashMap<String, ArrayList<Game>> parseData(String data){
+	@SuppressWarnings("rawtypes")
+	public static HashMap[] parseData(String data){
 		HashMap<String, ArrayList<Game>> map = null;
+		HashMap<String, Integer> priorityMap = null;
 		try {
 			map = getHashMapFromScoresFile(data);
+			priorityMap = getTournamentPriorities(data);
+			return new HashMap[]{map, priorityMap};
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+	
+	public static HashMap<String, Integer> getTournamentPriorities(String data) throws IOException {
+		InputStream is = new ByteArrayInputStream(data.getBytes());
+		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+		int numTourn = Integer.parseInt(rd.readLine());
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		for(int i=0; i<numTourn; i++){
+			StringTokenizer st = new StringTokenizer(rd.readLine());
+			int numMatches = Integer.parseInt(st.nextToken());
+			String tournamentName = rd.readLine();
+			map.put(tournamentName, i+1);
+			for(int j=0; j<numMatches; j++){
+				for(int k=0; k<6; k++){
+					rd.readLine();
+				}
+			}
+		}
+		rd.close();
 		return map;
 	}
 	
@@ -34,7 +58,7 @@ public class DataParser {
 			map.put(tournamentName, new ArrayList<Game>());
 			ArrayList<Game> gamesList = map.get(tournamentName);
 			for(int j=0; j<numMatches; j++){
-				String id = rd.readLine();
+				rd.readLine(); // unnecessary line
 				String date = rd.readLine();
 				String time = rd.readLine();
 				String home = rd.readLine();
