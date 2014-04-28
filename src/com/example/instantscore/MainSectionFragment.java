@@ -1,9 +1,11 @@
 package com.example.instantscore;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Comparator;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -85,25 +87,65 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	public void onUpdate(MyChangeEvent evt) {
 		fetcher.removeMyChangeListener(this);
 		String data = (String) evt.source;
-		HashMap<String, ArrayList<Game>> map = DataParser.parseData(data);
+		HashMap[] maps = DataParser.parseData(data);
+		HashMap<String, ArrayList<Game>> map = maps[0];
 		DBManager.removeOldMatchesFrom(map);
-		fillListAdapter(map);
+		fillListAdapter(map, maps[1]);
 	}
 
-	private void fillListAdapter(HashMap<String, ArrayList<Game>> map) {
+	private void fillListAdapter(HashMap<String, ArrayList<Game>> map, HashMap<String, Integer> priorities) {
 		Iterator<String> it = map.keySet().iterator();
 		separatedListAdapter = new SeparatedListAdapter(c);
+		ArrayList<ListAdapterPriority> listAdapters = new ArrayList<MainSectionFragment.ListAdapterPriority>();
 		while (it.hasNext()) {
-			String t = it.next();
-			ArrayList<Game> list = map.get(t);
+			String tourn = it.next();
+			ArrayList<Game> list = map.get(tourn);
 			ListAdapter adapter1 = new ListAdapter(list, c);
-			separatedListAdapter.addSection(t, adapter1);
+	//		separatedListAdapter.addSection(tourn, adapter1);
+			listAdapters.add(new ListAdapterPriority(adapter1, priorities.get(tourn), tourn));
+		}
+		Collections.sort(listAdapters, compareListAdapters);
+		for(ListAdapterPriority lap : listAdapters){
+			separatedListAdapter.addSection(lap.getTournamentName(), lap.getListAdapter());
 		}
 
 		gamesListView.setAdapter(separatedListAdapter);
 		separatedListAdapter.notifyAllAdaptersDataSetChanged();
 	}
+	
+	private Comparator<ListAdapterPriority> compareListAdapters = new Comparator<MainSectionFragment.ListAdapterPriority>() {
 
+		@Override
+		public int compare(ListAdapterPriority lhs, ListAdapterPriority rhs) {
+			return lhs.getPriority() != rhs.getPriority() ? lhs.getPriority() - rhs.getPriority() : lhs.hashCode()-rhs.hashCode();
+		}
+	};
+	
+	class ListAdapterPriority{
+		private ListAdapter listAdapter;
+		private int priority;
+		private String tourn;
+		
+		public ListAdapterPriority(ListAdapter listAdapter, int priority, String tourn){
+			this.listAdapter = listAdapter;
+			this.priority = priority;
+			this.tourn = tourn;
+		}
+		
+		public String getTournamentName(){
+			return tourn;
+		}
+		
+		public int getPriority(){
+			return priority;
+		}
+		
+		public ListAdapter getListAdapter(){
+			return listAdapter;
+		}
+		
+	}
+	
 	void fetchList() {
 		android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
 		fetcher = new DataFetcher(manager);
@@ -119,15 +161,18 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	
 	private List<NameValuePair> getSubscribtionDataToSend(){
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-		pairs.add(new BasicNameValuePair("phonenum", getFromPrefs("phonenum")));
-		pairs.add(new BasicNameValuePair("securitycode", getFromPrefs("securitycode")));
 		
 		StringBuilder sb = new StringBuilder();
 		for(Game game : Cart.getCart()){
 			sb.append("[").append(game.getGameId()).append("]");
 		}
-		Toast.makeText(c, pairs.toString(), Toast.LENGTH_SHORT).show();
+		
+	//	pairs.add(new BasicNameValuePair("data", "phonenum="+getFromPrefs("phonenum")+"&"+"securitycode="+getFromPrefs("securitycode")+"&"
+	//			+sb.toString()));
+		pairs.add(new BasicNameValuePair("phonenum", getFromPrefs("phonenum")));
+		pairs.add(new BasicNameValuePair("securitycode", getFromPrefs("securitycode")));
 		pairs.add(new BasicNameValuePair("data", sb.toString()));
+		Toast.makeText(c, pairs.toString(), Toast.LENGTH_SHORT).show();
 		
 		return pairs;
 	}
