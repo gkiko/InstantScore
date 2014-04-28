@@ -69,7 +69,7 @@ public class Game {
 	}
 
 	public String getGameId() {
-		return homeTeam + " VS " + awayTeam;
+		return homeTeam + " vs " + awayTeam;
 	}
 	
 	public boolean isSelectable(){
