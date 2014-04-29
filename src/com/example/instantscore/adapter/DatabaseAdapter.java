@@ -25,16 +25,11 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		ls = DBManager.getAllMatches();
 	}
 
-	// TODO: rename function. the function shiuld update list from db
-//	public void notifyDataSetChanged(){
-//		// TODO: use hashset
-//		for(Game g : DBManager.getAllMatches()){
-//			if(!ls.contains(g)){
-//				ls.add(g);
-//			}
-//		}
-//		super.notifyDataSetChanged();
-//	}
+	@Override
+	public void notifyDataSetChanged() {
+		ls = DBManager.getAllMatches();
+		super.notifyDataSetChanged();
+	}
 	
 	@Override
 	public int getCount() {
