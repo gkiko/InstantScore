@@ -11,13 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView.MultiChoiceModeListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.instantscore.adapter.DatabaseAdapter;
+import com.example.instantscore.database.DBManager;
+import com.example.instantscore.model.Cart;
 
 public class SelectedSectionFragment extends Fragment {
 	private ListView gamesListView;
@@ -90,7 +89,7 @@ public class SelectedSectionFragment extends Fragment {
 		return rootView;
 	}
 	
-	public void updateCart(){
+	public void updateList(){
 //		Cart.addAll(DBManager.getAllMatches());
 		selectedGameListAdapter.notifyDataSetChanged();
 	}

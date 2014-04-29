@@ -163,7 +163,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		
 		StringBuilder sb = new StringBuilder();
-		for(Game game : Cart.getCart()){
+		for(Game game : DBManager.getAllMatches()/*Cart.getCart()*/){
 			sb.append("[").append(game.getGameId()).append("]");
 		}
 		

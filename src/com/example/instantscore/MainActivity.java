@@ -86,7 +86,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		int pos = tab.getPosition();
 		if(pos == 1){
 			SelectedSectionFragment curFragment = (SelectedSectionFragment) mAppSectionsPagerAdapter.getItem(pos);
-			curFragment.updateCart();
+			curFragment.updateList();
 		}
 	}
 
