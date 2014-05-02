@@ -35,21 +35,17 @@ public class SelectedSectionFragment extends Fragment {
 		gamesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
 		gamesListView.setMultiChoiceModeListener(new MultiChoiceModeListener() {
 
-			private int selectionNum = 0;
+			private int selectedGameCounter = 0;
 			
 		    @Override
 		    public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
 		        // Here you can do something when items are selected/de-selected,
 		        // such as update the title in the CAB
 		    	Toast.makeText(c, position+" "+checked, Toast.LENGTH_SHORT).show();
-		    	if(checked){
-		    		selectionNum++;
-		    	}else{
-		    		selectionNum--;
-		    	}
 		    	selectedGameListAdapter.setSelected(position, checked);
 		    	
-		    	mode.setTitle(selectionNum+" items");
+		    	selectedGameCounter += checked?1:-1;
+		    	mode.setTitle(selectedGameCounter+" items");
 		    }
 
 		    @Override
@@ -57,6 +53,7 @@ public class SelectedSectionFragment extends Fragment {
 		        // Respond to clicks on the actions in the CAB
 		        switch (item.getItemId()) {
 		            case R.id.item_delete:
+		            	selectedGameListAdapter.deleteSelected();
 		                mode.finish(); // Action picked, so close the CAB
 		                return true;
 		            default:
@@ -76,6 +73,7 @@ public class SelectedSectionFragment extends Fragment {
 		    public void onDestroyActionMode(ActionMode mode) {
 		        // Here you can make any necessary updates to the activity when
 		        // the CAB is removed. By default, selected items are deselected/unchecked.
+		    	selectedGameCounter = 0;
 		    }
 
 		    @Override

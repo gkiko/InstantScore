@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.instantscore.R;
 import com.example.instantscore.database.DBManager;
@@ -26,7 +27,11 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 
 	@Override
 	public void notifyDataSetChanged() {
-		ls = DBManager.getAllMatches();
+		for(Game g : DBManager.getAllMatches()){
+			if(!ls.contains(g)){
+				ls.add(g);
+			}
+		}
 		super.notifyDataSetChanged();
 	}
 	
@@ -62,7 +67,7 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		
 		(cont.homeTeam).setText(ls.get(arg0).getHomeTeam());
 		(cont.awayTeam).setText(ls.get(arg0).getAwayTeam());
-		if(ls.get(arg0).isSelected()){
+		if(ls.get(arg0).selected()){
 			v.setBackgroundColor(c.getResources().getColor(android.R.color.holo_blue_dark));
 		}else{
 			v.setBackgroundColor(c.getResources().getColor(android.R.color.transparent));
@@ -79,6 +84,19 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		this.notifyDataSetChanged();
 	}
 	
+	public void deleteSelected(){
+		Game g;
+		for(int i=0;i<ls.size();i++){
+			g = ls.get(i);
+			if(g.selected()){
+				Toast.makeText(c, ""+g.getGameId(), Toast.LENGTH_SHORT).show();
+				ls.remove(i);
+				DBManager.removeGameFromDatabase(g);
+			}
+		}
+		this.notifyDataSetChanged();
+	}
+	
 	public void add(Game g){
 		ls.add(g);
 		DBManager.insertMatchIntoDatabase(g);
@@ -88,15 +106,6 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	public void remove(Game g){
 		ls.remove(g);
 		this.notifyDataSetChanged();
-	}
-
-	public List<Game> getSelectedGames() {
-	//	return ls;
-		return getSelectedGamesFromDatabase();
-	}
-	
-	public List<Game> getSelectedGamesFromDatabase(){
-		return DBManager.getAllMatches();
 	}
 	
 	//debug

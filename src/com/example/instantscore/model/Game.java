@@ -80,7 +80,7 @@ public class Game {
 		isSelected = selected;
 	}
 	
-	public boolean isSelected(){
+	public boolean selected(){
 		return isSelected;
 	}
 	

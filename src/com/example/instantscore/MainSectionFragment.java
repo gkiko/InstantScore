@@ -56,7 +56,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 				InsertStatus insertStatus = null;
 				if(item.isSelectable()){
 					insertStatus = DBManager.insertMatchIntoDatabase(item);
-					item.setSelected(!item.isSelected());
+					item.setSelected(!item.selected());
 				}
 				showMessage(item, insertStatus);
 				
