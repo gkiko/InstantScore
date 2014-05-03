@@ -167,8 +167,6 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 			sb.append("[").append(game.getGameId()).append("]");
 		}
 		
-	//	pairs.add(new BasicNameValuePair("data", "phonenum="+getFromPrefs("phonenum")+"&"+"securitycode="+getFromPrefs("securitycode")+"&"
-	//			+sb.toString()));
 		pairs.add(new BasicNameValuePair("phonenum", getFromPrefs("phonenum")));
 		pairs.add(new BasicNameValuePair("securitycode", getFromPrefs("securitycode")));
 		pairs.add(new BasicNameValuePair("data", sb.toString()));

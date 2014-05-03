@@ -108,9 +108,10 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		this.notifyDataSetChanged();
 	}
 	
-	//debug
-	public Game getGame(int i){
-		return ls.get(0);
+	public void unselectAll(){
+		for(int i=0;i<ls.size();i++){
+			setSelected(i, false);
+		}
 	}
-
+	
 }
