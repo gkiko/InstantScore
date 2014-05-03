@@ -9,20 +9,18 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_weight="2"
+        android:gravity="center_vertical"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black" />
+            style="@style/ListItemTextSecondary" />
 
         <TextView
             android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black" />
+            style="@style/ListItemTextPrimary" />
     </LinearLayout>
 
     <LinearLayout
@@ -34,17 +32,13 @@
 
         <TextView
             android:id="@+id/homeTeam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:textColor="@android:color/black" />
+            style="@style/ListItemTextPrimary"
+            android:gravity="left" />
 
         <TextView
             android:id="@+id/awayTeam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:textColor="@android:color/black" />
+            style="@style/ListItemTextPrimary"
+            android:gravity="left" />
     </LinearLayout>
 
     <LinearLayout
@@ -56,15 +50,11 @@
 
         <TextView
             android:id="@+id/homeTeamScore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black" />
+            style="@style/ListItemTextPrimary" />
 
         <TextView
             android:id="@+id/awayTeamScore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black" />
+            style="@style/ListItemTextPrimary" />
     </LinearLayout>
 
 </LinearLayout>
