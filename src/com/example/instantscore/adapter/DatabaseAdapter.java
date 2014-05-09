@@ -91,7 +91,7 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 			if(g.selected()){
 				Toast.makeText(c, ""+g.getGameId(), Toast.LENGTH_SHORT).show();
 				ls.remove(i);
-				DBManager.removeGameFromDatabase(g);
+				DBManager.removeMatchFromDatabase(g);
 			}
 		}
 		this.notifyDataSetChanged();

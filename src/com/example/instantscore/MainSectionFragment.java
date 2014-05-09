@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Comparator;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -32,9 +31,8 @@ import com.example.instantscore.database.InsertStatus;
 import com.example.instantscore.listener.CallbackListener;
 import com.example.instantscore.listener.MyChangeEvent;
 import com.example.instantscore.logic.DataParser;
-import com.example.instantscore.model.Cart;
 import com.example.instantscore.model.Game;
-import com.example.instantscore.R;
+import com.example.instantscore.model.ListAdapterPriority;
 
 public class MainSectionFragment extends Fragment implements CallbackListener {
 	private ListView gamesListView;
@@ -90,62 +88,33 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		HashMap[] maps = DataParser.parseData(data);
 		HashMap<String, ArrayList<Game>> map = maps[0];
 		DBManager.removeOldMatchesFrom(map);
-		fillListAdapter(map, maps[1]);
+		ArrayList<ListAdapterPriority> sortedMatches = sortMatches(map, maps[1]);
+		fillListAdapter(sortedMatches);
 	}
-
-	private void fillListAdapter(HashMap<String, ArrayList<Game>> map, HashMap<String, Integer> priorities) {
+	
+	private ArrayList<ListAdapterPriority> sortMatches(HashMap<String, ArrayList<Game>> map, HashMap<String, Integer> priorities){
 		Iterator<String> it = map.keySet().iterator();
-		separatedListAdapter = new SeparatedListAdapter(c);
-		ArrayList<ListAdapterPriority> listAdapters = new ArrayList<MainSectionFragment.ListAdapterPriority>();
+		ArrayList<ListAdapterPriority> listAdapters = new ArrayList<ListAdapterPriority>();
 		while (it.hasNext()) {
 			String tourn = it.next();
 			ArrayList<Game> list = map.get(tourn);
 			ListAdapter adapter1 = new ListAdapter(list, c);
-	//		separatedListAdapter.addSection(tourn, adapter1);
 			listAdapters.add(new ListAdapterPriority(adapter1, priorities.get(tourn), tourn));
 		}
-		Collections.sort(listAdapters, compareListAdapters);
-		for(ListAdapterPriority lap : listAdapters){
+		Collections.sort(listAdapters);
+		return listAdapters;
+	}
+
+	private void fillListAdapter(List<ListAdapterPriority> sortedMatches) {
+		separatedListAdapter = new SeparatedListAdapter(c);
+		for(ListAdapterPriority lap : sortedMatches){
 			separatedListAdapter.addSection(lap.getTournamentName(), lap.getListAdapter());
 		}
 
 		gamesListView.setAdapter(separatedListAdapter);
 		separatedListAdapter.notifyAllAdaptersDataSetChanged();
 	}
-	
-	private Comparator<ListAdapterPriority> compareListAdapters = new Comparator<MainSectionFragment.ListAdapterPriority>() {
 
-		@Override
-		public int compare(ListAdapterPriority lhs, ListAdapterPriority rhs) {
-			return lhs.getPriority() != rhs.getPriority() ? lhs.getPriority() - rhs.getPriority() : lhs.hashCode()-rhs.hashCode();
-		}
-	};
-	
-	class ListAdapterPriority{
-		private ListAdapter listAdapter;
-		private int priority;
-		private String tourn;
-		
-		public ListAdapterPriority(ListAdapter listAdapter, int priority, String tourn){
-			this.listAdapter = listAdapter;
-			this.priority = priority;
-			this.tourn = tourn;
-		}
-		
-		public String getTournamentName(){
-			return tourn;
-		}
-		
-		public int getPriority(){
-			return priority;
-		}
-		
-		public ListAdapter getListAdapter(){
-			return listAdapter;
-		}
-		
-	}
-	
 	void fetchList() {
 		android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
 		fetcher = new DataFetcher(manager);

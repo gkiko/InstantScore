@@ -74,7 +74,7 @@ public class DBManager {
 				continue; // everything OK
 			}
 			// otherwise remove it from database
-			removeGameFromDatabase(game);
+			removeMatchFromDatabase(game);
 		}
 	}
 	
@@ -82,7 +82,7 @@ public class DBManager {
 		return getAllMatches().size() < MAX_NUM_SELECTED_MATCHES_PER_DAY;
 	}
 	
-	public static void removeGameFromDatabase(Game game){
+	public static void removeMatchFromDatabase(Game game){
 		db.execSQL("delete from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+game.getAwayTeam()+"'");
 	}
 
