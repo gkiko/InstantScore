@@ -86,10 +86,6 @@ public class DBManager {
 		db.execSQL("delete from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+game.getAwayTeam()+"'");
 	}
 
-	public static void dropTable(String tableName) {
-		db.execSQL("drop table " + tableName);
-	}
-
 	public static List<Game> getAllMatches() {
 		List<Game> matches = new ArrayList<Game>();
 		Cursor cursor = db.rawQuery("select * from matches", null);

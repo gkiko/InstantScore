@@ -4,13 +4,10 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 
-
-import android.app.Application;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 public class DataSender extends AsyncTask<List<NameValuePair>, Void, Void> {
-	private final String url = "http://ec2-54-200-128-20.us-west-2.compute.amazonaws.com:8080/InstantScore/TestServlet";
+	private final String url = "http://ec2-54-200-128-20.us-west-2.compute.amazonaws.com:8080/InstantScore/ActiveMatchesServlet";
 
 	@Override
 	protected Void doInBackground(List<NameValuePair>... params) {

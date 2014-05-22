@@ -82,7 +82,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		mViewPager.setCurrentItem(tab.getPosition());
-		
 		int pos = tab.getPosition();
 		if(pos == 1){
 			SelectedSectionFragment curFragment = (SelectedSectionFragment) mAppSectionsPagerAdapter.getItem(pos);

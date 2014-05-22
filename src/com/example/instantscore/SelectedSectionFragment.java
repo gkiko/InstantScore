@@ -15,8 +15,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.instantscore.adapter.DatabaseAdapter;
-import com.example.instantscore.database.DBManager;
-import com.example.instantscore.model.Cart;
 
 public class SelectedSectionFragment extends Fragment {
 	private ListView gamesListView;
@@ -39,7 +37,7 @@ public class SelectedSectionFragment extends Fragment {
 			
 		    @Override
 		    public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-		        // Here you can do something when items are selected/de-selected,
+		        // Here you can do something when items are selected/unselected,
 		        // such as update the title in the CAB
 		    	Toast.makeText(c, position+" "+checked, Toast.LENGTH_SHORT).show();
 		    	selectedGameListAdapter.setSelected(position, checked);
@@ -47,6 +45,7 @@ public class SelectedSectionFragment extends Fragment {
 		    	selectedGameCounter += checked?1:-1;
 		    	mode.setTitle(selectedGameCounter+" items");
 		    }
+		    
 
 		    @Override
 		    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {

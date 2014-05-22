@@ -12,7 +12,7 @@ import com.example.instantscore.listener.CallbackListener;
 import com.example.instantscore.listener.MyChangeEvent;
 
 public class DataFetcher extends AsyncTask<Void, Void, String>{
-	private String urlStr = "http://ec2-54-200-128-20.us-west-2.compute.amazonaws.com:8080/InstantScore/TestServlet";
+	private String urlStr = "http://ec2-54-200-128-20.us-west-2.compute.amazonaws.com:8080/InstantScore/ActiveMatchesServlet";
 	private CopyOnWriteArrayList<CallbackListener> listeners;
 	private android.support.v4.app.FragmentManager fragmentManager;
 	private LoadingDialog dialog;

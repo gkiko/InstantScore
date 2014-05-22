@@ -14,7 +14,7 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 	private ArrayList<Fragment> fragmentList;
 	private MainSectionFragment fragment1;
 	private SelectedSectionFragment fragment2;
-	private Context c;
+	private transient Context c;
 	
 	public AppSectionsPagerAdapter(FragmentManager fm, Context c) {
 		super(fm);
