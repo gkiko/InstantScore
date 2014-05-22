@@ -27,7 +27,7 @@ public class DBManager {
 			db = dbHelper.getWritableDatabase();
 		}
 	}
-
+	
 	// create table matches (tournament varchar, date varchar, " +
 	// "time varchar, home_team varchar, away_team varchar, home_score varchar, away_score varchar)"
 

@@ -2,17 +2,16 @@ package com.example.instantscore;
 
 import java.util.ArrayList;
 
-import com.example.instantscore.database.DBManager;
-import com.example.instantscore.R;
-
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.instantscore.database.DBManager;
+
 public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 	private ArrayList<Fragment> fragmentList;
-	private MainSectionFragment fragment1;
+	private MainSectionFragment fragment0, fragment1;
 	private SelectedSectionFragment fragment2;
 	private transient Context c;
 	
@@ -22,9 +21,11 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 		
 		fragment2 = new SelectedSectionFragment();
 		fragment1 = new MainSectionFragment();
+		fragment0 = new MainSectionFragment();
 		
 		fragmentList = new ArrayList<Fragment>();
 		fragmentList.add(fragment1);
+		fragmentList.add(fragment0);
 		fragmentList.add(fragment2);
 		
 		DBManager.init(c);
@@ -44,6 +45,10 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
     	String[] titles = c.getResources().getStringArray(R.array.titles);
         return titles[position];
+    }
+    
+    public int getLastFragmentIndex(){
+    	return fragmentList.indexOf(fragment2);
     }
     
     public void onRefresh(){

@@ -15,6 +15,7 @@
     <!-- tab titles -->
     <string-array name="titles">
         <item>Live</item>
+        <item>Coming</item>
         <item>Local</item>
     </string-array>
 
