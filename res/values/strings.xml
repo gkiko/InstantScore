@@ -5,6 +5,11 @@
     <string name="title_activity_settings">Settings</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    
+    <!-- config -->
+    <string name="url_get_submit">http://ec2-54-200-128-20.us-west-2.compute.amazonaws.com:8080/InstantScore/ActiveMatchesServlet</string>
+    <string name="url_get_coming">http://ec2-54-200-128-20.us-west-2.compute.amazonaws.com:8080/InstantScore/AllFutureMatchesServlet</string>
+    <string name="url_request_code">http://ec2-54-200-128-20.us-west-2.compute.amazonaws.com:8080/InstantScore/SecurityCodeServlet</string>
 
     <!-- dialog -->
     <string name="loading_hdr">Loading…</string>
