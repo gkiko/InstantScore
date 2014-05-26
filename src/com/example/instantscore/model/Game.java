@@ -1,5 +1,12 @@
 package com.example.instantscore.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
 public class Game {
 	private boolean isSelected = false;
 	private String tournament, date, time, homeTeam, awayTeam, homeTeamScore, awayTeamScore;
@@ -50,10 +57,27 @@ public class Game {
 
 	public void setDate(String date) {
 		this.date = date;
+	}	
+	
+	public String convertTime(int hours, int minutes) {
+		long miliseconds = Date.UTC(1, 1, 1, hours, minutes, 0);
+		Calendar cal = new GregorianCalendar();
+		cal.setTimeInMillis(miliseconds);
+		DateFormat formatter = new SimpleDateFormat("HH:mm");
+		
+		formatter.setCalendar(cal);
+		formatter.setTimeZone(TimeZone.getDefault());
+		
+		System.out.println(formatter.format(cal.getTime()));
+		
+		return formatter.format(cal.getTime());
 	}
-
+	
 	public String getTime() {
-		return time;
+		if(time.indexOf(":")==-1){
+			return time;
+		}
+		return convertTime(Integer.parseInt(time.substring(0, 2)), Integer.parseInt(time.substring(3)));
 	}
 
 	public void setTime(String time) {

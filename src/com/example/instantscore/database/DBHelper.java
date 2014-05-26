@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME = "InstantScoreDatabase";
 
-	private static final int DATABASE_VERSION = 13;
+	private static final int DATABASE_VERSION = 18;
 
 	public static final String CREATE_MATCHES_TABLE_COMMAND = "create table matches (tournament varchar, date varchar, " +
 			"time varchar, home_team varchar, away_team varchar, home_score varchar, away_score varchar)";
