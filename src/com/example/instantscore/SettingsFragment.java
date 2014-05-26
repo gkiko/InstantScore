@@ -6,15 +6,14 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.example.instantscore.communication.DataSender;
-
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
+
+import com.example.instantscore.communication.DataSender;
 
 public class SettingsFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener{
 	public static final String KEY_PHONE_NUM = "phonenum";
@@ -50,7 +49,7 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
 	}
 
 	private void makeCodeRequest(SharedPreferences sharedPreferences, String key) {
-		DataSender sender = new DataSender();
+		DataSender sender = new DataSender(getResources().getString(R.string.url_request_code));
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		pairs.add(new BasicNameValuePair(key, sharedPreferences.getString(key, "")));
 		sender.execute(pairs);

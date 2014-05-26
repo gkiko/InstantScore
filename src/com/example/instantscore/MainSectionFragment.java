@@ -39,12 +39,14 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	private DataFetcher fetcher;
 	private transient Context c;
 	private SeparatedListAdapter separatedListAdapter;
+	private String url;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
 		gamesListView = (ListView) rootView.findViewById(R.id.list1);
 		c = getActivity().getApplicationContext();
+		url = getArguments().getString("url");
 
 		gamesListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -119,12 +121,12 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
 		fetcher = new DataFetcher(manager);
 		fetcher.addMyChangeListener(this);
-		fetcher.execute((Void) null);
+		fetcher.execute(url);
 	}
 	
 	@SuppressWarnings("unchecked")
 	void submitGames() {
-		DataSender sender = new DataSender();
+		DataSender sender = new DataSender(c.getResources().getString(R.string.url_get_submit));
 		sender.execute(getSubscribtionDataToSend());
 	}
 	
@@ -132,7 +134,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		
 		StringBuilder sb = new StringBuilder();
-		for(Game game : DBManager.getAllMatches()/*Cart.getCart()*/){
+		for(Game game : DBManager.getAllMatches()){
 			sb.append("[").append(game.getGameId()).append("]");
 		}
 		
