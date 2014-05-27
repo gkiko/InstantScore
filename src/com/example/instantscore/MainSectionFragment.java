@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -37,15 +37,20 @@ import com.example.instantscore.model.ListAdapterPriority;
 public class MainSectionFragment extends Fragment implements CallbackListener {
 	private ListView gamesListView;
 	private DataFetcher fetcher;
-	private transient Context c;
+	private Activity activity;
 	private SeparatedListAdapter separatedListAdapter;
 	private String url;
-
+	
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		this.activity = activity;
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
 		gamesListView = (ListView) rootView.findViewById(R.id.list1);
-		c = getActivity().getApplicationContext();
 		url = getArguments().getString("url");
 
 		gamesListView.setOnItemClickListener(new OnItemClickListener() {
@@ -80,7 +85,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 				messageId = R.string.already_chosen;
 			}
 		}
-		Toast.makeText(getActivity().getApplicationContext(), c.getResources().getString(messageId), Toast.LENGTH_SHORT).show();
+		Toast.makeText(getActivity().getApplicationContext(), activity.getResources().getString(messageId), Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -100,7 +105,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		while (it.hasNext()) {
 			String tourn = it.next();
 			ArrayList<Game> list = map.get(tourn);
-			ListAdapter adapter1 = new ListAdapter(list, c);
+			ListAdapter adapter1 = new ListAdapter(list, activity);
 			listAdapters.add(new ListAdapterPriority(adapter1, priorities.get(tourn), tourn));
 		}
 		Collections.sort(listAdapters);
@@ -108,7 +113,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	}
 
 	private void fillListAdapter(List<ListAdapterPriority> sortedMatches) {
-		separatedListAdapter = new SeparatedListAdapter(c);
+		separatedListAdapter = new SeparatedListAdapter(activity);
 		for(ListAdapterPriority lap : sortedMatches){
 			separatedListAdapter.addSection(lap.getTournamentName(), lap.getListAdapter());
 		}
@@ -118,15 +123,14 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	}
 
 	void fetchList() {
-		android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
-		fetcher = new DataFetcher(manager);
+		fetcher = new DataFetcher(activity);
 		fetcher.addMyChangeListener(this);
 		fetcher.execute(url);
 	}
 	
 	@SuppressWarnings("unchecked")
 	void submitGames() {
-		DataSender sender = new DataSender(c.getResources().getString(R.string.url_get_submit));
+		DataSender sender = new DataSender(activity.getResources().getString(R.string.url_get_submit));
 		sender.execute(getSubscribtionDataToSend());
 	}
 	
@@ -141,7 +145,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		pairs.add(new BasicNameValuePair("phonenum", getFromPrefs("phonenum")));
 		pairs.add(new BasicNameValuePair("securitycode", getFromPrefs("securitycode")));
 		pairs.add(new BasicNameValuePair("data", sb.toString()));
-		Toast.makeText(c, pairs.toString(), Toast.LENGTH_SHORT).show();
+		Toast.makeText(activity, pairs.toString(), Toast.LENGTH_SHORT).show();
 		
 		return pairs;
 	}

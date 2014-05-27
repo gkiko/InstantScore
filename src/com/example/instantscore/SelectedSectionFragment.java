@@ -1,5 +1,6 @@
 package com.example.instantscore;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,15 +20,20 @@ import com.example.instantscore.adapter.DatabaseAdapter;
 public class SelectedSectionFragment extends Fragment {
 	private ListView gamesListView;
 	private DatabaseAdapter selectedGameListAdapter;
-	private transient Context c;
+	private transient Context activity;
+	
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		this.activity = activity;
+	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-		c = getActivity().getApplicationContext();
 		View rootView = inflater.inflate(R.layout.fragment_section_launchpad,container, false);
 		
 		gamesListView = (ListView) rootView.findViewById(R.id.list1);
-		selectedGameListAdapter = new DatabaseAdapter(c);
+		selectedGameListAdapter = new DatabaseAdapter(activity);
 		gamesListView.setAdapter(selectedGameListAdapter);
 
 		gamesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -39,7 +45,7 @@ public class SelectedSectionFragment extends Fragment {
 		    public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
 		        // Here you can do something when items are selected/unselected,
 		        // such as update the title in the CAB
-		    	Toast.makeText(c, position+" "+checked, Toast.LENGTH_SHORT).show();
+		    	Toast.makeText(activity, position+" "+checked, Toast.LENGTH_SHORT).show();
 		    	selectedGameListAdapter.setSelected(position, checked);
 		    	
 		    	selectedGameCounter += checked?1:-1;

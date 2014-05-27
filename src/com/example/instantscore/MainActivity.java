@@ -1,11 +1,5 @@
 package com.example.instantscore;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
@@ -19,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.instantscore.database.DBManager;
 import com.newrelic.agent.android.NewRelic;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -29,6 +24,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	protected void onCreate(Bundle savedInstanceState) {		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		DBManager.init(getApplicationContext());
 		
 		final ActionBar actionBar = getActionBar();
 		actionBar.setHomeButtonEnabled(false);
@@ -68,10 +64,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    // Handle item selection
 	    switch (item.getItemId()) {
 	    case R.id.submit:
-	    	mAppSectionsPagerAdapter.onSubmit();
-	        return true;
+	    	((MainSectionFragment) getSupportFragmentManager()
+	    			.findFragmentByTag(
+	    					makeFragmentName(R.id.pager,
+	    							mAppSectionsPagerAdapter.getItemId(1))))
+	    							.submitGames();
+			return true;
 	    case R.id.refresh:
-	    	mAppSectionsPagerAdapter.onRefresh();
+	    	((MainSectionFragment) getSupportFragmentManager()
+	    			.findFragmentByTag(
+	    					makeFragmentName(R.id.pager,
+	    							mAppSectionsPagerAdapter.getItemId(1))))
+	    							.fetchList();
 	        return true;
 	    case R.id.action_settings:
 	    	showPreferences();
@@ -90,8 +94,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		mViewPager.setCurrentItem(tab.getPosition());
 		int pos = tab.getPosition();
 		if(pos == mAppSectionsPagerAdapter.getLastFragmentIndex()){
-			SelectedSectionFragment curFragment = (SelectedSectionFragment) mAppSectionsPagerAdapter.getItem(pos);
-			curFragment.updateList();
+			((SelectedSectionFragment) getSupportFragmentManager()
+	    			.findFragmentByTag(
+	    					makeFragmentName(R.id.pager,
+	    							mAppSectionsPagerAdapter.getItemId(2))))
+	    							.updateList();
 		}
 	}
 
@@ -114,6 +121,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		Intent intent = new Intent();
         intent.setClass(MainActivity.this, SettingsActivity.class);
         startActivityForResult(intent, 0);
+	}
+	
+	private static String makeFragmentName(int viewId, long id) {
+		   return "android:switcher:" + viewId + ":" + id;
 	}
 	
 }

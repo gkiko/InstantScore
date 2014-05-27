@@ -5,20 +5,25 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.apache.http.client.ClientProtocolException;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.AsyncTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.example.instantscore.dialog.LoadingDialog;
+import com.example.instantscore.R;
 import com.example.instantscore.listener.CallbackListener;
 import com.example.instantscore.listener.MyChangeEvent;
 
 public class DataFetcher extends AsyncTask<String, Void, String>{
 	private CopyOnWriteArrayList<CallbackListener> listeners;
-	private android.support.v4.app.FragmentManager fragmentManager;
-	private LoadingDialog dialog;
+	private AlertDialog dialog;
+	private Activity c;
 	
-	public DataFetcher(android.support.v4.app.FragmentManager fragmentManager){
+	public DataFetcher(Activity c){
 		listeners = new CopyOnWriteArrayList<CallbackListener>();
-		this.fragmentManager = fragmentManager;
+		this.c = c;
 	}
 	
 	public void addMyChangeListener(CallbackListener l) {
@@ -32,8 +37,9 @@ public class DataFetcher extends AsyncTask<String, Void, String>{
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
-		dialog = new LoadingDialog();
-		dialog.show(fragmentManager, "");
+		LayoutInflater inflater = c.getLayoutInflater();
+		View dialoglayout = inflater.inflate(R.layout.dialog_layout, (ViewGroup) c.getCurrentFocus(), false);
+		dialog = new AlertDialog.Builder(c).setView(dialoglayout).show();
 	}
 
 	@Override
