@@ -52,7 +52,7 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
-		View v = null;
+		View v;
 		Container cont;
 		if(arg1 == null){
 			v = View.inflate(c, R.layout.list_item_tab_2, null);
@@ -81,7 +81,7 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	
 	public void setSelected(int position, boolean selected){
 		ls.get(position).setSelected(selected);
-		this.notifyDataSetChanged();
+        this.notifyDataSetChanged();
 	}
 	
 	public void deleteSelected(){
@@ -89,10 +89,10 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		for(int i=0;i<ls.size();i++){
 			g = ls.get(i);
 			if(g.selected()){
-				Toast.makeText(c, ""+g.getGameId(), Toast.LENGTH_SHORT).show();
 				ls.remove(i);
 				DBManager.removeMatchFromDatabase(g);
-			}
+                i--;
+            }
 		}
 		this.notifyDataSetChanged();
 	}

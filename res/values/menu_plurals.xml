@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="matches">
+        <item quantity="one">%d match selected</item>
+        <item quantity="other">%d matches selected</item>
+    </plurals>
+</resources>

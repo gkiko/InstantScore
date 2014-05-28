@@ -74,7 +74,7 @@ public class Game {
 	}
 	
 	public String getTime() {
-		if(time.indexOf(":")==-1){
+		if(!time.contains(":")){
 			return time;
 		}
 		return convertTime(Integer.parseInt(time.substring(0, 2)), Integer.parseInt(time.substring(3)));
@@ -86,11 +86,11 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [country=" + tournament + ", date=" + date + ", time=" + time
-				+ ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam
-				+ ", homeTeamScore=" + homeTeamScore + ", awayTeamScore="
-				+ awayTeamScore + "]";
-	}
+        return new StringBuilder("Game [country=").append(tournament).append(", date=").append(date).append(", time=").append(time)
+                .append(", homeTeam=").append(homeTeam).append(", awayTeam=").append(awayTeam)
+                .append(", homeTeamScore=").append(homeTeamScore).append(", awayTeamScore=")
+                .append(awayTeamScore).append(", isSelected=").append(isSelected).append("]").toString();
+    }
 
 	public String getGameId() {
 		return homeTeam + " vs " + awayTeam;
