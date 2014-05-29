@@ -68,8 +68,6 @@ public class Game {
 		formatter.setCalendar(cal);
 		formatter.setTimeZone(TimeZone.getDefault());
 		
-		System.out.println(formatter.format(cal.getTime()));
-		
 		return formatter.format(cal.getTime());
 	}
 	
