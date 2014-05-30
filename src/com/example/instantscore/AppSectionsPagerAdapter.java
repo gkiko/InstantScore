@@ -21,12 +21,14 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 		if(i==0){
 			b = new Bundle();
 			b.putString("url", c.getString(R.string.url_get_submit));
+			b.putString("live", "true");
 			asd = new MainSectionFragment();
 			asd.setArguments(b);
 		}else{
 			if(i==1){
 				b = new Bundle();
 				b.putString("url", c.getString(R.string.url_get_coming));
+				b.putString("live", "false");
 				asd = new MainSectionFragment();
 				asd.setArguments(b);
 			}else asd = new SelectedSectionFragment();

@@ -40,6 +40,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	private Activity activity;
 	private SeparatedListAdapter separatedListAdapter;
 	private String url;
+	private String isLive = "";
 	
 	@Override
 	public void onAttach(Activity activity) {
@@ -49,9 +50,11 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		Bundle args = getArguments();
 		View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
 		gamesListView = (ListView) rootView.findViewById(R.id.list1);
 		url = getArguments().getString("url");
+		isLive = args.getString("live");
 
 		gamesListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -94,7 +97,9 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		String data = (String) evt.source;
 		HashMap[] maps = DataParser.parseData(data);
 		HashMap<String, ArrayList<Game>> map = maps[0];
-		DBManager.removeOldMatchesFrom(map);
+		if(isLive.equals("true")) {
+			DBManager.removeOldMatchesFrom(map);
+		}
 		ArrayList<ListAdapterPriority> sortedMatches = sortMatches(map, maps[1]);
 		fillListAdapter(sortedMatches);
 	}
