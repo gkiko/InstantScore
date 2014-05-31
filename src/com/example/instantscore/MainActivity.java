@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		
 		mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager(), getApplicationContext());
 		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager.setOffscreenPageLimit(mAppSectionsPagerAdapter.getCount()-1);
 		mViewPager.setAdapter(mAppSectionsPagerAdapter);
 		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 			@Override
@@ -91,14 +92,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-		mViewPager.setCurrentItem(tab.getPosition());
 		int pos = tab.getPosition();
+		mViewPager.setCurrentItem(pos);
+		android.support.v4.app.Fragment curFragment = getSupportFragmentManager().findFragmentByTag(makeFragmentName(R.id.pager,mAppSectionsPagerAdapter.getItemId(pos)));
 		if(pos == mAppSectionsPagerAdapter.getLastFragmentIndex()){
-			((SelectedSectionFragment) getSupportFragmentManager()
-	    			.findFragmentByTag(
-	    					makeFragmentName(R.id.pager,
-	    							mAppSectionsPagerAdapter.getItemId(2))))
-	    							.updateList();
+			((SelectedSectionFragment) curFragment).updateList();
+		}else{
+			if(curFragment!=null)
+				((MainSectionFragment) curFragment).fetchListOrUseCached();
 		}
 	}
 

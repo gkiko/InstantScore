@@ -73,7 +73,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 				
 		});
 
-		fetchList();
+//		fetchList();
 		return rootView;
 	}
 	
@@ -131,6 +131,12 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		fetcher = new DataFetcher(activity);
 		fetcher.addMyChangeListener(this);
 		fetcher.execute(url);
+	}
+	
+	void fetchListOrUseCached() {
+		if(separatedListAdapter==null){
+			fetchList();
+		}
 	}
 	
 	@SuppressWarnings("unchecked")

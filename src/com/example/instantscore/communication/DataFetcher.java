@@ -18,7 +18,8 @@ import com.example.instantscore.listener.MyChangeEvent;
 
 public class DataFetcher extends AsyncTask<String, Void, String>{
 	private CopyOnWriteArrayList<CallbackListener> listeners;
-	private AlertDialog dialog;
+	private AlertDialog dialogLoad;
+	private AlertDialog dialogError;
 	private Activity c;
 	
 	public DataFetcher(Activity c){
@@ -39,7 +40,7 @@ public class DataFetcher extends AsyncTask<String, Void, String>{
 		super.onPreExecute();
 		LayoutInflater inflater = c.getLayoutInflater();
 		View dialoglayout = inflater.inflate(R.layout.dialog_layout, (ViewGroup) c.getCurrentFocus(), false);
-		dialog = new AlertDialog.Builder(c).setView(dialoglayout).show();
+		dialogLoad = new AlertDialog.Builder(c).setView(dialoglayout).show();
 	}
 
 	@Override
@@ -57,7 +58,12 @@ public class DataFetcher extends AsyncTask<String, Void, String>{
 	
 	@Override
 	protected void onPostExecute(String result) {
-		dialog.dismiss();
+		dialogLoad.dismiss();
+		AlertDialog.Builder builder = new AlertDialog.Builder(c);
+	    builder.setMessage("error");
+	    builder.setPositiveButton("OK", null);
+	    builder.show();
+		
 		if(result!=null)
 			fireDataDownloadEvent(result);
 	}
