@@ -3,6 +3,7 @@ package com.example.instantscore;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -41,6 +42,8 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 	private SeparatedListAdapter separatedListAdapter;
 	private String url;
 	private String isLive = "";
+	private static HashSet<String> listOfAllLiveGames = new HashSet<String>();
+	private static HashSet<String> listOfAllComingGames = new HashSet<String>();
 	
 	@Override
 	public void onAttach(Activity activity) {
@@ -98,10 +101,28 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		HashMap[] maps = DataParser.parseData(data);
 		HashMap<String, ArrayList<Game>> map = maps[0];
 		if(isLive.equals("true")) {
-			DBManager.removeOldMatchesFrom(map);
+			listOfAllLiveGames.clear();
+			fillArrayList(map, listOfAllLiveGames);
 		}
+		else {
+			listOfAllComingGames.clear();
+			fillArrayList(map, listOfAllComingGames);
+		}
+		DBManager.removeAllInactiveMatches();
 		ArrayList<ListAdapterPriority> sortedMatches = sortMatches(map, maps[1]);
 		fillListAdapter(sortedMatches);
+	}
+	
+	public static boolean isGameLiveOrComing(String gameId) {
+		return listOfAllLiveGames.contains(gameId) || listOfAllComingGames.contains(gameId);
+	}
+	
+	private void fillArrayList(HashMap<String, ArrayList<Game>> map, HashSet<String> gameIds) {
+		for(ArrayList<Game> listGames : map.values()) {
+			for(Game game : listGames) {
+				gameIds.add(game.getGameId());
+			}
+		}
 	}
 	
 	private ArrayList<ListAdapterPriority> sortMatches(HashMap<String, ArrayList<Game>> map, HashMap<String, Integer> priorities){

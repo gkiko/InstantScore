@@ -11,6 +11,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.instantscore.MainSectionFragment;
 import com.example.instantscore.model.Game;
 
 public class DBManager {
@@ -57,6 +58,18 @@ public class DBManager {
 		Cursor cursor = db.rawQuery("select * from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+
 				game.getAwayTeam()+"'", null);
 		return cursor.moveToFirst();
+	}
+	
+	public static void removeAllInactiveMatches(){
+		List<Game> gamesFromDb = getAllMatches();
+		for(Game game : gamesFromDb){
+			String gameId = game.getGameId();
+			if(MainSectionFragment.isGameLiveOrComing(gameId)){
+				continue; // everything OK
+			}
+			// otherwise remove it from database
+			removeMatchFromDatabase(game);
+		}
 	}
 	
 	public static void removeOldMatchesFrom(HashMap<String, ArrayList<Game>> activeMatches){
