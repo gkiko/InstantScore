@@ -19,8 +19,8 @@ import com.example.instantscore.model.EventContainer;
 public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventContainer>>{
 	private CopyOnWriteArrayList<CallbackListener> listeners;
 	private AlertDialog dialogLoad;
-	private AlertDialog dialogError;
 	private Activity c;
+
 
 	public DataFetcher(Activity c){
 		listeners = new CopyOnWriteArrayList<CallbackListener>();
@@ -38,12 +38,12 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
-		LayoutInflater inflater = c.getLayoutInflater();
-		View dialogLayout = inflater.inflate(R.layout.dialog_layout, (ViewGroup) c.getCurrentFocus(), false);
-		dialogLoad = new AlertDialog.Builder(c).setView(dialogLayout).show();
-	}
+        LayoutInflater inflater = c.getLayoutInflater();
+        View dialogLayout = inflater.inflate(R.layout.dialog_layout, (ViewGroup) c.getCurrentFocus(), false);
+        dialogLoad = new AlertDialog.Builder(c).setView(dialogLayout).show();
+    }
 
-	@Override
+    @Override
 	protected List<EventContainer> doInBackground(EventContainer... params) {
 		String data, urlStr;
         EventContainer newCont;
@@ -64,7 +64,8 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
 	@Override
 	protected void onPostExecute(List<EventContainer> events) {
         MyChangeEvent event;
-        // TODO: check if async task stopped
+
+        if(isCancelled()) return;
         dialogLoad.dismiss();
         for(EventContainer eventContainer : events) {
             event = (MyChangeEvent)eventContainer.getData();

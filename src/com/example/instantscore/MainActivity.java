@@ -56,6 +56,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         	showPreferences();
         }
 
+        runDownloader();
+
         NewRelic.withApplicationToken("AA907c3b86fbc007ff0ecb385c864207f3d89b8715").start(this.getApplication());
 	}
 
@@ -130,7 +132,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	
     @Override
     public void onUpdate(EventContainer evt) {
-        System.out.println("asd");
 //        fetcher.removeMyChangeListener(this);
         int id = evt.getId();
         MyChangeEvent event = (MyChangeEvent)evt.getData();
@@ -143,5 +144,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         builder.setMessage(getResources().getString(R.string.error_dialog_hdr));
         builder.setPositiveButton(getResources().getString(R.string.error_dialog_ok), null);
         builder.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        fetcher.cancel(true);
     }
 }
