@@ -1,13 +1,8 @@
 package com.example.instantscore.communication;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import org.apache.http.client.ClientProtocolException;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -16,15 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.instantscore.MainSectionFragment;
 import com.example.instantscore.R;
-import com.example.instantscore.adapter.ListAdapter;
 import com.example.instantscore.listener.CallbackListener;
 import com.example.instantscore.listener.MyChangeEvent;
-import com.example.instantscore.model.Game;
-import com.example.instantscore.model.ListAdapterPriority;
+import com.example.instantscore.model.EventContainer;
 
-public class DataFetcher extends AsyncTask<String, Void, MyChangeEvent>{
+public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventContainer>>{
 	private CopyOnWriteArrayList<CallbackListener> listeners;
 	private AlertDialog dialogLoad;
 	private AlertDialog dialogError;
@@ -52,34 +44,45 @@ public class DataFetcher extends AsyncTask<String, Void, MyChangeEvent>{
 	}
 
 	@Override
-	protected MyChangeEvent doInBackground(String... params) {
-		String data, urlStr = params[0];
-		try {
-			data = HttpClient.getHttpClientDoGetResponse(urlStr, null);
-            return new MyChangeEvent(data);
-		} catch (Exception e) {
-            return new MyChangeEvent(e);
-		}
-	}
+	protected List<EventContainer> doInBackground(EventContainer... params) {
+		String data, urlStr;
+        EventContainer newCont;
+        List<EventContainer> eventList =  new ArrayList<EventContainer>();
+        for(EventContainer container : params){
+            urlStr = (String)container.getData();
+            try {
+                data = HttpClient.getHttpClientDoGetResponse(urlStr, null);
+                newCont = new EventContainer(new MyChangeEvent(data), container.getId());
+            } catch (Exception e) {
+                newCont = new EventContainer(new MyChangeEvent(e), container.getId());
+            }
+            eventList.add(newCont);
+        }
+        return eventList;
+    }
 
 	@Override
-	protected void onPostExecute(MyChangeEvent event) {
+	protected void onPostExecute(List<EventContainer> events) {
+        MyChangeEvent event;
         // TODO: check if async task stopped
         dialogLoad.dismiss();
-        if((event.getError() != null) || (((String)event.getResult()).length() == 0)){
-            fireExceptionEvent(event);
-        }else {
-            fireDataDownloadEvent(event);
+        for(EventContainer eventContainer : events) {
+            event = (MyChangeEvent)eventContainer.getData();
+            if ((event.getError() != null) || (((String) event.getResult()).length() == 0)) {
+                fireExceptionEvent(eventContainer);
+            } else {
+                fireDataDownloadEvent(eventContainer);
+            }
         }
 	}
 
-    private void fireExceptionEvent(MyChangeEvent event){
+    private void fireExceptionEvent(EventContainer event){
         for (CallbackListener l : listeners) {
             l.onException(event);
         }
     }
 
-	private void fireDataDownloadEvent(MyChangeEvent event) {
+	private void fireDataDownloadEvent(EventContainer event) {
 		for (CallbackListener l : listeners) {
 			l.onUpdate(event);
 		}

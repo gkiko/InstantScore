@@ -18,6 +18,7 @@ import com.example.instantscore.communication.DataFetcher;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.listener.CallbackListener;
 import com.example.instantscore.listener.MyChangeEvent;
+import com.example.instantscore.model.EventContainer;
 import com.newrelic.agent.android.NewRelic;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener, CallbackListener {
@@ -73,9 +74,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(0)).submitGames();
 			return true;
 	    case R.id.refresh:
-            fetcher = new DataFetcher(this);
-            fetcher.addMyChangeListener(this);
-            fetcher.execute(this.getString(R.string.url_get_submit));
+            runDownloader();
 	        return true;
 	    case R.id.action_settings:
 	    	showPreferences();
@@ -113,6 +112,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		editor.commit();
 		return res;
 	}
+
+    private void runDownloader(){
+        EventContainer cont1 = new EventContainer(getResources().getString(R.string.url_get_submit), 0);
+        EventContainer cont2 = new EventContainer(getResources().getString(R.string.url_get_coming), 1);
+
+        fetcher = new DataFetcher(this);
+        fetcher.addMyChangeListener(this);
+        fetcher.execute(cont1, cont2);
+    }
 	
 	private void showPreferences(){
 		Intent intent = new Intent();
@@ -121,16 +129,19 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	}
 	
     @Override
-    public void onUpdate(MyChangeEvent evt) {
-        fetcher.removeMyChangeListener(this);
-        ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(0)).onUpdate((String)evt.getResult());
+    public void onUpdate(EventContainer evt) {
+        System.out.println("asd");
+//        fetcher.removeMyChangeListener(this);
+        int id = evt.getId();
+        MyChangeEvent event = (MyChangeEvent)evt.getData();
+        ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(id)).onUpdate((String) event.getResult());
     }
 
     @Override
-    public void onException(MyChangeEvent evt) {
+    public void onException(EventContainer evt) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("error");
-        builder.setPositiveButton("OK", null);
+        builder.setMessage(getResources().getString(R.string.error_dialog_hdr));
+        builder.setPositiveButton(getResources().getString(R.string.error_dialog_ok), null);
         builder.show();
     }
 }
