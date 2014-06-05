@@ -29,18 +29,14 @@ import com.example.instantscore.communication.DataFetcher;
 import com.example.instantscore.communication.DataSender;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.database.InsertStatus;
-import com.example.instantscore.listener.CallbackListener;
-import com.example.instantscore.listener.MyChangeEvent;
 import com.example.instantscore.logic.DataParser;
 import com.example.instantscore.model.Game;
 import com.example.instantscore.model.ListAdapterPriority;
 
-public class MainSectionFragment extends Fragment implements CallbackListener {
+public class MainSectionFragment extends Fragment {
 	private ListView gamesListView;
-	private DataFetcher fetcher;
 	private Activity activity;
 	private SeparatedListAdapter separatedListAdapter;
-	private String url;
 	private String isLive = "";
 	private static HashSet<String> listOfAllLiveGames = new HashSet<String>();
 	private static HashSet<String> listOfAllComingGames = new HashSet<String>();
@@ -56,7 +52,6 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		Bundle args = getArguments();
 		View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
 		gamesListView = (ListView) rootView.findViewById(R.id.list1);
-		url = getArguments().getString("url");
 		isLive = args.getString("live");
 
 		gamesListView.setOnItemClickListener(new OnItemClickListener() {
@@ -76,7 +71,6 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 				
 		});
 
-//		fetchList();
 		return rootView;
 	}
 	
@@ -94,10 +88,7 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		Toast.makeText(getActivity().getApplicationContext(), activity.getResources().getString(messageId), Toast.LENGTH_SHORT).show();
 	}
 
-	@Override
-	public void onUpdate(MyChangeEvent evt) {
-		fetcher.removeMyChangeListener(this);
-		String data = (String) evt.source;
+	public void onUpdate(String data) {
 		HashMap[] maps = DataParser.parseData(data);
 		HashMap<String, ArrayList<Game>> map = maps[0];
 		if(isLive.equals("true")) {
@@ -124,21 +115,8 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 			}
 		}
 	}
-	
-	private ArrayList<ListAdapterPriority> sortMatches(HashMap<String, ArrayList<Game>> map, HashMap<String, Integer> priorities){
-		Iterator<String> it = map.keySet().iterator();
-		ArrayList<ListAdapterPriority> listAdapters = new ArrayList<ListAdapterPriority>();
-		while (it.hasNext()) {
-			String tourn = it.next();
-			ArrayList<Game> list = map.get(tourn);
-			ListAdapter adapter1 = new ListAdapter(list, activity);
-			listAdapters.add(new ListAdapterPriority(adapter1, priorities.get(tourn), tourn));
-		}
-		Collections.sort(listAdapters);
-		return listAdapters;
-	}
 
-	private void fillListAdapter(List<ListAdapterPriority> sortedMatches) {
+    private void fillListAdapter(List<ListAdapterPriority> sortedMatches) {
 		separatedListAdapter = new SeparatedListAdapter(activity);
 		for(ListAdapterPriority lap : sortedMatches){
 			separatedListAdapter.addSection(lap.getTournamentName(), lap.getListAdapter());
@@ -146,18 +124,6 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 
 		gamesListView.setAdapter(separatedListAdapter);
 		separatedListAdapter.notifyAllAdaptersDataSetChanged();
-	}
-
-	void fetchList() {
-		fetcher = new DataFetcher(activity);
-		fetcher.addMyChangeListener(this);
-		fetcher.execute(url);
-	}
-	
-	void fetchListOrUseCached() {
-		if(separatedListAdapter==null){
-			fetchList();
-		}
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -186,5 +152,18 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
 		SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		return sharedpreferences.getString(key, "");
 	}
+
+    public ArrayList<ListAdapterPriority> sortMatches(HashMap<String, ArrayList<Game>> map, HashMap<String, Integer> priorities){
+        Iterator<String> it = map.keySet().iterator();
+        ArrayList<ListAdapterPriority> listAdapters = new ArrayList<ListAdapterPriority>();
+        while (it.hasNext()) {
+            String tourn = it.next();
+            ArrayList<Game> list = map.get(tourn);
+            ListAdapter adapter1 = new ListAdapter(list, activity);
+            listAdapters.add(new ListAdapterPriority(adapter1, priorities.get(tourn), tourn));
+        }
+        Collections.sort(listAdapters);
+        return listAdapters;
+    }
 	
 }

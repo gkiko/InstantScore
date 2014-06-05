@@ -2,6 +2,7 @@ package com.example.instantscore;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,12 +14,16 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.instantscore.communication.DataFetcher;
 import com.example.instantscore.database.DBManager;
+import com.example.instantscore.listener.CallbackListener;
+import com.example.instantscore.listener.MyChangeEvent;
 import com.newrelic.agent.android.NewRelic;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener, CallbackListener {
 	AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 	ViewPager mViewPager;
+    DataFetcher fetcher;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
@@ -30,7 +35,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		actionBar.setHomeButtonEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
-		mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager(), getApplicationContext());
+		mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager(), this);
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setOffscreenPageLimit(mAppSectionsPagerAdapter.getCount()-1);
 		mViewPager.setAdapter(mAppSectionsPagerAdapter);
@@ -65,18 +70,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    // Handle item selection
 	    switch (item.getItemId()) {
 	    case R.id.submit:
-	    	((MainSectionFragment) getSupportFragmentManager()
-	    			.findFragmentByTag(
-	    					makeFragmentName(R.id.pager,
-	    							mAppSectionsPagerAdapter.getItemId(1))))
-	    							.submitGames();
+            ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(0)).submitGames();
 			return true;
 	    case R.id.refresh:
-	    	((MainSectionFragment) getSupportFragmentManager()
-	    			.findFragmentByTag(
-	    					makeFragmentName(R.id.pager,
-	    							mAppSectionsPagerAdapter.getItemId(1))))
-	    							.fetchList();
+            fetcher = new DataFetcher(this);
+            fetcher.addMyChangeListener(this);
+            fetcher.execute(this.getString(R.string.url_get_submit));
 	        return true;
 	    case R.id.action_settings:
 	    	showPreferences();
@@ -94,12 +93,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		int pos = tab.getPosition();
 		mViewPager.setCurrentItem(pos);
-		android.support.v4.app.Fragment curFragment = getSupportFragmentManager().findFragmentByTag(makeFragmentName(R.id.pager,mAppSectionsPagerAdapter.getItemId(pos)));
+		android.support.v4.app.Fragment curFragment = mAppSectionsPagerAdapter.getItem(pos);
 		if(pos == mAppSectionsPagerAdapter.getLastFragmentIndex()){
 			((SelectedSectionFragment) curFragment).updateList();
-		}else{
-			if(curFragment!=null)
-				((MainSectionFragment) curFragment).fetchListOrUseCached();
 		}
 	}
 
@@ -124,8 +120,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         startActivityForResult(intent, 0);
 	}
 	
-	private static String makeFragmentName(int viewId, long id) {
-		   return "android:switcher:" + viewId + ":" + id;
-	}
-	
+    @Override
+    public void onUpdate(MyChangeEvent evt) {
+        fetcher.removeMyChangeListener(this);
+        ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(0)).onUpdate((String)evt.getResult());
+    }
+
+    @Override
+    public void onException(MyChangeEvent evt) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("error");
+        builder.setPositiveButton("OK", null);
+        builder.show();
+    }
 }
