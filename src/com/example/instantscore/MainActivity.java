@@ -135,13 +135,22 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 //        fetcher.removeMyChangeListener(this);
         int id = evt.getId();
         MyChangeEvent event = (MyChangeEvent)evt.getData();
-        ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(id)).onUpdate((String) event.getResult());
+        try {
+            ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(id)).onUpdate((String) event.getResult());
+        } catch (Exception e) {
+            e.printStackTrace();
+            showDialog(getResources().getString(R.string.error_dialog_parse_exception));
+        }
     }
 
     @Override
     public void onException(EventContainer evt) {
+        showDialog(getResources().getString(R.string.error_dialog_connection_exception));
+    }
+
+    public void showDialog(String text){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(getResources().getString(R.string.error_dialog_hdr));
+        builder.setMessage(text);
         builder.setPositiveButton(getResources().getString(R.string.error_dialog_ok), null);
         builder.show();
     }

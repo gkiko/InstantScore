@@ -16,8 +16,9 @@
     <string name="number_dialog_hdr">Your phone number</string>
     <string name="number_dialog_ok">Continue</string>
     <string name="number_dialog_cancel">Cancel</string>
-    <string name="error_dialog_hdr">No connection</string>
-    <string name="error_dialog_ok">Ok</string>
+    <string name="error_dialog_connection_exception">No connection</string>
+    <string name="error_dialog_parse_exception">Can\'t parse data</string>
+    <string name="error_dialog_ok">OK</string>
 
     <!-- tab titles -->
     <string-array name="titles">

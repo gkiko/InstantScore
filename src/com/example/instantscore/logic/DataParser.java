@@ -13,17 +13,12 @@ import com.example.instantscore.model.Game;
 
 public class DataParser {
 	@SuppressWarnings("rawtypes")
-	public static HashMap[] parseData(String data){
+	public static HashMap[] parseData(String data) throws Exception {
 		HashMap<String, ArrayList<Game>> map = null;
 		HashMap<String, Integer> priorityMap = null;
-		try {
-			map = getHashMapFromScoresFile(data);
-			priorityMap = getTournamentPriorities(data);
-			return new HashMap[]{map, priorityMap};
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+		map = getHashMapFromScoresFile(data);
+		priorityMap = getTournamentPriorities(data);
+		return new HashMap[]{map, priorityMap};
 	}
 	
 	public static HashMap<String, Integer> getTournamentPriorities(String data) throws IOException {
@@ -46,7 +41,7 @@ public class DataParser {
 		return map;
 	}
 	
-	public static HashMap<String, ArrayList<Game>> getHashMapFromScoresFile(String data) throws IOException {
+	public static HashMap<String, ArrayList<Game>> getHashMapFromScoresFile(String data) throws Exception {
 		InputStream is = new ByteArrayInputStream(data.getBytes());
 		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
 		int numTourn = Integer.parseInt(rd.readLine());
@@ -58,7 +53,7 @@ public class DataParser {
 			map.put(tournamentName, new ArrayList<Game>());
 			ArrayList<Game> gamesList = map.get(tournamentName);
 			for(int j=0; j<numMatches; j++){
-				rd.readLine(); // unnecessary line
+				rd.readLine(); /* unnecessary line */
 				String date = rd.readLine();
 				String time = rd.readLine();
 				String home = rd.readLine();
@@ -81,7 +76,7 @@ public class DataParser {
 	}
 	
 	public static String getFirstScore(String score){
-		if(score.indexOf("?")!=-1){
+		if(score.contains("?")){
 			return "?";
 		}
 		int index = score.indexOf(":");
@@ -89,7 +84,7 @@ public class DataParser {
 	}
 	
 	public static String getSecondScore(String score){
-		if(score.indexOf("?")!=-1){
+		if(score.contains("?")){
 			return "?";
 		}
 		int index = score.indexOf(":");

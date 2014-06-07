@@ -52,6 +52,7 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
             urlStr = (String)container.getData();
             try {
                 data = HttpClient.getHttpClientDoGetResponse(urlStr, null);
+                data = "qwe";
                 newCont = new EventContainer(new MyChangeEvent(data), container.getId());
             } catch (Exception e) {
                 newCont = new EventContainer(new MyChangeEvent(e), container.getId());
@@ -69,7 +70,7 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
         dialogLoad.dismiss();
         for(EventContainer eventContainer : events) {
             event = (MyChangeEvent)eventContainer.getData();
-            if ((event.getError() != null) || (((String) event.getResult()).length() == 0)) {
+            if ((event.getError() != null)) {
                 fireExceptionEvent(eventContainer);
             } else {
                 fireDataDownloadEvent(eventContainer);

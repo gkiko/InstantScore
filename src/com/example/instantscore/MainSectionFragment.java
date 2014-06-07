@@ -1,5 +1,6 @@
 package com.example.instantscore;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -88,7 +89,7 @@ public class MainSectionFragment extends Fragment {
 		Toast.makeText(getActivity().getApplicationContext(), activity.getResources().getString(messageId), Toast.LENGTH_SHORT).show();
 	}
 
-	public void onUpdate(String data) {
+	public void onUpdate(String data) throws Exception {
 		HashMap[] maps = DataParser.parseData(data);
 		HashMap<String, ArrayList<Game>> map = maps[0];
 		if(isLive.equals("true")) {
