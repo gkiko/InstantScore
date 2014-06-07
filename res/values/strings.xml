@@ -24,7 +24,7 @@
     <string-array name="titles">
         <item>Live</item>
         <item>Coming</item>
-        <item>Local</item>
+        <item>Selected</item>
     </string-array>
 
     <!-- toasts -->
