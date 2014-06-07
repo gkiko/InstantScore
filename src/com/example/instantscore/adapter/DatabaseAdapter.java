@@ -55,8 +55,9 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		View v;
 		Container cont;
 		if(arg1 == null){
-			v = View.inflate(c, R.layout.list_item_tab_2, null);
+			v = View.inflate(c, R.layout.list_item, null);
 			cont = new Container();
+            cont.date = (TextView)v.findViewById(R.id.date);
 			cont.homeTeam = (TextView)v.findViewById(R.id.homeTeam);
 			cont.awayTeam = (TextView)v.findViewById(R.id.awayTeam);
 			v.setTag(cont);
@@ -64,7 +65,8 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 			v = arg1;
 			cont = (Container) v.getTag();
 		}
-		
+
+        (cont.date).setText(ls.get(arg0).getDate());
 		(cont.homeTeam).setText(ls.get(arg0).getHomeTeam());
 		(cont.awayTeam).setText(ls.get(arg0).getAwayTeam());
 		if(ls.get(arg0).selected()){
@@ -76,7 +78,7 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	}
 	
 	private class Container{
-		TextView homeTeam, awayTeam;
+		TextView homeTeam, awayTeam, date;
 	}
 	
 	public void setSelected(int position, boolean selected){
