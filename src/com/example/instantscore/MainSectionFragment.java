@@ -1,6 +1,5 @@
 package com.example.instantscore;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -26,7 +25,6 @@ import android.widget.Toast;
 
 import com.example.instantscore.adapter.ListAdapter;
 import com.example.instantscore.adapter.SeparatedListAdapter;
-import com.example.instantscore.communication.DataFetcher;
 import com.example.instantscore.communication.DataSender;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.database.InsertStatus;
@@ -90,7 +88,9 @@ public class MainSectionFragment extends Fragment {
 	}
 
 	public void onUpdate(String data) throws Exception {
+		@SuppressWarnings("rawtypes")
 		HashMap[] maps = DataParser.parseData(data);
+		@SuppressWarnings("unchecked")
 		HashMap<String, ArrayList<Game>> map = maps[0];
 		if(isLive.equals("true")) {
 			listOfAllLiveGames.clear();
@@ -101,12 +101,20 @@ public class MainSectionFragment extends Fragment {
 			fillArrayList(map, listOfAllComingGames);
 		}
 		DBManager.removeAllInactiveMatches();
+		@SuppressWarnings("unchecked")
 		ArrayList<ListAdapterPriority> sortedMatches = sortMatches(map, maps[1]);
 		fillListAdapter(sortedMatches);
 	}
 	
+	/**
+	 * Returns whether the game with the given id is either live or coming. If it returns false, the it's 100% correct, but if it returns true, maybe it's just because
+	 * the live games or coming games are not loaded at the moment of this method invocation. It works fine for our purpose because we only need to remove match from selected
+	 * list if we know for sure that it's no longer active game. 
+	 * @param gameId
+	 * @return
+	 */
 	public static boolean isGameLiveOrComing(String gameId) {
-		return listOfAllLiveGames.contains(gameId) || listOfAllComingGames.contains(gameId);
+		return (listOfAllLiveGames.isEmpty() || listOfAllLiveGames.contains(gameId)) || (listOfAllComingGames.isEmpty() || listOfAllComingGames.contains(gameId));
 	}
 	
 	private void fillArrayList(HashMap<String, ArrayList<Game>> map, HashSet<String> gameIds) {

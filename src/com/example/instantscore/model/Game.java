@@ -3,6 +3,7 @@ package com.example.instantscore.model;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
@@ -111,5 +112,5 @@ public class Game {
 		Game other = (Game)o;
 		return getGameId().equals(other.getGameId());
 	}
-
+	
 }
