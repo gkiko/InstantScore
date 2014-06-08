@@ -52,6 +52,7 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
             urlStr = (String)container.getData();
             try {
                 data = HttpClient.getHttpClientDoGetResponse(urlStr, null);
+                data="asd";
                 newCont = new EventContainer(new MyChangeEvent(data), container.getId());
             } catch (Exception e) {
                 newCont = new EventContainer(new MyChangeEvent(e), container.getId());

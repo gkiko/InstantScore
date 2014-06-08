@@ -53,6 +53,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
         
         if(firstTimeRun()){
+            Editor editor = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit();
+            editor.putBoolean("firsttime", false);
+            editor.commit();
+
         	showPreferences();
         }
 
@@ -108,10 +112,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		boolean res;
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		res = prefs.getBoolean("firsttime", true);
-		
-		Editor editor = prefs.edit();
-		editor.putBoolean("firsttime", false);
-		editor.commit();
 		return res;
 	}
 
@@ -135,24 +135,24 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 //        fetcher.removeMyChangeListener(this);
         int id = evt.getId();
         MyChangeEvent event = (MyChangeEvent)evt.getData();
+        MainSectionFragment fragment = ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(id));
         try {
-            ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(id)).onUpdate((String) event.getResult());
+            fragment.onUpdate((String) event.getResult());
         } catch (Exception e) {
             e.printStackTrace();
-            showDialog(getResources().getString(R.string.error_dialog_parse_exception));
+            showDialog(fragment);
         }
     }
 
     @Override
     public void onException(EventContainer evt) {
-        showDialog(getResources().getString(R.string.error_dialog_connection_exception));
+        int id = evt.getId();
+        MainSectionFragment fragment = ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(id));
+        showDialog(fragment);
     }
 
-    public void showDialog(String text){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(text);
-        builder.setPositiveButton(getResources().getString(R.string.error_dialog_ok), null);
-        builder.show();
+    public void showDialog(MainSectionFragment fragment){
+        fragment.setListBackground();
     }
 
     @Override
