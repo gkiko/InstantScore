@@ -13,13 +13,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.instantscore.adapter.DatabaseAdapter;
 
+import org.w3c.dom.Text;
+
 public class SelectedSectionFragment extends Fragment {
     private DatabaseAdapter selectedGameListAdapter;
 	private transient Context activity;
+    private RelativeLayout backgroundWarning;
+    private TextView textWarning;
 	
 	@Override
 	public void onAttach(Activity activity) {
@@ -31,6 +37,8 @@ public class SelectedSectionFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_section_launchpad,container, false);
 
+        backgroundWarning = (RelativeLayout) rootView.findViewById(R.id.layout_warning);
+        textWarning = (TextView) backgroundWarning.findViewById(R.id.message_text);
         ListView gamesListView = (ListView) rootView.findViewById(R.id.list1);
 		selectedGameListAdapter = new DatabaseAdapter(activity);
 		gamesListView.setAdapter(selectedGameListAdapter);
@@ -44,7 +52,6 @@ public class SelectedSectionFragment extends Fragment {
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
                 // Here you can do something when items are selected/unselected,
                 // such as update the title in the CAB
-                Toast.makeText(activity, position + " " + checked, Toast.LENGTH_SHORT).show();
                 selectedGameListAdapter.setSelected(position, checked);
 
                 selectedGameCounter += checked ? 1 : -1;
@@ -88,6 +95,17 @@ public class SelectedSectionFragment extends Fragment {
                 return false;
             }
         });
+
+        gamesListView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                if(selectedGameListAdapter.getCount()==0){
+                    setListBackground();
+                }else{
+                    removeListBackground();
+                }
+            }
+        });
 		
 		return rootView;
 	}
@@ -96,5 +114,16 @@ public class SelectedSectionFragment extends Fragment {
 //		Cart.addAll(DBManager.getAllMatches());
 		selectedGameListAdapter.notifyDataSetChanged();
 	}
+
+    void setListBackground() {
+        textWarning.setText(getResources().getString(R.string.warning_background_empty_list));
+        textWarning.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_menu_info_details, 0,0,0);
+        backgroundWarning.setVisibility(RelativeLayout.VISIBLE);
+    }
+
+    void removeListBackground() {
+        backgroundWarning.setVisibility(RelativeLayout.GONE);
+    }
+
 
 }

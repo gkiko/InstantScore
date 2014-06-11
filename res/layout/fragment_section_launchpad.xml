@@ -15,6 +15,7 @@
         android:visibility="gone">
 
         <TextView
+            android:id="@+id/message_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -22,7 +23,7 @@
             android:drawablePadding="5dp"
             android:gravity="center"
             android:singleLine="true"
-            android:text="Data is currently unavailable" />
+            android:text="@string/warning_background_some_exception" />
 
     </RelativeLayout>
 

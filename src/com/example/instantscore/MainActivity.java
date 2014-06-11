@@ -2,7 +2,6 @@ package com.example.instantscore;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -140,7 +139,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             fragment.onUpdate((String) event.getResult());
         } catch (Exception e) {
             e.printStackTrace();
-            showDialog(fragment);
+            fragment.setListBackground();
         }
     }
 
@@ -148,10 +147,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void onException(EventContainer evt) {
         int id = evt.getId();
         MainSectionFragment fragment = ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(id));
-        showDialog(fragment);
-    }
-
-    public void showDialog(MainSectionFragment fragment){
         fragment.setListBackground();
     }
 
