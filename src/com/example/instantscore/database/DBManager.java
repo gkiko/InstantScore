@@ -121,18 +121,4 @@ public class DBManager {
 		return matches;
 	}
 
-	public static void updateFrequencyDatabase(String word) {
-		Cursor cursor = db.rawQuery("select frequency from statistics where word = '" + word + "'",	null);
-		cursor.moveToFirst();
-		String freq = cursor.getString(0);
-		int newFreq = 1 + Integer.parseInt(freq);
-		db.beginTransaction();
-		ContentValues values = new ContentValues();
-		values.put("word", word);
-		values.put("frequency", "" + newFreq);
-		db.update("statistics", values, "word = ?", new String[] { word });
-		db.setTransactionSuccessful();
-		db.endTransaction();
-	}
-
 }
