@@ -44,10 +44,6 @@ public class MainSectionFragment extends Fragment {
     private SeparatedListAdapter separatedListAdapter;
     private String isLive = "";
 
-    public static boolean isGameLiveOrComing(String gameId) {
-        return listOfAllLiveGames.contains(gameId) || listOfAllComingGames.contains(gameId);
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
