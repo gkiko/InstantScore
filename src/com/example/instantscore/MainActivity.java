@@ -142,6 +142,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         MainSectionFragment fragment = ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(id));
         try {
             fragment.onUpdate((String) event.getResult());
+            fragment.removeListBackground();
         } catch (Exception e) {
             e.printStackTrace();
             fragment.setListBackground();

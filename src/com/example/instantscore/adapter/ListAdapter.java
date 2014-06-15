@@ -63,14 +63,14 @@ public class ListAdapter extends BaseAdapter implements Serializable{
 		
 		(cont.homeTeam).setText(ls.get(arg0).getHomeTeam());
 		(cont.awayTeam).setText(ls.get(arg0).getAwayTeam());
-		(cont.date).setText(Utils.formatDate(ls.get(arg0).getDate()));
+		(cont.date).setText(ls.get(arg0).getDate());
 		(cont.time).setText(ls.get(arg0).getTime());
 		(cont.homeTeamScore).setText(ls.get(arg0).getHomeTeamScore());
 		(cont.awayTeamScore).setText(ls.get(arg0).getAwayTeamScore());
 		if(ls.get(arg0).selected()){
 			v.setBackgroundColor(c.getResources().getColor(android.R.color.holo_blue_light));
 		}else{
-			v.setBackgroundColor(c.getResources().getColor(android.R.color.white));
+			v.setBackgroundColor(c.getResources().getColor(android.R.color.transparent));
 		}
 		return v;
 	}

@@ -24,7 +24,7 @@ public class NumberDialog extends DialogFragment {
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.number_dialog_layout, null);
+        View view = inflater.inflate(R.layout.dialog_layout_number, null);
         final EditText numberEditText = (EditText) view.findViewById(R.id.number_editText);
 		
 		Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());

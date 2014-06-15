@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.instantscore.R;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.model.Game;
+import com.example.instantscore.utils.Utils;
 
 public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -66,7 +67,7 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 			cont = (Container) v.getTag();
 		}
 
-        (cont.date).setText(ls.get(arg0).getDate());
+        (cont.date).setText(Utils.formatDate(ls.get(arg0).getDate()));
 		(cont.homeTeam).setText(ls.get(arg0).getHomeTeam());
 		(cont.awayTeam).setText(ls.get(arg0).getAwayTeam());
 		if(ls.get(arg0).selected()){

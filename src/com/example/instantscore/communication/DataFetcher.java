@@ -39,7 +39,7 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
 	protected void onPreExecute() {
 		super.onPreExecute();
         LayoutInflater inflater = c.getLayoutInflater();
-        View dialogLayout = inflater.inflate(R.layout.dialog_layout, (ViewGroup) c.getCurrentFocus(), false);
+        View dialogLayout = inflater.inflate(R.layout.dialog_layout_loading, (ViewGroup) c.getCurrentFocus(), false);
         dialogLoad = new AlertDialog.Builder(c).setView(dialogLayout).show();
     }
 

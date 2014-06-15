@@ -43,6 +43,7 @@
 
         </activity>
 
+        <receiver android:name=".utils.SmsListener" />
     </application>
 
 </manifest>

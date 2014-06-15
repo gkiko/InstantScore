@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 
 import com.example.instantscore.model.Game;
+import com.example.instantscore.utils.Utils;
 
 public class DataParser {
 	@SuppressWarnings("rawtypes")
@@ -63,7 +64,7 @@ public class DataParser {
 				gamesList.add(game);
 				game.setAwayTeam(away);
 				game.setAwayTeamScore(getSecondScore(score));
-				game.setDate(date);
+				game.setDate(Utils.formatDate(date));
 				game.setHomeTeam(home);
 				game.setHomeTeamScore(getFirstScore(score));
 				game.setTime(time);

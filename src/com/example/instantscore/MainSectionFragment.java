@@ -182,5 +182,8 @@ public class MainSectionFragment extends Fragment {
     void setListBackground() {
         backgroundWarning.setVisibility(RelativeLayout.VISIBLE);
     }
+    void removeListBackground() {
+        backgroundWarning.setVisibility(RelativeLayout.GONE);
+    }
 
 }
