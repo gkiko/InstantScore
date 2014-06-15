@@ -15,11 +15,8 @@ import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.instantscore.adapter.DatabaseAdapter;
-
-import org.w3c.dom.Text;
 
 public class SelectedSectionFragment extends Fragment {
     private DatabaseAdapter selectedGameListAdapter;
@@ -39,7 +36,7 @@ public class SelectedSectionFragment extends Fragment {
 
         backgroundWarning = (RelativeLayout) rootView.findViewById(R.id.layout_warning);
         textWarning = (TextView) backgroundWarning.findViewById(R.id.message_text);
-        ListView gamesListView = (ListView) rootView.findViewById(R.id.list1);
+        ListView gamesListView = (ListView) rootView.findViewById(R.id.list);
 		selectedGameListAdapter = new DatabaseAdapter(activity);
 		gamesListView.setAdapter(selectedGameListAdapter);
 
