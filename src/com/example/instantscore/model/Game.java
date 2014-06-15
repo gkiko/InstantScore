@@ -61,9 +61,9 @@ public class Game {
 	}	
 	
 	public String convertTime(int hours, int minutes) {
-		long miliseconds = Date.UTC(1, 1, 1, hours, minutes, 0);
+		long milliseconds = Date.UTC(1, 1, 1, hours, minutes, 0);
 		Calendar cal = new GregorianCalendar();
-		cal.setTimeInMillis(miliseconds);
+		cal.setTimeInMillis(milliseconds);
 		DateFormat formatter = new SimpleDateFormat("HH:mm");
 		
 		formatter.setCalendar(cal);

@@ -23,7 +23,8 @@ import com.newrelic.agent.android.NewRelic;
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener, CallbackListener {
 	AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 	ViewPager mViewPager;
-    DataFetcher fetcher;
+    DataFetcher fetcher1;
+    DataFetcher fetcher2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
@@ -118,9 +119,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         EventContainer cont1 = new EventContainer(getResources().getString(R.string.url_get_submit), 0);
         EventContainer cont2 = new EventContainer(getResources().getString(R.string.url_get_coming), 1);
 
-        fetcher = new DataFetcher(this);
-        fetcher.addMyChangeListener(this);
-        fetcher.execute(cont1, cont2);
+        fetcher1 = new DataFetcher(this);
+        fetcher1.addMyChangeListener(this);
+        fetcher1.execute(cont1);
+
+        fetcher2 = new DataFetcher(this);
+        fetcher2.addMyChangeListener(this);
+        fetcher2.execute(cont2);
     }
 	
 	private void showPreferences(){
@@ -153,6 +158,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     protected void onPause() {
         super.onPause();
-        fetcher.cancel(true);
+        fetcher1.cancel(true);
+        fetcher2.cancel(true);
     }
 }
