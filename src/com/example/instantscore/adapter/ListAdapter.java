@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.instantscore.R;
 import com.example.instantscore.model.Game;
-import com.example.instantscore.utils.Utils;
 
 public class ListAdapter extends BaseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -67,7 +66,7 @@ public class ListAdapter extends BaseAdapter implements Serializable{
 		(cont.time).setText(ls.get(arg0).getTime());
 		(cont.homeTeamScore).setText(ls.get(arg0).getHomeTeamScore());
 		(cont.awayTeamScore).setText(ls.get(arg0).getAwayTeamScore());
-		if(ls.get(arg0).selected()){
+		if(ls.get(arg0).isSelected()){
 			v.setBackgroundColor(c.getResources().getColor(android.R.color.holo_blue_light));
 		}else{
 			v.setBackgroundColor(c.getResources().getColor(android.R.color.transparent));

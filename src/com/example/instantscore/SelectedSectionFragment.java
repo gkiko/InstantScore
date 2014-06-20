@@ -47,7 +47,7 @@ public class SelectedSectionFragment extends Fragment {
 
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-                // Here you can do something when items are selected/unselected,
+                // Here you can do something when items are isSelected/unselected,
                 // such as update the title in the CAB
                 selectedGameListAdapter.setSelected(position, checked);
 
@@ -80,7 +80,7 @@ public class SelectedSectionFragment extends Fragment {
             @Override
             public void onDestroyActionMode(ActionMode mode) {
                 // Here you can make any necessary updates to the activity when
-                // the CAB is removed. By default, selected items are deselected/unchecked.
+                // the CAB is removed. By default, isSelected items are deselected/unchecked.
                 selectedGameListAdapter.unselectAll();
                 selectedGameCounter = 0;
             }

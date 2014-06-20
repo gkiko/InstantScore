@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.instantscore.R;
 import com.example.instantscore.database.DBManager;
@@ -67,10 +66,10 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 			cont = (Container) v.getTag();
 		}
 
-        (cont.date).setText(Utils.formatDate(ls.get(arg0).getDate()));
+        (cont.date).setText(ls.get(arg0).getDate());
 		(cont.homeTeam).setText(ls.get(arg0).getHomeTeam());
 		(cont.awayTeam).setText(ls.get(arg0).getAwayTeam());
-		if(ls.get(arg0).selected()){
+		if(ls.get(arg0).isSelected()){
 			v.setBackgroundColor(c.getResources().getColor(android.R.color.holo_blue_dark));
 		}else{
 			v.setBackgroundColor(c.getResources().getColor(android.R.color.transparent));
@@ -91,7 +90,7 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		Game g;
 		for(int i=0;i<ls.size();i++){
 			g = ls.get(i);
-			if(g.selected()){
+			if(g.isSelected()){
 				ls.remove(i);
 				DBManager.removeMatchFromDatabase(g);
                 i--;

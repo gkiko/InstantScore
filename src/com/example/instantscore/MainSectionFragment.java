@@ -44,7 +44,7 @@ public class MainSectionFragment extends Fragment {
 
     /**
      * Returns whether the game with the given id is either live or coming. If it returns false, the it's 100% correct, but if it returns true, maybe it's just because
-     * the live games or coming games are not loaded at the moment of this method invocation. It works fine for our purpose because we only need to remove match from selected
+     * the live games or coming games are not loaded at the moment of this method invocation. It works fine for our purpose because we only need to remove match from isSelected
      * list if we know for sure that it's no longer active game.
      *
      * @param gameId
@@ -76,7 +76,7 @@ public class MainSectionFragment extends Fragment {
                 InsertStatus insertStatus = null;
                 if (item.isSelectable()) {
                     insertStatus = DBManager.insertMatchIntoDatabase(item);
-                    item.setSelected(!item.selected());
+                    item.setSelected(!item.isSelected());
                 }
                 showMessage(item, insertStatus);
 
