@@ -119,6 +119,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         EventContainer cont1 = new EventContainer(getResources().getString(R.string.url_get_submit), 0);
         EventContainer cont2 = new EventContainer(getResources().getString(R.string.url_get_coming), 1);
 
+        System.out.println("start");
         fetcher1 = new DataFetcher(this);
         fetcher1.addMyChangeListener(this);
         fetcher1.execute(cont1);

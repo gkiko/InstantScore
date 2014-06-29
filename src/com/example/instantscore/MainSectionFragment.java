@@ -18,29 +18,37 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.instantscore.adapter.ExpandableListAdapter;
 import com.example.instantscore.adapter.ListAdapter;
 import com.example.instantscore.adapter.SeparatedListAdapter;
 import com.example.instantscore.communication.DataSender;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.database.InsertStatus;
-import com.example.instantscore.logic.DataParser;
 import com.example.instantscore.model.Game;
+import com.example.instantscore.model.League;
 import com.example.instantscore.model.ListAdapterPriority;
+import com.example.instantscore.model.Match;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class MainSectionFragment extends Fragment {
-    private static HashSet<String> listOfAllLiveGames = new HashSet<String>();
-    private static HashSet<String> listOfAllComingGames = new HashSet<String>();
-    private ListView gamesListView;
-    private RelativeLayout backgroundWarning;
-    private Activity activity;
-    private SeparatedListAdapter separatedListAdapter;
-    private String isLive = "";
+    static HashSet<String> listOfAllLiveGames = new HashSet<String>();
+    static HashSet<String> listOfAllComingGames = new HashSet<String>();
+    ListView gamesListView;
+    ListView gamesListViewNew;
+    RelativeLayout backgroundWarning;
+    Activity activity;
+    SeparatedListAdapter separatedListAdapter;
+
+    Gson gson = new Gson();
+    ExpandableListView expandableListView;
+    ExpandableListAdapter listAdapter;
+    String isLive = "";
 
     /**
      * Returns whether the game with the given id is either live or coming. If it returns false, the it's 100% correct, but if it returns true, maybe it's just because
@@ -65,24 +73,37 @@ public class MainSectionFragment extends Fragment {
         Bundle args = getArguments();
         View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
         backgroundWarning = (RelativeLayout) rootView.findViewById(R.id.layout_warning);
-        gamesListView = (ListView) rootView.findViewById(R.id.list);
+//        gamesListView = (ListView) rootView.findViewById(R.id.list);
         isLive = args.getString("live");
 
-        gamesListView.setOnItemClickListener(new OnItemClickListener() {
+//        gamesListView.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long duration) {
+//                Game item = (Game) separatedListAdapter.getItem(position);
+//
+//                InsertStatus insertStatus = null;
+//                if (item.isSelectable()) {
+//                    insertStatus = DBManager.insertMatchIntoDatabase(item);
+//                    item.setSelected(!item.isSelected());
+//                }
+//                showMessage(item, insertStatus);
+//
+//                separatedListAdapter.notifyDataSetChanged();
+//            }
+//
+//        });
+
+        expandableListView = (ExpandableListView) rootView.findViewById(R.id.list);
+
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long duration) {
-                Game item = (Game) separatedListAdapter.getItem(position);
-
-                InsertStatus insertStatus = null;
-                if (item.isSelectable()) {
-                    insertStatus = DBManager.insertMatchIntoDatabase(item);
-                    item.setSelected(!item.isSelected());
-                }
-                showMessage(item, insertStatus);
-
-                separatedListAdapter.notifyDataSetChanged();
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                // TODO Auto-generated method stub
+                Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
+                return false;
             }
-
         });
 
         return rootView;
@@ -103,21 +124,37 @@ public class MainSectionFragment extends Fragment {
     }
 
     public void onUpdate(String data) throws Exception {
-        @SuppressWarnings("rawtypes")
-        HashMap[] maps = DataParser.parseData(data);
-        @SuppressWarnings("unchecked")
-        HashMap<String, ArrayList<Game>> map = maps[0];
-        if (isLive.equals("true")) {
-            listOfAllLiveGames.clear();
-            fillArrayList(map, listOfAllLiveGames);
-        } else {
-            listOfAllComingGames.clear();
-            fillArrayList(map, listOfAllComingGames);
+        List<League> ls = gson.fromJson(data, new TypeToken<List<League>>(){}.getType());
+
+        listAdapter = new ExpandableListAdapter(getActivity(), ls, buildMap(ls));
+        expandableListView.setAdapter(listAdapter);
+
+//        for(int i=0; i < listAdapter.getGroupCount(); i++)
+//            expandableListView.expandGroup(i);
+
+//        @SuppressWarnings("rawtypes")
+//        HashMap[] maps = DataParser.parseData(data);
+//        @SuppressWarnings("unchecked")
+//        HashMap<String, ArrayList<Game>> map = maps[0];
+//        if (isLive.equals("true")) {
+//            listOfAllLiveGames.clear();
+//            fillArrayList(map, listOfAllLiveGames);
+//        } else {
+//            listOfAllComingGames.clear();
+//            fillArrayList(map, listOfAllComingGames);
+//        }
+//        DBManager.removeAllInactiveMatches();
+//        @SuppressWarnings("unchecked")
+//        ArrayList<ListAdapterPriority> sortedMatches = sortMatches(map, maps[1]);
+//        fillListAdapter(sortedMatches);
+    }
+
+    private HashMap<String, List<Match>> buildMap(List<League> ls){
+        HashMap<String, List<Match>> map = new HashMap<String, List<Match>>();
+        for(League league : ls){
+            map.put(league.getName(), league.getMatches());
         }
-        DBManager.removeAllInactiveMatches();
-        @SuppressWarnings("unchecked")
-        ArrayList<ListAdapterPriority> sortedMatches = sortMatches(map, maps[1]);
-        fillListAdapter(sortedMatches);
+        return map;
     }
 
     private void fillArrayList(HashMap<String, ArrayList<Game>> map, HashSet<String> gameIds) {
@@ -180,12 +217,12 @@ public class MainSectionFragment extends Fragment {
 
     void setListBackground() {
         backgroundWarning.setVisibility(RelativeLayout.VISIBLE);
-        gamesListView.setVisibility(ListView.GONE);
+        expandableListView.setVisibility(ListView.GONE);
     }
 
     void removeListBackground() {
         backgroundWarning.setVisibility(RelativeLayout.GONE);
-        gamesListView.setVisibility(ListView.VISIBLE);
+        expandableListView.setVisibility(ListView.VISIBLE);
     }
 
 }

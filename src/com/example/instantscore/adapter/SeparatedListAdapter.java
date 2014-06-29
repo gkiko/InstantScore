@@ -99,20 +99,20 @@ public class SeparatedListAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		int sectionnum = 0;
+		int sectionNum = 0;
 		for (Object section : this.sections.keySet()) {
 			Adapter adapter = sections.get(section);
 			int size = adapter.getCount() + 1;
 
 			// check if position inside this section
 			if (position == 0)
-				return headers.getView(sectionnum, convertView, parent);
+				return headers.getView(sectionNum, convertView, parent);
 			if (position < size)
 				return adapter.getView(position - 1, convertView, parent);
 
 			// otherwise jump into next section
 			position -= size;
-			sectionnum++;
+			sectionNum++;
 		}
 		return null;
 	}

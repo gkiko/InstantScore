@@ -1,10 +1,48 @@
 package com.example.instantscore.model;
 
-import com.example.instantscore.utils.Utils;
-
 public class Game {
-    private boolean isSelected = false;
-    private String tournament, date, time, homeTeam, awayTeam, homeTeamScore, awayTeamScore;
+    private boolean isSelected;
+    private String tournament;
+    private String date;
+    private String time;
+    private String homeTeam;
+    private String awayTeam;
+    private String homeTeamScore;
+    private String awayTeamScore;
+
+    public Game() {
+        isSelected = false;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder("Game [country=").append(getTournament()).append(", date=").append(getDate()).append(", time=").append(getTime())
+                .append(", homeTeam=").append(getHomeTeam()).append(", awayTeam=").append(getAwayTeam())
+                .append(", homeTeamScore=").append(getHomeTeamScore()).append(", awayTeamScore=")
+                .append(getAwayTeamScore()).append(", isSelected=").append(isSelected()).append("]").toString();
+    }
+
+    public String getGameId() {
+        return getHomeTeam() + " vs " + getAwayTeam();
+    }
+
+    public boolean isSelectable() {
+        return !getTime().equals("FT") && !getTime().equals("Postp.") && !getTime().equals("AAW") && !getTime().equals("AET");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Game other = (Game) o;
+        return getGameId().equals(other.getGameId());
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean isSelected) {
+        this.isSelected = isSelected;
+    }
 
     public String getTournament() {
         return tournament;
@@ -12,6 +50,22 @@ public class Game {
 
     public void setTournament(String tournament) {
         this.tournament = tournament;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getHomeTeam() {
@@ -45,51 +99,4 @@ public class Game {
     public void setAwayTeamScore(String awayTeamScore) {
         this.awayTeamScore = awayTeamScore;
     }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    @Override
-    public String toString() {
-        return new StringBuilder("Game [country=").append(tournament).append(", date=").append(date).append(", time=").append(time)
-                .append(", homeTeam=").append(homeTeam).append(", awayTeam=").append(awayTeam)
-                .append(", homeTeamScore=").append(homeTeamScore).append(", awayTeamScore=")
-                .append(awayTeamScore).append(", isSelected=").append(isSelected).append("]").toString();
-    }
-
-    public String getGameId() {
-        return homeTeam + " vs " + awayTeam;
-    }
-
-    public boolean isSelectable() {
-        return !time.equals("FT") && !time.equals("Postp.") && !time.equals("AAW") && !time.equals("AET");
-    }
-
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        Game other = (Game) o;
-        return getGameId().equals(other.getGameId());
-    }
-
 }

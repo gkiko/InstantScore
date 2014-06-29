@@ -32,7 +32,7 @@ public class SelectedSectionFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_section_launchpad,container, false);
+		View rootView = inflater.inflate(R.layout.fragment_section_launchpad_old,container, false);
 
         backgroundWarning = (RelativeLayout) rootView.findViewById(R.id.layout_warning);
         textWarning = (TextView) backgroundWarning.findViewById(R.id.message_text);

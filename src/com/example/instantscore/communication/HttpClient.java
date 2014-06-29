@@ -103,6 +103,7 @@ public class HttpClient {
 		HttpEntity entity = response.getEntity();
 
 		String result = streamToString(entity.getContent());
+        System.out.println("res "+result);
 
 		// When HttpClient instance is no longer needed,
 		// shut down the connection manager to ensure

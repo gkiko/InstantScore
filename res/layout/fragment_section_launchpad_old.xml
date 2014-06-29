@@ -3,12 +3,11 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light">
 
-    <ExpandableListView
+    <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/bg_key"
-        android:groupIndicator="@null"></ExpandableListView>
+        android:background="@drawable/bg_key"></ListView>
 
     <RelativeLayout
         android:id="@+id/layout_warning"
