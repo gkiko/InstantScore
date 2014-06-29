@@ -8,8 +8,9 @@
 
     <!-- config -->
     <!-- http://ec2-54-213-156-227.us-west-2.compute.amazonaws.com -->
-    <string name="url_get_submit">http://192.168.56.1:8080/InstantScore2/DataProvider</string>
-    <string name="url_get_coming">http://192.168.56.1:8080/InstantScore2/DataProvider</string>
+    <!-- http://192.168.56.1:8080/InstantScore2/DataProvider -->
+    <string name="url_get_submit">http://ec2-54-213-156-227.us-west-2.compute.amazonaws.com:8080/InstantScore2/DataProvider</string>
+    <string name="url_get_coming">http://ec2-54-213-156-227.us-west-2.compute.amazonaws.com:8080/InstantScore2/DataProvider</string>
     <string name="url_request_code">http://192.168.56.1:8080/InstantScore/SecurityCodeServlet</string>
 
     <!-- dialog -->
