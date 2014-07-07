@@ -60,6 +60,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         	showPreferences();
         }
 
+        final String url1 = "";
         runDownloader();
 
         NewRelic.withApplicationToken("AA907c3b86fbc007ff0ecb385c864207f3d89b8715").start(this.getApplication());
@@ -116,10 +117,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	}
 
     private void runDownloader(){
-        EventContainer cont1 = new EventContainer(getResources().getString(R.string.url_get_submit), 0);
-        EventContainer cont2 = new EventContainer(getResources().getString(R.string.url_get_coming), 1);
+        EventContainer cont1 = new EventContainer(getString(R.string.url_data_1), 0);
+        EventContainer cont2 = new EventContainer(getString(R.string.url_data_2), 1);
 
-        System.out.println("start");
         fetcher1 = new DataFetcher(this);
         fetcher1.addMyChangeListener(this);
         fetcher1.execute(cont1);

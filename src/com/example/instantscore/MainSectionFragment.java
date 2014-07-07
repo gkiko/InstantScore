@@ -177,7 +177,7 @@ public class MainSectionFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     void submitGames() {
-        DataSender sender = new DataSender(activity.getResources().getString(R.string.url_get_submit));
+        DataSender sender = new DataSender(activity.getResources().getString(R.string.url_sms));
         sender.execute(getSubscribtionDataToSend());
     }
 

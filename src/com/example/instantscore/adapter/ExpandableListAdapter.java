@@ -77,7 +77,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         TextView leagueListDate = (TextView) convertView.findViewById(R.id.date);
 
         leagueListHeader.setText(header.getName());
-//        leagueListDate.setText(header.getDate());
+        leagueListDate.setText(header.getDate());
         return convertView;
     }
 
