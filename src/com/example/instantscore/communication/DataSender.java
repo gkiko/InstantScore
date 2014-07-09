@@ -1,5 +1,7 @@
 package com.example.instantscore.communication;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
@@ -35,8 +37,12 @@ public class DataSender extends AsyncTask<List<NameValuePair>, Void, Void> {
 		for(NameValuePair pair : pairs){
 			sb.append(pair.getName());
 			sb.append("=");
-			sb.append(pair.getValue());
-			sb.append("&");
+            try {
+                sb.append(URLEncoder.encode(pair.getValue(), "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            sb.append("&");
 		}
 		sb.deleteCharAt(sb.length() - 1);
 		return sb.toString();
