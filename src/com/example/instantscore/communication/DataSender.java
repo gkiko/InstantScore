@@ -17,7 +17,6 @@ public class DataSender extends AsyncTask<List<NameValuePair>, Void, Void> {
 	
 	@Override
 	protected Void doInBackground(List<NameValuePair>... params) {
-		pairsToUrl(params[0]);
 		String urlParameters = pairsToUrl(params[0]);
 		try {
 			HttpClient.doPost(url, urlParameters);
