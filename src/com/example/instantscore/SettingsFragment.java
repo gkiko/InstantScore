@@ -56,7 +56,7 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 String phoneNum = PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(KEY_PHONE_NUM, "");
-                                makeCodeRequest(phoneNum, KEY_PHONE_NUM);
+                                makeCodeRequest(phoneNum);
                             }
                         }).create();
                 dialog.show();
@@ -84,11 +84,11 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
         updateSettings();
     }
 
-    private void makeCodeRequest(String phoneNum, String key) {
+    private void makeCodeRequest(String phoneNum) {
         DataSender sender = new DataSender(getResources().getString(R.string.url_sms));
         List<NameValuePair> pairs = new ArrayList<NameValuePair>();
         pairs.add(new BasicNameValuePair("type", "new_code"));
-        pairs.add(new BasicNameValuePair(key, phoneNum));
+        pairs.add(new BasicNameValuePair("phone_num", phoneNum));
         sender.execute(pairs);
     }
 

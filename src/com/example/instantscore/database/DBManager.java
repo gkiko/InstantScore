@@ -59,19 +59,7 @@ public class DBManager {
 				game.getAwayTeam()+"'", null);
 		return cursor.moveToFirst();
 	}
-	
-	public static void removeAllInactiveMatches(){
-		List<Game> gamesFromDb = getAllMatches();
-		for(Game game : gamesFromDb){
-			String gameId = game.getGameId();
-			if(MainSectionFragment.isGameLiveOrComing(gameId)){
-				continue; // everything OK
-			}
-			// otherwise remove it from database
-			removeMatchFromDatabase(game);
-		}
-	}
-	
+
 	public static void removeOldMatchesFrom(HashMap<String, ArrayList<Game>> activeMatches){
 		HashSet<String> gameIdsSet = new HashSet<String>();
 		for(ArrayList<Game> listGames : activeMatches.values()){

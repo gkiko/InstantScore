@@ -78,7 +78,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    // Handle item selection
 	    switch (item.getItemId()) {
 	    case R.id.submit:
-            ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(0)).submitGames();
+//            ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(0)).submitGame();
 			return true;
 	    case R.id.refresh:
             runDownloader();

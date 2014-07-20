@@ -21,13 +21,10 @@ import java.util.List;
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context _context;
     private List<League> _listDataHeader; // header titles
-    // child data in format of header title, child title
-    private HashMap<String, List<Match>> _listDataChild;
 
-    public ExpandableListAdapter(Context context, List<League> listDataHeader, HashMap<String, List<Match>> listChildData) {
+    public ExpandableListAdapter(Context context, List<League> listDataHeader) {
         this._context = context;
         this._listDataHeader = listDataHeader;
-        this._listDataChild = listChildData;
     }
 
     @Override
@@ -37,7 +34,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this._listDataChild.get(this._listDataHeader.get(groupPosition).getName()).size();
+        return this._listDataHeader.get(groupPosition).getMatches().size();
     }
 
     @Override
@@ -47,7 +44,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return this._listDataChild.get(this._listDataHeader.get(groupPosition).getName()).get(childPosition);
+        return this._listDataHeader.get(groupPosition).getMatches().get(childPosition);
     }
 
     @Override
