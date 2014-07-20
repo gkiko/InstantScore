@@ -85,7 +85,7 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
     }
 
     private void makeCodeRequest(String phoneNum) {
-        DataSender sender = new DataSender(getResources().getString(R.string.url_sms));
+        DataSender sender = new DataSender(getResources().getString(R.string.url_sms), null, getActivity());
         List<NameValuePair> pairs = new ArrayList<NameValuePair>();
         pairs.add(new BasicNameValuePair("type", "new_code"));
         pairs.add(new BasicNameValuePair("phone_num", phoneNum));

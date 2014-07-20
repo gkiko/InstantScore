@@ -6,28 +6,46 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.Toast;
 
-public class DataSender extends AsyncTask<List<NameValuePair>, Void, Void> {
+import com.example.instantscore.R;
+
+public class DataSender extends AsyncTask<List<NameValuePair>, Void, String> {
 	private String url;
+    private View v;
+    private Context c;
 
-	public DataSender(String url){
+	public DataSender(String url, View v, Context c){
 		this.url = url;
+        this.v = v;
+        this.c = c;
 	}
-	
-	@Override
-	protected Void doInBackground(List<NameValuePair>... params) {
-		String urlParameters = pairsToUrl(params[0]);
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        v.findViewById(R.id.progressBar3).setVisibility(View.VISIBLE);
+    }
+
+    @Override
+	protected String doInBackground(List<NameValuePair>... params) {
+        String response = null;
+        String urlParameters = pairsToUrl(params[0]);
 		try {
-			HttpClient.doPost(url, urlParameters);
+			response = HttpClient.doPost(url, urlParameters);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return response;
 	}
 
 	@Override
-	protected void onPostExecute(Void result) {
+	protected void onPostExecute(String result) {
+        Toast.makeText(c, result, Toast.LENGTH_SHORT).show();
+        v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
 		super.onPostExecute(result);
 	}
 	

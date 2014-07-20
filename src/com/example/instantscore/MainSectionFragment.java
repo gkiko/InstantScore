@@ -57,8 +57,8 @@ public class MainSectionFragment extends Fragment {
 
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
-                submitGame((Match)parent.getExpandableListAdapter().getChild(groupPosition, childPosition));
+                Match selectedMatch = (Match)parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
+                submitGame(selectedMatch, v);
                 return false;
             }
         });
@@ -74,8 +74,8 @@ public class MainSectionFragment extends Fragment {
     }
 
     @SuppressWarnings("unchecked")
-    void submitGame(Match match) {
-        DataSender sender = new DataSender(activity.getResources().getString(R.string.url_sms));
+    void submitGame(Match match, View v) {
+        DataSender sender = new DataSender(activity.getResources().getString(R.string.url_sms), v, getActivity());
         sender.execute(createSubscribtionDataToSend(match));
     }
 

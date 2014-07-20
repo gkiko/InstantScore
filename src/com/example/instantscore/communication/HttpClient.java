@@ -149,8 +149,17 @@ public class HttpClient {
 		System.out.println("\nSending 'POST' request to URL : " + url);
 		System.out.println("Post parameters : " + urlParameters);
 		System.out.println("Response Code : " + responseCode);
+        System.out.println("Response message : " + con.getResponseMessage());
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        InputStream stream;
+        switch (responseCode) {
+            case 400:
+                stream = con.getErrorStream();
+                break;
+            default:
+                stream = con.getInputStream();
+        }
+        BufferedReader in = new BufferedReader(new InputStreamReader(stream));
 		String inputLine;
 		StringBuffer response = new StringBuffer();
 
