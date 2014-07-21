@@ -14,54 +14,58 @@ import android.widget.Toast;
 import com.example.instantscore.R;
 
 public class DataSender extends AsyncTask<List<NameValuePair>, Void, String> {
-	private String url;
+    private String url;
     private View v;
     private Context c;
 
-	public DataSender(String url, View v, Context c){
-		this.url = url;
+    public DataSender(String url, View v, Context c) {
+        this.url = url;
         this.v = v;
         this.c = c;
-	}
+    }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        v.findViewById(R.id.progressBar3).setVisibility(View.VISIBLE);
+        if (this.v != null) {
+            this.v.findViewById(R.id.progressBar3).setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
-	protected String doInBackground(List<NameValuePair>... params) {
+    protected String doInBackground(List<NameValuePair>... params) {
         String response = null;
         String urlParameters = pairsToUrl(params[0]);
-		try {
-			response = HttpClient.doPost(url, urlParameters);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return response;
-	}
+        try {
+            response = HttpClient.doPost(url, urlParameters);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
 
-	@Override
-	protected void onPostExecute(String result) {
+    @Override
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
         Toast.makeText(c, result, Toast.LENGTH_SHORT).show();
-        v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
-		super.onPostExecute(result);
-	}
-	
-	private String pairsToUrl(List<NameValuePair> pairs){
-		StringBuilder sb = new StringBuilder();
-		for(NameValuePair pair : pairs){
-			sb.append(pair.getName());
-			sb.append("=");
+        if (this.v != null) {
+            this.v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
+        }
+    }
+
+    private String pairsToUrl(List<NameValuePair> pairs) {
+        StringBuilder sb = new StringBuilder();
+        for (NameValuePair pair : pairs) {
+            sb.append(pair.getName());
+            sb.append("=");
             try {
                 sb.append(URLEncoder.encode(pair.getValue(), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
             sb.append("&");
-		}
-		sb.deleteCharAt(sb.length() - 1);
-		return sb.toString();
-	}
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
+    }
 }
