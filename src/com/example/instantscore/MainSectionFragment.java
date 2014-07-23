@@ -57,8 +57,10 @@ public class MainSectionFragment extends Fragment {
 
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Match selectedMatch = (Match)parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
+                Match selectedMatch = (Match) parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
+                League selectedLeague = (League)parent.getExpandableListAdapter().getGroup(groupPosition);
                 submitGame(selectedMatch, v);
+                DBManager.insertMatchIntoDatabase(selectedMatch, selectedLeague);
                 return false;
             }
         });
@@ -67,7 +69,8 @@ public class MainSectionFragment extends Fragment {
     }
 
     public void onUpdate(String data) throws Exception {
-        List<League> ls = gson.fromJson(data, new TypeToken<List<League>>(){}.getType());
+        List<League> ls = gson.fromJson(data, new TypeToken<List<League>>() {
+        }.getType());
 
         listAdapter = new ExpandableListAdapter(getActivity(), ls);
         expandableListView.setAdapter(listAdapter);
@@ -85,7 +88,7 @@ public class MainSectionFragment extends Fragment {
         pairs.add(new BasicNameValuePair("type", "submit_game"));
         pairs.add(new BasicNameValuePair("phone_num", getFromPrefs("phonenum")));
         pairs.add(new BasicNameValuePair("security_code", getFromPrefs("securitycode")));
-        pairs.add(new BasicNameValuePair("match_id", match.getTeam1()+" vs "+match.getTeam2()));
+        pairs.add(new BasicNameValuePair("match_id", match.getId()));
         Toast.makeText(activity, pairs.toString(), Toast.LENGTH_SHORT).show();
 
         return pairs;

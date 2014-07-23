@@ -16,20 +16,20 @@ import com.example.instantscore.utils.Utils;
 
 public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private List<Game> ls;
+	private List<String> ls;
 	private Context c;
 	
 	public DatabaseAdapter(Context context){
 		c = context;
 		DBManager.init(c);
-		ls = DBManager.getAllMatches();
+		ls = DBManager.getAllMatchIds();
 	}
 
 	@Override
 	public void notifyDataSetChanged() {
-		for(Game g : DBManager.getAllMatches()){
-			if(!ls.contains(g)){
-				ls.add(g);
+		for(String matchId : DBManager.getAllMatchIds()){
+			if(!ls.contains(matchId)){
+				ls.add(matchId);
 			}
 		}
 		super.notifyDataSetChanged();
@@ -55,52 +55,50 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 		View v;
 		Container cont;
 		if(arg1 == null){
-			v = View.inflate(c, R.layout.list_item, null);
+			v = View.inflate(c, R.layout.list_item_new_tab3, null);
 			cont = new Container();
-            cont.date = (TextView)v.findViewById(R.id.date);
-			cont.homeTeam = (TextView)v.findViewById(R.id.homeTeam);
-			cont.awayTeam = (TextView)v.findViewById(R.id.awayTeam);
+            cont.matchId = (TextView)v.findViewById(R.id.match_id);
 			v.setTag(cont);
 		}else{
 			v = arg1;
 			cont = (Container) v.getTag();
 		}
 
-        (cont.date).setText(ls.get(arg0).getDate());
-		(cont.homeTeam).setText(ls.get(arg0).getHomeTeam());
-		(cont.awayTeam).setText(ls.get(arg0).getAwayTeam());
-		if(ls.get(arg0).isSelected()){
-			v.setBackgroundColor(c.getResources().getColor(android.R.color.holo_blue_dark));
-		}else{
-			v.setBackgroundColor(c.getResources().getColor(android.R.color.transparent));
-		}
+        (cont.matchId).setText(ls.get(arg0));
+//		(cont.homeTeam).setText(ls.get(arg0).getHomeTeam());
+//		(cont.awayTeam).setText(ls.get(arg0).getAwayTeam());
+//		if(ls.get(arg0).isSelected()){
+//			v.setBackgroundColor(c.getResources().getColor(android.R.color.holo_blue_dark));
+//		}else{
+//			v.setBackgroundColor(c.getResources().getColor(android.R.color.transparent));
+//		}
 		return v;
 	}
 	
 	private class Container{
-		TextView homeTeam, awayTeam, date;
+		TextView matchId;
 	}
 	
 	public void setSelected(int position, boolean selected){
-		ls.get(position).setSelected(selected);
+//		ls.get(position).setSelected(selected);
         this.notifyDataSetChanged();
 	}
 	
 	public void deleteSelected(){
-		Game g;
-		for(int i=0;i<ls.size();i++){
-			g = ls.get(i);
-			if(g.isSelected()){
-				ls.remove(i);
-				DBManager.removeMatchFromDatabase(g);
-                i--;
-            }
-		}
+//		Game g;
+//		for(int i=0;i<ls.size();i++){
+//			g = ls.get(i);
+//			if(g.isSelected()){
+//				ls.remove(i);
+//				DBManager.removeMatchFromDatabase(g);
+//                i--;
+//            }
+//		}
 		this.notifyDataSetChanged();
 	}
 	
 	public void add(Game g){
-		ls.add(g);
+//		ls.add(g);
 		DBManager.insertMatchIntoDatabase(g);
 		this.notifyDataSetChanged();
 	}

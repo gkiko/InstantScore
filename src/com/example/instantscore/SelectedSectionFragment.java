@@ -36,8 +36,9 @@ public class SelectedSectionFragment extends Fragment {
 
         backgroundWarning = (RelativeLayout) rootView.findViewById(R.id.layout_warning);
         textWarning = (TextView) backgroundWarning.findViewById(R.id.message_text);
+        selectedGameListAdapter = new DatabaseAdapter(activity);
+
         ListView gamesListView = (ListView) rootView.findViewById(R.id.list);
-		selectedGameListAdapter = new DatabaseAdapter(activity);
 		gamesListView.setAdapter(selectedGameListAdapter);
 
 		gamesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -108,7 +109,6 @@ public class SelectedSectionFragment extends Fragment {
 	}
 	
 	public void updateList(){
-//		Cart.addAll(DBManager.getAllMatches());
 		selectedGameListAdapter.notifyDataSetChanged();
 	}
 

@@ -7,10 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME = "InstantScoreDatabase";
 
-	private static final int DATABASE_VERSION = 18;
+	private static final int DATABASE_VERSION = 19;
 
-	public static final String CREATE_MATCHES_TABLE_COMMAND = "create table matches (tournament varchar, date varchar, " +
-			"time varchar, home_team varchar, away_team varchar, home_score varchar, away_score varchar)";
+	public static final String CREATE_MATCHES_TABLE_COMMAND = "create table matches (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL" +
+            ", match varchar, date int)";
 	
 	public static final String DROP_MATCHES_TABLE = "drop table if exists matches";
 	

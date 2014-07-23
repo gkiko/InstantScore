@@ -60,7 +60,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         	showPreferences();
         }
 
-        final String url1 = "";
         runDownloader();
 
         NewRelic.withApplicationToken("AA907c3b86fbc007ff0ecb385c864207f3d89b8715").start(this.getApplication());
@@ -77,9 +76,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
 	    switch (item.getItemId()) {
-	    case R.id.submit:
-//            ((MainSectionFragment)mAppSectionsPagerAdapter.getItem(0)).submitGame();
-			return true;
 	    case R.id.refresh:
             runDownloader();
 	        return true;

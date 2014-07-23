@@ -18,6 +18,8 @@ public class Match {
     @SerializedName("t2")
     String team2;
 
+    String id = null;
+
     public Match(String time, String team1, String score, String team2){
         this.time = time;
         this.team1 = team1;
@@ -55,5 +57,12 @@ public class Match {
 
     public void setTeam2(String team2) {
         this.team2 = team2;
+    }
+
+    public String getId(){
+        if(id == null){
+            id = team1 + " vs " + team2;
+        }
+        return id;
     }
 }

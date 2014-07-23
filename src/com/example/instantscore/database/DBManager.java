@@ -13,6 +13,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.instantscore.MainSectionFragment;
 import com.example.instantscore.model.Game;
+import com.example.instantscore.model.League;
+import com.example.instantscore.model.Match;
 
 public class DBManager {
 
@@ -53,6 +55,17 @@ public class DBManager {
 		db.endTransaction();
 		return InsertStatus.INSERTED_OK;
 	}
+
+    public static InsertStatus insertMatchIntoDatabase(Match match, League league) {
+        db.beginTransaction();
+        ContentValues values = new ContentValues();
+        values.put("match", match.getId());
+        values.put("date", league.getDate());
+        db.insert("matches", null, values);
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        return InsertStatus.INSERTED_OK;
+    }
 	
 	private static boolean isAlreadyInDatabase(Game game){
 		Cursor cursor = db.rawQuery("select * from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+
@@ -60,53 +73,68 @@ public class DBManager {
 		return cursor.moveToFirst();
 	}
 
-	public static void removeOldMatchesFrom(HashMap<String, ArrayList<Game>> activeMatches){
-		HashSet<String> gameIdsSet = new HashSet<String>();
-		for(ArrayList<Game> listGames : activeMatches.values()){
-			for(Game game : listGames){
-				gameIdsSet.add(game.getGameId());
-			}
-		}
-		
-		List<Game> gamesFromDb = getAllMatches();
-		for(Game game : gamesFromDb){
-			String gameId = game.getGameId();
-			if(gameIdsSet.contains(gameId)){
-				continue; // everything OK
-			}
-			// otherwise remove it from database
-			removeMatchFromDatabase(game);
-		}
-	}
+//	public static void removeOldMatchesFrom(HashMap<String, ArrayList<Game>> activeMatches){
+//		HashSet<String> gameIdsSet = new HashSet<String>();
+//		for(ArrayList<Game> listGames : activeMatches.values()){
+//			for(Game game : listGames){
+//				gameIdsSet.add(game.getGameId());
+//			}
+//		}
+//
+//		List<Game> gamesFromDb = getAllMatches();
+//		for(Game game : gamesFromDb){
+//			String gameId = game.getGameId();
+//			if(gameIdsSet.contains(gameId)){
+//				continue; // everything OK
+//			}
+//			// otherwise remove it from database
+//			removeMatchFromDatabase(game);
+//		}
+//	}
 	
 	private static boolean isSpaceForExtraMatch(){
-		return getAllMatches().size() < MAX_NUM_SELECTED_MATCHES_PER_DAY;
+		return getAllMatchIds().size() < MAX_NUM_SELECTED_MATCHES_PER_DAY;
 	}
 	
 	public static void removeMatchFromDatabase(Game game){
 		db.execSQL("delete from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+game.getAwayTeam()+"'");
 	}
 
-	public static List<Game> getAllMatches() {
-		List<Game> matches = new ArrayList<Game>();
-		Cursor cursor = db.rawQuery("select * from matches", null);
+//	public static List<Game> getAllMatches() {
+//		List<Game> matches = new ArrayList<Game>();
+//		Cursor cursor = db.rawQuery("select * from matches", null);
+//
+//		if (cursor.moveToFirst()) {
+//			do {
+//				Game game = new Game();
+//				game.setTournament(cursor.getString(0));
+//				game.setDate(cursor.getString(1));
+//				game.setTime(cursor.getString(2));
+//				game.setHomeTeam(cursor.getString(3));
+//				game.setAwayTeam(cursor.getString(4));
+//				game.setHomeTeamScore(cursor.getString(5));
+//				game.setAwayTeamScore(cursor.getString(6));
+//
+//				matches.add(game);
+//			} while (cursor.moveToNext());
+//		}
+//
+//		return matches;
+//	}
 
-		if (cursor.moveToFirst()) {
-			do {
-				Game game = new Game();
-				game.setTournament(cursor.getString(0));
-				game.setDate(cursor.getString(1));
-				game.setTime(cursor.getString(2));
-				game.setHomeTeam(cursor.getString(3));
-				game.setAwayTeam(cursor.getString(4));
-				game.setHomeTeamScore(cursor.getString(5));
-				game.setAwayTeamScore(cursor.getString(6));
+    public static List<String> getAllMatchIds() {
+        List<String> matches = new ArrayList<String>();
+        Cursor cursor = db.rawQuery("select match from matches", null);
 
-				matches.add(game);
-			} while (cursor.moveToNext());
-		}
+        String id;
+        if (cursor.moveToFirst()) {
+            do {
+                id = cursor.getString(0);
+                matches.add(id);
+            } while (cursor.moveToNext());
+        }
 
-		return matches;
-	}
+        return matches;
+    }
 
 }

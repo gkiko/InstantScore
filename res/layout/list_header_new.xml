@@ -9,11 +9,12 @@
     <TextView
         android:id="@+id/header"
         style="?android:attr/listSeparatorTextViewStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/date"
         android:layout_centerVertical="true"
-        android:text="asdasdasd"
+        android:maxLines="1"
+        android:text="asdasdasdasdasdasdadasdadasdasdasasdasdasdadas"
         android:textColor="@android:color/holo_blue_dark" />
 
     <TextView
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:maxLines="1"
         android:text="2131313123"
         android:textColor="@android:color/holo_blue_dark" />
 
