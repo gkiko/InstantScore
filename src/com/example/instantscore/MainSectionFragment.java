@@ -1,12 +1,5 @@
 package com.example.instantscore;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,11 +16,16 @@ import android.widget.Toast;
 import com.example.instantscore.adapter.ExpandableListAdapter;
 import com.example.instantscore.communication.DataSender;
 import com.example.instantscore.database.DBManager;
-import com.example.instantscore.model.Game;
 import com.example.instantscore.model.League;
 import com.example.instantscore.model.Match;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainSectionFragment extends Fragment {
     RelativeLayout backgroundWarning;
@@ -37,6 +35,7 @@ public class MainSectionFragment extends Fragment {
     ExpandableListView expandableListView;
     ExpandableListAdapter listAdapter;
     String isLive = "";
+    private List<Integer> expandedGroups = new ArrayList<Integer>();
 
     @Override
     public void onAttach(Activity activity) {
@@ -61,6 +60,24 @@ public class MainSectionFragment extends Fragment {
                 League selectedLeague = (League)parent.getExpandableListAdapter().getGroup(groupPosition);
                 submitGame(selectedMatch, v);
                 DBManager.insertMatchIntoDatabase(selectedMatch, selectedLeague);
+
+//                int index = parent.getFlatListPosition(ExpandableListView.getPackedPositionForChild(groupPosition, childPosition));
+//                parent.setItemChecked(index, true);
+//                System.out.println(index);
+                return false;
+            }
+        });
+
+        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener(){
+
+            @Override
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                int index = expandedGroups.indexOf(i);
+                if(index > -1){
+                    expandedGroups.remove(index);
+                }else{
+                    expandedGroups.add(i);
+                }
                 return false;
             }
         });
@@ -74,6 +91,13 @@ public class MainSectionFragment extends Fragment {
 
         listAdapter = new ExpandableListAdapter(getActivity(), ls);
         expandableListView.setAdapter(listAdapter);
+        expandGroups();
+    }
+
+    private void expandGroups(){
+        for(int groupIndex : expandedGroups){
+            expandableListView.expandGroup(groupIndex);
+        }
     }
 
     @SuppressWarnings("unchecked")

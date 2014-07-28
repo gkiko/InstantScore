@@ -1,8 +1,5 @@
 package com.example.instantscore.adapter;
 
-import java.io.Serializable;
-import java.util.List;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +9,9 @@ import android.widget.TextView;
 import com.example.instantscore.R;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.model.Game;
-import com.example.instantscore.utils.Utils;
+
+import java.io.Serializable;
+import java.util.List;
 
 public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -99,7 +98,7 @@ public class DatabaseAdapter extends BaseAdapter implements Serializable{
 	
 	public void add(Game g){
 //		ls.add(g);
-		DBManager.insertMatchIntoDatabase(g);
+//		DBManager.insertMatchIntoDatabase(g);
 		this.notifyDataSetChanged();
 	}
 	

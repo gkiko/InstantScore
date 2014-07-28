@@ -1,7 +1,6 @@
 package com.example.instantscore.listener;
 
 import java.util.EventObject;
-import java.util.Objects;
 
 /**
  * Class is used to pass object as event

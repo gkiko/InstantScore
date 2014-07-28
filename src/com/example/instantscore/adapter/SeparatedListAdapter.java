@@ -1,16 +1,16 @@
 package com.example.instantscore.adapter;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import com.example.instantscore.R;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+
+import com.example.instantscore.R;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class SeparatedListAdapter extends BaseAdapter {
 	public final Map<String, Adapter> sections = new LinkedHashMap<String, Adapter>();

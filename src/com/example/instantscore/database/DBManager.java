@@ -1,20 +1,17 @@
 package com.example.instantscore.database;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.instantscore.MainSectionFragment;
 import com.example.instantscore.model.Game;
 import com.example.instantscore.model.League;
 import com.example.instantscore.model.Match;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBManager {
 
@@ -29,31 +26,6 @@ public class DBManager {
 			dbHelper = new DBHelper(context);
 			db = dbHelper.getWritableDatabase();
 		}
-	}
-	
-	// create table matches (tournament varchar, date varchar, " +
-	// "time varchar, home_team varchar, away_team varchar, home_score varchar, away_score varchar)"
-
-	public static InsertStatus insertMatchIntoDatabase(Game game) {
-		if(isAlreadyInDatabase(game)) return InsertStatus.ALREADY_EXISTS;
-		if(!isSpaceForExtraMatch()) return InsertStatus.TOO_MANY_MATCHES;
-		String tournament = game.getTournament(), time = game.getTime(), homeScore = game
-				.getHomeTeamScore(), awayScore = game.getAwayTeamScore(), homeTeam = game
-				.getHomeTeam(), awayTeam = game.getAwayTeam(), date = game
-				.getDate();
-		db.beginTransaction();
-		ContentValues values = new ContentValues();
-		values.put("tournament", tournament);
-		values.put("time", time);
-		values.put("date", date);
-		values.put("home_team", homeTeam);
-		values.put("away_team", awayTeam);
-		values.put("home_score", homeScore);
-		values.put("away_score", awayScore);
-		db.insert("matches", null, values);
-		db.setTransactionSuccessful();
-		db.endTransaction();
-		return InsertStatus.INSERTED_OK;
 	}
 
     public static InsertStatus insertMatchIntoDatabase(Match match, League league) {
@@ -73,25 +45,6 @@ public class DBManager {
 		return cursor.moveToFirst();
 	}
 
-//	public static void removeOldMatchesFrom(HashMap<String, ArrayList<Game>> activeMatches){
-//		HashSet<String> gameIdsSet = new HashSet<String>();
-//		for(ArrayList<Game> listGames : activeMatches.values()){
-//			for(Game game : listGames){
-//				gameIdsSet.add(game.getGameId());
-//			}
-//		}
-//
-//		List<Game> gamesFromDb = getAllMatches();
-//		for(Game game : gamesFromDb){
-//			String gameId = game.getGameId();
-//			if(gameIdsSet.contains(gameId)){
-//				continue; // everything OK
-//			}
-//			// otherwise remove it from database
-//			removeMatchFromDatabase(game);
-//		}
-//	}
-	
 	private static boolean isSpaceForExtraMatch(){
 		return getAllMatchIds().size() < MAX_NUM_SELECTED_MATCHES_PER_DAY;
 	}
@@ -99,28 +52,6 @@ public class DBManager {
 	public static void removeMatchFromDatabase(Game game){
 		db.execSQL("delete from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+game.getAwayTeam()+"'");
 	}
-
-//	public static List<Game> getAllMatches() {
-//		List<Game> matches = new ArrayList<Game>();
-//		Cursor cursor = db.rawQuery("select * from matches", null);
-//
-//		if (cursor.moveToFirst()) {
-//			do {
-//				Game game = new Game();
-//				game.setTournament(cursor.getString(0));
-//				game.setDate(cursor.getString(1));
-//				game.setTime(cursor.getString(2));
-//				game.setHomeTeam(cursor.getString(3));
-//				game.setAwayTeam(cursor.getString(4));
-//				game.setHomeTeamScore(cursor.getString(5));
-//				game.setAwayTeamScore(cursor.getString(6));
-//
-//				matches.add(game);
-//			} while (cursor.moveToNext());
-//		}
-//
-//		return matches;
-//	}
 
     public static List<String> getAllMatchIds() {
         List<String> matches = new ArrayList<String>();

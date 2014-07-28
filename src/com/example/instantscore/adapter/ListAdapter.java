@@ -1,8 +1,5 @@
 package com.example.instantscore.adapter;
 
-import java.io.Serializable;
-import java.util.List;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +8,9 @@ import android.widget.TextView;
 
 import com.example.instantscore.R;
 import com.example.instantscore.model.Game;
+
+import java.io.Serializable;
+import java.util.List;
 
 public class ListAdapter extends BaseAdapter implements Serializable{
 	private static final long serialVersionUID = 1L;

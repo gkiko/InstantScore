@@ -1,17 +1,17 @@
 package com.example.instantscore.communication;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.instantscore.R;
+
+import org.apache.http.NameValuePair;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.List;
 
 public class DataSender extends AsyncTask<List<NameValuePair>, Void, String> {
     private String url;
