@@ -58,12 +58,16 @@ public class MainSectionFragment extends Fragment {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Match selectedMatch = (Match) parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
                 League selectedLeague = (League)parent.getExpandableListAdapter().getGroup(groupPosition);
-                submitGame(selectedMatch, v);
-                DBManager.insertMatchIntoDatabase(selectedMatch, selectedLeague);
 
-//                int index = parent.getFlatListPosition(ExpandableListView.getPackedPositionForChild(groupPosition, childPosition));
-//                parent.setItemChecked(index, true);
-//                System.out.println(index);
+                if(DBManager.isAlreadyInDatabase(selectedMatch, selectedLeague)){
+                    DBManager.removeMatchFromDatabase(selectedMatch, selectedLeague);
+                }else{
+                    DBManager.insertMatchIntoDb(selectedMatch, selectedLeague);
+                }
+                submitGame(selectedMatch, v);
+                selectedMatch.toggleMark();
+                listAdapter.notifyDataSetChanged();
+
                 return false;
             }
         });
@@ -86,12 +90,24 @@ public class MainSectionFragment extends Fragment {
     }
 
     public void onUpdate(String data) throws Exception {
-        List<League> ls = gson.fromJson(data, new TypeToken<List<League>>() {
-        }.getType());
+        List<League> ls = gson.fromJson(data, new TypeToken<List<League>>() {}.getType());
 
         listAdapter = new ExpandableListAdapter(getActivity(), ls);
+        highlightSelections(ls);
         expandableListView.setAdapter(listAdapter);
         expandGroups();
+    }
+
+    private void highlightSelections(List<League> ls){
+        List<String> selectedMatches = DBManager.getAllMatchIds();
+
+        for(League l : ls){
+            for(Match m : l.getMatches()){
+                if(selectedMatches.contains(m.getId())){
+                    m.toggleMark();
+                }
+            }
+        }
     }
 
     private void expandGroups(){

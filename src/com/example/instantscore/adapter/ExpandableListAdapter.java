@@ -11,6 +11,7 @@ import com.example.instantscore.R;
 import com.example.instantscore.model.League;
 import com.example.instantscore.model.Match;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -94,6 +95,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         childTeam1.setText(child.getTeam1());
         childScore.setText(child.getScore());
         childTeam2.setText(child.getTeam2());
+
+        if(child.isMarked()){
+            convertView.setBackgroundColor(_context.getResources().getColor(android.R.color.holo_orange_light));
+        }else{
+            convertView.setBackgroundColor(_context.getResources().getColor(android.R.color.transparent));
+        }
         return convertView;
     }
 
@@ -101,4 +108,5 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
     }
+
 }

@@ -20,6 +20,8 @@ public class Match {
 
     String id = null;
 
+    boolean marked = false;
+
     public Match(String time, String team1, String score, String team2){
         this.time = time;
         this.team1 = team1;
@@ -64,5 +66,13 @@ public class Match {
             id = team1 + " vs " + team2;
         }
         return id;
+    }
+
+    public boolean isMarked(){
+        return marked;
+    }
+
+    public void toggleMark(){
+        marked = !marked;
     }
 }

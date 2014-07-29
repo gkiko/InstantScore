@@ -28,7 +28,7 @@ public class DBManager {
 		}
 	}
 
-    public static InsertStatus insertMatchIntoDatabase(Match match, League league) {
+    public static InsertStatus insertMatchIntoDb(Match match, League league) {
         db.beginTransaction();
         ContentValues values = new ContentValues();
         values.put("match", match.getId());
@@ -39,9 +39,8 @@ public class DBManager {
         return InsertStatus.INSERTED_OK;
     }
 	
-	private static boolean isAlreadyInDatabase(Game game){
-		Cursor cursor = db.rawQuery("select * from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+
-				game.getAwayTeam()+"'", null);
+	public static boolean isAlreadyInDatabase(Match match, League league){
+		Cursor cursor = db.rawQuery("select * from matches where match = ? and date = ?", new String[]{match.getId(), league.getDate()});
 		return cursor.moveToFirst();
 	}
 
@@ -49,8 +48,8 @@ public class DBManager {
 		return getAllMatchIds().size() < MAX_NUM_SELECTED_MATCHES_PER_DAY;
 	}
 	
-	public static void removeMatchFromDatabase(Game game){
-		db.execSQL("delete from matches where home_team = '"+game.getHomeTeam()+"' and away_team = '"+game.getAwayTeam()+"'");
+	public static void removeMatchFromDatabase(Match match, League league){
+        db.delete("matches", new String("match = ? and date = ?"), new String[]{match.getId(), league.getDate()});
 	}
 
     public static List<String> getAllMatchIds() {
