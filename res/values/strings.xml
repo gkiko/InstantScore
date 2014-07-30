@@ -7,7 +7,7 @@
     <string name="hello_world">Hello world!</string>
 
     <!-- config -->
-    <!-- http://ec2-54-213-156-227.us-west-2.compute.amazonaws.com -->
+    <!-- http://ec2-54-191-136-49.us-west-2.compute.amazonaws.com -->
     <!-- http://192.168.56.1 -->
     <string name="url_host">http://192.168.56.1:8080/InstantScore2</string>
     <string name="servlet_get_data">/DataProvider</string>
@@ -16,9 +16,9 @@
     <string name="servlet_get_data_val2">future</string>
     <string name="servlet_sms">/SmsServices</string>
 
-    <string name="url_data_1">http://192.168.56.1:8080/InstantScore2/DataProvider?type=today</string>
-    <string name="url_data_2">http://192.168.56.1:8080/InstantScore2/DataProvider?type=future</string>
-    <string name="url_sms">http://192.168.56.1:8080/InstantScore2/DataProvider</string>
+    <string name="url_data_1">http://ec2-54-191-136-49.us-west-2.compute.amazonaws.com:8080/InstantScore2/DataProvider?type=today</string>
+    <string name="url_data_2">http://ec2-54-191-136-49.us-west-2.compute.amazonaws.com:8080/InstantScore2/DataProvider?type=future</string>
+    <string name="url_sms">http://ec2-54-191-136-49.us-west-2.compute.amazonaws.com:8080/InstantScore2/DataProvider</string>
 
     <!-- dialog -->
     <string name="loading_hdr">Loading…</string>
