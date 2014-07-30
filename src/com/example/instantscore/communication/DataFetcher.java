@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.instantscore.R;
 import com.example.instantscore.listener.CallbackListener;
@@ -41,6 +42,7 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
         LayoutInflater inflater = c.getLayoutInflater();
         View dialogLayout = inflater.inflate(R.layout.dialog_layout_loading, (ViewGroup) c.getCurrentFocus(), false);
         dialogLoad = new AlertDialog.Builder(c).setView(dialogLayout).show();
+        System.out.println("onPreExecute");
     }
 
     @Override
@@ -48,13 +50,14 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
 		String data, urlStr;
         EventContainer newCont;
         List<EventContainer> eventList =  new ArrayList<EventContainer>();
+        System.out.println("doInBackground start");
         for(EventContainer container : params){
             urlStr = (String)container.getData();
             try {
                 data = HttpClient.getHttpClientDoGetResponse(urlStr, null);
+                System.out.println("doInBackground http");
                 newCont = new EventContainer(new MyChangeEvent(data), container.getId());
             } catch (Exception e) {
-                System.out.println("error");
                 newCont = new EventContainer(new MyChangeEvent(e), container.getId());
                 e.printStackTrace();
             }
@@ -78,6 +81,12 @@ public class DataFetcher extends AsyncTask<EventContainer, Void, List<EventConta
             }
         }
 	}
+
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
+        dialogLoad.dismiss();
+    }
 
     private void fireExceptionEvent(EventContainer event){
         for (CallbackListener l : listeners) {

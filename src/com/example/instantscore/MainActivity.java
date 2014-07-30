@@ -46,26 +46,30 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 				actionBar.setSelectedNavigationItem(position);
 			}
 		});
-		
-		// For each of the sections in the app, add a tab to the action bar.
+        NewRelic.withApplicationToken("AA907c3b86fbc007ff0ecb385c864207f3d89b8715").start(this.getApplication());
+
+        // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mAppSectionsPagerAdapter.getCount(); i++) {
             actionBar.addTab(actionBar.newTab().setText(mAppSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
         }
-        
+
         if(firstTimeRun()){
             Editor editor = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit();
             editor.putBoolean("firsttime", false);
             editor.commit();
 
-        	showPreferences();
+            showPreferences();
         }
 
-        runDownloader();
-
-        NewRelic.withApplicationToken("AA907c3b86fbc007ff0ecb385c864207f3d89b8715").start(this.getApplication());
 	}
 
-	@Override
+    @Override
+    protected void onResume() {
+        super.onResume();
+        runDownloader();
+    }
+
+    @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
@@ -158,5 +162,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         super.onPause();
         fetcher1.cancel(true);
         fetcher2.cancel(true);
+        System.out.println("pause");
     }
 }
