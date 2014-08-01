@@ -6,7 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.instantscore.model.Game;
 import com.example.instantscore.model.League;
 import com.example.instantscore.model.Match;
 

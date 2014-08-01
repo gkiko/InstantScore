@@ -11,7 +11,6 @@ import com.example.instantscore.R;
 import com.example.instantscore.model.League;
 import com.example.instantscore.model.Match;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

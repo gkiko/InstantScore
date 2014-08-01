@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.example.instantscore.R;
 import com.example.instantscore.database.DBManager;
-import com.example.instantscore.model.Game;
 
 import java.io.Serializable;
 import java.util.List;

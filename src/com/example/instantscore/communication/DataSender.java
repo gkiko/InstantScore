@@ -5,51 +5,75 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.instantscore.R;
+import com.example.instantscore.listener.CallbackListener;
+import com.example.instantscore.listener.MyChangeEvent;
+import com.example.instantscore.model.EventContainer;
 
 import org.apache.http.NameValuePair;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public class DataSender extends AsyncTask<List<NameValuePair>, Void, String> {
+public class DataSender extends AsyncTask<EventContainer, Void, EventContainer> {
+    private CopyOnWriteArrayList<CallbackListener> listeners;
     private String url;
-    private View v;
+    private View progressBar;
     private Context c;
 
     public DataSender(String url, View v, Context c) {
         this.url = url;
-        this.v = v;
+        this.progressBar = v;
         this.c = c;
+        listeners = new CopyOnWriteArrayList<CallbackListener>();
     }
+
+    public void addMyChangeListener(CallbackListener l) {
+        this.listeners.add(l);
+    }
+
+    public void removeMyChangeListener(CallbackListener l) {
+        this.listeners.remove(l);
+    }
+
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        if (this.v != null) {
-            this.v.findViewById(R.id.progressBar3).setVisibility(View.VISIBLE);
+        if (this.progressBar != null) {
+            this.progressBar.setVisibility(View.VISIBLE);
         }
     }
 
     @Override
-    protected String doInBackground(List<NameValuePair>... params) {
+    protected EventContainer doInBackground(EventContainer... containers) {
         String response = null;
-        String urlParameters = pairsToUrl(params[0]);
+        EventContainer newCont;
+        List<NameValuePair> params = (List<NameValuePair>) containers[0].getData();
+        String urlParameters = pairsToUrl(params);
         try {
             response = HttpClient.doPost(url, urlParameters);
+            newCont = new EventContainer(new MyChangeEvent(response), containers[0].getId());
         } catch (Exception e) {
             e.printStackTrace();
+            newCont = new EventContainer(new MyChangeEvent(e), containers[0].getId());
         }
-        return response;
+        return newCont;
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(EventContainer result) {
         super.onPostExecute(result);
-        Toast.makeText(c, result, Toast.LENGTH_SHORT).show();
-        if (this.v != null) {
-            this.v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
+        MyChangeEvent evt = (MyChangeEvent) result.getData();
+        Toast.makeText(c, (String)evt.getResult(), Toast.LENGTH_LONG).show();
+        if (this.progressBar != null) {
+            this.progressBar.setVisibility(View.GONE);
+        }
+        if ((evt.getError() != null)) {
+            fireExceptionEvent(result);
+        } else {
+            fireDataDownloadEvent(result);
         }
     }
 
@@ -67,5 +91,17 @@ public class DataSender extends AsyncTask<List<NameValuePair>, Void, String> {
         }
         sb.deleteCharAt(sb.length() - 1);
         return sb.toString();
+    }
+
+    private void fireExceptionEvent(EventContainer event){
+        for (CallbackListener l : listeners) {
+            l.onException(event);
+        }
+    }
+
+    private void fireDataDownloadEvent(EventContainer event) {
+        for (CallbackListener l : listeners) {
+            l.onUpdate(event);
+        }
     }
 }

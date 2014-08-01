@@ -14,27 +14,34 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.instantscore.adapter.ExpandableListAdapter;
-import com.example.instantscore.communication.DataSender;
+import com.example.instantscore.communication.MyVolley;
+import com.example.instantscore.communication.PostRequest;
 import com.example.instantscore.database.DBManager;
+import com.example.instantscore.listener.CallbackListener;
+import com.example.instantscore.model.EventContainer;
 import com.example.instantscore.model.League;
 import com.example.instantscore.model.Match;
+import com.example.instantscore.volley.Request;
+import com.example.instantscore.volley.Response;
+import com.example.instantscore.volley.VolleyError;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class MainSectionFragment extends Fragment {
+public class MainSectionFragment extends Fragment implements CallbackListener {
     RelativeLayout backgroundWarning;
     Activity activity;
 
     Gson gson = new Gson();
     ExpandableListView expandableListView;
     ExpandableListAdapter listAdapter;
-    String isLive = "";
     private List<Integer> expandedGroups = new ArrayList<Integer>();
 
     @Override
@@ -48,7 +55,6 @@ public class MainSectionFragment extends Fragment {
         Bundle args = getArguments();
         View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
         backgroundWarning = (RelativeLayout) rootView.findViewById(R.id.layout_warning);
-        isLive = args.getString("live");
 
         expandableListView = (ExpandableListView) rootView.findViewById(R.id.list);
 
@@ -57,29 +63,21 @@ public class MainSectionFragment extends Fragment {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Match selectedMatch = (Match) parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
-                League selectedLeague = (League)parent.getExpandableListAdapter().getGroup(groupPosition);
+                League selectedLeague = (League) parent.getExpandableListAdapter().getGroup(groupPosition);
 
-                if(DBManager.isAlreadyInDatabase(selectedMatch, selectedLeague)){
-                    DBManager.removeMatchFromDatabase(selectedMatch, selectedLeague);
-                }else{
-                    DBManager.insertMatchIntoDb(selectedMatch, selectedLeague);
-                }
-                submitGame(selectedMatch, v);
-                selectedMatch.toggleMark();
-                listAdapter.notifyDataSetChanged();
-
+                submitGame(selectedMatch, selectedLeague, v);
                 return false;
             }
         });
 
-        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener(){
+        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
                 int index = expandedGroups.indexOf(i);
-                if(index > -1){
+                if (index > -1) {
                     expandedGroups.remove(index);
-                }else{
+                } else {
                     expandedGroups.add(i);
                 }
                 return false;
@@ -89,8 +87,15 @@ public class MainSectionFragment extends Fragment {
         return rootView;
     }
 
-    public void onUpdate(String data) throws Exception {
-        List<League> ls = gson.fromJson(data, new TypeToken<List<League>>() {}.getType());
+    public void onUpdate(List<League> ls) throws Exception {
+        listAdapter = new ExpandableListAdapter(getActivity(), ls);
+        highlightSelections(ls);
+        expandableListView.setAdapter(listAdapter);
+        expandGroups();
+    }
+
+    public void onUpdate(JsonArray array) throws Exception {
+        List<League> ls = gson.fromJson(array, new TypeToken<List<League>>() {}.getType());
 
         listAdapter = new ExpandableListAdapter(getActivity(), ls);
         highlightSelections(ls);
@@ -98,39 +103,71 @@ public class MainSectionFragment extends Fragment {
         expandGroups();
     }
 
-    private void highlightSelections(List<League> ls){
+    public void onUpdate(JSONArray array) throws Exception {
+        List<League> ls = gson.fromJson(array.toString(), new TypeToken<List<League>>() {}.getType());
+
+        listAdapter = new ExpandableListAdapter(getActivity(), ls);
+        highlightSelections(ls);
+        expandableListView.setAdapter(listAdapter);
+        expandGroups();
+    }
+
+    private void highlightSelections(List<League> ls) {
         List<String> selectedMatches = DBManager.getAllMatchIds();
 
-        for(League l : ls){
-            for(Match m : l.getMatches()){
-                if(selectedMatches.contains(m.getId())){
+        for (League l : ls) {
+            for (Match m : l.getMatches()) {
+                if (selectedMatches.contains(m.getId())) {
                     m.toggleMark();
                 }
             }
         }
     }
 
-    private void expandGroups(){
-        for(int groupIndex : expandedGroups){
+    private void expandGroups() {
+        for (int groupIndex : expandedGroups) {
             expandableListView.expandGroup(groupIndex);
         }
     }
 
     @SuppressWarnings("unchecked")
-    void submitGame(Match match, View v) {
-        DataSender sender = new DataSender(activity.getResources().getString(R.string.url_sms), v, getActivity());
-        sender.execute(createSubscribtionDataToSend(match));
+    void submitGame(final Match match, final League league, View v) {
+        PostRequest<String> request = new PostRequest<String>(Request.Method.POST, activity.getResources().getString(R.string.url_sms),
+            createSubscriptionDataToSend(match),
+            new com.example.instantscore.volley.Response.Listener<String>() {
+
+                @Override
+                public void onResponse(String s) {
+                    if (DBManager.isAlreadyInDatabase(match, league)) {
+                        DBManager.removeMatchFromDatabase(match, league);
+                    } else {
+                        DBManager.insertMatchIntoDb(match, league);
+                    }
+                    match.toggleMark();
+                    listAdapter.notifyDataSetChanged();
+
+                    Toast.makeText(activity, s, Toast.LENGTH_LONG).show();
+                }
+            }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                volleyError.printStackTrace();
+//                Toast.makeText(activity, new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();
+            }
+        }
+        );
+
+        MyVolley.getInstance(getActivity().getApplicationContext()).addToRequestQueue(request);
     }
 
-    private List<NameValuePair> createSubscribtionDataToSend(Match match) {
-        List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+    private Map<String, String> createSubscriptionDataToSend(Match match) {
+        Map<String, String> pairs = new HashMap<String, String>();
 
-        pairs.add(new BasicNameValuePair("type", "submit_game"));
-        pairs.add(new BasicNameValuePair("phone_num", getFromPrefs("phonenum")));
-        pairs.add(new BasicNameValuePair("security_code", getFromPrefs("securitycode")));
-        pairs.add(new BasicNameValuePair("match_id", match.getId()));
-        Toast.makeText(activity, pairs.toString(), Toast.LENGTH_SHORT).show();
-
+        pairs.put("type", "submit_game");
+        pairs.put("phone_num", getFromPrefs("phonenum"));
+        pairs.put("security_code", getFromPrefs("securitycode"));
+        pairs.put("match_id", match.getId());
         return pairs;
     }
 
@@ -149,4 +186,14 @@ public class MainSectionFragment extends Fragment {
         expandableListView.setVisibility(ListView.VISIBLE);
     }
 
+    @Override
+    public void onUpdate(EventContainer evt) {
+        int id = evt.getId();
+        System.out.println(id);
+    }
+
+    @Override
+    public void onException(EventContainer evt) {
+
+    }
 }

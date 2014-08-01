@@ -12,14 +12,16 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.instantscore.communication.DataSender;
+import com.example.instantscore.communication.MyVolley;
+import com.example.instantscore.communication.PostRequest;
+import com.example.instantscore.volley.Request;
+import com.example.instantscore.volley.Response;
+import com.example.instantscore.volley.VolleyError;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SettingsFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener {
     public static final String KEY_PHONE_NUM = "phonenum";
@@ -83,11 +85,28 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
     }
 
     private void makeCodeRequest(String phoneNum) {
-        DataSender sender = new DataSender(getResources().getString(R.string.url_sms), null, getActivity());
-        List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-        pairs.add(new BasicNameValuePair("type", "new_code"));
-        pairs.add(new BasicNameValuePair("phone_num", phoneNum));
-        sender.execute(pairs);
+        Map<String, String> pairs = new HashMap<String, String>();
+        pairs.put("type", "new_code");
+        pairs.put("phone_num", phoneNum);
+        PostRequest<String> request = new PostRequest<String>(Request.Method.POST, getResources().getString(R.string.url_sms),
+                pairs,
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String s) {
+                        Toast.makeText(getActivity().getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                volleyError.printStackTrace();
+                Toast.makeText(getActivity().getApplicationContext(), new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();
+            }
+        });
+        System.out.println("REQUESTING");
+//        request.setRetryPolicy(new DefaultRetryPolicy(0, 2, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MyVolley.getInstance(getActivity().getApplicationContext()).addToRequestQueue(request);
     }
 
 }
