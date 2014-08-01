@@ -17,8 +17,6 @@ import com.example.instantscore.adapter.ExpandableListAdapter;
 import com.example.instantscore.communication.MyVolley;
 import com.example.instantscore.communication.PostRequest;
 import com.example.instantscore.database.DBManager;
-import com.example.instantscore.listener.CallbackListener;
-import com.example.instantscore.model.EventContainer;
 import com.example.instantscore.model.League;
 import com.example.instantscore.model.Match;
 import com.example.instantscore.volley.Request;
@@ -35,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainSectionFragment extends Fragment implements CallbackListener {
+public class MainSectionFragment extends Fragment {
     RelativeLayout backgroundWarning;
     Activity activity;
 
@@ -186,14 +184,4 @@ public class MainSectionFragment extends Fragment implements CallbackListener {
         expandableListView.setVisibility(ListView.VISIBLE);
     }
 
-    @Override
-    public void onUpdate(EventContainer evt) {
-        int id = evt.getId();
-        System.out.println(id);
-    }
-
-    @Override
-    public void onException(EventContainer evt) {
-
-    }
 }
