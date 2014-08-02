@@ -129,7 +129,7 @@ public class MainSectionFragment extends Fragment {
     }
 
     @SuppressWarnings("unchecked")
-    void submitGame(final Match match, final League league, View v) {
+    void submitGame(final Match match, final League league, final View v) {
         PostRequest<String> request = new PostRequest<String>(Request.Method.POST, activity.getResources().getString(R.string.url_sms),
             createSubscriptionDataToSend(match),
             new com.example.instantscore.volley.Response.Listener<String>() {
@@ -144,18 +144,20 @@ public class MainSectionFragment extends Fragment {
                     match.toggleMark();
                     listAdapter.notifyDataSetChanged();
 
+                    v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
                     Toast.makeText(activity, s, Toast.LENGTH_LONG).show();
                 }
             }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                volleyError.printStackTrace();
-//                Toast.makeText(activity, new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();
+                v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
             }
         }
         );
 
+        v.findViewById(R.id.progressBar3).setVisibility(View.VISIBLE);
         MyVolley.getInstance(getActivity().getApplicationContext()).addToRequestQueue(request);
     }
 
