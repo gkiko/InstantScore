@@ -3,15 +3,21 @@ package com.example.instantscore;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.Toast;
 
 import com.example.instantscore.communication.JsonRequest;
 import com.example.instantscore.communication.MyVolley;
@@ -28,10 +34,13 @@ import java.util.List;
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
     ViewPager mViewPager;
+    MenuItem mMenuItem;
+    boolean loadingFinished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_main);
         DBManager.init(getApplicationContext());
 
@@ -77,6 +86,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        mMenuItem = menu.findItem(R.id.refresh);
         return true;
     }
 
@@ -153,6 +163,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+                showLoading(!loadingFinished);
+                loadingFinished = true;
             }
         }, new Response.ErrorListener() {
             @Override
@@ -160,10 +173,21 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 volleyError.printStackTrace();
                 MainSectionFragment fragment = (MainSectionFragment) mAppSectionsPagerAdapter.getItem(pos);
                 fragment.setListBackground();
+
+                showLoading(!loadingFinished);
+                loadingFinished = true;
             }
         });
 
+        showLoading(true);
+        loadingFinished = false;
         MyVolley.getInstance(getApplicationContext()).addToRequestQueue(request1);
+    }
+
+    private void showLoading(boolean b){
+        setProgressBarIndeterminateVisibility(b);
+        if(mMenuItem != null)
+            mMenuItem.setVisible(!b);
     }
 
     private void showPreferences() {
@@ -182,4 +206,5 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             }
         });
     }
+
 }
