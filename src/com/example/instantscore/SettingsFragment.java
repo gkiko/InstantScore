@@ -100,8 +100,13 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
 
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                volleyError.printStackTrace();
-                Toast.makeText(getActivity().getApplicationContext(), new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();
+
+                if(volleyError.networkResponse.statusCode == 404){
+                    Toast.makeText(getActivity(), "no connection", Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getActivity(), new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();
+                }
+
             }
         });
         System.out.println("REQUESTING");

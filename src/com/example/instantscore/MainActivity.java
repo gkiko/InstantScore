@@ -132,27 +132,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 
     private void runDownloader(final int pos, final String url) {
-//        JsonArrayRequest request1 = new JsonArrayRequest(url, null,
-//            new Response.Listener<JSONArray>() {
-//                @Override
-//                public void onResponse(JSONArray array) {
-//                    MainSectionFragment fragment = (MainSectionFragment) mAppSectionsPagerAdapter.getItem(pos);
-//                    try {
-//                        fragment.onUpdate(null);
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                    fragment.removeListBackground();
-//                }
-//            }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//                    MainSectionFragment fragment = (MainSectionFragment) mAppSectionsPagerAdapter.getItem(pos);
-//                    fragment.setListBackground();
-//                }
-//            }
-//        );
-
         JsonRequest request1 = new JsonRequest(url, new Response.Listener<List<League>>() {
             @Override
             public void onResponse(List<League> list) {
