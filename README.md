@@ -1,3 +1,3 @@
 InstantScore
 ============
-[server side](https://github.com/llaki/InstantScore)
+[server side](https://github.com/llaki/InstantScore2)
