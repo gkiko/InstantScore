@@ -1795,17 +1795,214 @@ com.example.instantscore.MainActivity: boolean onOptionsItemSelected(android.vie
 com.example.instantscore.MainActivity: void onTabReselected(android.app.ActionBar$Tab,android.app.FragmentTransaction)
 com.example.instantscore.MainActivity: void onTabSelected(android.app.ActionBar$Tab,android.app.FragmentTransaction)
 com.example.instantscore.MainActivity: void onTabUnselected(android.app.ActionBar$Tab,android.app.FragmentTransaction)
-com.example.instantscore.MainActivity: void onUpdate(com.example.instantscore.model.EventContainer)
-com.example.instantscore.MainActivity: void onException(com.example.instantscore.model.EventContainer)
 com.example.instantscore.MainActivity: void onPause()
 com.example.instantscore.MainSectionFragment
 com.example.instantscore.MainSectionFragment: MainSectionFragment()
 com.example.instantscore.MainSectionFragment: void onAttach(android.app.Activity)
 com.example.instantscore.MainSectionFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
-com.example.instantscore.MainSectionFragment: void onUpdate(java.lang.String)
+com.example.instantscore.MainSectionFragment: void onUpdate(java.util.List)
+com.example.instantscore.MainSectionFragment: void onUpdate(com.google.gson.JsonArray)
+com.example.instantscore.MainSectionFragment: void onUpdate(org.json.JSONArray)
 com.example.instantscore.R
 com.example.instantscore.R: R()
 com.example.instantscore.R$array
+com.example.instantscore.R$array: int countries
+com.example.instantscore.R$array: int data000
+com.example.instantscore.R$array: int data001
+com.example.instantscore.R$array: int data002
+com.example.instantscore.R$array: int data003
+com.example.instantscore.R$array: int data004
+com.example.instantscore.R$array: int data005
+com.example.instantscore.R$array: int data006
+com.example.instantscore.R$array: int data007
+com.example.instantscore.R$array: int data008
+com.example.instantscore.R$array: int data009
+com.example.instantscore.R$array: int data010
+com.example.instantscore.R$array: int data011
+com.example.instantscore.R$array: int data012
+com.example.instantscore.R$array: int data013
+com.example.instantscore.R$array: int data014
+com.example.instantscore.R$array: int data015
+com.example.instantscore.R$array: int data016
+com.example.instantscore.R$array: int data017
+com.example.instantscore.R$array: int data018
+com.example.instantscore.R$array: int data019
+com.example.instantscore.R$array: int data020
+com.example.instantscore.R$array: int data021
+com.example.instantscore.R$array: int data022
+com.example.instantscore.R$array: int data023
+com.example.instantscore.R$array: int data024
+com.example.instantscore.R$array: int data025
+com.example.instantscore.R$array: int data026
+com.example.instantscore.R$array: int data027
+com.example.instantscore.R$array: int data028
+com.example.instantscore.R$array: int data029
+com.example.instantscore.R$array: int data030
+com.example.instantscore.R$array: int data031
+com.example.instantscore.R$array: int data032
+com.example.instantscore.R$array: int data033
+com.example.instantscore.R$array: int data034
+com.example.instantscore.R$array: int data035
+com.example.instantscore.R$array: int data036
+com.example.instantscore.R$array: int data037
+com.example.instantscore.R$array: int data038
+com.example.instantscore.R$array: int data039
+com.example.instantscore.R$array: int data040
+com.example.instantscore.R$array: int data041
+com.example.instantscore.R$array: int data042
+com.example.instantscore.R$array: int data043
+com.example.instantscore.R$array: int data044
+com.example.instantscore.R$array: int data045
+com.example.instantscore.R$array: int data046
+com.example.instantscore.R$array: int data047
+com.example.instantscore.R$array: int data048
+com.example.instantscore.R$array: int data049
+com.example.instantscore.R$array: int data050
+com.example.instantscore.R$array: int data051
+com.example.instantscore.R$array: int data052
+com.example.instantscore.R$array: int data053
+com.example.instantscore.R$array: int data054
+com.example.instantscore.R$array: int data055
+com.example.instantscore.R$array: int data056
+com.example.instantscore.R$array: int data057
+com.example.instantscore.R$array: int data058
+com.example.instantscore.R$array: int data059
+com.example.instantscore.R$array: int data060
+com.example.instantscore.R$array: int data061
+com.example.instantscore.R$array: int data062
+com.example.instantscore.R$array: int data063
+com.example.instantscore.R$array: int data064
+com.example.instantscore.R$array: int data065
+com.example.instantscore.R$array: int data066
+com.example.instantscore.R$array: int data067
+com.example.instantscore.R$array: int data068
+com.example.instantscore.R$array: int data069
+com.example.instantscore.R$array: int data070
+com.example.instantscore.R$array: int data071
+com.example.instantscore.R$array: int data072
+com.example.instantscore.R$array: int data073
+com.example.instantscore.R$array: int data074
+com.example.instantscore.R$array: int data075
+com.example.instantscore.R$array: int data076
+com.example.instantscore.R$array: int data077
+com.example.instantscore.R$array: int data078
+com.example.instantscore.R$array: int data079
+com.example.instantscore.R$array: int data080
+com.example.instantscore.R$array: int data081
+com.example.instantscore.R$array: int data082
+com.example.instantscore.R$array: int data083
+com.example.instantscore.R$array: int data084
+com.example.instantscore.R$array: int data085
+com.example.instantscore.R$array: int data086
+com.example.instantscore.R$array: int data087
+com.example.instantscore.R$array: int data088
+com.example.instantscore.R$array: int data089
+com.example.instantscore.R$array: int data090
+com.example.instantscore.R$array: int data091
+com.example.instantscore.R$array: int data092
+com.example.instantscore.R$array: int data093
+com.example.instantscore.R$array: int data094
+com.example.instantscore.R$array: int data095
+com.example.instantscore.R$array: int data096
+com.example.instantscore.R$array: int data097
+com.example.instantscore.R$array: int data098
+com.example.instantscore.R$array: int data099
+com.example.instantscore.R$array: int data100
+com.example.instantscore.R$array: int data101
+com.example.instantscore.R$array: int data102
+com.example.instantscore.R$array: int data103
+com.example.instantscore.R$array: int data104
+com.example.instantscore.R$array: int data105
+com.example.instantscore.R$array: int data106
+com.example.instantscore.R$array: int data107
+com.example.instantscore.R$array: int data108
+com.example.instantscore.R$array: int data109
+com.example.instantscore.R$array: int data110
+com.example.instantscore.R$array: int data111
+com.example.instantscore.R$array: int data112
+com.example.instantscore.R$array: int data113
+com.example.instantscore.R$array: int data114
+com.example.instantscore.R$array: int data115
+com.example.instantscore.R$array: int data116
+com.example.instantscore.R$array: int data117
+com.example.instantscore.R$array: int data118
+com.example.instantscore.R$array: int data119
+com.example.instantscore.R$array: int data120
+com.example.instantscore.R$array: int data121
+com.example.instantscore.R$array: int data122
+com.example.instantscore.R$array: int data123
+com.example.instantscore.R$array: int data124
+com.example.instantscore.R$array: int data125
+com.example.instantscore.R$array: int data126
+com.example.instantscore.R$array: int data127
+com.example.instantscore.R$array: int data128
+com.example.instantscore.R$array: int data129
+com.example.instantscore.R$array: int data130
+com.example.instantscore.R$array: int data131
+com.example.instantscore.R$array: int data132
+com.example.instantscore.R$array: int data133
+com.example.instantscore.R$array: int data134
+com.example.instantscore.R$array: int data135
+com.example.instantscore.R$array: int data136
+com.example.instantscore.R$array: int data137
+com.example.instantscore.R$array: int data138
+com.example.instantscore.R$array: int data139
+com.example.instantscore.R$array: int data140
+com.example.instantscore.R$array: int data141
+com.example.instantscore.R$array: int data142
+com.example.instantscore.R$array: int data143
+com.example.instantscore.R$array: int data144
+com.example.instantscore.R$array: int data145
+com.example.instantscore.R$array: int data146
+com.example.instantscore.R$array: int data147
+com.example.instantscore.R$array: int data148
+com.example.instantscore.R$array: int data149
+com.example.instantscore.R$array: int data150
+com.example.instantscore.R$array: int data151
+com.example.instantscore.R$array: int data152
+com.example.instantscore.R$array: int data153
+com.example.instantscore.R$array: int data154
+com.example.instantscore.R$array: int data155
+com.example.instantscore.R$array: int data156
+com.example.instantscore.R$array: int data157
+com.example.instantscore.R$array: int data158
+com.example.instantscore.R$array: int data159
+com.example.instantscore.R$array: int data160
+com.example.instantscore.R$array: int data161
+com.example.instantscore.R$array: int data162
+com.example.instantscore.R$array: int data163
+com.example.instantscore.R$array: int data164
+com.example.instantscore.R$array: int data165
+com.example.instantscore.R$array: int data166
+com.example.instantscore.R$array: int data167
+com.example.instantscore.R$array: int data168
+com.example.instantscore.R$array: int data169
+com.example.instantscore.R$array: int data170
+com.example.instantscore.R$array: int data171
+com.example.instantscore.R$array: int data172
+com.example.instantscore.R$array: int data173
+com.example.instantscore.R$array: int data174
+com.example.instantscore.R$array: int data175
+com.example.instantscore.R$array: int data176
+com.example.instantscore.R$array: int data177
+com.example.instantscore.R$array: int data178
+com.example.instantscore.R$array: int data179
+com.example.instantscore.R$array: int data180
+com.example.instantscore.R$array: int data181
+com.example.instantscore.R$array: int data182
+com.example.instantscore.R$array: int data183
+com.example.instantscore.R$array: int data184
+com.example.instantscore.R$array: int data185
+com.example.instantscore.R$array: int data186
+com.example.instantscore.R$array: int data187
+com.example.instantscore.R$array: int data188
+com.example.instantscore.R$array: int data189
+com.example.instantscore.R$array: int data190
+com.example.instantscore.R$array: int data191
+com.example.instantscore.R$array: int data192
+com.example.instantscore.R$array: int data193
+com.example.instantscore.R$array: int data194
+com.example.instantscore.R$array: int data195
 com.example.instantscore.R$array: int titles
 com.example.instantscore.R$array: R$array()
 com.example.instantscore.R$attr
@@ -1819,11 +2016,234 @@ com.example.instantscore.R$dimen: int activity_horizontal_margin
 com.example.instantscore.R$dimen: int activity_vertical_margin
 com.example.instantscore.R$dimen: R$dimen()
 com.example.instantscore.R$drawable
+com.example.instantscore.R$drawable: int afghanistan
+com.example.instantscore.R$drawable: int albania
+com.example.instantscore.R$drawable: int algeria
+com.example.instantscore.R$drawable: int american_samoa
+com.example.instantscore.R$drawable: int andorra
+com.example.instantscore.R$drawable: int angola
+com.example.instantscore.R$drawable: int anguilla
+com.example.instantscore.R$drawable: int antigua_and_barbuda
+com.example.instantscore.R$drawable: int argentina
+com.example.instantscore.R$drawable: int armenia
+com.example.instantscore.R$drawable: int aruba
+com.example.instantscore.R$drawable: int australia
+com.example.instantscore.R$drawable: int austria
+com.example.instantscore.R$drawable: int azerbaijan
+com.example.instantscore.R$drawable: int bahamas
+com.example.instantscore.R$drawable: int bahrain
+com.example.instantscore.R$drawable: int bangladesh
+com.example.instantscore.R$drawable: int barbados
+com.example.instantscore.R$drawable: int belarus
+com.example.instantscore.R$drawable: int belgium
+com.example.instantscore.R$drawable: int belize
+com.example.instantscore.R$drawable: int benin
+com.example.instantscore.R$drawable: int bermuda
 com.example.instantscore.R$drawable: int bg_key
+com.example.instantscore.R$drawable: int bhutan
+com.example.instantscore.R$drawable: int bolivia
+com.example.instantscore.R$drawable: int bosnia
+com.example.instantscore.R$drawable: int botswana
+com.example.instantscore.R$drawable: int brazil
+com.example.instantscore.R$drawable: int british_virgin_islands
+com.example.instantscore.R$drawable: int brunei
+com.example.instantscore.R$drawable: int bulgaria
+com.example.instantscore.R$drawable: int burkina_faso
+com.example.instantscore.R$drawable: int burundi
+com.example.instantscore.R$drawable: int cambodia
+com.example.instantscore.R$drawable: int cameroon
+com.example.instantscore.R$drawable: int canada
+com.example.instantscore.R$drawable: int cape_verde
+com.example.instantscore.R$drawable: int cayman_islands
+com.example.instantscore.R$drawable: int central_african_republic
+com.example.instantscore.R$drawable: int chad
+com.example.instantscore.R$drawable: int chile
+com.example.instantscore.R$drawable: int china
+com.example.instantscore.R$drawable: int christmas_island
+com.example.instantscore.R$drawable: int colombia
+com.example.instantscore.R$drawable: int comoros
+com.example.instantscore.R$drawable: int cook_islands
+com.example.instantscore.R$drawable: int costa_rica
+com.example.instantscore.R$drawable: int cote_divoire
+com.example.instantscore.R$drawable: int croatia
+com.example.instantscore.R$drawable: int cuba
+com.example.instantscore.R$drawable: int cyprus
+com.example.instantscore.R$drawable: int czech_republic
+com.example.instantscore.R$drawable: int democratic_republic_of_the_congo
+com.example.instantscore.R$drawable: int denmark
+com.example.instantscore.R$drawable: int djibouti
+com.example.instantscore.R$drawable: int dominica
+com.example.instantscore.R$drawable: int dominican_republic
+com.example.instantscore.R$drawable: int ecuador
+com.example.instantscore.R$drawable: int egypt
+com.example.instantscore.R$drawable: int el_salvador
+com.example.instantscore.R$drawable: int equatorial_guinea
+com.example.instantscore.R$drawable: int eritrea
+com.example.instantscore.R$drawable: int estonia
+com.example.instantscore.R$drawable: int ethiopia
+com.example.instantscore.R$drawable: int falkland_islands
+com.example.instantscore.R$drawable: int faroe_islands
+com.example.instantscore.R$drawable: int fiji
+com.example.instantscore.R$drawable: int finland
+com.example.instantscore.R$drawable: int france
+com.example.instantscore.R$drawable: int french_polynesia
+com.example.instantscore.R$drawable: int gabon
+com.example.instantscore.R$drawable: int gambia
+com.example.instantscore.R$drawable: int georgia
+com.example.instantscore.R$drawable: int germany
+com.example.instantscore.R$drawable: int ghana
+com.example.instantscore.R$drawable: int gibraltar
+com.example.instantscore.R$drawable: int greece
+com.example.instantscore.R$drawable: int greenland
+com.example.instantscore.R$drawable: int grenada
+com.example.instantscore.R$drawable: int guam
+com.example.instantscore.R$drawable: int guatemala
+com.example.instantscore.R$drawable: int guinea
+com.example.instantscore.R$drawable: int guinea_bissau
+com.example.instantscore.R$drawable: int guyana
+com.example.instantscore.R$drawable: int haiti
+com.example.instantscore.R$drawable: int honduras
+com.example.instantscore.R$drawable: int hong_kong
+com.example.instantscore.R$drawable: int hungary
 com.example.instantscore.R$drawable: int ic_launcher
 com.example.instantscore.R$drawable: int ic_menu_add
 com.example.instantscore.R$drawable: int ic_menu_refresh
+com.example.instantscore.R$drawable: int iceland
+com.example.instantscore.R$drawable: int india
+com.example.instantscore.R$drawable: int indonesia
+com.example.instantscore.R$drawable: int iran
+com.example.instantscore.R$drawable: int iraq
+com.example.instantscore.R$drawable: int ireland
+com.example.instantscore.R$drawable: int israel
+com.example.instantscore.R$drawable: int italy
+com.example.instantscore.R$drawable: int jamaica
+com.example.instantscore.R$drawable: int japan
+com.example.instantscore.R$drawable: int jordan
+com.example.instantscore.R$drawable: int kazakhstan
+com.example.instantscore.R$drawable: int kenya
+com.example.instantscore.R$drawable: int kiribati
+com.example.instantscore.R$drawable: int kuwait
+com.example.instantscore.R$drawable: int kyrgyzstan
+com.example.instantscore.R$drawable: int laos
+com.example.instantscore.R$drawable: int latvia
+com.example.instantscore.R$drawable: int lebanon
+com.example.instantscore.R$drawable: int lesotho
+com.example.instantscore.R$drawable: int liberia
+com.example.instantscore.R$drawable: int libya
+com.example.instantscore.R$drawable: int liechtenstein
+com.example.instantscore.R$drawable: int lithuania
+com.example.instantscore.R$drawable: int luxembourg
+com.example.instantscore.R$drawable: int macao
+com.example.instantscore.R$drawable: int macedonia
+com.example.instantscore.R$drawable: int madagascar
+com.example.instantscore.R$drawable: int malawi
+com.example.instantscore.R$drawable: int malaysia
+com.example.instantscore.R$drawable: int maldives
+com.example.instantscore.R$drawable: int mali
+com.example.instantscore.R$drawable: int malta
+com.example.instantscore.R$drawable: int marshall_islands
+com.example.instantscore.R$drawable: int martinique
+com.example.instantscore.R$drawable: int mauritania
+com.example.instantscore.R$drawable: int mauritius
+com.example.instantscore.R$drawable: int mexico
+com.example.instantscore.R$drawable: int micronesia
+com.example.instantscore.R$drawable: int moldova
+com.example.instantscore.R$drawable: int monaco
+com.example.instantscore.R$drawable: int mongolia
+com.example.instantscore.R$drawable: int montserrat
+com.example.instantscore.R$drawable: int morocco
+com.example.instantscore.R$drawable: int mozambique
+com.example.instantscore.R$drawable: int myanmar
+com.example.instantscore.R$drawable: int namibia
+com.example.instantscore.R$drawable: int nauru
+com.example.instantscore.R$drawable: int nepal
+com.example.instantscore.R$drawable: int netherlands
+com.example.instantscore.R$drawable: int netherlands_antilles
+com.example.instantscore.R$drawable: int new_zealand
+com.example.instantscore.R$drawable: int nicaragua
+com.example.instantscore.R$drawable: int niger
+com.example.instantscore.R$drawable: int nigeria
+com.example.instantscore.R$drawable: int niue
+com.example.instantscore.R$drawable: int norfolk_island
+com.example.instantscore.R$drawable: int north_korea
+com.example.instantscore.R$drawable: int norway
+com.example.instantscore.R$drawable: int oman
+com.example.instantscore.R$drawable: int pakistan
+com.example.instantscore.R$drawable: int palau
+com.example.instantscore.R$drawable: int panama
+com.example.instantscore.R$drawable: int papua_new_guinea
+com.example.instantscore.R$drawable: int paraguay
+com.example.instantscore.R$drawable: int peru
+com.example.instantscore.R$drawable: int philippines
+com.example.instantscore.R$drawable: int pitcairn_islands
+com.example.instantscore.R$drawable: int poland
+com.example.instantscore.R$drawable: int portugal
+com.example.instantscore.R$drawable: int puerto_rico
+com.example.instantscore.R$drawable: int qatar
+com.example.instantscore.R$drawable: int republic_of_the_congo
+com.example.instantscore.R$drawable: int romania
+com.example.instantscore.R$drawable: int russian_federation
+com.example.instantscore.R$drawable: int rwanda
+com.example.instantscore.R$drawable: int saint_kitts_and_nevis
+com.example.instantscore.R$drawable: int saint_lucia
+com.example.instantscore.R$drawable: int saint_pierre
+com.example.instantscore.R$drawable: int saint_vicent_and_the_grenadines
+com.example.instantscore.R$drawable: int samoa
+com.example.instantscore.R$drawable: int san_marino
+com.example.instantscore.R$drawable: int sao_tome_and_principe
+com.example.instantscore.R$drawable: int saudi_arabia
 com.example.instantscore.R$drawable: int selector_list_item
+com.example.instantscore.R$drawable: int senegal
+com.example.instantscore.R$drawable: int serbia_and_montenegro
+com.example.instantscore.R$drawable: int seychelles
+com.example.instantscore.R$drawable: int sierra_leone
+com.example.instantscore.R$drawable: int singapore
+com.example.instantscore.R$drawable: int slovakia
+com.example.instantscore.R$drawable: int slovenia
+com.example.instantscore.R$drawable: int soloman_islands
+com.example.instantscore.R$drawable: int somalia
+com.example.instantscore.R$drawable: int south_africa
+com.example.instantscore.R$drawable: int south_georgia
+com.example.instantscore.R$drawable: int south_korea
+com.example.instantscore.R$drawable: int soviet_union
+com.example.instantscore.R$drawable: int spain
+com.example.instantscore.R$drawable: int sri_lanka
+com.example.instantscore.R$drawable: int sudan
+com.example.instantscore.R$drawable: int suriname
+com.example.instantscore.R$drawable: int swaziland
+com.example.instantscore.R$drawable: int sweden
+com.example.instantscore.R$drawable: int switzerland
+com.example.instantscore.R$drawable: int syria
+com.example.instantscore.R$drawable: int taiwan
+com.example.instantscore.R$drawable: int tajikistan
+com.example.instantscore.R$drawable: int tanzania
+com.example.instantscore.R$drawable: int thailand
+com.example.instantscore.R$drawable: int tibet
+com.example.instantscore.R$drawable: int timor_leste
+com.example.instantscore.R$drawable: int togo
+com.example.instantscore.R$drawable: int tonga
+com.example.instantscore.R$drawable: int trinidad_and_tobago
+com.example.instantscore.R$drawable: int tunisia
+com.example.instantscore.R$drawable: int turkey
+com.example.instantscore.R$drawable: int turkmenistan
+com.example.instantscore.R$drawable: int turks_and_caicos_islands
+com.example.instantscore.R$drawable: int tuvalu
+com.example.instantscore.R$drawable: int uae
+com.example.instantscore.R$drawable: int uganda
+com.example.instantscore.R$drawable: int ukraine
+com.example.instantscore.R$drawable: int united_kingdom
+com.example.instantscore.R$drawable: int united_states_of_america
+com.example.instantscore.R$drawable: int uruguay
+com.example.instantscore.R$drawable: int us_virgin_islands
+com.example.instantscore.R$drawable: int uzbekistan
+com.example.instantscore.R$drawable: int vanuatu
+com.example.instantscore.R$drawable: int vatican_city
+com.example.instantscore.R$drawable: int venezuela
+com.example.instantscore.R$drawable: int vietnam
+com.example.instantscore.R$drawable: int wallis_and_futuna
+com.example.instantscore.R$drawable: int yemen
+com.example.instantscore.R$drawable: int zambia
+com.example.instantscore.R$drawable: int zimbabwe
 com.example.instantscore.R$drawable: R$drawable()
 com.example.instantscore.R$id
 com.example.instantscore.R$id: int action_settings
@@ -1836,6 +2256,9 @@ com.example.instantscore.R$id: int header
 com.example.instantscore.R$id: int homeTeam
 com.example.instantscore.R$id: int homeTeamScore
 com.example.instantscore.R$id: int item_delete
+com.example.instantscore.R$id: int item_descriptionTextView
+com.example.instantscore.R$id: int item_imageView
+com.example.instantscore.R$id: int item_titleTextView
 com.example.instantscore.R$id: int layout_warning
 com.example.instantscore.R$id: int list
 com.example.instantscore.R$id: int list_header_title
@@ -1847,6 +2270,7 @@ com.example.instantscore.R$id: int progressBar2
 com.example.instantscore.R$id: int progressBar3
 com.example.instantscore.R$id: int refresh
 com.example.instantscore.R$id: int score
+com.example.instantscore.R$id: int spinner
 com.example.instantscore.R$id: int team1
 com.example.instantscore.R$id: int team2
 com.example.instantscore.R$id: int textView1
@@ -1859,11 +2283,14 @@ com.example.instantscore.R$layout: int dialog_layout_loading
 com.example.instantscore.R$layout: int dialog_layout_number
 com.example.instantscore.R$layout: int fragment_section_launchpad
 com.example.instantscore.R$layout: int fragment_section_launchpad_old
+com.example.instantscore.R$layout: int item_view
+com.example.instantscore.R$layout: int item_view_children
 com.example.instantscore.R$layout: int list_header
 com.example.instantscore.R$layout: int list_header_new
 com.example.instantscore.R$layout: int list_item
 com.example.instantscore.R$layout: int list_item_new
 com.example.instantscore.R$layout: int list_item_new_tab3
+com.example.instantscore.R$layout: int test_layout
 com.example.instantscore.R$layout: R$layout()
 com.example.instantscore.R$menu
 com.example.instantscore.R$menu: int contextual_menu
@@ -1950,59 +2377,26 @@ com.example.instantscore.adapter.ExpandableListAdapter: boolean hasStableIds()
 com.example.instantscore.adapter.ExpandableListAdapter: android.view.View getGroupView(int,boolean,android.view.View,android.view.ViewGroup)
 com.example.instantscore.adapter.ExpandableListAdapter: android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup)
 com.example.instantscore.adapter.ExpandableListAdapter: boolean isChildSelectable(int,int)
-com.example.instantscore.adapter.ListAdapter
-com.example.instantscore.adapter.ListAdapter: long serialVersionUID
-com.example.instantscore.adapter.ListAdapter: ListAdapter(java.util.List,android.content.Context)
-com.example.instantscore.adapter.ListAdapter: void notifyDataSetChanged()
-com.example.instantscore.adapter.ListAdapter: int getCount()
-com.example.instantscore.adapter.ListAdapter: java.lang.Object getItem(int)
-com.example.instantscore.adapter.ListAdapter: long getItemId(int)
-com.example.instantscore.adapter.ListAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
-com.example.instantscore.adapter.ListAdapter: void add(com.example.instantscore.model.Game)
-com.example.instantscore.adapter.ListAdapter: void remove(com.example.instantscore.model.Game)
-com.example.instantscore.adapter.ListAdapter: java.util.List getSelectedGames()
-com.example.instantscore.adapter.ListAdapter: com.example.instantscore.model.Game getGame(int)
-com.example.instantscore.adapter.SeparatedListAdapter
-com.example.instantscore.adapter.SeparatedListAdapter: java.util.Map sections
-com.example.instantscore.adapter.SeparatedListAdapter: android.widget.ArrayAdapter headers
-com.example.instantscore.adapter.SeparatedListAdapter: int TYPE_SECTION_HEADER
-com.example.instantscore.adapter.SeparatedListAdapter: SeparatedListAdapter(android.content.Context)
-com.example.instantscore.adapter.SeparatedListAdapter: void addSection(java.lang.String,android.widget.Adapter)
-com.example.instantscore.adapter.SeparatedListAdapter: java.lang.Object getItem(int)
-com.example.instantscore.adapter.SeparatedListAdapter: int getCount()
-com.example.instantscore.adapter.SeparatedListAdapter: int getViewTypeCount()
-com.example.instantscore.adapter.SeparatedListAdapter: int getItemViewType(int)
-com.example.instantscore.adapter.SeparatedListAdapter: void notifyAllAdaptersDataSetChanged()
-com.example.instantscore.adapter.SeparatedListAdapter: boolean areAllItemsSelectable()
-com.example.instantscore.adapter.SeparatedListAdapter: boolean isEnabled(int)
-com.example.instantscore.adapter.SeparatedListAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
-com.example.instantscore.adapter.SeparatedListAdapter: long getItemId(int)
-com.example.instantscore.adapter.SeparatedListAdapter: void notifyDataSetChanged()
-com.example.instantscore.communication.DataFetcher
-com.example.instantscore.communication.DataFetcher: DataFetcher(android.app.Activity)
-com.example.instantscore.communication.DataFetcher: void addMyChangeListener(com.example.instantscore.listener.CallbackListener)
-com.example.instantscore.communication.DataFetcher: void removeMyChangeListener(com.example.instantscore.listener.CallbackListener)
-com.example.instantscore.communication.DataFetcher: void onPreExecute()
-com.example.instantscore.communication.DataFetcher: java.util.List doInBackground(com.example.instantscore.model.EventContainer[])
-com.example.instantscore.communication.DataFetcher: void onPostExecute(java.util.List)
-com.example.instantscore.communication.DataFetcher: void onCancelled()
-com.example.instantscore.communication.DataFetcher: void onPostExecute(java.lang.Object)
-com.example.instantscore.communication.DataFetcher: java.lang.Object doInBackground(java.lang.Object[])
-com.example.instantscore.communication.DataSender
-com.example.instantscore.communication.DataSender: DataSender(java.lang.String,android.view.View,android.content.Context)
-com.example.instantscore.communication.DataSender: void onPreExecute()
-com.example.instantscore.communication.DataSender: java.lang.String doInBackground(java.util.List[])
-com.example.instantscore.communication.DataSender: void onPostExecute(java.lang.String)
-com.example.instantscore.communication.DataSender: void onPostExecute(java.lang.Object)
-com.example.instantscore.communication.DataSender: java.lang.Object doInBackground(java.lang.Object[])
-com.example.instantscore.communication.HttpClient
-com.example.instantscore.communication.HttpClient: HttpClient()
-com.example.instantscore.communication.HttpClient: byte[] getDoGetResponseByteArray(java.lang.String,java.util.Map)
-com.example.instantscore.communication.HttpClient: android.graphics.Bitmap getDoGetResponseBitmap(java.lang.String)
-com.example.instantscore.communication.HttpClient: java.lang.String getHttpClientDoGetResponse(java.lang.String,java.util.Map)
-com.example.instantscore.communication.HttpClient: java.lang.String streamToString(java.io.InputStream)
-com.example.instantscore.communication.HttpClient: byte[] streamToByteArray(java.io.InputStream)
-com.example.instantscore.communication.HttpClient: java.lang.String doPost(java.lang.String,java.lang.String)
+com.example.instantscore.adapter.ItemAdapter
+com.example.instantscore.adapter.ItemAdapter: ItemAdapter(android.content.Context,java.util.List)
+com.example.instantscore.adapter.ItemAdapter: int getCount()
+com.example.instantscore.adapter.ItemAdapter: java.lang.Object getItem(int)
+com.example.instantscore.adapter.ItemAdapter: long getItemId(int)
+com.example.instantscore.adapter.ItemAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
+com.example.instantscore.communication.JsonRequest
+com.example.instantscore.communication.JsonRequest: JsonRequest(java.lang.String,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.communication.JsonRequest: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.communication.JsonRequest: void deliverResponse(java.util.List)
+com.example.instantscore.communication.JsonRequest: void deliverResponse(java.lang.Object)
+com.example.instantscore.communication.MyVolley
+com.example.instantscore.communication.MyVolley: com.example.instantscore.communication.MyVolley getInstance(android.content.Context)
+com.example.instantscore.communication.MyVolley: com.example.instantscore.volley.RequestQueue getRequestQueue()
+com.example.instantscore.communication.MyVolley: void addToRequestQueue(com.example.instantscore.volley.Request)
+com.example.instantscore.communication.PostRequest
+com.example.instantscore.communication.PostRequest: PostRequest(int,java.lang.String,java.util.Map,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.communication.PostRequest: void deliverResponse(java.lang.Object)
+com.example.instantscore.communication.PostRequest: java.util.Map getParams()
+com.example.instantscore.communication.PostRequest: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
 com.example.instantscore.database.DBHelper
 com.example.instantscore.database.DBHelper: java.lang.String CREATE_MATCHES_TABLE_COMMAND
 com.example.instantscore.database.DBHelper: java.lang.String DROP_MATCHES_TABLE
@@ -2030,54 +2424,29 @@ com.example.instantscore.dialog.NumberDialog
 com.example.instantscore.dialog.NumberDialog: NumberDialog()
 com.example.instantscore.dialog.NumberDialog: com.example.instantscore.dialog.NumberDialog newInstance()
 com.example.instantscore.dialog.NumberDialog: android.app.Dialog onCreateDialog(android.os.Bundle)
-com.example.instantscore.listener.CallbackListener
-com.example.instantscore.listener.CallbackListener: void onUpdate(com.example.instantscore.model.EventContainer)
-com.example.instantscore.listener.CallbackListener: void onException(com.example.instantscore.model.EventContainer)
-com.example.instantscore.listener.MyChangeEvent
-com.example.instantscore.listener.MyChangeEvent: long serialVersionUID
-com.example.instantscore.listener.MyChangeEvent: MyChangeEvent(java.lang.Object)
-com.example.instantscore.listener.MyChangeEvent: MyChangeEvent(java.lang.Exception)
-com.example.instantscore.listener.MyChangeEvent: java.lang.Object getResult()
-com.example.instantscore.listener.MyChangeEvent: java.lang.Exception getError()
-com.example.instantscore.model.EventContainer
-com.example.instantscore.model.EventContainer: EventContainer(java.lang.Object,int)
-com.example.instantscore.model.EventContainer: int getId()
-com.example.instantscore.model.EventContainer: java.lang.Object getData()
-com.example.instantscore.model.EventContainer: void setData(java.lang.Object)
-com.example.instantscore.model.Game
-com.example.instantscore.model.Game: Game()
-com.example.instantscore.model.Game: java.lang.String toString()
-com.example.instantscore.model.Game: java.lang.String getGameId()
-com.example.instantscore.model.Game: boolean isSelectable()
-com.example.instantscore.model.Game: boolean equals(java.lang.Object)
-com.example.instantscore.model.Game: boolean isSelected()
-com.example.instantscore.model.Game: void setSelected(boolean)
-com.example.instantscore.model.Game: java.lang.String getTournament()
-com.example.instantscore.model.Game: void setTournament(java.lang.String)
-com.example.instantscore.model.Game: java.lang.String getDate()
-com.example.instantscore.model.Game: void setDate(java.lang.String)
-com.example.instantscore.model.Game: java.lang.String getTime()
-com.example.instantscore.model.Game: void setTime(java.lang.String)
-com.example.instantscore.model.Game: java.lang.String getHomeTeam()
-com.example.instantscore.model.Game: void setHomeTeam(java.lang.String)
-com.example.instantscore.model.Game: java.lang.String getAwayTeam()
-com.example.instantscore.model.Game: void setAwayTeam(java.lang.String)
-com.example.instantscore.model.Game: java.lang.String getHomeTeamScore()
-com.example.instantscore.model.Game: void setHomeTeamScore(java.lang.String)
-com.example.instantscore.model.Game: java.lang.String getAwayTeamScore()
-com.example.instantscore.model.Game: void setAwayTeamScore(java.lang.String)
+com.example.instantscore.dialog.TestDialog
+com.example.instantscore.dialog.TestDialog: TestDialog(android.content.Context,android.util.AttributeSet)
+com.example.instantscore.dialog.TestDialog: void onBindDialogView(android.view.View)
+com.example.instantscore.dialog.TestDialog: void onDialogClosed(boolean)
+com.example.instantscore.dialog.TestDialog: void onClick(android.content.DialogInterface,int)
+com.example.instantscore.layout.ItemView
+com.example.instantscore.layout.ItemView: ItemView(android.content.Context,android.util.AttributeSet)
+com.example.instantscore.layout.ItemView: ItemView(android.content.Context,android.util.AttributeSet,int)
+com.example.instantscore.layout.ItemView: void setItem(com.example.instantscore.model.Item)
+com.example.instantscore.layout.ItemView: com.example.instantscore.layout.ItemView inflate(android.view.ViewGroup)
+com.example.instantscore.model.Item
+com.example.instantscore.model.Item: Item(java.lang.String,java.lang.String,int)
+com.example.instantscore.model.Item: java.lang.String getCountryPrefix()
+com.example.instantscore.model.Item: java.lang.String getCountryName()
+com.example.instantscore.model.Item: int getImgId()
+com.example.instantscore.model.Item: void setCountryPrefix(java.lang.String)
+com.example.instantscore.model.Item: void setCountryName(java.lang.String)
+com.example.instantscore.model.Item: void setImgId(int)
 com.example.instantscore.model.League
 com.example.instantscore.model.League: League()
 com.example.instantscore.model.League: java.lang.String getName()
 com.example.instantscore.model.League: java.lang.String getDate()
 com.example.instantscore.model.League: java.util.List getMatches()
-com.example.instantscore.model.ListAdapterPriority
-com.example.instantscore.model.ListAdapterPriority: ListAdapterPriority(com.example.instantscore.adapter.ListAdapter,int,java.lang.String)
-com.example.instantscore.model.ListAdapterPriority: java.lang.String getTournamentName()
-com.example.instantscore.model.ListAdapterPriority: int getPriority()
-com.example.instantscore.model.ListAdapterPriority: com.example.instantscore.adapter.ListAdapter getListAdapter()
-com.example.instantscore.model.ListAdapterPriority: int compareTo(com.example.instantscore.model.ListAdapterPriority)
-com.example.instantscore.model.ListAdapterPriority: int compareTo(java.lang.Object)
 com.example.instantscore.model.Match
 com.example.instantscore.model.Match: Match(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 com.example.instantscore.model.Match: java.lang.String getTime()
@@ -2098,6 +2467,338 @@ com.example.instantscore.utils.Utils: java.util.Calendar buildTime(java.lang.Str
 com.example.instantscore.utils.Utils: java.util.Calendar convertDateTime(java.util.Calendar)
 com.example.instantscore.utils.Utils: java.lang.String getTimeFrom(java.util.Calendar)
 com.example.instantscore.utils.Utils: java.lang.String getDateFrom(java.util.Calendar)
+com.example.instantscore.volley.AuthFailureError
+com.example.instantscore.volley.AuthFailureError: AuthFailureError()
+com.example.instantscore.volley.AuthFailureError: AuthFailureError(android.content.Intent)
+com.example.instantscore.volley.AuthFailureError: AuthFailureError(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.AuthFailureError: AuthFailureError(java.lang.String)
+com.example.instantscore.volley.AuthFailureError: AuthFailureError(java.lang.String,java.lang.Exception)
+com.example.instantscore.volley.AuthFailureError: android.content.Intent getResolutionIntent()
+com.example.instantscore.volley.AuthFailureError: java.lang.String getMessage()
+com.example.instantscore.volley.Cache
+com.example.instantscore.volley.Cache: com.example.instantscore.volley.Cache$Entry get(java.lang.String)
+com.example.instantscore.volley.Cache: void put(java.lang.String,com.example.instantscore.volley.Cache$Entry)
+com.example.instantscore.volley.Cache: void initialize()
+com.example.instantscore.volley.Cache: void invalidate(java.lang.String,boolean)
+com.example.instantscore.volley.Cache: void remove(java.lang.String)
+com.example.instantscore.volley.Cache: void clear()
+com.example.instantscore.volley.Cache$Entry
+com.example.instantscore.volley.Cache$Entry: byte[] data
+com.example.instantscore.volley.Cache$Entry: java.lang.String etag
+com.example.instantscore.volley.Cache$Entry: long serverDate
+com.example.instantscore.volley.Cache$Entry: long ttl
+com.example.instantscore.volley.Cache$Entry: long softTtl
+com.example.instantscore.volley.Cache$Entry: java.util.Map responseHeaders
+com.example.instantscore.volley.Cache$Entry: Cache$Entry()
+com.example.instantscore.volley.Cache$Entry: boolean isExpired()
+com.example.instantscore.volley.Cache$Entry: boolean refreshNeeded()
+com.example.instantscore.volley.CacheDispatcher
+com.example.instantscore.volley.CacheDispatcher: CacheDispatcher(java.util.concurrent.BlockingQueue,java.util.concurrent.BlockingQueue,com.example.instantscore.volley.Cache,com.example.instantscore.volley.ResponseDelivery)
+com.example.instantscore.volley.CacheDispatcher: void quit()
+com.example.instantscore.volley.CacheDispatcher: void run()
+com.example.instantscore.volley.DefaultRetryPolicy
+com.example.instantscore.volley.DefaultRetryPolicy: int DEFAULT_TIMEOUT_MS
+com.example.instantscore.volley.DefaultRetryPolicy: int DEFAULT_MAX_RETRIES
+com.example.instantscore.volley.DefaultRetryPolicy: float DEFAULT_BACKOFF_MULT
+com.example.instantscore.volley.DefaultRetryPolicy: DefaultRetryPolicy()
+com.example.instantscore.volley.DefaultRetryPolicy: DefaultRetryPolicy(int,int,float)
+com.example.instantscore.volley.DefaultRetryPolicy: int getCurrentTimeout()
+com.example.instantscore.volley.DefaultRetryPolicy: int getCurrentRetryCount()
+com.example.instantscore.volley.DefaultRetryPolicy: void retry(com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.DefaultRetryPolicy: boolean hasAttemptRemaining()
+com.example.instantscore.volley.ExecutorDelivery
+com.example.instantscore.volley.ExecutorDelivery: ExecutorDelivery(android.os.Handler)
+com.example.instantscore.volley.ExecutorDelivery: ExecutorDelivery(java.util.concurrent.Executor)
+com.example.instantscore.volley.ExecutorDelivery: void postResponse(com.example.instantscore.volley.Request,com.example.instantscore.volley.Response)
+com.example.instantscore.volley.ExecutorDelivery: void postResponse(com.example.instantscore.volley.Request,com.example.instantscore.volley.Response,java.lang.Runnable)
+com.example.instantscore.volley.ExecutorDelivery: void postError(com.example.instantscore.volley.Request,com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.Network
+com.example.instantscore.volley.Network: com.example.instantscore.volley.NetworkResponse performRequest(com.example.instantscore.volley.Request)
+com.example.instantscore.volley.NetworkDispatcher
+com.example.instantscore.volley.NetworkDispatcher: NetworkDispatcher(java.util.concurrent.BlockingQueue,com.example.instantscore.volley.Network,com.example.instantscore.volley.Cache,com.example.instantscore.volley.ResponseDelivery)
+com.example.instantscore.volley.NetworkDispatcher: void quit()
+com.example.instantscore.volley.NetworkDispatcher: void run()
+com.example.instantscore.volley.NetworkError
+com.example.instantscore.volley.NetworkError: NetworkError()
+com.example.instantscore.volley.NetworkError: NetworkError(java.lang.Throwable)
+com.example.instantscore.volley.NetworkError: NetworkError(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.NetworkResponse
+com.example.instantscore.volley.NetworkResponse: int statusCode
+com.example.instantscore.volley.NetworkResponse: byte[] data
+com.example.instantscore.volley.NetworkResponse: java.util.Map headers
+com.example.instantscore.volley.NetworkResponse: boolean notModified
+com.example.instantscore.volley.NetworkResponse: NetworkResponse(int,byte[],java.util.Map,boolean)
+com.example.instantscore.volley.NetworkResponse: NetworkResponse(byte[])
+com.example.instantscore.volley.NetworkResponse: NetworkResponse(byte[],java.util.Map)
+com.example.instantscore.volley.NoConnectionError
+com.example.instantscore.volley.NoConnectionError: NoConnectionError()
+com.example.instantscore.volley.NoConnectionError: NoConnectionError(java.lang.Throwable)
+com.example.instantscore.volley.ParseError
+com.example.instantscore.volley.ParseError: ParseError()
+com.example.instantscore.volley.ParseError: ParseError(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.ParseError: ParseError(java.lang.Throwable)
+com.example.instantscore.volley.Request
+com.example.instantscore.volley.Request: Request(java.lang.String,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.Request: Request(int,java.lang.String,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.Request: int getMethod()
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Request setTag(java.lang.Object)
+com.example.instantscore.volley.Request: java.lang.Object getTag()
+com.example.instantscore.volley.Request: int getTrafficStatsTag()
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Request setRetryPolicy(com.example.instantscore.volley.RetryPolicy)
+com.example.instantscore.volley.Request: void addMarker(java.lang.String)
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Request setRequestQueue(com.example.instantscore.volley.RequestQueue)
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Request setSequence(int)
+com.example.instantscore.volley.Request: int getSequence()
+com.example.instantscore.volley.Request: java.lang.String getUrl()
+com.example.instantscore.volley.Request: java.lang.String getCacheKey()
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Request setCacheEntry(com.example.instantscore.volley.Cache$Entry)
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Cache$Entry getCacheEntry()
+com.example.instantscore.volley.Request: void cancel()
+com.example.instantscore.volley.Request: boolean isCanceled()
+com.example.instantscore.volley.Request: java.util.Map getHeaders()
+com.example.instantscore.volley.Request: java.util.Map getPostParams()
+com.example.instantscore.volley.Request: java.lang.String getPostParamsEncoding()
+com.example.instantscore.volley.Request: java.lang.String getPostBodyContentType()
+com.example.instantscore.volley.Request: byte[] getPostBody()
+com.example.instantscore.volley.Request: java.util.Map getParams()
+com.example.instantscore.volley.Request: java.lang.String getParamsEncoding()
+com.example.instantscore.volley.Request: java.lang.String getBodyContentType()
+com.example.instantscore.volley.Request: byte[] getBody()
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Request setShouldCache(boolean)
+com.example.instantscore.volley.Request: boolean shouldCache()
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Request$Priority getPriority()
+com.example.instantscore.volley.Request: int getTimeoutMs()
+com.example.instantscore.volley.Request: com.example.instantscore.volley.RetryPolicy getRetryPolicy()
+com.example.instantscore.volley.Request: void markDelivered()
+com.example.instantscore.volley.Request: boolean hasHadResponseDelivered()
+com.example.instantscore.volley.Request: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.Request: com.example.instantscore.volley.VolleyError parseNetworkError(com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.Request: void deliverResponse(java.lang.Object)
+com.example.instantscore.volley.Request: void deliverError(com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.Request: int compareTo(com.example.instantscore.volley.Request)
+com.example.instantscore.volley.Request: java.lang.String toString()
+com.example.instantscore.volley.Request: int compareTo(java.lang.Object)
+com.example.instantscore.volley.Request$Method
+com.example.instantscore.volley.Request$Method: int DEPRECATED_GET_OR_POST
+com.example.instantscore.volley.Request$Method: int GET
+com.example.instantscore.volley.Request$Method: int POST
+com.example.instantscore.volley.Request$Method: int PUT
+com.example.instantscore.volley.Request$Method: int DELETE
+com.example.instantscore.volley.Request$Method: int HEAD
+com.example.instantscore.volley.Request$Method: int OPTIONS
+com.example.instantscore.volley.Request$Method: int TRACE
+com.example.instantscore.volley.Request$Method: int PATCH
+com.example.instantscore.volley.Request$Priority
+com.example.instantscore.volley.Request$Priority: com.example.instantscore.volley.Request$Priority LOW
+com.example.instantscore.volley.Request$Priority: com.example.instantscore.volley.Request$Priority NORMAL
+com.example.instantscore.volley.Request$Priority: com.example.instantscore.volley.Request$Priority HIGH
+com.example.instantscore.volley.Request$Priority: com.example.instantscore.volley.Request$Priority IMMEDIATE
+com.example.instantscore.volley.Request$Priority: com.example.instantscore.volley.Request$Priority[] values()
+com.example.instantscore.volley.Request$Priority: com.example.instantscore.volley.Request$Priority valueOf(java.lang.String)
+com.example.instantscore.volley.RequestQueue
+com.example.instantscore.volley.RequestQueue: RequestQueue(com.example.instantscore.volley.Cache,com.example.instantscore.volley.Network,int,com.example.instantscore.volley.ResponseDelivery)
+com.example.instantscore.volley.RequestQueue: RequestQueue(com.example.instantscore.volley.Cache,com.example.instantscore.volley.Network,int)
+com.example.instantscore.volley.RequestQueue: RequestQueue(com.example.instantscore.volley.Cache,com.example.instantscore.volley.Network)
+com.example.instantscore.volley.RequestQueue: void start()
+com.example.instantscore.volley.RequestQueue: void stop()
+com.example.instantscore.volley.RequestQueue: int getSequenceNumber()
+com.example.instantscore.volley.RequestQueue: com.example.instantscore.volley.Cache getCache()
+com.example.instantscore.volley.RequestQueue: void cancelAll(com.example.instantscore.volley.RequestQueue$RequestFilter)
+com.example.instantscore.volley.RequestQueue: void cancelAll(java.lang.Object)
+com.example.instantscore.volley.RequestQueue: com.example.instantscore.volley.Request add(com.example.instantscore.volley.Request)
+com.example.instantscore.volley.RequestQueue$RequestFilter
+com.example.instantscore.volley.RequestQueue$RequestFilter: boolean apply(com.example.instantscore.volley.Request)
+com.example.instantscore.volley.Response
+com.example.instantscore.volley.Response: java.lang.Object result
+com.example.instantscore.volley.Response: com.example.instantscore.volley.Cache$Entry cacheEntry
+com.example.instantscore.volley.Response: com.example.instantscore.volley.VolleyError error
+com.example.instantscore.volley.Response: boolean intermediate
+com.example.instantscore.volley.Response: com.example.instantscore.volley.Response success(java.lang.Object,com.example.instantscore.volley.Cache$Entry)
+com.example.instantscore.volley.Response: com.example.instantscore.volley.Response error(com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.Response: boolean isSuccess()
+com.example.instantscore.volley.Response$ErrorListener
+com.example.instantscore.volley.Response$ErrorListener: void onErrorResponse(com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.Response$Listener
+com.example.instantscore.volley.Response$Listener: void onResponse(java.lang.Object)
+com.example.instantscore.volley.ResponseDelivery
+com.example.instantscore.volley.ResponseDelivery: void postResponse(com.example.instantscore.volley.Request,com.example.instantscore.volley.Response)
+com.example.instantscore.volley.ResponseDelivery: void postResponse(com.example.instantscore.volley.Request,com.example.instantscore.volley.Response,java.lang.Runnable)
+com.example.instantscore.volley.ResponseDelivery: void postError(com.example.instantscore.volley.Request,com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.RetryPolicy
+com.example.instantscore.volley.RetryPolicy: int getCurrentTimeout()
+com.example.instantscore.volley.RetryPolicy: int getCurrentRetryCount()
+com.example.instantscore.volley.RetryPolicy: void retry(com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.ServerError
+com.example.instantscore.volley.ServerError: ServerError(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.ServerError: ServerError()
+com.example.instantscore.volley.TimeoutError
+com.example.instantscore.volley.TimeoutError: TimeoutError()
+com.example.instantscore.volley.VolleyError
+com.example.instantscore.volley.VolleyError: com.example.instantscore.volley.NetworkResponse networkResponse
+com.example.instantscore.volley.VolleyError: VolleyError()
+com.example.instantscore.volley.VolleyError: VolleyError(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.VolleyError: VolleyError(java.lang.String)
+com.example.instantscore.volley.VolleyError: VolleyError(java.lang.String,java.lang.Throwable)
+com.example.instantscore.volley.VolleyError: VolleyError(java.lang.Throwable)
+com.example.instantscore.volley.VolleyLog
+com.example.instantscore.volley.VolleyLog: java.lang.String TAG
+com.example.instantscore.volley.VolleyLog: boolean DEBUG
+com.example.instantscore.volley.VolleyLog: VolleyLog()
+com.example.instantscore.volley.VolleyLog: void setTag(java.lang.String)
+com.example.instantscore.volley.VolleyLog: void v(java.lang.String,java.lang.Object[])
+com.example.instantscore.volley.VolleyLog: void d(java.lang.String,java.lang.Object[])
+com.example.instantscore.volley.VolleyLog: void e(java.lang.String,java.lang.Object[])
+com.example.instantscore.volley.VolleyLog: void e(java.lang.Throwable,java.lang.String,java.lang.Object[])
+com.example.instantscore.volley.VolleyLog: void wtf(java.lang.String,java.lang.Object[])
+com.example.instantscore.volley.VolleyLog: void wtf(java.lang.Throwable,java.lang.String,java.lang.Object[])
+com.example.instantscore.volley.toolbox.AndroidAuthenticator
+com.example.instantscore.volley.toolbox.AndroidAuthenticator: AndroidAuthenticator(android.content.Context,android.accounts.Account,java.lang.String)
+com.example.instantscore.volley.toolbox.AndroidAuthenticator: AndroidAuthenticator(android.content.Context,android.accounts.Account,java.lang.String,boolean)
+com.example.instantscore.volley.toolbox.AndroidAuthenticator: android.accounts.Account getAccount()
+com.example.instantscore.volley.toolbox.AndroidAuthenticator: java.lang.String getAuthToken()
+com.example.instantscore.volley.toolbox.AndroidAuthenticator: void invalidateAuthToken(java.lang.String)
+com.example.instantscore.volley.toolbox.Authenticator
+com.example.instantscore.volley.toolbox.Authenticator: java.lang.String getAuthToken()
+com.example.instantscore.volley.toolbox.Authenticator: void invalidateAuthToken(java.lang.String)
+com.example.instantscore.volley.toolbox.BasicNetwork
+com.example.instantscore.volley.toolbox.BasicNetwork: boolean DEBUG
+com.example.instantscore.volley.toolbox.BasicNetwork: com.example.instantscore.volley.toolbox.HttpStack mHttpStack
+com.example.instantscore.volley.toolbox.BasicNetwork: com.example.instantscore.volley.toolbox.ByteArrayPool mPool
+com.example.instantscore.volley.toolbox.BasicNetwork: BasicNetwork(com.example.instantscore.volley.toolbox.HttpStack)
+com.example.instantscore.volley.toolbox.BasicNetwork: BasicNetwork(com.example.instantscore.volley.toolbox.HttpStack,com.example.instantscore.volley.toolbox.ByteArrayPool)
+com.example.instantscore.volley.toolbox.BasicNetwork: com.example.instantscore.volley.NetworkResponse performRequest(com.example.instantscore.volley.Request)
+com.example.instantscore.volley.toolbox.BasicNetwork: void logError(java.lang.String,java.lang.String,long)
+com.example.instantscore.volley.toolbox.ByteArrayPool
+com.example.instantscore.volley.toolbox.ByteArrayPool: java.util.Comparator BUF_COMPARATOR
+com.example.instantscore.volley.toolbox.ByteArrayPool: ByteArrayPool(int)
+com.example.instantscore.volley.toolbox.ByteArrayPool: byte[] getBuf(int)
+com.example.instantscore.volley.toolbox.ByteArrayPool: void returnBuf(byte[])
+com.example.instantscore.volley.toolbox.ClearCacheRequest
+com.example.instantscore.volley.toolbox.ClearCacheRequest: ClearCacheRequest(com.example.instantscore.volley.Cache,java.lang.Runnable)
+com.example.instantscore.volley.toolbox.ClearCacheRequest: boolean isCanceled()
+com.example.instantscore.volley.toolbox.ClearCacheRequest: com.example.instantscore.volley.Request$Priority getPriority()
+com.example.instantscore.volley.toolbox.ClearCacheRequest: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.toolbox.ClearCacheRequest: void deliverResponse(java.lang.Object)
+com.example.instantscore.volley.toolbox.DiskBasedCache
+com.example.instantscore.volley.toolbox.DiskBasedCache: DiskBasedCache(java.io.File,int)
+com.example.instantscore.volley.toolbox.DiskBasedCache: DiskBasedCache(java.io.File)
+com.example.instantscore.volley.toolbox.DiskBasedCache: void clear()
+com.example.instantscore.volley.toolbox.DiskBasedCache: com.example.instantscore.volley.Cache$Entry get(java.lang.String)
+com.example.instantscore.volley.toolbox.DiskBasedCache: void initialize()
+com.example.instantscore.volley.toolbox.DiskBasedCache: void invalidate(java.lang.String,boolean)
+com.example.instantscore.volley.toolbox.DiskBasedCache: void put(java.lang.String,com.example.instantscore.volley.Cache$Entry)
+com.example.instantscore.volley.toolbox.DiskBasedCache: void remove(java.lang.String)
+com.example.instantscore.volley.toolbox.DiskBasedCache: java.io.File getFileForKey(java.lang.String)
+com.example.instantscore.volley.toolbox.HttpClientStack
+com.example.instantscore.volley.toolbox.HttpClientStack: org.apache.http.client.HttpClient mClient
+com.example.instantscore.volley.toolbox.HttpClientStack: HttpClientStack(org.apache.http.client.HttpClient)
+com.example.instantscore.volley.toolbox.HttpClientStack: org.apache.http.HttpResponse performRequest(com.example.instantscore.volley.Request,java.util.Map)
+com.example.instantscore.volley.toolbox.HttpClientStack: void onPrepareRequest(org.apache.http.client.methods.HttpUriRequest)
+com.example.instantscore.volley.toolbox.HttpClientStack$HttpPatch
+com.example.instantscore.volley.toolbox.HttpClientStack$HttpPatch: java.lang.String METHOD_NAME
+com.example.instantscore.volley.toolbox.HttpClientStack$HttpPatch: HttpClientStack$HttpPatch()
+com.example.instantscore.volley.toolbox.HttpClientStack$HttpPatch: HttpClientStack$HttpPatch(java.net.URI)
+com.example.instantscore.volley.toolbox.HttpClientStack$HttpPatch: HttpClientStack$HttpPatch(java.lang.String)
+com.example.instantscore.volley.toolbox.HttpClientStack$HttpPatch: java.lang.String getMethod()
+com.example.instantscore.volley.toolbox.HttpHeaderParser
+com.example.instantscore.volley.toolbox.HttpHeaderParser: HttpHeaderParser()
+com.example.instantscore.volley.toolbox.HttpHeaderParser: com.example.instantscore.volley.Cache$Entry parseCacheHeaders(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.toolbox.HttpHeaderParser: long parseDateAsEpoch(java.lang.String)
+com.example.instantscore.volley.toolbox.HttpHeaderParser: java.lang.String parseCharset(java.util.Map)
+com.example.instantscore.volley.toolbox.HttpStack
+com.example.instantscore.volley.toolbox.HttpStack: org.apache.http.HttpResponse performRequest(com.example.instantscore.volley.Request,java.util.Map)
+com.example.instantscore.volley.toolbox.HurlStack
+com.example.instantscore.volley.toolbox.HurlStack: HurlStack()
+com.example.instantscore.volley.toolbox.HurlStack: HurlStack(com.example.instantscore.volley.toolbox.HurlStack$UrlRewriter)
+com.example.instantscore.volley.toolbox.HurlStack: HurlStack(com.example.instantscore.volley.toolbox.HurlStack$UrlRewriter,javax.net.ssl.SSLSocketFactory)
+com.example.instantscore.volley.toolbox.HurlStack: org.apache.http.HttpResponse performRequest(com.example.instantscore.volley.Request,java.util.Map)
+com.example.instantscore.volley.toolbox.HurlStack: java.net.HttpURLConnection createConnection(java.net.URL)
+com.example.instantscore.volley.toolbox.HurlStack$UrlRewriter
+com.example.instantscore.volley.toolbox.HurlStack$UrlRewriter: java.lang.String rewriteUrl(java.lang.String)
+com.example.instantscore.volley.toolbox.ImageLoader
+com.example.instantscore.volley.toolbox.ImageLoader: ImageLoader(com.example.instantscore.volley.RequestQueue,com.example.instantscore.volley.toolbox.ImageLoader$ImageCache)
+com.example.instantscore.volley.toolbox.ImageLoader: com.example.instantscore.volley.toolbox.ImageLoader$ImageListener getImageListener(android.widget.ImageView,int,int)
+com.example.instantscore.volley.toolbox.ImageLoader: boolean isCached(java.lang.String,int,int)
+com.example.instantscore.volley.toolbox.ImageLoader: com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer get(java.lang.String,com.example.instantscore.volley.toolbox.ImageLoader$ImageListener)
+com.example.instantscore.volley.toolbox.ImageLoader: com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer get(java.lang.String,com.example.instantscore.volley.toolbox.ImageLoader$ImageListener,int,int)
+com.example.instantscore.volley.toolbox.ImageLoader: void setBatchedResponseDelay(int)
+com.example.instantscore.volley.toolbox.ImageLoader$ImageCache
+com.example.instantscore.volley.toolbox.ImageLoader$ImageCache: android.graphics.Bitmap getBitmap(java.lang.String)
+com.example.instantscore.volley.toolbox.ImageLoader$ImageCache: void putBitmap(java.lang.String,android.graphics.Bitmap)
+com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer
+com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer: ImageLoader$ImageContainer(com.example.instantscore.volley.toolbox.ImageLoader,android.graphics.Bitmap,java.lang.String,java.lang.String,com.example.instantscore.volley.toolbox.ImageLoader$ImageListener)
+com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer: void cancelRequest()
+com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer: android.graphics.Bitmap getBitmap()
+com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer: java.lang.String getRequestUrl()
+com.example.instantscore.volley.toolbox.ImageLoader$ImageListener
+com.example.instantscore.volley.toolbox.ImageLoader$ImageListener: void onResponse(com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer,boolean)
+com.example.instantscore.volley.toolbox.ImageRequest
+com.example.instantscore.volley.toolbox.ImageRequest: ImageRequest(java.lang.String,com.example.instantscore.volley.Response$Listener,int,int,android.graphics.Bitmap$Config,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.toolbox.ImageRequest: com.example.instantscore.volley.Request$Priority getPriority()
+com.example.instantscore.volley.toolbox.ImageRequest: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.toolbox.ImageRequest: void deliverResponse(android.graphics.Bitmap)
+com.example.instantscore.volley.toolbox.ImageRequest: void deliverResponse(java.lang.Object)
+com.example.instantscore.volley.toolbox.JsonArrayRequest
+com.example.instantscore.volley.toolbox.JsonArrayRequest: JsonArrayRequest(java.lang.String,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.toolbox.JsonArrayRequest: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.toolbox.JsonObjectRequest
+com.example.instantscore.volley.toolbox.JsonObjectRequest: JsonObjectRequest(int,java.lang.String,org.json.JSONObject,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.toolbox.JsonObjectRequest: JsonObjectRequest(java.lang.String,org.json.JSONObject,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.toolbox.JsonObjectRequest: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.toolbox.JsonRequest
+com.example.instantscore.volley.toolbox.JsonRequest: JsonRequest(java.lang.String,java.lang.String,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.toolbox.JsonRequest: JsonRequest(int,java.lang.String,java.lang.String,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.toolbox.JsonRequest: void deliverResponse(java.lang.Object)
+com.example.instantscore.volley.toolbox.JsonRequest: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.toolbox.JsonRequest: java.lang.String getPostBodyContentType()
+com.example.instantscore.volley.toolbox.JsonRequest: byte[] getPostBody()
+com.example.instantscore.volley.toolbox.JsonRequest: java.lang.String getBodyContentType()
+com.example.instantscore.volley.toolbox.JsonRequest: byte[] getBody()
+com.example.instantscore.volley.toolbox.NetworkImageView
+com.example.instantscore.volley.toolbox.NetworkImageView: NetworkImageView(android.content.Context)
+com.example.instantscore.volley.toolbox.NetworkImageView: NetworkImageView(android.content.Context,android.util.AttributeSet)
+com.example.instantscore.volley.toolbox.NetworkImageView: NetworkImageView(android.content.Context,android.util.AttributeSet,int)
+com.example.instantscore.volley.toolbox.NetworkImageView: void setImageUrl(java.lang.String,com.example.instantscore.volley.toolbox.ImageLoader)
+com.example.instantscore.volley.toolbox.NetworkImageView: void setDefaultImageResId(int)
+com.example.instantscore.volley.toolbox.NetworkImageView: void setErrorImageResId(int)
+com.example.instantscore.volley.toolbox.NetworkImageView: void onLayout(boolean,int,int,int,int)
+com.example.instantscore.volley.toolbox.NetworkImageView: void onDetachedFromWindow()
+com.example.instantscore.volley.toolbox.NetworkImageView: void drawableStateChanged()
+com.example.instantscore.volley.toolbox.NoCache
+com.example.instantscore.volley.toolbox.NoCache: NoCache()
+com.example.instantscore.volley.toolbox.NoCache: void clear()
+com.example.instantscore.volley.toolbox.NoCache: com.example.instantscore.volley.Cache$Entry get(java.lang.String)
+com.example.instantscore.volley.toolbox.NoCache: void put(java.lang.String,com.example.instantscore.volley.Cache$Entry)
+com.example.instantscore.volley.toolbox.NoCache: void invalidate(java.lang.String,boolean)
+com.example.instantscore.volley.toolbox.NoCache: void remove(java.lang.String)
+com.example.instantscore.volley.toolbox.NoCache: void initialize()
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream: PoolingByteArrayOutputStream(com.example.instantscore.volley.toolbox.ByteArrayPool)
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream: PoolingByteArrayOutputStream(com.example.instantscore.volley.toolbox.ByteArrayPool,int)
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream: void close()
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream: void finalize()
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream: void write(byte[],int,int)
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream: void write(int)
+com.example.instantscore.volley.toolbox.RequestFuture
+com.example.instantscore.volley.toolbox.RequestFuture: com.example.instantscore.volley.toolbox.RequestFuture newFuture()
+com.example.instantscore.volley.toolbox.RequestFuture: void setRequest(com.example.instantscore.volley.Request)
+com.example.instantscore.volley.toolbox.RequestFuture: boolean cancel(boolean)
+com.example.instantscore.volley.toolbox.RequestFuture: java.lang.Object get()
+com.example.instantscore.volley.toolbox.RequestFuture: java.lang.Object get(long,java.util.concurrent.TimeUnit)
+com.example.instantscore.volley.toolbox.RequestFuture: boolean isCancelled()
+com.example.instantscore.volley.toolbox.RequestFuture: boolean isDone()
+com.example.instantscore.volley.toolbox.RequestFuture: void onResponse(java.lang.Object)
+com.example.instantscore.volley.toolbox.RequestFuture: void onErrorResponse(com.example.instantscore.volley.VolleyError)
+com.example.instantscore.volley.toolbox.StringRequest
+com.example.instantscore.volley.toolbox.StringRequest: StringRequest(int,java.lang.String,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.toolbox.StringRequest: StringRequest(java.lang.String,com.example.instantscore.volley.Response$Listener,com.example.instantscore.volley.Response$ErrorListener)
+com.example.instantscore.volley.toolbox.StringRequest: void deliverResponse(java.lang.String)
+com.example.instantscore.volley.toolbox.StringRequest: com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse)
+com.example.instantscore.volley.toolbox.StringRequest: void deliverResponse(java.lang.Object)
+com.example.instantscore.volley.toolbox.Volley
+com.example.instantscore.volley.toolbox.Volley: Volley()
+com.example.instantscore.volley.toolbox.Volley: com.example.instantscore.volley.RequestQueue newRequestQueue(android.content.Context,com.example.instantscore.volley.toolbox.HttpStack)
+com.example.instantscore.volley.toolbox.Volley: com.example.instantscore.volley.RequestQueue newRequestQueue(android.content.Context)
 com.google.gson.ExclusionStrategy
 com.google.gson.ExclusionStrategy: boolean shouldSkipField(com.google.gson.FieldAttributes)
 com.google.gson.ExclusionStrategy: boolean shouldSkipClass(java.lang.Class)

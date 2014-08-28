@@ -19,6 +19,7 @@ import com.example.instantscore.communication.PostRequest;
 import com.example.instantscore.database.DBManager;
 import com.example.instantscore.model.League;
 import com.example.instantscore.model.Match;
+import com.example.instantscore.volley.NoConnectionError;
 import com.example.instantscore.volley.Request;
 import com.example.instantscore.volley.Response;
 import com.example.instantscore.volley.VolleyError;
@@ -151,8 +152,12 @@ public class MainSectionFragment extends Fragment {
 
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(activity, new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();
-                v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
+                if(volleyError instanceof NoConnectionError){
+                    Toast.makeText(activity, "no connection", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(activity, new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();
+                    v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
+                }
             }
         }
         );

@@ -377,15 +377,38 @@ android.support.v4.widget.ViewDragHelper:
     private static final int EDGE_SIZE
     private static final int BASE_SETTLE_DURATION
     private static final int MAX_SETTLE_DURATION
-com.example.instantscore.communication.HttpClient:
-    private static final int TIMEOUT
-    private static final java.lang.String USER_AGENT
 com.example.instantscore.database.DBHelper:
     private static final java.lang.String DATABASE_NAME
     private static final int DATABASE_VERSION
 com.example.instantscore.database.DBManager:
     private static final int MAX_NUM_SELECTED_MATCHES_PER_DAY
-    48:48:private static boolean isSpaceForExtraMatch()
+    47:47:private static boolean isSpaceForExtraMatch()
+com.example.instantscore.volley.Request:
+    private static final java.lang.String DEFAULT_PARAMS_ENCODING
+    private static final long SLOW_REQUEST_THRESHOLD_MS
+com.example.instantscore.volley.RequestQueue:
+    private static final int DEFAULT_NETWORK_THREAD_POOL_SIZE
+com.example.instantscore.volley.VolleyLog$MarkerLog:
+    private static final long MIN_DURATION_FOR_LOGGING_MS
+com.example.instantscore.volley.toolbox.DiskBasedCache:
+    private static final int DEFAULT_DISK_USAGE_BYTES
+    private static final float HYSTERESIS_FACTOR
+    private static final int CACHE_MAGIC
+com.example.instantscore.volley.toolbox.HttpClientStack:
+    private static final java.lang.String HEADER_CONTENT_TYPE
+    67:71:private static java.util.List getPostParameterPairs(java.util.Map)
+com.example.instantscore.volley.toolbox.HurlStack:
+    private static final java.lang.String HEADER_CONTENT_TYPE
+com.example.instantscore.volley.toolbox.ImageRequest:
+    private static final int IMAGE_TIMEOUT_MS
+    private static final int IMAGE_MAX_RETRIES
+    private static final float IMAGE_BACKOFF_MULT
+com.example.instantscore.volley.toolbox.JsonRequest:
+    private static final java.lang.String PROTOCOL_CHARSET
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream:
+    private static final int DEFAULT_SIZE
+com.example.instantscore.volley.toolbox.Volley:
+    private static final java.lang.String DEFAULT_CACHE_DIR
 com.google.gson.DefaultDateTypeAdapter:
     53:54:DefaultDateTypeAdapter(int)
 com.google.gson.FieldAttributes:

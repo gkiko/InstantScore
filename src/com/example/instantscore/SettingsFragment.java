@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.instantscore.communication.MyVolley;
 import com.example.instantscore.communication.PostRequest;
+import com.example.instantscore.volley.NoConnectionError;
 import com.example.instantscore.volley.Request;
 import com.example.instantscore.volley.Response;
 import com.example.instantscore.volley.VolleyError;
@@ -100,8 +101,7 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
 
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-
-                if(volleyError.networkResponse.statusCode == 404){
+                if(volleyError instanceof NoConnectionError){
                     Toast.makeText(getActivity(), "no connection", Toast.LENGTH_LONG).show();
                 }else {
                     Toast.makeText(getActivity(), new String(volleyError.networkResponse.data), Toast.LENGTH_LONG).show();

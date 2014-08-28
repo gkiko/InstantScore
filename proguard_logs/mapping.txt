@@ -4936,54 +4936,277 @@ com.example.instantscore.BuildConfig -> com.example.instantscore.BuildConfig:
 com.example.instantscore.MainActivity -> com.example.instantscore.MainActivity:
     com.example.instantscore.AppSectionsPagerAdapter mAppSectionsPagerAdapter -> n
     android.support.v4.view.ViewPager mViewPager -> o
-    com.example.instantscore.communication.DataFetcher fetcher1 -> p
-    com.example.instantscore.communication.DataFetcher fetcher2 -> q
-    31:64:void onCreate(android.os.Bundle) -> onCreate
-    68:70:void onResume() -> onResume
-    75:76:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    82:90:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    96:96:void onTabReselected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabReselected
-    100:106:void onTabSelected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabSelected
-    110:110:void onTabUnselected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabUnselected
-    114:116:boolean firstTimeRun() -> b
-    120:130:void runDownloader() -> c
-    133:136:void showPreferences() -> d
-    141:151:void onUpdate(com.example.instantscore.model.EventContainer) -> onUpdate
-    155:158:void onException(com.example.instantscore.model.EventContainer) -> onException
-    162:166:void onPause() -> onPause
+    android.view.MenuItem mMenuItem -> p
+    boolean loadingFinished -> q
+    37:71:void onCreate(android.os.Bundle) -> onCreate
+    75:78:void onResume() -> onResume
+    83:85:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    91:100:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    106:106:void onTabReselected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabReselected
+    110:116:void onTabSelected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabSelected
+    120:120:void onTabUnselected(android.app.ActionBar$Tab,android.app.FragmentTransaction) -> onTabUnselected
+    124:126:boolean firstTimeRun() -> b
+    130:159:void runDownloader(int,java.lang.String) -> a
+    162:165:void showLoading(boolean) -> b
+    168:171:void showPreferences() -> c
+    175:182:void onPause() -> onPause
+    29:29:void access$000(com.example.instantscore.MainActivity,boolean) -> a
 com.example.instantscore.MainActivity$1 -> mm:
     android.app.ActionBar val$actionBar -> a
     com.example.instantscore.MainActivity this$0 -> b
-    46:47:void onPageSelected(int) -> onPageSelected
+    53:54:void onPageSelected(int) -> onPageSelected
+com.example.instantscore.MainActivity$2 -> mn:
+    int val$pos -> a
+    com.example.instantscore.MainActivity this$0 -> b
+    134:143:void onResponse(java.util.List) -> a
+    130:130:void onResponse(java.lang.Object) -> onResponse
+com.example.instantscore.MainActivity$3 -> mo:
+    int val$pos -> a
+    com.example.instantscore.MainActivity this$0 -> b
+    147:153:void onErrorResponse(com.example.instantscore.volley.VolleyError) -> onErrorResponse
+com.example.instantscore.MainActivity$4 -> mp:
+    com.example.instantscore.MainActivity this$0 -> a
+    179:179:boolean apply(com.example.instantscore.volley.Request) -> apply
 com.example.instantscore.MainSectionFragment -> com.example.instantscore.MainSectionFragment:
     android.widget.RelativeLayout backgroundWarning -> a
     android.app.Activity activity -> b
     com.google.gson.Gson gson -> c
     android.widget.ExpandableListView expandableListView -> d
     com.example.instantscore.adapter.ExpandableListAdapter listAdapter -> e
-    java.lang.String isLive -> f
-    java.util.List expandedGroups -> g
-    42:44:void onAttach(android.app.Activity) -> onAttach
-    48:89:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    93:99:void onUpdate(java.lang.String) -> onUpdate
-    102:111:void highlightSelections(java.util.List) -> a
-    114:117:void expandGroups() -> n
-    121:123:void submitGame(com.example.instantscore.model.Match,android.view.View) -> a
-    126:134:java.util.List createSubscribtionDataToSend(com.example.instantscore.model.Match) -> a
-    138:139:java.lang.String getFromPrefs(java.lang.String) -> a
-    143:145:void setListBackground() -> l
-    148:150:void removeListBackground() -> m
-    30:30:java.util.List access$000(com.example.instantscore.MainSectionFragment) -> a
-com.example.instantscore.MainSectionFragment$1 -> mn:
+    java.util.List expandedGroups -> f
+    48:50:void onAttach(android.app.Activity) -> onAttach
+    54:86:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    90:94:void onUpdate(java.util.List) -> onUpdate
+    97:103:void onUpdate(com.google.gson.JsonArray) -> onUpdate
+    106:112:void onUpdate(org.json.JSONArray) -> onUpdate
+    115:124:void highlightSelections(java.util.List) -> a
+    127:130:void expandGroups() -> n
+    134:167:void submitGame(com.example.instantscore.model.Match,com.example.instantscore.model.League,android.view.View) -> a
+    170:176:java.util.Map createSubscriptionDataToSend(com.example.instantscore.model.Match) -> a
+    180:181:java.lang.String getFromPrefs(java.lang.String) -> a
+    185:187:void setListBackground() -> l
+    190:192:void removeListBackground() -> m
+    37:37:java.util.List access$000(com.example.instantscore.MainSectionFragment) -> a
+com.example.instantscore.MainSectionFragment$1 -> mq:
     com.example.instantscore.MainSectionFragment this$0 -> a
-    59:71:boolean onChildClick(android.widget.ExpandableListView,android.view.View,int,int,long) -> onChildClick
-com.example.instantscore.MainSectionFragment$2 -> mo:
+    64:68:boolean onChildClick(android.widget.ExpandableListView,android.view.View,int,int,long) -> onChildClick
+com.example.instantscore.MainSectionFragment$2 -> mr:
     com.example.instantscore.MainSectionFragment this$0 -> a
-    79:85:boolean onGroupClick(android.widget.ExpandableListView,android.view.View,int,long) -> onGroupClick
-com.example.instantscore.MainSectionFragment$3 -> mp:
+    76:82:boolean onGroupClick(android.widget.ExpandableListView,android.view.View,int,long) -> onGroupClick
+com.example.instantscore.MainSectionFragment$3 -> ms:
     com.example.instantscore.MainSectionFragment this$0 -> a
+com.example.instantscore.MainSectionFragment$4 -> mt:
+    com.example.instantscore.MainSectionFragment this$0 -> a
+com.example.instantscore.MainSectionFragment$5 -> mu:
+    com.example.instantscore.model.Match val$match -> a
+    com.example.instantscore.model.League val$league -> b
+    android.view.View val$v -> c
+    com.example.instantscore.MainSectionFragment this$0 -> d
+    140:150:void onResponse(java.lang.String) -> a
+    136:136:void onResponse(java.lang.Object) -> onResponse
+com.example.instantscore.MainSectionFragment$6 -> mv:
+    android.view.View val$v -> a
+    com.example.instantscore.MainSectionFragment this$0 -> b
+    155:161:void onErrorResponse(com.example.instantscore.volley.VolleyError) -> onErrorResponse
 com.example.instantscore.R -> com.example.instantscore.R:
 com.example.instantscore.R$array -> com.example.instantscore.R$array:
+    int countries -> countries
+    int data000 -> data000
+    int data001 -> data001
+    int data002 -> data002
+    int data003 -> data003
+    int data004 -> data004
+    int data005 -> data005
+    int data006 -> data006
+    int data007 -> data007
+    int data008 -> data008
+    int data009 -> data009
+    int data010 -> data010
+    int data011 -> data011
+    int data012 -> data012
+    int data013 -> data013
+    int data014 -> data014
+    int data015 -> data015
+    int data016 -> data016
+    int data017 -> data017
+    int data018 -> data018
+    int data019 -> data019
+    int data020 -> data020
+    int data021 -> data021
+    int data022 -> data022
+    int data023 -> data023
+    int data024 -> data024
+    int data025 -> data025
+    int data026 -> data026
+    int data027 -> data027
+    int data028 -> data028
+    int data029 -> data029
+    int data030 -> data030
+    int data031 -> data031
+    int data032 -> data032
+    int data033 -> data033
+    int data034 -> data034
+    int data035 -> data035
+    int data036 -> data036
+    int data037 -> data037
+    int data038 -> data038
+    int data039 -> data039
+    int data040 -> data040
+    int data041 -> data041
+    int data042 -> data042
+    int data043 -> data043
+    int data044 -> data044
+    int data045 -> data045
+    int data046 -> data046
+    int data047 -> data047
+    int data048 -> data048
+    int data049 -> data049
+    int data050 -> data050
+    int data051 -> data051
+    int data052 -> data052
+    int data053 -> data053
+    int data054 -> data054
+    int data055 -> data055
+    int data056 -> data056
+    int data057 -> data057
+    int data058 -> data058
+    int data059 -> data059
+    int data060 -> data060
+    int data061 -> data061
+    int data062 -> data062
+    int data063 -> data063
+    int data064 -> data064
+    int data065 -> data065
+    int data066 -> data066
+    int data067 -> data067
+    int data068 -> data068
+    int data069 -> data069
+    int data070 -> data070
+    int data071 -> data071
+    int data072 -> data072
+    int data073 -> data073
+    int data074 -> data074
+    int data075 -> data075
+    int data076 -> data076
+    int data077 -> data077
+    int data078 -> data078
+    int data079 -> data079
+    int data080 -> data080
+    int data081 -> data081
+    int data082 -> data082
+    int data083 -> data083
+    int data084 -> data084
+    int data085 -> data085
+    int data086 -> data086
+    int data087 -> data087
+    int data088 -> data088
+    int data089 -> data089
+    int data090 -> data090
+    int data091 -> data091
+    int data092 -> data092
+    int data093 -> data093
+    int data094 -> data094
+    int data095 -> data095
+    int data096 -> data096
+    int data097 -> data097
+    int data098 -> data098
+    int data099 -> data099
+    int data100 -> data100
+    int data101 -> data101
+    int data102 -> data102
+    int data103 -> data103
+    int data104 -> data104
+    int data105 -> data105
+    int data106 -> data106
+    int data107 -> data107
+    int data108 -> data108
+    int data109 -> data109
+    int data110 -> data110
+    int data111 -> data111
+    int data112 -> data112
+    int data113 -> data113
+    int data114 -> data114
+    int data115 -> data115
+    int data116 -> data116
+    int data117 -> data117
+    int data118 -> data118
+    int data119 -> data119
+    int data120 -> data120
+    int data121 -> data121
+    int data122 -> data122
+    int data123 -> data123
+    int data124 -> data124
+    int data125 -> data125
+    int data126 -> data126
+    int data127 -> data127
+    int data128 -> data128
+    int data129 -> data129
+    int data130 -> data130
+    int data131 -> data131
+    int data132 -> data132
+    int data133 -> data133
+    int data134 -> data134
+    int data135 -> data135
+    int data136 -> data136
+    int data137 -> data137
+    int data138 -> data138
+    int data139 -> data139
+    int data140 -> data140
+    int data141 -> data141
+    int data142 -> data142
+    int data143 -> data143
+    int data144 -> data144
+    int data145 -> data145
+    int data146 -> data146
+    int data147 -> data147
+    int data148 -> data148
+    int data149 -> data149
+    int data150 -> data150
+    int data151 -> data151
+    int data152 -> data152
+    int data153 -> data153
+    int data154 -> data154
+    int data155 -> data155
+    int data156 -> data156
+    int data157 -> data157
+    int data158 -> data158
+    int data159 -> data159
+    int data160 -> data160
+    int data161 -> data161
+    int data162 -> data162
+    int data163 -> data163
+    int data164 -> data164
+    int data165 -> data165
+    int data166 -> data166
+    int data167 -> data167
+    int data168 -> data168
+    int data169 -> data169
+    int data170 -> data170
+    int data171 -> data171
+    int data172 -> data172
+    int data173 -> data173
+    int data174 -> data174
+    int data175 -> data175
+    int data176 -> data176
+    int data177 -> data177
+    int data178 -> data178
+    int data179 -> data179
+    int data180 -> data180
+    int data181 -> data181
+    int data182 -> data182
+    int data183 -> data183
+    int data184 -> data184
+    int data185 -> data185
+    int data186 -> data186
+    int data187 -> data187
+    int data188 -> data188
+    int data189 -> data189
+    int data190 -> data190
+    int data191 -> data191
+    int data192 -> data192
+    int data193 -> data193
+    int data194 -> data194
+    int data195 -> data195
     int titles -> titles
 com.example.instantscore.R$attr -> com.example.instantscore.R$attr:
 com.example.instantscore.R$color -> com.example.instantscore.R$color:
@@ -4993,11 +5216,234 @@ com.example.instantscore.R$dimen -> com.example.instantscore.R$dimen:
     int activity_horizontal_margin -> activity_horizontal_margin
     int activity_vertical_margin -> activity_vertical_margin
 com.example.instantscore.R$drawable -> com.example.instantscore.R$drawable:
+    int afghanistan -> afghanistan
+    int albania -> albania
+    int algeria -> algeria
+    int american_samoa -> american_samoa
+    int andorra -> andorra
+    int angola -> angola
+    int anguilla -> anguilla
+    int antigua_and_barbuda -> antigua_and_barbuda
+    int argentina -> argentina
+    int armenia -> armenia
+    int aruba -> aruba
+    int australia -> australia
+    int austria -> austria
+    int azerbaijan -> azerbaijan
+    int bahamas -> bahamas
+    int bahrain -> bahrain
+    int bangladesh -> bangladesh
+    int barbados -> barbados
+    int belarus -> belarus
+    int belgium -> belgium
+    int belize -> belize
+    int benin -> benin
+    int bermuda -> bermuda
     int bg_key -> bg_key
+    int bhutan -> bhutan
+    int bolivia -> bolivia
+    int bosnia -> bosnia
+    int botswana -> botswana
+    int brazil -> brazil
+    int british_virgin_islands -> british_virgin_islands
+    int brunei -> brunei
+    int bulgaria -> bulgaria
+    int burkina_faso -> burkina_faso
+    int burundi -> burundi
+    int cambodia -> cambodia
+    int cameroon -> cameroon
+    int canada -> canada
+    int cape_verde -> cape_verde
+    int cayman_islands -> cayman_islands
+    int central_african_republic -> central_african_republic
+    int chad -> chad
+    int chile -> chile
+    int china -> china
+    int christmas_island -> christmas_island
+    int colombia -> colombia
+    int comoros -> comoros
+    int cook_islands -> cook_islands
+    int costa_rica -> costa_rica
+    int cote_divoire -> cote_divoire
+    int croatia -> croatia
+    int cuba -> cuba
+    int cyprus -> cyprus
+    int czech_republic -> czech_republic
+    int democratic_republic_of_the_congo -> democratic_republic_of_the_congo
+    int denmark -> denmark
+    int djibouti -> djibouti
+    int dominica -> dominica
+    int dominican_republic -> dominican_republic
+    int ecuador -> ecuador
+    int egypt -> egypt
+    int el_salvador -> el_salvador
+    int equatorial_guinea -> equatorial_guinea
+    int eritrea -> eritrea
+    int estonia -> estonia
+    int ethiopia -> ethiopia
+    int falkland_islands -> falkland_islands
+    int faroe_islands -> faroe_islands
+    int fiji -> fiji
+    int finland -> finland
+    int france -> france
+    int french_polynesia -> french_polynesia
+    int gabon -> gabon
+    int gambia -> gambia
+    int georgia -> georgia
+    int germany -> germany
+    int ghana -> ghana
+    int gibraltar -> gibraltar
+    int greece -> greece
+    int greenland -> greenland
+    int grenada -> grenada
+    int guam -> guam
+    int guatemala -> guatemala
+    int guinea -> guinea
+    int guinea_bissau -> guinea_bissau
+    int guyana -> guyana
+    int haiti -> haiti
+    int honduras -> honduras
+    int hong_kong -> hong_kong
+    int hungary -> hungary
     int ic_launcher -> ic_launcher
     int ic_menu_add -> ic_menu_add
     int ic_menu_refresh -> ic_menu_refresh
+    int iceland -> iceland
+    int india -> india
+    int indonesia -> indonesia
+    int iran -> iran
+    int iraq -> iraq
+    int ireland -> ireland
+    int israel -> israel
+    int italy -> italy
+    int jamaica -> jamaica
+    int japan -> japan
+    int jordan -> jordan
+    int kazakhstan -> kazakhstan
+    int kenya -> kenya
+    int kiribati -> kiribati
+    int kuwait -> kuwait
+    int kyrgyzstan -> kyrgyzstan
+    int laos -> laos
+    int latvia -> latvia
+    int lebanon -> lebanon
+    int lesotho -> lesotho
+    int liberia -> liberia
+    int libya -> libya
+    int liechtenstein -> liechtenstein
+    int lithuania -> lithuania
+    int luxembourg -> luxembourg
+    int macao -> macao
+    int macedonia -> macedonia
+    int madagascar -> madagascar
+    int malawi -> malawi
+    int malaysia -> malaysia
+    int maldives -> maldives
+    int mali -> mali
+    int malta -> malta
+    int marshall_islands -> marshall_islands
+    int martinique -> martinique
+    int mauritania -> mauritania
+    int mauritius -> mauritius
+    int mexico -> mexico
+    int micronesia -> micronesia
+    int moldova -> moldova
+    int monaco -> monaco
+    int mongolia -> mongolia
+    int montserrat -> montserrat
+    int morocco -> morocco
+    int mozambique -> mozambique
+    int myanmar -> myanmar
+    int namibia -> namibia
+    int nauru -> nauru
+    int nepal -> nepal
+    int netherlands -> netherlands
+    int netherlands_antilles -> netherlands_antilles
+    int new_zealand -> new_zealand
+    int nicaragua -> nicaragua
+    int niger -> niger
+    int nigeria -> nigeria
+    int niue -> niue
+    int norfolk_island -> norfolk_island
+    int north_korea -> north_korea
+    int norway -> norway
+    int oman -> oman
+    int pakistan -> pakistan
+    int palau -> palau
+    int panama -> panama
+    int papua_new_guinea -> papua_new_guinea
+    int paraguay -> paraguay
+    int peru -> peru
+    int philippines -> philippines
+    int pitcairn_islands -> pitcairn_islands
+    int poland -> poland
+    int portugal -> portugal
+    int puerto_rico -> puerto_rico
+    int qatar -> qatar
+    int republic_of_the_congo -> republic_of_the_congo
+    int romania -> romania
+    int russian_federation -> russian_federation
+    int rwanda -> rwanda
+    int saint_kitts_and_nevis -> saint_kitts_and_nevis
+    int saint_lucia -> saint_lucia
+    int saint_pierre -> saint_pierre
+    int saint_vicent_and_the_grenadines -> saint_vicent_and_the_grenadines
+    int samoa -> samoa
+    int san_marino -> san_marino
+    int sao_tome_and_principe -> sao_tome_and_principe
+    int saudi_arabia -> saudi_arabia
     int selector_list_item -> selector_list_item
+    int senegal -> senegal
+    int serbia_and_montenegro -> serbia_and_montenegro
+    int seychelles -> seychelles
+    int sierra_leone -> sierra_leone
+    int singapore -> singapore
+    int slovakia -> slovakia
+    int slovenia -> slovenia
+    int soloman_islands -> soloman_islands
+    int somalia -> somalia
+    int south_africa -> south_africa
+    int south_georgia -> south_georgia
+    int south_korea -> south_korea
+    int soviet_union -> soviet_union
+    int spain -> spain
+    int sri_lanka -> sri_lanka
+    int sudan -> sudan
+    int suriname -> suriname
+    int swaziland -> swaziland
+    int sweden -> sweden
+    int switzerland -> switzerland
+    int syria -> syria
+    int taiwan -> taiwan
+    int tajikistan -> tajikistan
+    int tanzania -> tanzania
+    int thailand -> thailand
+    int tibet -> tibet
+    int timor_leste -> timor_leste
+    int togo -> togo
+    int tonga -> tonga
+    int trinidad_and_tobago -> trinidad_and_tobago
+    int tunisia -> tunisia
+    int turkey -> turkey
+    int turkmenistan -> turkmenistan
+    int turks_and_caicos_islands -> turks_and_caicos_islands
+    int tuvalu -> tuvalu
+    int uae -> uae
+    int uganda -> uganda
+    int ukraine -> ukraine
+    int united_kingdom -> united_kingdom
+    int united_states_of_america -> united_states_of_america
+    int uruguay -> uruguay
+    int us_virgin_islands -> us_virgin_islands
+    int uzbekistan -> uzbekistan
+    int vanuatu -> vanuatu
+    int vatican_city -> vatican_city
+    int venezuela -> venezuela
+    int vietnam -> vietnam
+    int wallis_and_futuna -> wallis_and_futuna
+    int yemen -> yemen
+    int zambia -> zambia
+    int zimbabwe -> zimbabwe
 com.example.instantscore.R$id -> com.example.instantscore.R$id:
     int action_settings -> action_settings
     int awayTeam -> awayTeam
@@ -5009,6 +5455,9 @@ com.example.instantscore.R$id -> com.example.instantscore.R$id:
     int homeTeam -> homeTeam
     int homeTeamScore -> homeTeamScore
     int item_delete -> item_delete
+    int item_descriptionTextView -> item_descriptionTextView
+    int item_imageView -> item_imageView
+    int item_titleTextView -> item_titleTextView
     int layout_warning -> layout_warning
     int list -> list
     int list_header_title -> list_header_title
@@ -5020,6 +5469,7 @@ com.example.instantscore.R$id -> com.example.instantscore.R$id:
     int progressBar3 -> progressBar3
     int refresh -> refresh
     int score -> score
+    int spinner -> spinner
     int team1 -> team1
     int team2 -> team2
     int textView1 -> textView1
@@ -5031,11 +5481,14 @@ com.example.instantscore.R$layout -> com.example.instantscore.R$layout:
     int dialog_layout_number -> dialog_layout_number
     int fragment_section_launchpad -> fragment_section_launchpad
     int fragment_section_launchpad_old -> fragment_section_launchpad_old
+    int item_view -> item_view
+    int item_view_children -> item_view_children
     int list_header -> list_header
     int list_header_new -> list_header_new
     int list_item -> list_item
     int list_item_new -> list_item_new
     int list_item_new_tab3 -> list_item_new_tab3
+    int test_layout -> test_layout
 com.example.instantscore.R$menu -> com.example.instantscore.R$menu:
     int contextual_menu -> contextual_menu
     int main -> main
@@ -5085,14 +5538,14 @@ com.example.instantscore.SelectedSectionFragment -> com.example.instantscore.Sel
     android.widget.RelativeLayout backgroundWarning -> c
     android.widget.TextView textWarning -> d
     24:26:void onAttach(android.app.Activity) -> onAttach
-    30:103:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    107:108:void updateList() -> updateList
-    111:114:void setListBackground() -> l
-    117:118:void removeListBackground() -> m
+    30:50:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    54:55:void updateList() -> updateList
+    58:61:void setListBackground() -> l
+    64:65:void removeListBackground() -> m
     16:16:com.example.instantscore.adapter.DatabaseAdapter access$000(com.example.instantscore.SelectedSectionFragment) -> a
-com.example.instantscore.SelectedSectionFragment$1 -> mq:
+com.example.instantscore.SelectedSectionFragment$1 -> mw:
     com.example.instantscore.SelectedSectionFragment this$0 -> a
-    95:100:void onLayoutChange(android.view.View,int,int,int,int,int,int,int,int) -> onLayoutChange
+    42:47:void onLayoutChange(android.view.View,int,int,int,int,int,int,int,int) -> onLayoutChange
 com.example.instantscore.SettingsActivity -> com.example.instantscore.SettingsActivity:
     com.example.instantscore.SettingsFragment settingsFragment -> a
     14:19:void onCreate(android.os.Bundle) -> onCreate
@@ -5102,119 +5555,81 @@ com.example.instantscore.SettingsActivity -> com.example.instantscore.SettingsAc
 com.example.instantscore.SettingsFragment -> com.example.instantscore.SettingsFragment:
     java.lang.String KEY_PHONE_NUM -> KEY_PHONE_NUM
     java.lang.String KEY_SECURITY_CODE -> KEY_SECURITY_CODE
-    30:66:void onCreate(android.os.Bundle) -> onCreate
-    69:71:void updateSettings() -> a
-    74:78:void updateSettingsSummary(int,java.lang.String) -> a
-    82:83:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
-    86:91:void makeCodeRequest(java.lang.String) -> a
-    24:24:void access$000(com.example.instantscore.SettingsFragment,java.lang.String) -> a
-com.example.instantscore.SettingsFragment$1 -> mr:
+    33:69:void onCreate(android.os.Bundle) -> onCreate
+    72:74:void updateSettings() -> a
+    77:81:void updateSettingsSummary(int,java.lang.String) -> a
+    85:86:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    89:115:void makeCodeRequest(java.lang.String) -> a
+    27:27:void access$000(com.example.instantscore.SettingsFragment,java.lang.String) -> a
+com.example.instantscore.SettingsFragment$1 -> mx:
     com.example.instantscore.SettingsFragment this$0 -> a
-    37:61:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
-com.example.instantscore.SettingsFragment$1$1 -> ms:
+    40:64:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+com.example.instantscore.SettingsFragment$1$1 -> my:
     com.example.instantscore.SettingsFragment$1 this$1 -> a
-    56:58:void onClick(android.content.DialogInterface,int) -> onClick
-com.example.instantscore.SettingsFragment$1$2 -> mt:
+    59:61:void onClick(android.content.DialogInterface,int) -> onClick
+com.example.instantscore.SettingsFragment$1$2 -> mz:
     com.example.instantscore.SettingsFragment$1 this$1 -> a
-    45:52:void onClick(android.content.DialogInterface,int) -> onClick
+    48:55:void onClick(android.content.DialogInterface,int) -> onClick
+com.example.instantscore.SettingsFragment$2 -> na:
+    com.example.instantscore.SettingsFragment this$0 -> a
+    98:99:void onResponse(java.lang.String) -> a
+    94:94:void onResponse(java.lang.Object) -> onResponse
+com.example.instantscore.SettingsFragment$3 -> nb:
+    com.example.instantscore.SettingsFragment this$0 -> a
+    104:110:void onErrorResponse(com.example.instantscore.volley.VolleyError) -> onErrorResponse
 com.example.instantscore.adapter.DatabaseAdapter -> com.example.instantscore.adapter.DatabaseAdapter:
     long serialVersionUID -> serialVersionUID
     java.util.List ls -> a
     android.content.Context c -> b
-    29:31:void notifyDataSetChanged() -> notifyDataSetChanged
-    35:35:int getCount() -> getCount
-    40:40:java.lang.Object getItem(int) -> getItem
-    45:45:long getItemId(int) -> getItemId
-    52:63:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.example.instantscore.adapter.DatabaseAdapter$1 -> mu:
-com.example.instantscore.adapter.DatabaseAdapter$Container -> mv:
+    28:30:void notifyDataSetChanged() -> notifyDataSetChanged
+    34:34:int getCount() -> getCount
+    39:39:java.lang.Object getItem(int) -> getItem
+    44:44:long getItemId(int) -> getItemId
+    51:62:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.example.instantscore.adapter.DatabaseAdapter$1 -> nc:
+com.example.instantscore.adapter.DatabaseAdapter$Container -> nd:
     android.widget.TextView matchId -> a
     com.example.instantscore.adapter.DatabaseAdapter this$0 -> b
 com.example.instantscore.adapter.ExpandableListAdapter -> com.example.instantscore.adapter.ExpandableListAdapter:
     android.content.Context _context -> a
     java.util.List _listDataHeader -> b
-    31:31:int getGroupCount() -> getGroupCount
-    36:36:int getChildrenCount(int) -> getChildrenCount
-    41:41:java.lang.Object getGroup(int) -> getGroup
-    46:46:java.lang.Object getChild(int,int) -> getChild
-    51:51:long getGroupId(int) -> getGroupId
-    56:56:long getChildId(int,int) -> getChildId
-    61:61:boolean hasStableIds() -> hasStableIds
-    66:77:android.view.View getGroupView(int,boolean,android.view.View,android.view.ViewGroup) -> getGroupView
-    82:104:android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup) -> getChildView
-    109:109:boolean isChildSelectable(int,int) -> isChildSelectable
-com.example.instantscore.adapter.ListAdapter -> com.example.instantscore.adapter.ListAdapter:
-    long serialVersionUID -> serialVersionUID
-    java.util.List ls -> a
-    android.content.Context c -> b
-    26:27:void notifyDataSetChanged() -> notifyDataSetChanged
-    31:31:int getCount() -> getCount
-    36:36:java.lang.Object getItem(int) -> getItem
-    41:41:long getItemId(int) -> getItemId
-    46:74:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    82:84:void add(com.example.instantscore.model.Game) -> add
-    87:89:void remove(com.example.instantscore.model.Game) -> remove
-    92:92:java.util.List getSelectedGames() -> getSelectedGames
-    97:97:com.example.instantscore.model.Game getGame(int) -> getGame
-com.example.instantscore.adapter.ListAdapter$1 -> mw:
-com.example.instantscore.adapter.ListAdapter$Container -> mx:
-    android.widget.TextView homeTeam -> a
-    android.widget.TextView awayTeam -> b
-    android.widget.TextView homeTeamScore -> c
-    android.widget.TextView awayTeamScore -> d
-    android.widget.TextView date -> e
-    android.widget.TextView time -> f
-    com.example.instantscore.adapter.ListAdapter this$0 -> g
-com.example.instantscore.adapter.SeparatedListAdapter -> com.example.instantscore.adapter.SeparatedListAdapter:
-    java.util.Map sections -> sections
-    android.widget.ArrayAdapter headers -> headers
-    int TYPE_SECTION_HEADER -> TYPE_SECTION_HEADER
-    25:27:void addSection(java.lang.String,android.widget.Adapter) -> addSection
-    30:43:java.lang.Object getItem(int) -> getItem
-    48:51:int getCount() -> getCount
-    57:60:int getViewTypeCount() -> getViewTypeCount
-    65:80:int getItemViewType(int) -> getItemViewType
-    84:89:void notifyAllAdaptersDataSetChanged() -> notifyAllAdaptersDataSetChanged
-    92:92:boolean areAllItemsSelectable() -> areAllItemsSelectable
-    97:97:boolean isEnabled(int) -> isEnabled
-    102:117:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    122:122:long getItemId(int) -> getItemId
-    126:127:void notifyDataSetChanged() -> notifyDataSetChanged
-com.example.instantscore.communication.DataFetcher -> com.example.instantscore.communication.DataFetcher:
-    java.util.concurrent.CopyOnWriteArrayList listeners -> a
-    android.app.AlertDialog dialogLoad -> b
-    android.app.Activity c -> c
-    32:33:void addMyChangeListener(com.example.instantscore.listener.CallbackListener) -> addMyChangeListener
-    36:37:void removeMyChangeListener(com.example.instantscore.listener.CallbackListener) -> removeMyChangeListener
-    41:46:void onPreExecute() -> onPreExecute
-    52:66:java.util.List doInBackground(com.example.instantscore.model.EventContainer[]) -> doInBackground
-    73:83:void onPostExecute(java.util.List) -> onPostExecute
-    87:89:void onCancelled() -> onCancelled
-    92:95:void fireExceptionEvent(com.example.instantscore.model.EventContainer) -> a
-    98:101:void fireDataDownloadEvent(com.example.instantscore.model.EventContainer) -> b
-    20:20:void onPostExecute(java.lang.Object) -> onPostExecute
-    20:20:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.example.instantscore.communication.DataSender -> com.example.instantscore.communication.DataSender:
-    java.lang.String url -> a
-    android.view.View v -> b
-    android.content.Context c -> c
-    29:33:void onPreExecute() -> onPreExecute
-    37:44:java.lang.String doInBackground(java.util.List[]) -> doInBackground
-    49:54:void onPostExecute(java.lang.String) -> onPostExecute
-    57:69:java.lang.String pairsToUrl(java.util.List) -> a
-    16:16:void onPostExecute(java.lang.Object) -> onPostExecute
-    16:16:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.example.instantscore.communication.HttpClient -> com.example.instantscore.communication.HttpClient:
-    org.apache.http.impl.client.DefaultHttpClient httpclient -> a
-    41:52:java.lang.String composeUrl(java.lang.String,java.util.Map) -> a
-    60:72:byte[] getDoGetResponseByteArray(java.lang.String,java.util.Map) -> getDoGetResponseByteArray
-    77:86:android.graphics.Bitmap getDoGetResponseBitmap(java.lang.String) -> getDoGetResponseBitmap
-    91:94:android.graphics.Bitmap streamToBitmap(java.io.InputStream) -> a
-    98:113:java.lang.String getHttpClientDoGetResponse(java.lang.String,java.util.Map) -> getHttpClientDoGetResponse
-    117:117:java.lang.String streamToString(java.io.InputStream) -> streamToString
-    121:129:byte[] streamToByteArray(java.io.InputStream) -> streamToByteArray
-    133:171:java.lang.String doPost(java.lang.String,java.lang.String) -> doPost
-    176:195:org.apache.http.impl.client.DefaultHttpClient newMultiThreadedHttpClient() -> a
+    30:30:int getGroupCount() -> getGroupCount
+    35:35:int getChildrenCount(int) -> getChildrenCount
+    40:40:java.lang.Object getGroup(int) -> getGroup
+    45:45:java.lang.Object getChild(int,int) -> getChild
+    50:50:long getGroupId(int) -> getGroupId
+    55:55:long getChildId(int,int) -> getChildId
+    60:60:boolean hasStableIds() -> hasStableIds
+    65:76:android.view.View getGroupView(int,boolean,android.view.View,android.view.ViewGroup) -> getGroupView
+    81:103:android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup) -> getChildView
+    108:108:boolean isChildSelectable(int,int) -> isChildSelectable
+com.example.instantscore.adapter.ItemAdapter -> com.example.instantscore.adapter.ItemAdapter:
+    java.util.List items -> a
+    24:24:int getCount() -> getCount
+    29:29:java.lang.Object getItem(int) -> getItem
+    34:34:long getItemId(int) -> getItemId
+    39:44:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.example.instantscore.communication.JsonRequest -> com.example.instantscore.communication.JsonRequest:
+    com.google.gson.Gson gson -> a
+    com.example.instantscore.volley.Response$Listener listener -> b
+    31:38:com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
+    44:45:void deliverResponse(java.util.List) -> deliverResponse
+    19:19:void deliverResponse(java.lang.Object) -> deliverResponse
+com.example.instantscore.communication.JsonRequest$1 -> ne:
+    com.example.instantscore.communication.JsonRequest this$0 -> a
+com.example.instantscore.communication.MyVolley -> com.example.instantscore.communication.MyVolley:
+    com.example.instantscore.communication.MyVolley mVolley -> a
+    android.content.Context mCtx -> b
+    com.example.instantscore.volley.RequestQueue mRequestQueue -> c
+    19:22:com.example.instantscore.communication.MyVolley getInstance(android.content.Context) -> getInstance
+    31:34:com.example.instantscore.volley.RequestQueue getRequestQueue() -> getRequestQueue
+    38:39:void addToRequestQueue(com.example.instantscore.volley.Request) -> addToRequestQueue
+com.example.instantscore.communication.PostRequest -> com.example.instantscore.communication.PostRequest:
+    java.util.Map headers -> a
+    com.example.instantscore.volley.Response$Listener listener -> b
+    26:27:void deliverResponse(java.lang.Object) -> deliverResponse
+    31:31:java.util.Map getParams() -> getParams
+    36:36:com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
 com.example.instantscore.database.DBHelper -> com.example.instantscore.database.DBHelper:
     java.lang.String CREATE_MATCHES_TABLE_COMMAND -> CREATE_MATCHES_TABLE_COMMAND
     java.lang.String DROP_MATCHES_TABLE -> DROP_MATCHES_TABLE
@@ -5224,11 +5639,11 @@ com.example.instantscore.database.DBHelper -> com.example.instantscore.database.
 com.example.instantscore.database.DBManager -> com.example.instantscore.database.DBManager:
     com.example.instantscore.database.DBHelper dbHelper -> a
     android.database.sqlite.SQLiteDatabase db -> b
-    25:29:void init(android.content.Context) -> init
-    32:39:com.example.instantscore.database.InsertStatus insertMatchIntoDb(com.example.instantscore.model.Match,com.example.instantscore.model.League) -> insertMatchIntoDb
-    43:44:boolean isAlreadyInDatabase(com.example.instantscore.model.Match,com.example.instantscore.model.League) -> isAlreadyInDatabase
-    52:53:void removeMatchFromDatabase(com.example.instantscore.model.Match,com.example.instantscore.model.League) -> removeMatchFromDatabase
-    56:67:java.util.List getAllMatchIds() -> getAllMatchIds
+    24:28:void init(android.content.Context) -> init
+    31:38:com.example.instantscore.database.InsertStatus insertMatchIntoDb(com.example.instantscore.model.Match,com.example.instantscore.model.League) -> insertMatchIntoDb
+    42:43:boolean isAlreadyInDatabase(com.example.instantscore.model.Match,com.example.instantscore.model.League) -> isAlreadyInDatabase
+    51:52:void removeMatchFromDatabase(com.example.instantscore.model.Match,com.example.instantscore.model.League) -> removeMatchFromDatabase
+    55:66:java.util.List getAllMatchIds() -> getAllMatchIds
 com.example.instantscore.database.InsertStatus -> com.example.instantscore.database.InsertStatus:
     com.example.instantscore.database.InsertStatus INSERTED_OK -> INSERTED_OK
     com.example.instantscore.database.InsertStatus ALREADY_EXISTS -> ALREADY_EXISTS
@@ -5241,57 +5656,47 @@ com.example.instantscore.dialog.LoadingDialog -> com.example.instantscore.dialog
 com.example.instantscore.dialog.NumberDialog -> com.example.instantscore.dialog.NumberDialog:
     20:21:com.example.instantscore.dialog.NumberDialog newInstance() -> newInstance
     26:45:android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
-com.example.instantscore.dialog.NumberDialog$1 -> my:
+com.example.instantscore.dialog.NumberDialog$1 -> nf:
     com.example.instantscore.dialog.NumberDialog this$0 -> a
     43:43:void onClick(android.content.DialogInterface,int) -> onClick
-com.example.instantscore.dialog.NumberDialog$2 -> mz:
+com.example.instantscore.dialog.NumberDialog$2 -> ng:
     android.widget.EditText val$numberEditText -> a
     com.example.instantscore.dialog.NumberDialog this$0 -> b
     35:39:void onClick(android.content.DialogInterface,int) -> onClick
-com.example.instantscore.listener.CallbackListener -> com.example.instantscore.listener.CallbackListener:
-    void onUpdate(com.example.instantscore.model.EventContainer) -> onUpdate
-    void onException(com.example.instantscore.model.EventContainer) -> onException
-com.example.instantscore.listener.MyChangeEvent -> com.example.instantscore.listener.MyChangeEvent:
-    long serialVersionUID -> serialVersionUID
-    java.lang.Object result -> a
-    java.lang.Exception error -> b
-    27:27:java.lang.Object getResult() -> getResult
-    31:31:java.lang.Exception getError() -> getError
-com.example.instantscore.model.EventContainer -> com.example.instantscore.model.EventContainer:
-    java.lang.Object data -> a
-    int id -> b
-    16:16:int getId() -> getId
-    20:20:java.lang.Object getData() -> getData
-    24:25:void setData(java.lang.Object) -> setData
-com.example.instantscore.model.Game -> com.example.instantscore.model.Game:
-    boolean isSelected -> a
-    java.lang.String tournament -> b
-    java.lang.String date -> c
-    java.lang.String time -> d
-    java.lang.String homeTeam -> e
-    java.lang.String awayTeam -> f
-    java.lang.String homeTeamScore -> g
-    java.lang.String awayTeamScore -> h
-    19:19:java.lang.String toString() -> toString
-    26:26:java.lang.String getGameId() -> getGameId
-    30:30:boolean isSelectable() -> isSelectable
-    35:36:boolean equals(java.lang.Object) -> equals
-    40:40:boolean isSelected() -> isSelected
-    44:45:void setSelected(boolean) -> setSelected
-    48:48:java.lang.String getTournament() -> getTournament
-    52:53:void setTournament(java.lang.String) -> setTournament
-    56:56:java.lang.String getDate() -> getDate
-    60:61:void setDate(java.lang.String) -> setDate
-    64:64:java.lang.String getTime() -> getTime
-    68:69:void setTime(java.lang.String) -> setTime
-    72:72:java.lang.String getHomeTeam() -> getHomeTeam
-    76:77:void setHomeTeam(java.lang.String) -> setHomeTeam
-    80:80:java.lang.String getAwayTeam() -> getAwayTeam
-    84:85:void setAwayTeam(java.lang.String) -> setAwayTeam
-    88:88:java.lang.String getHomeTeamScore() -> getHomeTeamScore
-    92:93:void setHomeTeamScore(java.lang.String) -> setHomeTeamScore
-    96:96:java.lang.String getAwayTeamScore() -> getAwayTeamScore
-    100:101:void setAwayTeamScore(java.lang.String) -> setAwayTeamScore
+com.example.instantscore.dialog.TestDialog -> com.example.instantscore.dialog.TestDialog:
+    java.util.List itemList -> a
+    com.example.instantscore.model.Item selectedItem -> b
+    int itemIndex -> c
+    java.lang.String editTextValue -> d
+    android.widget.EditText numberTv -> e
+    40:69:void onBindDialogView(android.view.View) -> onBindDialogView
+    73:81:void onDialogClosed(boolean) -> onDialogClosed
+    85:92:void onClick(android.content.DialogInterface,int) -> onClick
+    95:112:void readItems() -> a
+    25:25:com.example.instantscore.model.Item access$002(com.example.instantscore.dialog.TestDialog,com.example.instantscore.model.Item) -> a
+    25:25:int access$102(com.example.instantscore.dialog.TestDialog,int) -> a
+com.example.instantscore.dialog.TestDialog$1 -> nh:
+    android.widget.Spinner val$p -> a
+    com.example.instantscore.dialog.TestDialog this$0 -> b
+    50:52:void onItemSelected(android.widget.AdapterView,android.view.View,int,long) -> onItemSelected
+    57:57:void onNothingSelected(android.widget.AdapterView) -> onNothingSelected
+com.example.instantscore.layout.ItemView -> com.example.instantscore.layout.ItemView:
+    android.widget.TextView mTitleTextView -> a
+    android.widget.TextView mDescriptionTextView -> b
+    android.widget.ImageView mImageView -> c
+    33:36:void setupChildren() -> a
+    39:42:void setItem(com.example.instantscore.model.Item) -> setItem
+    45:46:com.example.instantscore.layout.ItemView inflate(android.view.ViewGroup) -> inflate
+com.example.instantscore.model.Item -> com.example.instantscore.model.Item:
+    java.lang.String countryPrefix -> a
+    java.lang.String countryName -> b
+    int imgId -> c
+    18:18:java.lang.String getCountryPrefix() -> getCountryPrefix
+    22:22:java.lang.String getCountryName() -> getCountryName
+    26:26:int getImgId() -> getImgId
+    30:31:void setCountryPrefix(java.lang.String) -> setCountryPrefix
+    34:35:void setCountryName(java.lang.String) -> setCountryName
+    38:39:void setImgId(int) -> setImgId
 com.example.instantscore.model.League -> com.example.instantscore.model.League:
     java.lang.String name -> a
     java.lang.String date -> b
@@ -5299,15 +5704,6 @@ com.example.instantscore.model.League -> com.example.instantscore.model.League:
     21:21:java.lang.String getName() -> getName
     25:25:java.lang.String getDate() -> getDate
     29:29:java.util.List getMatches() -> getMatches
-com.example.instantscore.model.ListAdapterPriority -> com.example.instantscore.model.ListAdapterPriority:
-    com.example.instantscore.adapter.ListAdapter listAdapter -> a
-    int priority -> b
-    java.lang.String tourn -> c
-    17:17:java.lang.String getTournamentName() -> getTournamentName
-    21:21:int getPriority() -> getPriority
-    25:25:com.example.instantscore.adapter.ListAdapter getListAdapter() -> getListAdapter
-    30:30:int compareTo(com.example.instantscore.model.ListAdapterPriority) -> compareTo
-    5:5:int compareTo(java.lang.Object) -> compareTo
 com.example.instantscore.model.Match -> com.example.instantscore.model.Match:
     java.lang.String time -> a
     java.lang.String team1 -> b
@@ -5336,7 +5732,512 @@ com.example.instantscore.utils.Utils -> com.example.instantscore.utils.Utils:
     36:36:java.lang.String getTimeFrom(java.util.Calendar) -> getTimeFrom
     40:40:java.lang.String getDateFrom(java.util.Calendar) -> getDateFrom
     44:45:java.lang.String format(java.util.Calendar,java.lang.String) -> a
-com.google.gson.DefaultDateTypeAdapter -> na:
+com.example.instantscore.volley.AuthFailureError -> com.example.instantscore.volley.AuthFailureError:
+    android.content.Intent mResolutionIntent -> a
+    48:48:android.content.Intent getResolutionIntent() -> getResolutionIntent
+    53:56:java.lang.String getMessage() -> getMessage
+com.example.instantscore.volley.Cache -> com.example.instantscore.volley.Cache:
+    com.example.instantscore.volley.Cache$Entry get(java.lang.String) -> get
+    void put(java.lang.String,com.example.instantscore.volley.Cache$Entry) -> put
+    void initialize() -> initialize
+    void invalidate(java.lang.String,boolean) -> invalidate
+    void remove(java.lang.String) -> remove
+    void clear() -> clear
+com.example.instantscore.volley.Cache$Entry -> com.example.instantscore.volley.Cache$Entry:
+    byte[] data -> data
+    java.lang.String etag -> etag
+    long serverDate -> serverDate
+    long ttl -> ttl
+    long softTtl -> softTtl
+    java.util.Map responseHeaders -> responseHeaders
+    88:88:boolean isExpired() -> isExpired
+    93:93:boolean refreshNeeded() -> refreshNeeded
+com.example.instantscore.volley.CacheDispatcher -> com.example.instantscore.volley.CacheDispatcher:
+    boolean DEBUG -> a
+    java.util.concurrent.BlockingQueue mCacheQueue -> b
+    java.util.concurrent.BlockingQueue mNetworkQueue -> c
+    com.example.instantscore.volley.Cache mCache -> d
+    com.example.instantscore.volley.ResponseDelivery mDelivery -> e
+    boolean mQuit -> f
+    74:76:void quit() -> quit
+    80:154:void run() -> run
+    32:32:java.util.concurrent.BlockingQueue access$000(com.example.instantscore.volley.CacheDispatcher) -> a
+com.example.instantscore.volley.CacheDispatcher$1 -> ni:
+    com.example.instantscore.volley.Request val$request -> a
+    com.example.instantscore.volley.CacheDispatcher this$0 -> b
+    141:145:void run() -> run
+com.example.instantscore.volley.DefaultRetryPolicy -> com.example.instantscore.volley.DefaultRetryPolicy:
+    int mCurrentTimeoutMs -> a
+    int mCurrentRetryCount -> b
+    int mMaxNumRetries -> c
+    float mBackoffMultiplier -> d
+    int DEFAULT_TIMEOUT_MS -> DEFAULT_TIMEOUT_MS
+    int DEFAULT_MAX_RETRIES -> DEFAULT_MAX_RETRIES
+    float DEFAULT_BACKOFF_MULT -> DEFAULT_BACKOFF_MULT
+    68:68:int getCurrentTimeout() -> getCurrentTimeout
+    76:76:int getCurrentRetryCount() -> getCurrentRetryCount
+    85:90:void retry(com.example.instantscore.volley.VolleyError) -> retry
+    96:96:boolean hasAttemptRemaining() -> hasAttemptRemaining
+com.example.instantscore.volley.ExecutorDelivery -> com.example.instantscore.volley.ExecutorDelivery:
+    java.util.concurrent.Executor mResponsePoster -> a
+    55:56:void postResponse(com.example.instantscore.volley.Request,com.example.instantscore.volley.Response) -> postResponse
+    60:63:void postResponse(com.example.instantscore.volley.Request,com.example.instantscore.volley.Response,java.lang.Runnable) -> postResponse
+    67:70:void postError(com.example.instantscore.volley.Request,com.example.instantscore.volley.VolleyError) -> postError
+com.example.instantscore.volley.ExecutorDelivery$1 -> nj:
+    android.os.Handler val$handler -> a
+    com.example.instantscore.volley.ExecutorDelivery this$0 -> b
+    39:40:void execute(java.lang.Runnable) -> execute
+com.example.instantscore.volley.ExecutorDelivery$ResponseDeliveryRunnable -> nk:
+    com.example.instantscore.volley.Request mRequest -> b
+    com.example.instantscore.volley.Response mResponse -> c
+    java.lang.Runnable mRunnable -> d
+    com.example.instantscore.volley.ExecutorDelivery this$0 -> a
+    92:116:void run() -> run
+com.example.instantscore.volley.Network -> com.example.instantscore.volley.Network:
+    com.example.instantscore.volley.NetworkResponse performRequest(com.example.instantscore.volley.Request) -> performRequest
+com.example.instantscore.volley.NetworkDispatcher -> com.example.instantscore.volley.NetworkDispatcher:
+    java.util.concurrent.BlockingQueue mQueue -> a
+    com.example.instantscore.volley.Network mNetwork -> b
+    com.example.instantscore.volley.Cache mCache -> c
+    com.example.instantscore.volley.ResponseDelivery mDelivery -> d
+    boolean mQuit -> e
+    69:71:void quit() -> quit
+    76:79:void addTrafficStatsTag(com.example.instantscore.volley.Request) -> a
+    83:139:void run() -> run
+    144:146:void parseAndDeliverNetworkError(com.example.instantscore.volley.Request,com.example.instantscore.volley.VolleyError) -> a
+com.example.instantscore.volley.NetworkError -> com.example.instantscore.volley.NetworkError:
+com.example.instantscore.volley.NetworkResponse -> com.example.instantscore.volley.NetworkResponse:
+    int statusCode -> statusCode
+    byte[] data -> data
+    java.util.Map headers -> headers
+    boolean notModified -> notModified
+com.example.instantscore.volley.NoConnectionError -> com.example.instantscore.volley.NoConnectionError:
+com.example.instantscore.volley.ParseError -> com.example.instantscore.volley.ParseError:
+com.example.instantscore.volley.Request -> com.example.instantscore.volley.Request:
+    com.example.instantscore.volley.VolleyLog$MarkerLog mEventLog -> a
+    int mMethod -> b
+    java.lang.String mUrl -> c
+    int mDefaultTrafficStatsTag -> d
+    com.example.instantscore.volley.Response$ErrorListener mErrorListener -> e
+    java.lang.Integer mSequence -> f
+    com.example.instantscore.volley.RequestQueue mRequestQueue -> g
+    boolean mShouldCache -> h
+    boolean mCanceled -> i
+    boolean mResponseDelivered -> j
+    long mRequestBirthTime -> k
+    com.example.instantscore.volley.RetryPolicy mRetryPolicy -> l
+    com.example.instantscore.volley.Cache$Entry mCacheEntry -> m
+    java.lang.Object mTag -> n
+    144:144:int getMethod() -> getMethod
+    154:155:com.example.instantscore.volley.Request setTag(java.lang.Object) -> setTag
+    163:163:java.lang.Object getTag() -> getTag
+    170:170:int getTrafficStatsTag() -> getTrafficStatsTag
+    177:186:int findDefaultTrafficStatsTag(java.lang.String) -> b
+    195:196:com.example.instantscore.volley.Request setRetryPolicy(com.example.instantscore.volley.RetryPolicy) -> setRetryPolicy
+    203:208:void addMarker(java.lang.String) -> addMarker
+    216:243:void finish(java.lang.String) -> a
+    252:253:com.example.instantscore.volley.Request setRequestQueue(com.example.instantscore.volley.RequestQueue) -> setRequestQueue
+    262:263:com.example.instantscore.volley.Request setSequence(int) -> setSequence
+    270:273:int getSequence() -> getSequence
+    280:280:java.lang.String getUrl() -> getUrl
+    287:287:java.lang.String getCacheKey() -> getCacheKey
+    297:298:com.example.instantscore.volley.Request setCacheEntry(com.example.instantscore.volley.Cache$Entry) -> setCacheEntry
+    305:305:com.example.instantscore.volley.Cache$Entry getCacheEntry() -> getCacheEntry
+    312:313:void cancel() -> cancel
+    319:319:boolean isCanceled() -> isCanceled
+    329:329:java.util.Map getHeaders() -> getHeaders
+    345:345:java.util.Map getPostParams() -> getPostParams
+    364:364:java.lang.String getPostParamsEncoding() -> getPostParamsEncoding
+    372:372:java.lang.String getPostBodyContentType() -> getPostBodyContentType
+    388:392:byte[] getPostBody() -> getPostBody
+    404:404:java.util.Map getParams() -> getParams
+    420:420:java.lang.String getParamsEncoding() -> getParamsEncoding
+    424:424:java.lang.String getBodyContentType() -> getBodyContentType
+    433:437:byte[] getBody() -> getBody
+    444:454:byte[] encodeParameters(java.util.Map,java.lang.String) -> a
+    464:465:com.example.instantscore.volley.Request setShouldCache(boolean) -> setShouldCache
+    472:472:boolean shouldCache() -> shouldCache
+    490:490:com.example.instantscore.volley.Request$Priority getPriority() -> getPriority
+    499:499:int getTimeoutMs() -> getTimeoutMs
+    506:506:com.example.instantscore.volley.RetryPolicy getRetryPolicy() -> getRetryPolicy
+    514:515:void markDelivered() -> markDelivered
+    521:521:boolean hasHadResponseDelivered() -> hasHadResponseDelivered
+    com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
+    543:543:com.example.instantscore.volley.VolleyError parseNetworkError(com.example.instantscore.volley.VolleyError) -> parseNetworkError
+    void deliverResponse(java.lang.Object) -> deliverResponse
+    562:565:void deliverError(com.example.instantscore.volley.VolleyError) -> deliverError
+    573:578:int compareTo(com.example.instantscore.volley.Request) -> compareTo
+    585:586:java.lang.String toString() -> toString
+    37:37:int compareTo(java.lang.Object) -> compareTo
+    37:37:com.example.instantscore.volley.VolleyLog$MarkerLog access$000(com.example.instantscore.volley.Request) -> a
+com.example.instantscore.volley.Request$1 -> nl:
+    java.lang.String val$tag -> a
+    long val$threadId -> b
+    com.example.instantscore.volley.Request this$0 -> c
+    228:230:void run() -> run
+com.example.instantscore.volley.Request$Method -> com.example.instantscore.volley.Request$Method:
+    int DEPRECATED_GET_OR_POST -> DEPRECATED_GET_OR_POST
+    int GET -> GET
+    int POST -> POST
+    int PUT -> PUT
+    int DELETE -> DELETE
+    int HEAD -> HEAD
+    int OPTIONS -> OPTIONS
+    int TRACE -> TRACE
+    int PATCH -> PATCH
+com.example.instantscore.volley.Request$Priority -> com.example.instantscore.volley.Request$Priority:
+    com.example.instantscore.volley.Request$Priority LOW -> LOW
+    com.example.instantscore.volley.Request$Priority NORMAL -> NORMAL
+    com.example.instantscore.volley.Request$Priority HIGH -> HIGH
+    com.example.instantscore.volley.Request$Priority IMMEDIATE -> IMMEDIATE
+    com.example.instantscore.volley.Request$Priority[] $VALUES -> a
+    479:479:com.example.instantscore.volley.Request$Priority[] values() -> values
+    479:479:com.example.instantscore.volley.Request$Priority valueOf(java.lang.String) -> valueOf
+com.example.instantscore.volley.RequestQueue -> com.example.instantscore.volley.RequestQueue:
+    java.util.concurrent.atomic.AtomicInteger mSequenceGenerator -> a
+    java.util.Map mWaitingRequests -> b
+    java.util.Set mCurrentRequests -> c
+    java.util.concurrent.PriorityBlockingQueue mCacheQueue -> d
+    java.util.concurrent.PriorityBlockingQueue mNetworkQueue -> e
+    com.example.instantscore.volley.Cache mCache -> f
+    com.example.instantscore.volley.Network mNetwork -> g
+    com.example.instantscore.volley.ResponseDelivery mDelivery -> h
+    com.example.instantscore.volley.NetworkDispatcher[] mDispatchers -> i
+    com.example.instantscore.volley.CacheDispatcher mCacheDispatcher -> j
+    131:143:void start() -> start
+    149:157:void stop() -> stop
+    163:163:int getSequenceNumber() -> getSequenceNumber
+    170:170:com.example.instantscore.volley.Cache getCache() -> getCache
+    186:193:void cancelAll(com.example.instantscore.volley.RequestQueue$RequestFilter) -> cancelAll
+    200:209:void cancelAll(java.lang.Object) -> cancelAll
+    218:254:com.example.instantscore.volley.Request add(com.example.instantscore.volley.Request) -> add
+    266:285:void finish(com.example.instantscore.volley.Request) -> a
+com.example.instantscore.volley.RequestQueue$1 -> nm:
+    java.lang.Object val$tag -> a
+    com.example.instantscore.volley.RequestQueue this$0 -> b
+    206:206:boolean apply(com.example.instantscore.volley.Request) -> apply
+com.example.instantscore.volley.RequestQueue$RequestFilter -> com.example.instantscore.volley.RequestQueue$RequestFilter:
+    boolean apply(com.example.instantscore.volley.Request) -> apply
+com.example.instantscore.volley.Response -> com.example.instantscore.volley.Response:
+    java.lang.Object result -> result
+    com.example.instantscore.volley.Cache$Entry cacheEntry -> cacheEntry
+    com.example.instantscore.volley.VolleyError error -> error
+    boolean intermediate -> intermediate
+    43:43:com.example.instantscore.volley.Response success(java.lang.Object,com.example.instantscore.volley.Cache$Entry) -> success
+    51:51:com.example.instantscore.volley.Response error(com.example.instantscore.volley.VolleyError) -> error
+    70:70:boolean isSuccess() -> isSuccess
+com.example.instantscore.volley.Response$ErrorListener -> com.example.instantscore.volley.Response$ErrorListener:
+    void onErrorResponse(com.example.instantscore.volley.VolleyError) -> onErrorResponse
+com.example.instantscore.volley.Response$Listener -> com.example.instantscore.volley.Response$Listener:
+    void onResponse(java.lang.Object) -> onResponse
+com.example.instantscore.volley.ResponseDelivery -> com.example.instantscore.volley.ResponseDelivery:
+    void postResponse(com.example.instantscore.volley.Request,com.example.instantscore.volley.Response) -> postResponse
+    void postResponse(com.example.instantscore.volley.Request,com.example.instantscore.volley.Response,java.lang.Runnable) -> postResponse
+    void postError(com.example.instantscore.volley.Request,com.example.instantscore.volley.VolleyError) -> postError
+com.example.instantscore.volley.RetryPolicy -> com.example.instantscore.volley.RetryPolicy:
+    int getCurrentTimeout() -> getCurrentTimeout
+    int getCurrentRetryCount() -> getCurrentRetryCount
+    void retry(com.example.instantscore.volley.VolleyError) -> retry
+com.example.instantscore.volley.ServerError -> com.example.instantscore.volley.ServerError:
+com.example.instantscore.volley.TimeoutError -> com.example.instantscore.volley.TimeoutError:
+com.example.instantscore.volley.VolleyError -> com.example.instantscore.volley.VolleyError:
+    com.example.instantscore.volley.NetworkResponse networkResponse -> networkResponse
+com.example.instantscore.volley.VolleyLog -> com.example.instantscore.volley.VolleyLog:
+    java.lang.String TAG -> TAG
+    boolean DEBUG -> DEBUG
+    41:46:void setTag(java.lang.String) -> setTag
+    49:52:void v(java.lang.String,java.lang.Object[]) -> v
+    55:56:void d(java.lang.String,java.lang.Object[]) -> d
+    59:60:void e(java.lang.String,java.lang.Object[]) -> e
+    63:64:void e(java.lang.Throwable,java.lang.String,java.lang.Object[]) -> e
+    67:68:void wtf(java.lang.String,java.lang.Object[]) -> wtf
+    71:72:void wtf(java.lang.Throwable,java.lang.String,java.lang.Object[]) -> wtf
+    79:96:java.lang.String buildMessage(java.lang.String,java.lang.Object[]) -> a
+com.example.instantscore.volley.VolleyLog$MarkerLog -> nn:
+    boolean ENABLED -> a
+    java.util.List mMarkers -> b
+    boolean mFinished -> c
+    126:131:void add(java.lang.String,long) -> a
+    139:153:void finish(java.lang.String) -> a
+    159:163:void finalize() -> finalize
+    167:173:long getTotalDuration() -> a
+com.example.instantscore.volley.VolleyLog$MarkerLog$Marker -> no:
+    java.lang.String name -> a
+    long thread -> b
+    long time -> c
+com.example.instantscore.volley.toolbox.AndroidAuthenticator -> com.example.instantscore.volley.toolbox.AndroidAuthenticator:
+    android.content.Context mContext -> a
+    android.accounts.Account mAccount -> b
+    java.lang.String mAuthTokenType -> c
+    boolean mNotifyAuthFailure -> d
+    67:67:android.accounts.Account getAccount() -> getAccount
+    74:95:java.lang.String getAuthToken() -> getAuthToken
+    100:101:void invalidateAuthToken(java.lang.String) -> invalidateAuthToken
+com.example.instantscore.volley.toolbox.Authenticator -> com.example.instantscore.volley.toolbox.Authenticator:
+    java.lang.String getAuthToken() -> getAuthToken
+    void invalidateAuthToken(java.lang.String) -> invalidateAuthToken
+com.example.instantscore.volley.toolbox.BasicNetwork -> com.example.instantscore.volley.toolbox.BasicNetwork:
+    boolean DEBUG -> DEBUG
+    int SLOW_REQUEST_THRESHOLD_MS -> a
+    int DEFAULT_POOL_SIZE -> b
+    com.example.instantscore.volley.toolbox.HttpStack mHttpStack -> mHttpStack
+    com.example.instantscore.volley.toolbox.ByteArrayPool mPool -> mPool
+    84:152:com.example.instantscore.volley.NetworkResponse performRequest(com.example.instantscore.volley.Request) -> performRequest
+    160:166:void logSlowRequests(long,com.example.instantscore.volley.Request,byte[],org.apache.http.StatusLine) -> a
+    175:186:void attemptRetryOnException(java.lang.String,com.example.instantscore.volley.Request,com.example.instantscore.volley.VolleyError) -> a
+    190:202:void addCacheHeaders(java.util.Map,com.example.instantscore.volley.Cache$Entry) -> a
+    205:207:void logError(java.lang.String,java.lang.String,long) -> logError
+    211:235:byte[] entityToBytes(org.apache.http.HttpEntity) -> a
+    243:247:java.util.Map convertHeaders(org.apache.http.Header[]) -> a
+com.example.instantscore.volley.toolbox.ByteArrayPool -> com.example.instantscore.volley.toolbox.ByteArrayPool:
+    java.util.List mBuffersByLastUse -> a
+    java.util.List mBuffersBySize -> b
+    int mCurrentSize -> c
+    int mSizeLimit -> d
+    java.util.Comparator BUF_COMPARATOR -> BUF_COMPARATOR
+    92:101:byte[] getBuf(int) -> getBuf
+    111:122:void returnBuf(byte[]) -> returnBuf
+    128:133:void trim() -> a
+com.example.instantscore.volley.toolbox.ByteArrayPool$1 -> np:
+    72:72:int compare(byte[],byte[]) -> a
+    69:69:int compare(java.lang.Object,java.lang.Object) -> compare
+com.example.instantscore.volley.toolbox.ClearCacheRequest -> com.example.instantscore.volley.toolbox.ClearCacheRequest:
+    com.example.instantscore.volley.Cache mCache -> a
+    java.lang.Runnable mCallback -> b
+    49:54:boolean isCanceled() -> isCanceled
+    59:59:com.example.instantscore.volley.Request$Priority getPriority() -> getPriority
+    64:64:com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
+    69:69:void deliverResponse(java.lang.Object) -> deliverResponse
+com.example.instantscore.volley.toolbox.DiskBasedCache -> com.example.instantscore.volley.toolbox.DiskBasedCache:
+    java.util.Map mEntries -> a
+    long mTotalSize -> b
+    java.io.File mRootDirectory -> c
+    int mMaxCacheSizeInBytes -> d
+    90:99:void clear() -> clear
+    106:128:com.example.instantscore.volley.Cache$Entry get(java.lang.String) -> get
+    140:170:void initialize() -> initialize
+    179:188:void invalidate(java.lang.String,boolean) -> invalidate
+    195:216:void put(java.lang.String,com.example.instantscore.volley.Cache$Entry) -> put
+    223:229:void remove(java.lang.String) -> remove
+    237:240:java.lang.String getFilenameForKey(java.lang.String) -> a
+    247:247:java.io.File getFileForKey(java.lang.String) -> getFileForKey
+    255:289:void pruneIfNeeded(int) -> a
+    297:304:void putEntry(java.lang.String,com.example.instantscore.volley.toolbox.DiskBasedCache$CacheHeader) -> a
+    310:315:void removeEntry(java.lang.String) -> b
+    321:330:byte[] streamToBytes(java.io.InputStream,int) -> a
+    476:480:int read(java.io.InputStream) -> e
+    484:488:void writeInt(java.io.OutputStream,int) -> a
+    491:496:int readInt(java.io.InputStream) -> a
+    500:508:void writeLong(java.io.OutputStream,long) -> a
+    511:520:long readLong(java.io.InputStream) -> b
+    524:527:void writeString(java.io.OutputStream,java.lang.String) -> a
+    530:532:java.lang.String readString(java.io.InputStream) -> c
+    536:545:void writeStringStringMap(java.util.Map,java.io.OutputStream) -> a
+    548:557:java.util.Map readStringStringMap(java.io.InputStream) -> d
+com.example.instantscore.volley.toolbox.DiskBasedCache$1 -> nq:
+com.example.instantscore.volley.toolbox.DiskBasedCache$CacheHeader -> nr:
+    long size -> a
+    java.lang.String key -> b
+    java.lang.String etag -> c
+    long serverDate -> d
+    long ttl -> e
+    long softTtl -> f
+    java.util.Map responseHeaders -> g
+    383:398:com.example.instantscore.volley.toolbox.DiskBasedCache$CacheHeader readHeader(java.io.InputStream) -> a
+    405:412:com.example.instantscore.volley.Cache$Entry toCacheEntry(byte[]) -> a
+    421:432:boolean writeHeader(java.io.OutputStream) -> a
+com.example.instantscore.volley.toolbox.DiskBasedCache$CountingInputStream -> ns:
+    int bytesRead -> a
+    447:451:int read() -> read
+    456:460:int read(byte[],int,int) -> read
+    438:438:int access$100(com.example.instantscore.volley.toolbox.DiskBasedCache$CountingInputStream) -> a
+com.example.instantscore.volley.toolbox.HttpClientStack -> com.example.instantscore.volley.toolbox.HttpClientStack:
+    org.apache.http.client.HttpClient mClient -> mClient
+    60:63:void addHeaders(org.apache.http.client.methods.HttpUriRequest,java.util.Map) -> a
+    77:87:org.apache.http.HttpResponse performRequest(com.example.instantscore.volley.Request,java.util.Map) -> performRequest
+    96:142:org.apache.http.client.methods.HttpUriRequest createHttpRequest(com.example.instantscore.volley.Request,java.util.Map) -> a
+    148:153:void setEntityIfNonEmptyBody(org.apache.http.client.methods.HttpEntityEnclosingRequestBase,com.example.instantscore.volley.Request) -> a
+    162:162:void onPrepareRequest(org.apache.http.client.methods.HttpUriRequest) -> onPrepareRequest
+com.example.instantscore.volley.toolbox.HttpClientStack$HttpPatch -> com.example.instantscore.volley.toolbox.HttpClientStack$HttpPatch:
+    java.lang.String METHOD_NAME -> METHOD_NAME
+    190:190:java.lang.String getMethod() -> getMethod
+com.example.instantscore.volley.toolbox.HttpHeaderParser -> com.example.instantscore.volley.toolbox.HttpHeaderParser:
+    40:101:com.example.instantscore.volley.Cache$Entry parseCacheHeaders(com.example.instantscore.volley.NetworkResponse) -> parseCacheHeaders
+    110:113:long parseDateAsEpoch(java.lang.String) -> parseDateAsEpoch
+    122:135:java.lang.String parseCharset(java.util.Map) -> parseCharset
+com.example.instantscore.volley.toolbox.HttpStack -> com.example.instantscore.volley.toolbox.HttpStack:
+    org.apache.http.HttpResponse performRequest(com.example.instantscore.volley.Request,java.util.Map) -> performRequest
+com.example.instantscore.volley.toolbox.HurlStack -> com.example.instantscore.volley.toolbox.HurlStack:
+    com.example.instantscore.volley.toolbox.HurlStack$UrlRewriter mUrlRewriter -> a
+    javax.net.ssl.SSLSocketFactory mSslSocketFactory -> b
+    90:125:org.apache.http.HttpResponse performRequest(com.example.instantscore.volley.Request,java.util.Map) -> performRequest
+    134:145:org.apache.http.HttpEntity entityFromConnection(java.net.HttpURLConnection) -> a
+    152:152:java.net.HttpURLConnection createConnection(java.net.URL) -> createConnection
+    162:175:java.net.HttpURLConnection openConnection(java.net.URL,com.example.instantscore.volley.Request) -> a
+    181:232:void setConnectionParametersForRequest(java.net.HttpURLConnection,com.example.instantscore.volley.Request) -> a
+    236:244:void addBodyIfExists(java.net.HttpURLConnection,com.example.instantscore.volley.Request) -> b
+com.example.instantscore.volley.toolbox.HurlStack$UrlRewriter -> com.example.instantscore.volley.toolbox.HurlStack$UrlRewriter:
+    java.lang.String rewriteUrl(java.lang.String) -> rewriteUrl
+com.example.instantscore.volley.toolbox.ImageLoader -> com.example.instantscore.volley.toolbox.ImageLoader:
+    com.example.instantscore.volley.RequestQueue mRequestQueue -> a
+    int mBatchResponseDelayMs -> b
+    com.example.instantscore.volley.toolbox.ImageLoader$ImageCache mCache -> c
+    java.util.HashMap mInFlightRequests -> d
+    java.util.HashMap mBatchedResponses -> e
+    android.os.Handler mHandler -> f
+    java.lang.Runnable mRunnable -> g
+    99:99:com.example.instantscore.volley.toolbox.ImageLoader$ImageListener getImageListener(android.widget.ImageView,int,int) -> getImageListener
+    153:156:boolean isCached(java.lang.String,int,int) -> isCached
+    170:170:com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer get(java.lang.String,com.example.instantscore.volley.toolbox.ImageLoader$ImageListener) -> get
+    188:235:com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer get(java.lang.String,com.example.instantscore.volley.toolbox.ImageLoader$ImageListener,int,int) -> get
+    244:245:void setBatchedResponseDelay(int) -> setBatchedResponseDelay
+    254:266:void onGetImageSuccess(java.lang.String,android.graphics.Bitmap) -> a
+    275:284:void onGetImageError(java.lang.String,com.example.instantscore.volley.VolleyError) -> a
+    431:462:void batchResponse(java.lang.String,com.example.instantscore.volley.toolbox.ImageLoader$BatchedImageRequest) -> a
+    465:468:void throwIfNotOnMainThread() -> a
+    476:476:java.lang.String getCacheKey(java.lang.String,int,int) -> a
+    42:42:void access$000(com.example.instantscore.volley.toolbox.ImageLoader,java.lang.String,android.graphics.Bitmap) -> a
+    42:42:void access$100(com.example.instantscore.volley.toolbox.ImageLoader,java.lang.String,com.example.instantscore.volley.VolleyError) -> a
+    42:42:java.util.HashMap access$300(com.example.instantscore.volley.toolbox.ImageLoader) -> a
+    42:42:java.util.HashMap access$400(com.example.instantscore.volley.toolbox.ImageLoader) -> b
+    42:42:java.lang.Runnable access$802(com.example.instantscore.volley.toolbox.ImageLoader,java.lang.Runnable) -> a
+com.example.instantscore.volley.toolbox.ImageLoader$1 -> nt:
+    int val$errorImageResId -> a
+    android.widget.ImageView val$view -> b
+    int val$defaultImageResId -> c
+    102:105:void onErrorResponse(com.example.instantscore.volley.VolleyError) -> onErrorResponse
+    109:114:void onResponse(com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer,boolean) -> onResponse
+com.example.instantscore.volley.toolbox.ImageLoader$2 -> nu:
+    java.lang.String val$cacheKey -> a
+    com.example.instantscore.volley.toolbox.ImageLoader this$0 -> b
+    222:223:void onResponse(android.graphics.Bitmap) -> a
+    219:219:void onResponse(java.lang.Object) -> onResponse
+com.example.instantscore.volley.toolbox.ImageLoader$3 -> nv:
+    java.lang.String val$cacheKey -> a
+    com.example.instantscore.volley.toolbox.ImageLoader this$0 -> b
+    228:229:void onErrorResponse(com.example.instantscore.volley.VolleyError) -> onErrorResponse
+com.example.instantscore.volley.toolbox.ImageLoader$4 -> nw:
+    com.example.instantscore.volley.toolbox.ImageLoader this$0 -> a
+    438:456:void run() -> run
+com.example.instantscore.volley.toolbox.ImageLoader$BatchedImageRequest -> nx:
+    com.example.instantscore.volley.Request mRequest -> b
+    android.graphics.Bitmap mResponseBitmap -> c
+    com.example.instantscore.volley.VolleyError mError -> d
+    java.util.LinkedList mContainers -> e
+    com.example.instantscore.volley.toolbox.ImageLoader this$0 -> a
+    390:391:void setError(com.example.instantscore.volley.VolleyError) -> a
+    397:397:com.example.instantscore.volley.VolleyError getError() -> a
+    405:406:void addContainer(com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer) -> a
+    415:420:boolean removeContainerAndCancelIfNecessary(com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer) -> b
+    363:363:android.graphics.Bitmap access$202(com.example.instantscore.volley.toolbox.ImageLoader$BatchedImageRequest,android.graphics.Bitmap) -> a
+    363:363:java.util.LinkedList access$500(com.example.instantscore.volley.toolbox.ImageLoader$BatchedImageRequest) -> a
+    363:363:android.graphics.Bitmap access$200(com.example.instantscore.volley.toolbox.ImageLoader$BatchedImageRequest) -> b
+com.example.instantscore.volley.toolbox.ImageLoader$ImageCache -> com.example.instantscore.volley.toolbox.ImageLoader$ImageCache:
+    android.graphics.Bitmap getBitmap(java.lang.String) -> getBitmap
+    void putBitmap(java.lang.String,android.graphics.Bitmap) -> putBitmap
+com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer -> com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer:
+    android.graphics.Bitmap mBitmap -> b
+    com.example.instantscore.volley.toolbox.ImageLoader$ImageListener mListener -> c
+    java.lang.String mCacheKey -> d
+    java.lang.String mRequestUrl -> e
+    com.example.instantscore.volley.toolbox.ImageLoader this$0 -> a
+    322:342:void cancelRequest() -> cancelRequest
+    348:348:android.graphics.Bitmap getBitmap() -> getBitmap
+    355:355:java.lang.String getRequestUrl() -> getRequestUrl
+    289:289:com.example.instantscore.volley.toolbox.ImageLoader$ImageListener access$600(com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer) -> a
+    289:289:android.graphics.Bitmap access$702(com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer,android.graphics.Bitmap) -> a
+com.example.instantscore.volley.toolbox.ImageLoader$ImageListener -> com.example.instantscore.volley.toolbox.ImageLoader$ImageListener:
+    void onResponse(com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer,boolean) -> onResponse
+com.example.instantscore.volley.toolbox.ImageRequest -> com.example.instantscore.volley.toolbox.ImageRequest:
+    com.example.instantscore.volley.Response$Listener mListener -> a
+    android.graphics.Bitmap$Config mDecodeConfig -> b
+    int mMaxWidth -> c
+    int mMaxHeight -> d
+    java.lang.Object sDecodeLock -> e
+    82:82:com.example.instantscore.volley.Request$Priority getPriority() -> getPriority
+    99:118:int getResizedDimension(int,int,int,int) -> b
+    124:131:com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
+    138:180:com.example.instantscore.volley.Response doParse(com.example.instantscore.volley.NetworkResponse) -> a
+    186:187:void deliverResponse(android.graphics.Bitmap) -> deliverResponse
+    201:209:int findBestSampleSize(int,int,int,int) -> a
+    34:34:void deliverResponse(java.lang.Object) -> deliverResponse
+com.example.instantscore.volley.toolbox.JsonArrayRequest -> com.example.instantscore.volley.toolbox.JsonArrayRequest:
+    50:57:com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
+com.example.instantscore.volley.toolbox.JsonObjectRequest -> com.example.instantscore.volley.toolbox.JsonObjectRequest:
+    66:73:com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
+com.example.instantscore.volley.toolbox.JsonRequest -> com.example.instantscore.volley.toolbox.JsonRequest:
+    java.lang.String PROTOCOL_CONTENT_TYPE -> a
+    com.example.instantscore.volley.Response$Listener mListener -> b
+    java.lang.String mRequestBody -> c
+    65:66:void deliverResponse(java.lang.Object) -> deliverResponse
+    com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
+    76:76:java.lang.String getPostBodyContentType() -> getPostBodyContentType
+    84:84:byte[] getPostBody() -> getPostBody
+    89:89:java.lang.String getBodyContentType() -> getBodyContentType
+    95:99:byte[] getBody() -> getBody
+com.example.instantscore.volley.toolbox.NetworkImageView -> com.example.instantscore.volley.toolbox.NetworkImageView:
+    java.lang.String mUrl -> a
+    int mDefaultImageId -> b
+    int mErrorImageId -> c
+    com.example.instantscore.volley.toolbox.ImageLoader mImageLoader -> d
+    com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer mImageContainer -> e
+    77:81:void setImageUrl(java.lang.String,com.example.instantscore.volley.toolbox.ImageLoader) -> setImageUrl
+    88:89:void setDefaultImageResId(int) -> setDefaultImageResId
+    96:97:void setErrorImageResId(int) -> setErrorImageResId
+    104:184:void loadImageIfNecessary(boolean) -> a
+    187:193:void setDefaultImageOrNull() -> a
+    197:199:void onLayout(boolean,int,int,int,int) -> onLayout
+    203:212:void onDetachedFromWindow() -> onDetachedFromWindow
+    216:218:void drawableStateChanged() -> drawableStateChanged
+    32:32:int access$000(com.example.instantscore.volley.toolbox.NetworkImageView) -> a
+    32:32:int access$100(com.example.instantscore.volley.toolbox.NetworkImageView) -> b
+com.example.instantscore.volley.toolbox.NetworkImageView$1 -> ny:
+    boolean val$isInLayoutPass -> a
+    com.example.instantscore.volley.toolbox.NetworkImageView this$0 -> b
+    153:156:void onErrorResponse(com.example.instantscore.volley.VolleyError) -> onErrorResponse
+    164:179:void onResponse(com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer,boolean) -> onResponse
+com.example.instantscore.volley.toolbox.NetworkImageView$1$1 -> nz:
+    com.example.instantscore.volley.toolbox.ImageLoader$ImageContainer val$response -> a
+    com.example.instantscore.volley.toolbox.NetworkImageView$1 this$1 -> b
+    168:169:void run() -> run
+com.example.instantscore.volley.toolbox.NoCache -> com.example.instantscore.volley.toolbox.NoCache:
+    27:27:void clear() -> clear
+    31:31:com.example.instantscore.volley.Cache$Entry get(java.lang.String) -> get
+    36:36:void put(java.lang.String,com.example.instantscore.volley.Cache$Entry) -> put
+    40:40:void invalidate(java.lang.String,boolean) -> invalidate
+    44:44:void remove(java.lang.String) -> remove
+    48:48:void initialize() -> initialize
+com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream -> com.example.instantscore.volley.toolbox.PoolingByteArrayOutputStream:
+    com.example.instantscore.volley.toolbox.ByteArrayPool mPool -> a
+    58:61:void close() -> close
+    65:66:void finalize() -> finalize
+    73:80:void expand(int) -> a
+    84:86:void write(byte[],int,int) -> write
+    90:92:void write(int) -> write
+com.example.instantscore.volley.toolbox.RequestFuture -> com.example.instantscore.volley.toolbox.RequestFuture:
+    com.example.instantscore.volley.Request mRequest -> a
+    boolean mResultReceived -> b
+    java.lang.Object mResult -> c
+    com.example.instantscore.volley.VolleyError mException -> d
+    62:62:com.example.instantscore.volley.toolbox.RequestFuture newFuture() -> newFuture
+    68:69:void setRequest(com.example.instantscore.volley.Request) -> setRequest
+    73:81:boolean cancel(boolean) -> cancel
+    88:90:java.lang.Object get() -> get
+    97:97:java.lang.Object get(long,java.util.concurrent.TimeUnit) -> get
+    102:124:java.lang.Object doGet(java.lang.Long) -> a
+    129:132:boolean isCancelled() -> isCancelled
+    137:137:boolean isDone() -> isDone
+    142:145:void onResponse(java.lang.Object) -> onResponse
+    149:151:void onErrorResponse(com.example.instantscore.volley.VolleyError) -> onErrorResponse
+com.example.instantscore.volley.toolbox.StringRequest -> com.example.instantscore.volley.toolbox.StringRequest:
+    com.example.instantscore.volley.Response$Listener mListener -> a
+    60:61:void deliverResponse(java.lang.String) -> deliverResponse
+    67:71:com.example.instantscore.volley.Response parseNetworkResponse(com.example.instantscore.volley.NetworkResponse) -> parseNetworkResponse
+    30:30:void deliverResponse(java.lang.Object) -> deliverResponse
+com.example.instantscore.volley.toolbox.Volley -> com.example.instantscore.volley.toolbox.Volley:
+    43:68:com.example.instantscore.volley.RequestQueue newRequestQueue(android.content.Context,com.example.instantscore.volley.toolbox.HttpStack) -> newRequestQueue
+    78:78:com.example.instantscore.volley.RequestQueue newRequestQueue(android.content.Context) -> newRequestQueue
+com.google.gson.DefaultDateTypeAdapter -> oa:
     java.text.DateFormat enUsFormat -> a
     java.text.DateFormat localFormat -> b
     java.text.DateFormat iso8601Format -> c
@@ -5372,15 +6273,15 @@ com.google.gson.FieldNamingPolicy -> com.google.gson.FieldNamingPolicy:
     164:164:java.lang.String modifyString(char,java.lang.String,int) -> a
     30:30:java.lang.String access$100(java.lang.String) -> a
     30:30:java.lang.String access$200(java.lang.String,java.lang.String) -> a
-com.google.gson.FieldNamingPolicy$1 -> nb:
+com.google.gson.FieldNamingPolicy$1 -> ob:
     38:38:java.lang.String translateName(java.lang.reflect.Field) -> translateName
-com.google.gson.FieldNamingPolicy$2 -> nc:
+com.google.gson.FieldNamingPolicy$2 -> oc:
     54:54:java.lang.String translateName(java.lang.reflect.Field) -> translateName
-com.google.gson.FieldNamingPolicy$3 -> nd:
+com.google.gson.FieldNamingPolicy$3 -> od:
     73:73:java.lang.String translateName(java.lang.reflect.Field) -> translateName
-com.google.gson.FieldNamingPolicy$4 -> ne:
+com.google.gson.FieldNamingPolicy$4 -> oe:
     91:91:java.lang.String translateName(java.lang.reflect.Field) -> translateName
-com.google.gson.FieldNamingPolicy$5 -> nf:
+com.google.gson.FieldNamingPolicy$5 -> of:
     114:114:java.lang.String translateName(java.lang.reflect.Field) -> translateName
 com.google.gson.FieldNamingStrategy -> com.google.gson.FieldNamingStrategy:
     java.lang.String translateName(java.lang.reflect.Field) -> translateName
@@ -5423,32 +6324,32 @@ com.google.gson.Gson -> com.google.gson.Gson:
     865:868:java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type) -> fromJson
     898:898:java.lang.String toString() -> toString
     97:97:void access$000(com.google.gson.Gson,double) -> a
-com.google.gson.Gson$1 -> ng:
+com.google.gson.Gson$1 -> og:
     com.google.gson.Gson this$0 -> a
     126:126:java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type) -> deserialize
-com.google.gson.Gson$2 -> nh:
+com.google.gson.Gson$2 -> oh:
     com.google.gson.Gson this$0 -> a
     132:132:com.google.gson.JsonElement serialize(java.lang.Object) -> serialize
     135:135:com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type) -> serialize
-com.google.gson.Gson$3 -> ni:
+com.google.gson.Gson$3 -> oi:
     com.google.gson.Gson this$0 -> a
     252:256:java.lang.Double read(com.google.gson.stream.JsonReader) -> a
     259:266:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     250:250:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     250:250:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.Gson$4 -> nj:
+com.google.gson.Gson$4 -> oj:
     com.google.gson.Gson this$0 -> a
     276:280:java.lang.Float read(com.google.gson.stream.JsonReader) -> a
     283:290:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     274:274:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     274:274:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.Gson$5 -> nk:
+com.google.gson.Gson$5 -> ok:
     com.google.gson.Gson this$0 -> a
     308:312:java.lang.Number read(com.google.gson.stream.JsonReader) -> a
     315:320:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     306:306:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     306:306:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.Gson$FutureTypeAdapter -> nl:
+com.google.gson.Gson$FutureTypeAdapter -> ol:
     com.google.gson.TypeAdapter delegate -> a
     875:879:void setDelegate(com.google.gson.TypeAdapter) -> a
     882:885:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
@@ -5617,11 +6518,11 @@ com.google.gson.LongSerializationPolicy -> com.google.gson.LongSerializationPoli
     27:27:com.google.gson.LongSerializationPolicy[] values() -> values
     27:27:com.google.gson.LongSerializationPolicy valueOf(java.lang.String) -> valueOf
     com.google.gson.JsonElement serialize(java.lang.Long) -> serialize
-com.google.gson.LongSerializationPolicy$1 -> nm:
+com.google.gson.LongSerializationPolicy$1 -> om:
     36:36:com.google.gson.JsonElement serialize(java.lang.Long) -> serialize
-com.google.gson.LongSerializationPolicy$2 -> nn:
+com.google.gson.LongSerializationPolicy$2 -> on:
     47:47:com.google.gson.JsonElement serialize(java.lang.Long) -> serialize
-com.google.gson.TreeTypeAdapter -> no:
+com.google.gson.TreeTypeAdapter -> oo:
     com.google.gson.JsonSerializer serializer -> a
     com.google.gson.JsonDeserializer deserializer -> b
     com.google.gson.Gson gson -> c
@@ -5634,8 +6535,8 @@ com.google.gson.TreeTypeAdapter -> no:
     85:85:com.google.gson.TypeAdapterFactory newFactory(com.google.gson.reflect.TypeToken,java.lang.Object) -> a
     95:96:com.google.gson.TypeAdapterFactory newFactoryWithMatchRawType(com.google.gson.reflect.TypeToken,java.lang.Object) -> b
     105:105:com.google.gson.TypeAdapterFactory newTypeHierarchyFactory(java.lang.Class,java.lang.Object) -> a
-com.google.gson.TreeTypeAdapter$1 -> np:
-com.google.gson.TreeTypeAdapter$SingleTypeFactory -> nq:
+com.google.gson.TreeTypeAdapter$1 -> op:
+com.google.gson.TreeTypeAdapter$SingleTypeFactory -> oq:
     com.google.gson.reflect.TypeToken exactType -> a
     boolean matchRawType -> b
     java.lang.Class hierarchyType -> c
@@ -5652,7 +6553,7 @@ com.google.gson.TypeAdapter -> com.google.gson.TypeAdapter:
     255:256:java.lang.Object fromJson(java.io.Reader) -> fromJson
     269:269:java.lang.Object fromJson(java.lang.String) -> fromJson
     280:283:java.lang.Object fromJsonTree(com.google.gson.JsonElement) -> fromJsonTree
-com.google.gson.TypeAdapter$1 -> nr:
+com.google.gson.TypeAdapter$1 -> or:
     com.google.gson.TypeAdapter this$0 -> a
     188:193:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
     195:199:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
@@ -5694,14 +6595,14 @@ com.google.gson.internal.$Gson$Types -> com.google.gson.internal.$Gson$Types:
     431:432:void checkNotPrimitive(java.lang.reflect.Type) -> b
     42:42:void access$000(java.lang.reflect.Type) -> a
     42:42:int access$100(java.lang.Object) -> a
-com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl -> ns:
+com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl -> os:
     java.lang.reflect.Type componentType -> a
     long serialVersionUID -> serialVersionUID
     506:506:java.lang.reflect.Type getGenericComponentType() -> getGenericComponentType
     510:510:boolean equals(java.lang.Object) -> equals
     515:515:int hashCode() -> hashCode
     519:519:java.lang.String toString() -> toString
-com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl -> nt:
+com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl -> ot:
     java.lang.reflect.Type ownerType -> a
     java.lang.reflect.Type rawType -> b
     java.lang.reflect.Type[] typeArguments -> c
@@ -5712,7 +6613,7 @@ com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl -> nt:
     470:470:boolean equals(java.lang.Object) -> equals
     475:475:int hashCode() -> hashCode
     481:492:java.lang.String toString() -> toString
-com.google.gson.internal.$Gson$Types$WildcardTypeImpl -> nu:
+com.google.gson.internal.$Gson$Types$WildcardTypeImpl -> ou:
     java.lang.reflect.Type upperBound -> a
     java.lang.reflect.Type lowerBound -> b
     long serialVersionUID -> serialVersionUID
@@ -5728,49 +6629,49 @@ com.google.gson.internal.ConstructorConstructor -> com.google.gson.internal.Cons
     130:197:com.google.gson.internal.ObjectConstructor newDefaultImplementationConstructor(java.lang.reflect.Type,java.lang.Class) -> a
     202:202:com.google.gson.internal.ObjectConstructor newUnsafeAllocator(java.lang.reflect.Type,java.lang.Class) -> b
     218:218:java.lang.String toString() -> toString
-com.google.gson.internal.ConstructorConstructor$1 -> nv:
+com.google.gson.internal.ConstructorConstructor$1 -> ov:
     com.google.gson.InstanceCreator val$typeCreator -> a
     java.lang.reflect.Type val$type -> b
     com.google.gson.internal.ConstructorConstructor this$0 -> c
     62:62:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$10 -> nw:
+com.google.gson.internal.ConstructorConstructor$10 -> ow:
     com.google.gson.internal.ConstructorConstructor this$0 -> a
     185:185:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$11 -> nx:
+com.google.gson.internal.ConstructorConstructor$11 -> ox:
     com.google.gson.internal.ConstructorConstructor this$0 -> a
     191:191:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$12 -> ny:
+com.google.gson.internal.ConstructorConstructor$12 -> oy:
     com.google.gson.internal.UnsafeAllocator unsafeAllocator -> d
     java.lang.Class val$rawType -> a
     java.lang.reflect.Type val$type -> b
     com.google.gson.internal.ConstructorConstructor this$0 -> c
     207:210:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$2 -> nz:
+com.google.gson.internal.ConstructorConstructor$2 -> oz:
     com.google.gson.InstanceCreator val$rawTypeCreator -> a
     java.lang.reflect.Type val$type -> b
     com.google.gson.internal.ConstructorConstructor this$0 -> c
     74:74:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$3 -> oa:
+com.google.gson.internal.ConstructorConstructor$3 -> pa:
     java.lang.reflect.Constructor val$constructor -> a
     com.google.gson.internal.ConstructorConstructor this$0 -> b
     103:114:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$4 -> ob:
+com.google.gson.internal.ConstructorConstructor$4 -> pb:
     com.google.gson.internal.ConstructorConstructor this$0 -> a
     134:134:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$5 -> oc:
+com.google.gson.internal.ConstructorConstructor$5 -> pc:
     java.lang.reflect.Type val$type -> a
     com.google.gson.internal.ConstructorConstructor this$0 -> b
     141:149:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$6 -> od:
+com.google.gson.internal.ConstructorConstructor$6 -> pd:
     com.google.gson.internal.ConstructorConstructor this$0 -> a
     156:156:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$7 -> oe:
+com.google.gson.internal.ConstructorConstructor$7 -> pe:
     com.google.gson.internal.ConstructorConstructor this$0 -> a
     162:162:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$8 -> of:
+com.google.gson.internal.ConstructorConstructor$8 -> pf:
     com.google.gson.internal.ConstructorConstructor this$0 -> a
     168:168:java.lang.Object construct() -> construct
-com.google.gson.internal.ConstructorConstructor$9 -> og:
+com.google.gson.internal.ConstructorConstructor$9 -> pg:
     com.google.gson.internal.ConstructorConstructor this$0 -> a
     178:178:java.lang.Object construct() -> construct
 com.google.gson.internal.Excluder -> com.google.gson.internal.Excluder:
@@ -5797,7 +6698,7 @@ com.google.gson.internal.Excluder -> com.google.gson.internal.Excluder:
     233:239:boolean isValidSince(com.google.gson.annotations.Since) -> a
     243:249:boolean isValidUntil(com.google.gson.annotations.Until) -> a
     50:50:java.lang.Object clone() -> clone
-com.google.gson.internal.Excluder$1 -> oh:
+com.google.gson.internal.Excluder$1 -> ph:
     com.google.gson.TypeAdapter delegate -> f
     boolean val$skipDeserialize -> a
     boolean val$skipSerialize -> b
@@ -5847,31 +6748,31 @@ com.google.gson.internal.LinkedTreeMap -> com.google.gson.internal.LinkedTreeMap
     430:431:java.util.Set entrySet() -> entrySet
     435:436:java.util.Set keySet() -> keySet
     625:625:java.lang.Object writeReplace() -> writeReplace
-com.google.gson.internal.LinkedTreeMap$1 -> oi:
+com.google.gson.internal.LinkedTreeMap$1 -> pi:
     42:42:int compare(java.lang.Comparable,java.lang.Comparable) -> a
     40:40:int compare(java.lang.Object,java.lang.Object) -> compare
-com.google.gson.internal.LinkedTreeMap$EntrySet -> oj:
+com.google.gson.internal.LinkedTreeMap$EntrySet -> pj:
     com.google.gson.internal.LinkedTreeMap this$0 -> a
     559:559:int size() -> size
     563:563:java.util.Iterator iterator() -> iterator
     571:571:boolean contains(java.lang.Object) -> contains
     575:584:boolean remove(java.lang.Object) -> remove
     588:589:void clear() -> clear
-com.google.gson.internal.LinkedTreeMap$EntrySet$1 -> ok:
+com.google.gson.internal.LinkedTreeMap$EntrySet$1 -> pk:
     com.google.gson.internal.LinkedTreeMap$EntrySet this$1 -> a
     565:565:java.util.Map$Entry next() -> a
     563:563:java.lang.Object next() -> next
-com.google.gson.internal.LinkedTreeMap$KeySet -> ol:
+com.google.gson.internal.LinkedTreeMap$KeySet -> pl:
     com.google.gson.internal.LinkedTreeMap this$0 -> a
     594:594:int size() -> size
     598:598:java.util.Iterator iterator() -> iterator
     606:606:boolean contains(java.lang.Object) -> contains
     610:610:boolean remove(java.lang.Object) -> remove
     614:615:void clear() -> clear
-com.google.gson.internal.LinkedTreeMap$KeySet$1 -> om:
+com.google.gson.internal.LinkedTreeMap$KeySet$1 -> pm:
     com.google.gson.internal.LinkedTreeMap$KeySet this$1 -> a
     600:600:java.lang.Object next() -> next
-com.google.gson.internal.LinkedTreeMap$LinkedTreeMapIterator -> on:
+com.google.gson.internal.LinkedTreeMap$LinkedTreeMapIterator -> pn:
     com.google.gson.internal.LinkedTreeMap$Node next -> b
     com.google.gson.internal.LinkedTreeMap$Node lastReturned -> c
     int expectedModCount -> d
@@ -5879,7 +6780,7 @@ com.google.gson.internal.LinkedTreeMap$LinkedTreeMapIterator -> on:
     532:532:boolean hasNext() -> hasNext
     536:544:com.google.gson.internal.LinkedTreeMap$Node nextNode() -> b
     548:554:void remove() -> remove
-com.google.gson.internal.LinkedTreeMap$Node -> oo:
+com.google.gson.internal.LinkedTreeMap$Node -> po:
     com.google.gson.internal.LinkedTreeMap$Node parent -> a
     com.google.gson.internal.LinkedTreeMap$Node left -> b
     com.google.gson.internal.LinkedTreeMap$Node right -> c
@@ -5910,15 +6811,15 @@ com.google.gson.internal.Streams -> com.google.gson.internal.Streams:
     40:60:com.google.gson.JsonElement parse(com.google.gson.stream.JsonReader) -> parse
     68:69:void write(com.google.gson.JsonElement,com.google.gson.stream.JsonWriter) -> write
     72:72:java.io.Writer writerForAppendable(java.lang.Appendable) -> writerForAppendable
-com.google.gson.internal.Streams$1 -> op:
-com.google.gson.internal.Streams$AppendableWriter -> oq:
+com.google.gson.internal.Streams$1 -> pp:
+com.google.gson.internal.Streams$AppendableWriter -> pq:
     java.lang.Appendable appendable -> a
     com.google.gson.internal.Streams$AppendableWriter$CurrentWrite currentWrite -> b
     88:90:void write(char[],int,int) -> write
     93:94:void write(int) -> write
     96:96:void flush() -> flush
     97:97:void close() -> close
-com.google.gson.internal.Streams$AppendableWriter$CurrentWrite -> or:
+com.google.gson.internal.Streams$AppendableWriter$CurrentWrite -> pr:
     char[] chars -> a
     105:105:int length() -> length
     108:108:char charAt(int) -> charAt
@@ -5926,18 +6827,18 @@ com.google.gson.internal.Streams$AppendableWriter$CurrentWrite -> or:
 com.google.gson.internal.UnsafeAllocator -> com.google.gson.internal.UnsafeAllocator:
     java.lang.Object newInstance(java.lang.Class) -> newInstance
     39:97:com.google.gson.internal.UnsafeAllocator create() -> create
-com.google.gson.internal.UnsafeAllocator$1 -> os:
+com.google.gson.internal.UnsafeAllocator$1 -> ps:
     java.lang.reflect.Method val$allocateInstance -> a
     java.lang.Object val$unsafe -> b
     48:48:java.lang.Object newInstance(java.lang.Class) -> newInstance
-com.google.gson.internal.UnsafeAllocator$2 -> ot:
+com.google.gson.internal.UnsafeAllocator$2 -> pt:
     java.lang.reflect.Method val$newInstance -> a
     67:67:java.lang.Object newInstance(java.lang.Class) -> newInstance
-com.google.gson.internal.UnsafeAllocator$3 -> ou:
+com.google.gson.internal.UnsafeAllocator$3 -> pu:
     java.lang.reflect.Method val$newInstance -> a
     int val$constructorId -> b
     90:90:java.lang.Object newInstance(java.lang.Class) -> newInstance
-com.google.gson.internal.UnsafeAllocator$4 -> ov:
+com.google.gson.internal.UnsafeAllocator$4 -> pv:
     100:100:java.lang.Object newInstance(java.lang.Class) -> newInstance
 com.google.gson.internal.bind.ArrayTypeAdapter -> com.google.gson.internal.bind.ArrayTypeAdapter:
     com.google.gson.TypeAdapterFactory FACTORY -> FACTORY
@@ -5945,12 +6846,12 @@ com.google.gson.internal.bind.ArrayTypeAdapter -> com.google.gson.internal.bind.
     com.google.gson.TypeAdapter componentTypeAdapter -> b
     64:80:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     85:96:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.ArrayTypeAdapter$1 -> ow:
+com.google.gson.internal.bind.ArrayTypeAdapter$1 -> pw:
     42:49:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
 com.google.gson.internal.bind.CollectionTypeAdapterFactory -> com.google.gson.internal.bind.CollectionTypeAdapterFactory:
     com.google.gson.internal.ConstructorConstructor constructorConstructor -> a
     44:57:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
-com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter -> ox:
+com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter -> px:
     com.google.gson.TypeAdapter elementTypeAdapter -> a
     com.google.gson.internal.ObjectConstructor constructor -> b
     73:85:java.util.Collection read(com.google.gson.stream.JsonReader) -> a
@@ -5968,7 +6869,7 @@ com.google.gson.internal.bind.DateTypeAdapter -> com.google.gson.internal.bind.D
     86:92:void write(com.google.gson.stream.JsonWriter,java.util.Date) -> write
     41:41:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     41:41:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.DateTypeAdapter$1 -> oy:
+com.google.gson.internal.bind.DateTypeAdapter$1 -> py:
     45:45:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
 com.google.gson.internal.bind.JsonTreeReader -> com.google.gson.internal.bind.JsonTreeReader:
     java.io.Reader UNREADABLE_READER -> a
@@ -5994,7 +6895,7 @@ com.google.gson.internal.bind.JsonTreeReader -> com.google.gson.internal.bind.Js
     208:213:void skipValue() -> skipValue
     216:216:java.lang.String toString() -> toString
     220:225:void promoteNameToValue() -> promoteNameToValue
-com.google.gson.internal.bind.JsonTreeReader$1 -> oz:
+com.google.gson.internal.bind.JsonTreeReader$1 -> pz:
     42:42:int read(char[],int,int) -> read
     45:45:void close() -> close
 com.google.gson.internal.bind.JsonTreeWriter -> com.google.gson.internal.bind.JsonTreeWriter:
@@ -6019,7 +6920,7 @@ com.google.gson.internal.bind.JsonTreeWriter -> com.google.gson.internal.bind.Js
     176:188:com.google.gson.stream.JsonWriter value(java.lang.Number) -> value
     192:192:void flush() -> flush
     195:199:void close() -> close
-com.google.gson.internal.bind.JsonTreeWriter$1 -> pa:
+com.google.gson.internal.bind.JsonTreeWriter$1 -> qa:
     36:36:void write(char[],int,int) -> write
     39:39:void flush() -> flush
     42:42:void close() -> close
@@ -6029,7 +6930,7 @@ com.google.gson.internal.bind.MapTypeAdapterFactory -> com.google.gson.internal.
     116:133:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
     140:140:com.google.gson.TypeAdapter getKeyAdapter(com.google.gson.Gson,java.lang.reflect.Type) -> a
     105:105:boolean access$000(com.google.gson.internal.bind.MapTypeAdapterFactory) -> a
-com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter -> pb:
+com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter -> qb:
     com.google.gson.TypeAdapter keyTypeAdapter -> b
     com.google.gson.TypeAdapter valueTypeAdapter -> c
     com.google.gson.internal.ObjectConstructor constructor -> d
@@ -6044,9 +6945,9 @@ com.google.gson.internal.bind.ObjectTypeAdapter -> com.google.gson.internal.bind
     com.google.gson.Gson gson -> a
     55:89:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     95:108:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.ObjectTypeAdapter$1 -> pc:
+com.google.gson.internal.bind.ObjectTypeAdapter$1 -> qc:
     41:44:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
-com.google.gson.internal.bind.ObjectTypeAdapter$2 -> pd:
+com.google.gson.internal.bind.ObjectTypeAdapter$2 -> qd:
     int[] $SwitchMap$com$google$gson$stream$JsonToken -> a
 com.google.gson.internal.bind.ReflectiveTypeAdapterFactory -> com.google.gson.internal.bind.ReflectiveTypeAdapterFactory:
     com.google.gson.internal.ConstructorConstructor constructorConstructor -> a
@@ -6057,7 +6958,7 @@ com.google.gson.internal.bind.ReflectiveTypeAdapterFactory -> com.google.gson.in
     65:72:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
     78:81:com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$BoundField createBoundField(com.google.gson.Gson,java.lang.reflect.Field,java.lang.String,com.google.gson.reflect.TypeToken,boolean,boolean) -> a
     102:129:java.util.Map getBoundFields(com.google.gson.Gson,com.google.gson.reflect.TypeToken,java.lang.Class) -> a
-com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1 -> pe:
+com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1 -> qe:
     com.google.gson.TypeAdapter typeAdapter -> a
     com.google.gson.Gson val$context -> b
     com.google.gson.reflect.TypeToken val$fieldType -> c
@@ -6071,7 +6972,7 @@ com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter -> com.google
     java.util.Map boundFields -> b
     157:181:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     185:202:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$BoundField -> pf:
+com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$BoundField -> qf:
     java.lang.String name -> g
     boolean serialized -> h
     boolean deserialized -> i
@@ -6084,7 +6985,7 @@ com.google.gson.internal.bind.SqlDateTypeAdapter -> com.google.gson.internal.bin
     65:66:void write(com.google.gson.stream.JsonWriter,java.sql.Date) -> write
     38:38:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     38:38:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.SqlDateTypeAdapter$1 -> pg:
+com.google.gson.internal.bind.SqlDateTypeAdapter$1 -> qg:
     42:42:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
 com.google.gson.internal.bind.TimeTypeAdapter -> com.google.gson.internal.bind.TimeTypeAdapter:
     com.google.gson.TypeAdapterFactory FACTORY -> FACTORY
@@ -6093,9 +6994,9 @@ com.google.gson.internal.bind.TimeTypeAdapter -> com.google.gson.internal.bind.T
     64:65:void write(com.google.gson.stream.JsonWriter,java.sql.Time) -> write
     40:40:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     40:40:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TimeTypeAdapter$1 -> ph:
+com.google.gson.internal.bind.TimeTypeAdapter$1 -> qh:
     44:44:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
-com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper -> pi:
+com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper -> qi:
     com.google.gson.Gson context -> a
     com.google.gson.TypeAdapter delegate -> b
     java.lang.reflect.Type type -> c
@@ -6153,166 +7054,166 @@ com.google.gson.internal.bind.TypeAdapters -> com.google.gson.internal.bind.Type
     792:792:com.google.gson.TypeAdapterFactory newFactory(java.lang.Class,java.lang.Class,com.google.gson.TypeAdapter) -> newFactory
     807:807:com.google.gson.TypeAdapterFactory newFactoryForMultipleTypes(java.lang.Class,java.lang.Class,com.google.gson.TypeAdapter) -> newFactoryForMultipleTypes
     822:822:com.google.gson.TypeAdapterFactory newTypeHierarchyFactory(java.lang.Class,com.google.gson.TypeAdapter) -> newTypeHierarchyFactory
-com.google.gson.internal.bind.TypeAdapters$1 -> pj:
+com.google.gson.internal.bind.TypeAdapters$1 -> qj:
     64:70:void write(com.google.gson.stream.JsonWriter,java.lang.Class) -> a
     73:77:java.lang.Class read(com.google.gson.stream.JsonReader) -> a
     61:61:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     61:61:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$10 -> pk:
+com.google.gson.internal.bind.TypeAdapters$10 -> qk:
     290:294:java.lang.Number read(com.google.gson.stream.JsonReader) -> a
     298:299:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     287:287:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     287:287:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$11 -> pl:
+com.google.gson.internal.bind.TypeAdapters$11 -> ql:
     305:313:java.lang.Number read(com.google.gson.stream.JsonReader) -> a
     318:319:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     302:302:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     302:302:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$12 -> pm:
+com.google.gson.internal.bind.TypeAdapters$12 -> qm:
     327:335:java.lang.Character read(com.google.gson.stream.JsonReader) -> a
     339:340:void write(com.google.gson.stream.JsonWriter,java.lang.Character) -> a
     324:324:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     324:324:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$13 -> pn:
+com.google.gson.internal.bind.TypeAdapters$13 -> qn:
     349:358:java.lang.String read(com.google.gson.stream.JsonReader) -> a
     362:363:void write(com.google.gson.stream.JsonWriter,java.lang.String) -> a
     346:346:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     346:346:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$14 -> po:
+com.google.gson.internal.bind.TypeAdapters$14 -> qo:
     368:375:java.math.BigDecimal read(com.google.gson.stream.JsonReader) -> a
     380:381:void write(com.google.gson.stream.JsonWriter,java.math.BigDecimal) -> a
     366:366:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     366:366:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$15 -> pp:
+com.google.gson.internal.bind.TypeAdapters$15 -> qp:
     386:393:java.math.BigInteger read(com.google.gson.stream.JsonReader) -> a
     398:399:void write(com.google.gson.stream.JsonWriter,java.math.BigInteger) -> a
     384:384:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     384:384:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$16 -> pq:
+com.google.gson.internal.bind.TypeAdapters$16 -> qq:
     407:411:java.lang.StringBuilder read(com.google.gson.stream.JsonReader) -> a
     415:416:void write(com.google.gson.stream.JsonWriter,java.lang.StringBuilder) -> a
     404:404:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     404:404:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$17 -> pr:
+com.google.gson.internal.bind.TypeAdapters$17 -> qr:
     425:429:java.lang.StringBuffer read(com.google.gson.stream.JsonReader) -> a
     433:434:void write(com.google.gson.stream.JsonWriter,java.lang.StringBuffer) -> a
     422:422:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     422:422:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$18 -> ps:
+com.google.gson.internal.bind.TypeAdapters$18 -> qs:
     443:448:java.net.URL read(com.google.gson.stream.JsonReader) -> a
     452:453:void write(com.google.gson.stream.JsonWriter,java.net.URL) -> a
     440:440:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     440:440:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$19 -> pt:
+com.google.gson.internal.bind.TypeAdapters$19 -> qt:
     461:469:java.net.URI read(com.google.gson.stream.JsonReader) -> a
     474:475:void write(com.google.gson.stream.JsonWriter,java.net.URI) -> a
     458:458:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     458:458:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$2 -> pu:
+com.google.gson.internal.bind.TypeAdapters$2 -> qu:
     86:123:java.util.BitSet read(com.google.gson.stream.JsonReader) -> a
     127:138:void write(com.google.gson.stream.JsonWriter,java.util.BitSet) -> a
     84:84:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     84:84:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$20 -> pv:
+com.google.gson.internal.bind.TypeAdapters$20 -> qv:
     483:488:java.net.InetAddress read(com.google.gson.stream.JsonReader) -> a
     492:493:void write(com.google.gson.stream.JsonWriter,java.net.InetAddress) -> a
     480:480:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     480:480:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$21 -> pw:
+com.google.gson.internal.bind.TypeAdapters$21 -> qw:
     502:506:java.util.UUID read(com.google.gson.stream.JsonReader) -> a
     510:511:void write(com.google.gson.stream.JsonWriter,java.util.UUID) -> a
     499:499:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     499:499:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$22 -> px:
+com.google.gson.internal.bind.TypeAdapters$22 -> qx:
     519:524:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
-com.google.gson.internal.bind.TypeAdapters$22$1 -> py:
+com.google.gson.internal.bind.TypeAdapters$22$1 -> qy:
     com.google.gson.TypeAdapter val$dateTypeAdapter -> a
     com.google.gson.internal.bind.TypeAdapters$22 this$0 -> b
     526:527:java.sql.Timestamp read(com.google.gson.stream.JsonReader) -> a
     531:532:void write(com.google.gson.stream.JsonWriter,java.sql.Timestamp) -> a
     524:524:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     524:524:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$23 -> pz:
+com.google.gson.internal.bind.TypeAdapters$23 -> qz:
     547:576:java.util.Calendar read(com.google.gson.stream.JsonReader) -> a
     581:599:void write(com.google.gson.stream.JsonWriter,java.util.Calendar) -> a
     537:537:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     537:537:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$24 -> qa:
+com.google.gson.internal.bind.TypeAdapters$24 -> ra:
     608:631:java.util.Locale read(com.google.gson.stream.JsonReader) -> a
     636:637:void write(com.google.gson.stream.JsonWriter,java.util.Locale) -> a
     605:605:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     605:605:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$25 -> qb:
+com.google.gson.internal.bind.TypeAdapters$25 -> rb:
     644:676:com.google.gson.JsonElement read(com.google.gson.stream.JsonReader) -> a
     681:711:void write(com.google.gson.stream.JsonWriter,com.google.gson.JsonElement) -> a
     642:642:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     642:642:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$26 -> qc:
+com.google.gson.internal.bind.TypeAdapters$26 -> rc:
     755:762:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
-com.google.gson.internal.bind.TypeAdapters$27 -> qd:
+com.google.gson.internal.bind.TypeAdapters$27 -> rd:
     com.google.gson.reflect.TypeToken val$type -> a
     com.google.gson.TypeAdapter val$typeAdapter -> b
     772:772:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
-com.google.gson.internal.bind.TypeAdapters$28 -> qe:
+com.google.gson.internal.bind.TypeAdapters$28 -> re:
     java.lang.Class val$type -> a
     com.google.gson.TypeAdapter val$typeAdapter -> b
     782:782:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
     785:785:java.lang.String toString() -> toString
-com.google.gson.internal.bind.TypeAdapters$29 -> qf:
+com.google.gson.internal.bind.TypeAdapters$29 -> rf:
     java.lang.Class val$unboxed -> a
     java.lang.Class val$boxed -> b
     com.google.gson.TypeAdapter val$typeAdapter -> c
     795:796:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
     799:799:java.lang.String toString() -> toString
-com.google.gson.internal.bind.TypeAdapters$3 -> qg:
+com.google.gson.internal.bind.TypeAdapters$3 -> rg:
     146:153:java.lang.Boolean read(com.google.gson.stream.JsonReader) -> a
     157:162:void write(com.google.gson.stream.JsonWriter,java.lang.Boolean) -> a
     143:143:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     143:143:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$30 -> qh:
+com.google.gson.internal.bind.TypeAdapters$30 -> rh:
     java.lang.Class val$base -> a
     java.lang.Class val$sub -> b
     com.google.gson.TypeAdapter val$typeAdapter -> c
     810:811:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
     814:814:java.lang.String toString() -> toString
-com.google.gson.internal.bind.TypeAdapters$31 -> qi:
+com.google.gson.internal.bind.TypeAdapters$31 -> ri:
     java.lang.Class val$clazz -> a
     com.google.gson.TypeAdapter val$typeAdapter -> b
     825:825:com.google.gson.TypeAdapter create(com.google.gson.Gson,com.google.gson.reflect.TypeToken) -> create
     828:828:java.lang.String toString() -> toString
-com.google.gson.internal.bind.TypeAdapters$32 -> qj:
+com.google.gson.internal.bind.TypeAdapters$32 -> rj:
     int[] $SwitchMap$com$google$gson$stream$JsonToken -> a
-com.google.gson.internal.bind.TypeAdapters$4 -> qk:
+com.google.gson.internal.bind.TypeAdapters$4 -> rk:
     171:175:java.lang.Boolean read(com.google.gson.stream.JsonReader) -> a
     179:180:void write(com.google.gson.stream.JsonWriter,java.lang.Boolean) -> a
     169:169:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     169:169:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$5 -> ql:
+com.google.gson.internal.bind.TypeAdapters$5 -> rl:
     189:197:java.lang.Number read(com.google.gson.stream.JsonReader) -> a
     202:203:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     186:186:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     186:186:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$6 -> qm:
+com.google.gson.internal.bind.TypeAdapters$6 -> rm:
     212:219:java.lang.Number read(com.google.gson.stream.JsonReader) -> a
     224:225:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     209:209:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     209:209:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$7 -> qn:
+com.google.gson.internal.bind.TypeAdapters$7 -> rn:
     234:241:java.lang.Number read(com.google.gson.stream.JsonReader) -> a
     246:247:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     231:231:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     231:231:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$8 -> qo:
+com.google.gson.internal.bind.TypeAdapters$8 -> ro:
     256:263:java.lang.Number read(com.google.gson.stream.JsonReader) -> a
     268:269:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     253:253:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     253:253:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$9 -> qp:
+com.google.gson.internal.bind.TypeAdapters$9 -> rp:
     275:279:java.lang.Number read(com.google.gson.stream.JsonReader) -> a
     283:284:void write(com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     272:272:java.lang.Object read(com.google.gson.stream.JsonReader) -> read
     272:272:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.google.gson.internal.bind.TypeAdapters$EnumTypeAdapter -> qq:
+com.google.gson.internal.bind.TypeAdapters$EnumTypeAdapter -> rq:
     java.util.Map nameToConstant -> a
     java.util.Map constantToName -> b
     737:741:java.lang.Enum read(com.google.gson.stream.JsonReader) -> a
@@ -6396,7 +7297,7 @@ com.google.gson.stream.JsonReader -> com.google.gson.stream.JsonReader:
     190:190:int access$002(com.google.gson.stream.JsonReader,int) -> a
     190:190:int access$200(com.google.gson.stream.JsonReader) -> c
     190:190:int access$300(com.google.gson.stream.JsonReader) -> d
-com.google.gson.stream.JsonReader$1 -> qr:
+com.google.gson.stream.JsonReader$1 -> rr:
     1534:1552:void promoteNameToValue(com.google.gson.stream.JsonReader) -> promoteNameToValue
 com.google.gson.stream.JsonToken -> com.google.gson.stream.JsonToken:
     com.google.gson.stream.JsonToken BEGIN_ARRAY -> BEGIN_ARRAY
@@ -6555,10 +7456,10 @@ com.newrelic.agent.android.AndroidAgentImpl -> com.newrelic.agent.android.Androi
     527:527:java.lang.String getCurrentThreadName() -> getCurrentThreadName
     39:39:boolean access$000(com.newrelic.agent.android.AndroidAgentImpl,android.location.Location) -> a
     39:39:void access$100(com.newrelic.agent.android.AndroidAgentImpl) -> a
-com.newrelic.agent.android.AndroidAgentImpl$1 -> qs:
+com.newrelic.agent.android.AndroidAgentImpl$1 -> rs:
     418:423:int compare(com.newrelic.agent.android.api.common.TransactionData,com.newrelic.agent.android.api.common.TransactionData) -> a
     415:415:int compare(java.lang.Object,java.lang.Object) -> compare
-com.newrelic.agent.android.AndroidAgentImpl$2 -> qt:
+com.newrelic.agent.android.AndroidAgentImpl$2 -> rt:
     com.newrelic.agent.android.AndroidAgentImpl this$0 -> a
     439:442:void onLocationChanged(android.location.Location) -> onLocationChanged
     446:448:void onProviderDisabled(java.lang.String) -> onProviderDisabled
@@ -6674,7 +7575,7 @@ com.newrelic.agent.android.NullAgentImpl -> com.newrelic.agent.android.NullAgent
     77:77:com.newrelic.agent.android.util.Encoder getEncoder() -> getEncoder
     86:94:com.newrelic.agent.android.harvest.DeviceInformation getDeviceInformation() -> getDeviceInformation
     99:99:com.newrelic.agent.android.harvest.ApplicationInformation getApplicationInformation() -> getApplicationInformation
-com.newrelic.agent.android.NullAgentImpl$1 -> qu:
+com.newrelic.agent.android.NullAgentImpl$1 -> ru:
     com.newrelic.agent.android.NullAgentImpl this$0 -> a
     79:79:java.lang.String encode(byte[]) -> encode
 com.newrelic.agent.android.SavedState -> com.newrelic.agent.android.SavedState:
@@ -6766,7 +7667,7 @@ com.newrelic.agent.android.TaskQueue -> com.newrelic.agent.android.TaskQueue:
     144:144:int size() -> size
     151:152:void clear() -> clear
     21:21:void access$000() -> a
-com.newrelic.agent.android.TaskQueue$1 -> qv:
+com.newrelic.agent.android.TaskQueue$1 -> rv:
     30:31:void run() -> run
 com.newrelic.agent.android.activity.BaseMeasuredActivity -> com.newrelic.agent.android.activity.BaseMeasuredActivity:
     java.lang.String name -> a
@@ -6947,7 +7848,7 @@ com.newrelic.agent.android.background.ApplicationStateMonitor -> com.newrelic.ag
     119:126:void notifyApplicationInBackground() -> a
     130:137:void notifyApplicationInForeground() -> b
     147:152:long getSnoozeTime() -> c
-com.newrelic.agent.android.background.ApplicationStateMonitor$1 -> qw:
+com.newrelic.agent.android.background.ApplicationStateMonitor$1 -> rw:
     com.newrelic.agent.android.background.ApplicationStateMonitor this$0 -> a
     40:40:java.lang.Thread newThread(java.lang.Runnable) -> newThread
 com.newrelic.agent.android.harvest.ApplicationInformation -> com.newrelic.agent.android.harvest.ApplicationInformation:
@@ -7261,7 +8162,7 @@ com.newrelic.agent.android.harvest.HarvestTimer -> com.newrelic.agent.android.ha
     150:152:long timeSinceLastTick() -> timeSinceLastTick
     156:158:long timeSinceStart() -> timeSinceStart
     162:162:long now() -> b
-com.newrelic.agent.android.harvest.HarvestTimer$1 -> qx:
+com.newrelic.agent.android.harvest.HarvestTimer$1 -> rx:
     com.newrelic.agent.android.harvest.HarvestTimer val$timer -> a
     com.newrelic.agent.android.harvest.HarvestTimer this$0 -> b
     129:130:void run() -> run
@@ -7319,7 +8220,7 @@ com.newrelic.agent.android.harvest.Harvester -> com.newrelic.agent.android.harve
     651:658:void fireOnHarvestConnected() -> k
     661:662:void setConfiguration(com.newrelic.agent.android.harvest.HarvestConfiguration) -> setConfiguration
     665:665:java.util.Collection getHarvestListeners() -> l
-com.newrelic.agent.android.harvest.Harvester$1 -> qy:
+com.newrelic.agent.android.harvest.Harvester$1 -> ry:
     int[] $SwitchMap$com$newrelic$agent$android$harvest$HarvestResponse$Code -> a
     int[] $SwitchMap$com$newrelic$agent$android$harvest$Harvester$State -> b
 com.newrelic.agent.android.harvest.Harvester$State -> com.newrelic.agent.android.harvest.Harvester$State:
@@ -7430,8 +8331,8 @@ com.newrelic.agent.android.harvest.type.BaseHarvestable -> com.newrelic.agent.an
     88:90:void notEmpty(java.lang.String) -> notEmpty
     98:100:void notNull(java.lang.Object) -> notNull
     108:110:java.lang.String optional(java.lang.String) -> optional
-com.newrelic.agent.android.harvest.type.BaseHarvestable$1 -> qz:
-com.newrelic.agent.android.harvest.type.BaseHarvestable$2 -> ra:
+com.newrelic.agent.android.harvest.type.BaseHarvestable$1 -> rz:
+com.newrelic.agent.android.harvest.type.BaseHarvestable$2 -> sa:
     int[] $SwitchMap$com$newrelic$agent$android$harvest$type$Harvestable$Type -> a
 com.newrelic.agent.android.harvest.type.Harvestable -> com.newrelic.agent.android.harvest.type.Harvestable:
     com.newrelic.agent.android.harvest.type.Harvestable$Type getType() -> getType
@@ -7458,7 +8359,7 @@ com.newrelic.agent.android.harvest.type.HarvestableLong -> com.newrelic.agent.an
 com.newrelic.agent.android.harvest.type.HarvestableObject -> com.newrelic.agent.android.harvest.type.HarvestableObject:
     19:19:com.newrelic.agent.android.harvest.type.HarvestableObject fromMap(java.util.Map) -> fromMap
     com.newrelic.com.google.gson.JsonObject asJsonObject() -> asJsonObject
-com.newrelic.agent.android.harvest.type.HarvestableObject$1 -> rb:
+com.newrelic.agent.android.harvest.type.HarvestableObject$1 -> sb:
     java.util.Map val$map -> a
     22:22:com.newrelic.com.google.gson.JsonObject asJsonObject() -> asJsonObject
 com.newrelic.agent.android.harvest.type.HarvestableValue -> com.newrelic.agent.android.harvest.type.HarvestableValue:
@@ -7579,12 +8480,12 @@ com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension -> com.new
     37:37:void access$000(com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension,java.lang.Exception) -> a
     37:37:java.net.HttpURLConnection access$100(com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension) -> a
     37:37:void access$200(com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension,com.newrelic.agent.android.instrumentation.TransactionState) -> a
-com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension$1 -> rc:
+com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension$1 -> sc:
     com.newrelic.agent.android.instrumentation.TransactionState val$transactionState -> a
     com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension this$0 -> b
     352:356:void streamError(com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent) -> streamError
     360:369:void streamComplete(com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent) -> streamComplete
-com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension$2 -> rd:
+com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension$2 -> sd:
     com.newrelic.agent.android.instrumentation.TransactionState val$transactionState -> a
     com.newrelic.agent.android.instrumentation.HttpURLConnectionExtension this$0 -> b
     396:400:void streamError(com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent) -> streamError
@@ -7660,12 +8561,12 @@ com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension -> com.ne
     39:39:void access$000(com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension,java.lang.Exception) -> a
     39:39:javax.net.ssl.HttpsURLConnection access$100(com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension) -> a
     39:39:void access$200(com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension,com.newrelic.agent.android.instrumentation.TransactionState) -> a
-com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension$1 -> re:
+com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension$1 -> se:
     com.newrelic.agent.android.instrumentation.TransactionState val$transactionState -> a
     com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension this$0 -> b
     373:377:void streamError(com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent) -> streamError
     381:390:void streamComplete(com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent) -> streamComplete
-com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension$2 -> rf:
+com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension$2 -> sf:
     com.newrelic.agent.android.instrumentation.TransactionState val$transactionState -> a
     com.newrelic.agent.android.instrumentation.HttpsURLConnectionExtension this$0 -> b
     417:421:void streamError(com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent) -> streamError
@@ -7701,7 +8602,7 @@ com.newrelic.agent.android.instrumentation.MetricCategory -> com.newrelic.agent.
     6:6:com.newrelic.agent.android.instrumentation.MetricCategory valueOf(java.lang.String) -> valueOf
     25:25:java.lang.String getCategoryName() -> getCategoryName
     29:40:com.newrelic.agent.android.instrumentation.MetricCategory categoryForMethod(java.lang.String) -> categoryForMethod
-com.newrelic.agent.android.instrumentation.MetricCategory$1 -> rg:
+com.newrelic.agent.android.instrumentation.MetricCategory$1 -> sg:
 com.newrelic.agent.android.instrumentation.OkHttpInstrumentation -> com.newrelic.agent.android.instrumentation.OkHttpInstrumentation:
     14:19:java.net.HttpURLConnection open(java.net.HttpURLConnection) -> open
     25:30:java.net.HttpURLConnection openWithProxy(java.net.HttpURLConnection) -> openWithProxy
@@ -7768,7 +8669,7 @@ com.newrelic.agent.android.instrumentation.TransactionState -> com.newrelic.agen
     177:177:java.lang.String getContentType() -> getContentType
     181:182:void setContentType(java.lang.String) -> setContentType
     186:186:java.lang.String toString() -> toString
-com.newrelic.agent.android.instrumentation.TransactionState$State -> rh:
+com.newrelic.agent.android.instrumentation.TransactionState$State -> sh:
     com.newrelic.agent.android.instrumentation.TransactionState$State READY -> a
     com.newrelic.agent.android.instrumentation.TransactionState$State SENT -> b
     com.newrelic.agent.android.instrumentation.TransactionState$State COMPLETE -> c
@@ -7901,7 +8802,7 @@ com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent -> com.newreli
 com.newrelic.agent.android.instrumentation.io.StreamCompleteListener -> com.newrelic.agent.android.instrumentation.io.StreamCompleteListener:
     void streamComplete(com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent) -> streamComplete
     void streamError(com.newrelic.agent.android.instrumentation.io.StreamCompleteEvent) -> streamError
-com.newrelic.agent.android.instrumentation.io.StreamCompleteListenerManager -> ri:
+com.newrelic.agent.android.instrumentation.io.StreamCompleteListenerManager -> si:
     boolean streamComplete -> a
     java.util.ArrayList streamCompleteListeners -> b
     12:14:boolean isComplete() -> a
@@ -8111,7 +9012,7 @@ com.newrelic.agent.android.measurement.consumer.SummaryMetricMeasurementConsumer
     187:189:void onTraceComplete(com.newrelic.agent.android.tracing.ActivityTrace) -> onTraceComplete
     193:193:void onEnterMethod() -> onEnterMethod
     197:197:void onExitMethod() -> onExitMethod
-com.newrelic.agent.android.measurement.consumer.SummaryMetricMeasurementConsumer$1 -> rj:
+com.newrelic.agent.android.measurement.consumer.SummaryMetricMeasurementConsumer$1 -> sj:
     int[] $SwitchMap$com$newrelic$agent$android$measurement$MeasurementType -> a
 com.newrelic.agent.android.measurement.http.HttpErrorMeasurement -> com.newrelic.agent.android.measurement.http.HttpErrorMeasurement:
     java.lang.String url -> a
@@ -8295,7 +9196,7 @@ com.newrelic.agent.android.stats.TicToc -> com.newrelic.agent.android.stats.TicT
     com.newrelic.agent.android.stats.TicToc$State state -> c
     14:17:void tic() -> tic
     20:26:long toc() -> toc
-com.newrelic.agent.android.stats.TicToc$State -> rk:
+com.newrelic.agent.android.stats.TicToc$State -> sk:
     com.newrelic.agent.android.stats.TicToc$State STOPPED -> a
     com.newrelic.agent.android.stats.TicToc$State STARTED -> b
     com.newrelic.agent.android.stats.TicToc$State[] $VALUES -> c
@@ -8334,8 +9235,8 @@ com.newrelic.agent.android.tracing.ActivityTrace -> com.newrelic.agent.android.t
     259:259:long getLastUpdatedAt() -> getLastUpdatedAt
     263:263:long getReportAttemptCount() -> getReportAttemptCount
     267:268:void incrementReportAttemptCount() -> incrementReportAttemptCount
-com.newrelic.agent.android.tracing.ActivityTrace$1 -> rl:
-com.newrelic.agent.android.tracing.ActivityTrace$2 -> rm:
+com.newrelic.agent.android.tracing.ActivityTrace$1 -> sl:
+com.newrelic.agent.android.tracing.ActivityTrace$2 -> sm:
 com.newrelic.agent.android.tracing.Sample -> com.newrelic.agent.android.tracing.Sample:
     long timestamp -> a
     com.newrelic.agent.android.tracing.SampleValue sampleValue -> b
@@ -8448,8 +9349,8 @@ com.newrelic.agent.android.tracing.TraceMachine -> com.newrelic.agent.android.tr
     502:504:com.newrelic.agent.android.tracing.ActivityTrace getActivityTrace() -> getActivityTrace
     510:531:void onHarvestBefore() -> onHarvestBefore
     535:536:void onHarvestSendFailed() -> onHarvestSendFailed
-com.newrelic.agent.android.tracing.TraceMachine$1 -> rn:
-com.newrelic.agent.android.tracing.TraceMachine$TraceStack -> ro:
+com.newrelic.agent.android.tracing.TraceMachine$1 -> sn:
+com.newrelic.agent.android.tracing.TraceMachine$TraceStack -> so:
 com.newrelic.agent.android.tracing.TraceType -> com.newrelic.agent.android.tracing.TraceType:
     com.newrelic.agent.android.tracing.TraceType TRACE -> TRACE
     com.newrelic.agent.android.tracing.TraceType NETWORK -> NETWORK
@@ -8485,7 +9386,7 @@ com.newrelic.agent.android.util.Util -> com.newrelic.agent.android.util.Util:
     15:23:java.lang.String slurp(java.io.InputStream) -> slurp
     27:49:java.lang.String sanitizeUrl(java.lang.String) -> sanitizeUrl
     53:53:java.util.Random getRandom() -> getRandom
-com.newrelic.com.google.gson.DefaultDateTypeAdapter -> rp:
+com.newrelic.com.google.gson.DefaultDateTypeAdapter -> sp:
     java.text.DateFormat enUsFormat -> a
     java.text.DateFormat localFormat -> b
     java.text.DateFormat iso8601Format -> c
@@ -8521,15 +9422,15 @@ com.newrelic.com.google.gson.FieldNamingPolicy -> com.newrelic.com.google.gson.F
     164:164:java.lang.String modifyString(char,java.lang.String,int) -> a
     30:30:java.lang.String access$100(java.lang.String) -> a
     30:30:java.lang.String access$200(java.lang.String,java.lang.String) -> a
-com.newrelic.com.google.gson.FieldNamingPolicy$1 -> rq:
+com.newrelic.com.google.gson.FieldNamingPolicy$1 -> sq:
     38:38:java.lang.String translateName(java.lang.reflect.Field) -> translateName
-com.newrelic.com.google.gson.FieldNamingPolicy$2 -> rr:
+com.newrelic.com.google.gson.FieldNamingPolicy$2 -> sr:
     54:54:java.lang.String translateName(java.lang.reflect.Field) -> translateName
-com.newrelic.com.google.gson.FieldNamingPolicy$3 -> rs:
+com.newrelic.com.google.gson.FieldNamingPolicy$3 -> ss:
     73:73:java.lang.String translateName(java.lang.reflect.Field) -> translateName
-com.newrelic.com.google.gson.FieldNamingPolicy$4 -> rt:
+com.newrelic.com.google.gson.FieldNamingPolicy$4 -> st:
     91:91:java.lang.String translateName(java.lang.reflect.Field) -> translateName
-com.newrelic.com.google.gson.FieldNamingPolicy$5 -> ru:
+com.newrelic.com.google.gson.FieldNamingPolicy$5 -> su:
     114:114:java.lang.String translateName(java.lang.reflect.Field) -> translateName
 com.newrelic.com.google.gson.FieldNamingStrategy -> com.newrelic.com.google.gson.FieldNamingStrategy:
     java.lang.String translateName(java.lang.reflect.Field) -> translateName
@@ -8572,32 +9473,32 @@ com.newrelic.com.google.gson.Gson -> com.newrelic.com.google.gson.Gson:
     865:868:java.lang.Object fromJson(com.newrelic.com.google.gson.JsonElement,java.lang.reflect.Type) -> fromJson
     898:898:java.lang.String toString() -> toString
     97:97:void access$000(com.newrelic.com.google.gson.Gson,double) -> a
-com.newrelic.com.google.gson.Gson$1 -> rv:
+com.newrelic.com.google.gson.Gson$1 -> sv:
     com.newrelic.com.google.gson.Gson this$0 -> a
     126:126:java.lang.Object deserialize(com.newrelic.com.google.gson.JsonElement,java.lang.reflect.Type) -> deserialize
-com.newrelic.com.google.gson.Gson$2 -> rw:
+com.newrelic.com.google.gson.Gson$2 -> sw:
     com.newrelic.com.google.gson.Gson this$0 -> a
     132:132:com.newrelic.com.google.gson.JsonElement serialize(java.lang.Object) -> serialize
     135:135:com.newrelic.com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type) -> serialize
-com.newrelic.com.google.gson.Gson$3 -> rx:
+com.newrelic.com.google.gson.Gson$3 -> sx:
     com.newrelic.com.google.gson.Gson this$0 -> a
     252:256:java.lang.Double read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     259:266:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     250:250:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     250:250:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.Gson$4 -> ry:
+com.newrelic.com.google.gson.Gson$4 -> sy:
     com.newrelic.com.google.gson.Gson this$0 -> a
     276:280:java.lang.Float read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     283:290:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     274:274:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     274:274:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.Gson$5 -> rz:
+com.newrelic.com.google.gson.Gson$5 -> sz:
     com.newrelic.com.google.gson.Gson this$0 -> a
     308:312:java.lang.Number read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     315:320:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     306:306:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     306:306:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.Gson$FutureTypeAdapter -> sa:
+com.newrelic.com.google.gson.Gson$FutureTypeAdapter -> ta:
     com.newrelic.com.google.gson.TypeAdapter delegate -> a
     875:879:void setDelegate(com.newrelic.com.google.gson.TypeAdapter) -> a
     882:885:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
@@ -8766,11 +9667,11 @@ com.newrelic.com.google.gson.LongSerializationPolicy -> com.newrelic.com.google.
     27:27:com.newrelic.com.google.gson.LongSerializationPolicy[] values() -> values
     27:27:com.newrelic.com.google.gson.LongSerializationPolicy valueOf(java.lang.String) -> valueOf
     com.newrelic.com.google.gson.JsonElement serialize(java.lang.Long) -> serialize
-com.newrelic.com.google.gson.LongSerializationPolicy$1 -> sb:
+com.newrelic.com.google.gson.LongSerializationPolicy$1 -> tb:
     36:36:com.newrelic.com.google.gson.JsonElement serialize(java.lang.Long) -> serialize
-com.newrelic.com.google.gson.LongSerializationPolicy$2 -> sc:
+com.newrelic.com.google.gson.LongSerializationPolicy$2 -> tc:
     47:47:com.newrelic.com.google.gson.JsonElement serialize(java.lang.Long) -> serialize
-com.newrelic.com.google.gson.TreeTypeAdapter -> sd:
+com.newrelic.com.google.gson.TreeTypeAdapter -> td:
     com.newrelic.com.google.gson.JsonSerializer serializer -> a
     com.newrelic.com.google.gson.JsonDeserializer deserializer -> b
     com.newrelic.com.google.gson.Gson gson -> c
@@ -8783,8 +9684,8 @@ com.newrelic.com.google.gson.TreeTypeAdapter -> sd:
     85:85:com.newrelic.com.google.gson.TypeAdapterFactory newFactory(com.newrelic.com.google.gson.reflect.TypeToken,java.lang.Object) -> a
     95:96:com.newrelic.com.google.gson.TypeAdapterFactory newFactoryWithMatchRawType(com.newrelic.com.google.gson.reflect.TypeToken,java.lang.Object) -> b
     105:105:com.newrelic.com.google.gson.TypeAdapterFactory newTypeHierarchyFactory(java.lang.Class,java.lang.Object) -> a
-com.newrelic.com.google.gson.TreeTypeAdapter$1 -> se:
-com.newrelic.com.google.gson.TreeTypeAdapter$SingleTypeFactory -> sf:
+com.newrelic.com.google.gson.TreeTypeAdapter$1 -> te:
+com.newrelic.com.google.gson.TreeTypeAdapter$SingleTypeFactory -> tf:
     com.newrelic.com.google.gson.reflect.TypeToken exactType -> a
     boolean matchRawType -> b
     java.lang.Class hierarchyType -> c
@@ -8801,7 +9702,7 @@ com.newrelic.com.google.gson.TypeAdapter -> com.newrelic.com.google.gson.TypeAda
     255:256:java.lang.Object fromJson(java.io.Reader) -> fromJson
     269:269:java.lang.Object fromJson(java.lang.String) -> fromJson
     280:283:java.lang.Object fromJsonTree(com.newrelic.com.google.gson.JsonElement) -> fromJsonTree
-com.newrelic.com.google.gson.TypeAdapter$1 -> sg:
+com.newrelic.com.google.gson.TypeAdapter$1 -> tg:
     com.newrelic.com.google.gson.TypeAdapter this$0 -> a
     188:193:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
     195:199:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
@@ -8843,14 +9744,14 @@ com.newrelic.com.google.gson.internal.$Gson$Types -> com.newrelic.com.google.gso
     431:432:void checkNotPrimitive(java.lang.reflect.Type) -> b
     42:42:void access$000(java.lang.reflect.Type) -> a
     42:42:int access$100(java.lang.Object) -> a
-com.newrelic.com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl -> sh:
+com.newrelic.com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl -> th:
     java.lang.reflect.Type componentType -> a
     long serialVersionUID -> serialVersionUID
     506:506:java.lang.reflect.Type getGenericComponentType() -> getGenericComponentType
     510:510:boolean equals(java.lang.Object) -> equals
     515:515:int hashCode() -> hashCode
     519:519:java.lang.String toString() -> toString
-com.newrelic.com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl -> si:
+com.newrelic.com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl -> ti:
     java.lang.reflect.Type ownerType -> a
     java.lang.reflect.Type rawType -> b
     java.lang.reflect.Type[] typeArguments -> c
@@ -8861,7 +9762,7 @@ com.newrelic.com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl -> si:
     470:470:boolean equals(java.lang.Object) -> equals
     475:475:int hashCode() -> hashCode
     481:492:java.lang.String toString() -> toString
-com.newrelic.com.google.gson.internal.$Gson$Types$WildcardTypeImpl -> sj:
+com.newrelic.com.google.gson.internal.$Gson$Types$WildcardTypeImpl -> tj:
     java.lang.reflect.Type upperBound -> a
     java.lang.reflect.Type lowerBound -> b
     long serialVersionUID -> serialVersionUID
@@ -8877,49 +9778,49 @@ com.newrelic.com.google.gson.internal.ConstructorConstructor -> com.newrelic.com
     130:197:com.newrelic.com.google.gson.internal.ObjectConstructor newDefaultImplementationConstructor(java.lang.reflect.Type,java.lang.Class) -> a
     202:202:com.newrelic.com.google.gson.internal.ObjectConstructor newUnsafeAllocator(java.lang.reflect.Type,java.lang.Class) -> b
     218:218:java.lang.String toString() -> toString
-com.newrelic.com.google.gson.internal.ConstructorConstructor$1 -> sk:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$1 -> tk:
     com.newrelic.com.google.gson.InstanceCreator val$typeCreator -> a
     java.lang.reflect.Type val$type -> b
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> c
     62:62:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$10 -> sl:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$10 -> tl:
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> a
     185:185:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$11 -> sm:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$11 -> tm:
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> a
     191:191:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$12 -> sn:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$12 -> tn:
     com.newrelic.com.google.gson.internal.UnsafeAllocator unsafeAllocator -> d
     java.lang.Class val$rawType -> a
     java.lang.reflect.Type val$type -> b
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> c
     207:210:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$2 -> so:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$2 -> to:
     com.newrelic.com.google.gson.InstanceCreator val$rawTypeCreator -> a
     java.lang.reflect.Type val$type -> b
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> c
     74:74:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$3 -> sp:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$3 -> tp:
     java.lang.reflect.Constructor val$constructor -> a
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> b
     103:114:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$4 -> sq:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$4 -> tq:
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> a
     134:134:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$5 -> sr:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$5 -> tr:
     java.lang.reflect.Type val$type -> a
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> b
     141:149:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$6 -> ss:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$6 -> ts:
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> a
     156:156:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$7 -> st:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$7 -> tt:
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> a
     162:162:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$8 -> su:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$8 -> tu:
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> a
     168:168:java.lang.Object construct() -> construct
-com.newrelic.com.google.gson.internal.ConstructorConstructor$9 -> sv:
+com.newrelic.com.google.gson.internal.ConstructorConstructor$9 -> tv:
     com.newrelic.com.google.gson.internal.ConstructorConstructor this$0 -> a
     178:178:java.lang.Object construct() -> construct
 com.newrelic.com.google.gson.internal.Excluder -> com.newrelic.com.google.gson.internal.Excluder:
@@ -8946,7 +9847,7 @@ com.newrelic.com.google.gson.internal.Excluder -> com.newrelic.com.google.gson.i
     233:239:boolean isValidSince(com.newrelic.com.google.gson.annotations.Since) -> a
     243:249:boolean isValidUntil(com.newrelic.com.google.gson.annotations.Until) -> a
     50:50:java.lang.Object clone() -> clone
-com.newrelic.com.google.gson.internal.Excluder$1 -> sw:
+com.newrelic.com.google.gson.internal.Excluder$1 -> tw:
     com.newrelic.com.google.gson.TypeAdapter delegate -> f
     boolean val$skipDeserialize -> a
     boolean val$skipSerialize -> b
@@ -8996,31 +9897,31 @@ com.newrelic.com.google.gson.internal.LinkedTreeMap -> com.newrelic.com.google.g
     430:431:java.util.Set entrySet() -> entrySet
     435:436:java.util.Set keySet() -> keySet
     625:625:java.lang.Object writeReplace() -> writeReplace
-com.newrelic.com.google.gson.internal.LinkedTreeMap$1 -> sx:
+com.newrelic.com.google.gson.internal.LinkedTreeMap$1 -> tx:
     42:42:int compare(java.lang.Comparable,java.lang.Comparable) -> a
     40:40:int compare(java.lang.Object,java.lang.Object) -> compare
-com.newrelic.com.google.gson.internal.LinkedTreeMap$EntrySet -> sy:
+com.newrelic.com.google.gson.internal.LinkedTreeMap$EntrySet -> ty:
     com.newrelic.com.google.gson.internal.LinkedTreeMap this$0 -> a
     559:559:int size() -> size
     563:563:java.util.Iterator iterator() -> iterator
     571:571:boolean contains(java.lang.Object) -> contains
     575:584:boolean remove(java.lang.Object) -> remove
     588:589:void clear() -> clear
-com.newrelic.com.google.gson.internal.LinkedTreeMap$EntrySet$1 -> sz:
+com.newrelic.com.google.gson.internal.LinkedTreeMap$EntrySet$1 -> tz:
     com.newrelic.com.google.gson.internal.LinkedTreeMap$EntrySet this$1 -> a
     565:565:java.util.Map$Entry next() -> a
     563:563:java.lang.Object next() -> next
-com.newrelic.com.google.gson.internal.LinkedTreeMap$KeySet -> ta:
+com.newrelic.com.google.gson.internal.LinkedTreeMap$KeySet -> ua:
     com.newrelic.com.google.gson.internal.LinkedTreeMap this$0 -> a
     594:594:int size() -> size
     598:598:java.util.Iterator iterator() -> iterator
     606:606:boolean contains(java.lang.Object) -> contains
     610:610:boolean remove(java.lang.Object) -> remove
     614:615:void clear() -> clear
-com.newrelic.com.google.gson.internal.LinkedTreeMap$KeySet$1 -> tb:
+com.newrelic.com.google.gson.internal.LinkedTreeMap$KeySet$1 -> ub:
     com.newrelic.com.google.gson.internal.LinkedTreeMap$KeySet this$1 -> a
     600:600:java.lang.Object next() -> next
-com.newrelic.com.google.gson.internal.LinkedTreeMap$LinkedTreeMapIterator -> tc:
+com.newrelic.com.google.gson.internal.LinkedTreeMap$LinkedTreeMapIterator -> uc:
     com.newrelic.com.google.gson.internal.LinkedTreeMap$Node next -> b
     com.newrelic.com.google.gson.internal.LinkedTreeMap$Node lastReturned -> c
     int expectedModCount -> d
@@ -9028,7 +9929,7 @@ com.newrelic.com.google.gson.internal.LinkedTreeMap$LinkedTreeMapIterator -> tc:
     532:532:boolean hasNext() -> hasNext
     536:544:com.newrelic.com.google.gson.internal.LinkedTreeMap$Node nextNode() -> b
     548:554:void remove() -> remove
-com.newrelic.com.google.gson.internal.LinkedTreeMap$Node -> td:
+com.newrelic.com.google.gson.internal.LinkedTreeMap$Node -> ud:
     com.newrelic.com.google.gson.internal.LinkedTreeMap$Node parent -> a
     com.newrelic.com.google.gson.internal.LinkedTreeMap$Node left -> b
     com.newrelic.com.google.gson.internal.LinkedTreeMap$Node right -> c
@@ -9059,15 +9960,15 @@ com.newrelic.com.google.gson.internal.Streams -> com.newrelic.com.google.gson.in
     40:60:com.newrelic.com.google.gson.JsonElement parse(com.newrelic.com.google.gson.stream.JsonReader) -> parse
     68:69:void write(com.newrelic.com.google.gson.JsonElement,com.newrelic.com.google.gson.stream.JsonWriter) -> write
     72:72:java.io.Writer writerForAppendable(java.lang.Appendable) -> writerForAppendable
-com.newrelic.com.google.gson.internal.Streams$1 -> te:
-com.newrelic.com.google.gson.internal.Streams$AppendableWriter -> tf:
+com.newrelic.com.google.gson.internal.Streams$1 -> ue:
+com.newrelic.com.google.gson.internal.Streams$AppendableWriter -> uf:
     java.lang.Appendable appendable -> a
     com.newrelic.com.google.gson.internal.Streams$AppendableWriter$CurrentWrite currentWrite -> b
     88:90:void write(char[],int,int) -> write
     93:94:void write(int) -> write
     96:96:void flush() -> flush
     97:97:void close() -> close
-com.newrelic.com.google.gson.internal.Streams$AppendableWriter$CurrentWrite -> tg:
+com.newrelic.com.google.gson.internal.Streams$AppendableWriter$CurrentWrite -> ug:
     char[] chars -> a
     105:105:int length() -> length
     108:108:char charAt(int) -> charAt
@@ -9075,18 +9976,18 @@ com.newrelic.com.google.gson.internal.Streams$AppendableWriter$CurrentWrite -> t
 com.newrelic.com.google.gson.internal.UnsafeAllocator -> com.newrelic.com.google.gson.internal.UnsafeAllocator:
     java.lang.Object newInstance(java.lang.Class) -> newInstance
     39:97:com.newrelic.com.google.gson.internal.UnsafeAllocator create() -> create
-com.newrelic.com.google.gson.internal.UnsafeAllocator$1 -> th:
+com.newrelic.com.google.gson.internal.UnsafeAllocator$1 -> uh:
     java.lang.reflect.Method val$allocateInstance -> a
     java.lang.Object val$unsafe -> b
     48:48:java.lang.Object newInstance(java.lang.Class) -> newInstance
-com.newrelic.com.google.gson.internal.UnsafeAllocator$2 -> ti:
+com.newrelic.com.google.gson.internal.UnsafeAllocator$2 -> ui:
     java.lang.reflect.Method val$newInstance -> a
     67:67:java.lang.Object newInstance(java.lang.Class) -> newInstance
-com.newrelic.com.google.gson.internal.UnsafeAllocator$3 -> tj:
+com.newrelic.com.google.gson.internal.UnsafeAllocator$3 -> uj:
     java.lang.reflect.Method val$newInstance -> a
     int val$constructorId -> b
     90:90:java.lang.Object newInstance(java.lang.Class) -> newInstance
-com.newrelic.com.google.gson.internal.UnsafeAllocator$4 -> tk:
+com.newrelic.com.google.gson.internal.UnsafeAllocator$4 -> uk:
     100:100:java.lang.Object newInstance(java.lang.Class) -> newInstance
 com.newrelic.com.google.gson.internal.bind.ArrayTypeAdapter -> com.newrelic.com.google.gson.internal.bind.ArrayTypeAdapter:
     com.newrelic.com.google.gson.TypeAdapterFactory FACTORY -> FACTORY
@@ -9094,12 +9995,12 @@ com.newrelic.com.google.gson.internal.bind.ArrayTypeAdapter -> com.newrelic.com.
     com.newrelic.com.google.gson.TypeAdapter componentTypeAdapter -> b
     64:80:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     85:96:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.ArrayTypeAdapter$1 -> tl:
+com.newrelic.com.google.gson.internal.bind.ArrayTypeAdapter$1 -> ul:
     42:49:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
 com.newrelic.com.google.gson.internal.bind.CollectionTypeAdapterFactory -> com.newrelic.com.google.gson.internal.bind.CollectionTypeAdapterFactory:
     com.newrelic.com.google.gson.internal.ConstructorConstructor constructorConstructor -> a
     44:57:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
-com.newrelic.com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter -> tm:
+com.newrelic.com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter -> um:
     com.newrelic.com.google.gson.TypeAdapter elementTypeAdapter -> a
     com.newrelic.com.google.gson.internal.ObjectConstructor constructor -> b
     73:85:java.util.Collection read(com.newrelic.com.google.gson.stream.JsonReader) -> a
@@ -9117,7 +10018,7 @@ com.newrelic.com.google.gson.internal.bind.DateTypeAdapter -> com.newrelic.com.g
     86:92:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.util.Date) -> write
     41:41:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     41:41:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.DateTypeAdapter$1 -> tn:
+com.newrelic.com.google.gson.internal.bind.DateTypeAdapter$1 -> un:
     45:45:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
 com.newrelic.com.google.gson.internal.bind.JsonTreeReader -> com.newrelic.com.google.gson.internal.bind.JsonTreeReader:
     java.io.Reader UNREADABLE_READER -> a
@@ -9143,7 +10044,7 @@ com.newrelic.com.google.gson.internal.bind.JsonTreeReader -> com.newrelic.com.go
     208:213:void skipValue() -> skipValue
     216:216:java.lang.String toString() -> toString
     220:225:void promoteNameToValue() -> promoteNameToValue
-com.newrelic.com.google.gson.internal.bind.JsonTreeReader$1 -> to:
+com.newrelic.com.google.gson.internal.bind.JsonTreeReader$1 -> uo:
     42:42:int read(char[],int,int) -> read
     45:45:void close() -> close
 com.newrelic.com.google.gson.internal.bind.JsonTreeWriter -> com.newrelic.com.google.gson.internal.bind.JsonTreeWriter:
@@ -9168,7 +10069,7 @@ com.newrelic.com.google.gson.internal.bind.JsonTreeWriter -> com.newrelic.com.go
     176:188:com.newrelic.com.google.gson.stream.JsonWriter value(java.lang.Number) -> value
     192:192:void flush() -> flush
     195:199:void close() -> close
-com.newrelic.com.google.gson.internal.bind.JsonTreeWriter$1 -> tp:
+com.newrelic.com.google.gson.internal.bind.JsonTreeWriter$1 -> up:
     36:36:void write(char[],int,int) -> write
     39:39:void flush() -> flush
     42:42:void close() -> close
@@ -9178,7 +10079,7 @@ com.newrelic.com.google.gson.internal.bind.MapTypeAdapterFactory -> com.newrelic
     116:133:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
     140:140:com.newrelic.com.google.gson.TypeAdapter getKeyAdapter(com.newrelic.com.google.gson.Gson,java.lang.reflect.Type) -> a
     105:105:boolean access$000(com.newrelic.com.google.gson.internal.bind.MapTypeAdapterFactory) -> a
-com.newrelic.com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter -> tq:
+com.newrelic.com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter -> uq:
     com.newrelic.com.google.gson.TypeAdapter keyTypeAdapter -> b
     com.newrelic.com.google.gson.TypeAdapter valueTypeAdapter -> c
     com.newrelic.com.google.gson.internal.ObjectConstructor constructor -> d
@@ -9193,9 +10094,9 @@ com.newrelic.com.google.gson.internal.bind.ObjectTypeAdapter -> com.newrelic.com
     com.newrelic.com.google.gson.Gson gson -> a
     55:89:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     95:108:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.ObjectTypeAdapter$1 -> tr:
+com.newrelic.com.google.gson.internal.bind.ObjectTypeAdapter$1 -> ur:
     41:44:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
-com.newrelic.com.google.gson.internal.bind.ObjectTypeAdapter$2 -> ts:
+com.newrelic.com.google.gson.internal.bind.ObjectTypeAdapter$2 -> us:
     int[] $SwitchMap$com$google$gson$stream$JsonToken -> a
 com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory -> com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory:
     com.newrelic.com.google.gson.internal.ConstructorConstructor constructorConstructor -> a
@@ -9206,7 +10107,7 @@ com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory -> com.n
     65:72:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
     78:81:com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$BoundField createBoundField(com.newrelic.com.google.gson.Gson,java.lang.reflect.Field,java.lang.String,com.newrelic.com.google.gson.reflect.TypeToken,boolean,boolean) -> a
     102:129:java.util.Map getBoundFields(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken,java.lang.Class) -> a
-com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1 -> tt:
+com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1 -> ut:
     com.newrelic.com.google.gson.TypeAdapter typeAdapter -> a
     com.newrelic.com.google.gson.Gson val$context -> b
     com.newrelic.com.google.gson.reflect.TypeToken val$fieldType -> c
@@ -9220,7 +10121,7 @@ com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter 
     java.util.Map boundFields -> b
     157:181:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     185:202:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$BoundField -> tu:
+com.newrelic.com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$BoundField -> uu:
     java.lang.String name -> g
     boolean serialized -> h
     boolean deserialized -> i
@@ -9233,7 +10134,7 @@ com.newrelic.com.google.gson.internal.bind.SqlDateTypeAdapter -> com.newrelic.co
     65:66:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.sql.Date) -> write
     38:38:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     38:38:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.SqlDateTypeAdapter$1 -> tv:
+com.newrelic.com.google.gson.internal.bind.SqlDateTypeAdapter$1 -> uv:
     42:42:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
 com.newrelic.com.google.gson.internal.bind.TimeTypeAdapter -> com.newrelic.com.google.gson.internal.bind.TimeTypeAdapter:
     com.newrelic.com.google.gson.TypeAdapterFactory FACTORY -> FACTORY
@@ -9242,9 +10143,9 @@ com.newrelic.com.google.gson.internal.bind.TimeTypeAdapter -> com.newrelic.com.g
     64:65:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.sql.Time) -> write
     40:40:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     40:40:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TimeTypeAdapter$1 -> tw:
+com.newrelic.com.google.gson.internal.bind.TimeTypeAdapter$1 -> uw:
     44:44:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
-com.newrelic.com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper -> tx:
+com.newrelic.com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper -> ux:
     com.newrelic.com.google.gson.Gson context -> a
     com.newrelic.com.google.gson.TypeAdapter delegate -> b
     java.lang.reflect.Type type -> c
@@ -9302,166 +10203,166 @@ com.newrelic.com.google.gson.internal.bind.TypeAdapters -> com.newrelic.com.goog
     792:792:com.newrelic.com.google.gson.TypeAdapterFactory newFactory(java.lang.Class,java.lang.Class,com.newrelic.com.google.gson.TypeAdapter) -> newFactory
     807:807:com.newrelic.com.google.gson.TypeAdapterFactory newFactoryForMultipleTypes(java.lang.Class,java.lang.Class,com.newrelic.com.google.gson.TypeAdapter) -> newFactoryForMultipleTypes
     822:822:com.newrelic.com.google.gson.TypeAdapterFactory newTypeHierarchyFactory(java.lang.Class,com.newrelic.com.google.gson.TypeAdapter) -> newTypeHierarchyFactory
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$1 -> ty:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$1 -> uy:
     64:70:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Class) -> a
     73:77:java.lang.Class read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     61:61:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     61:61:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$10 -> tz:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$10 -> uz:
     290:294:java.lang.Number read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     298:299:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     287:287:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     287:287:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$11 -> ua:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$11 -> va:
     305:313:java.lang.Number read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     318:319:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     302:302:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     302:302:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$12 -> ub:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$12 -> vb:
     327:335:java.lang.Character read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     339:340:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Character) -> a
     324:324:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     324:324:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$13 -> uc:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$13 -> vc:
     349:358:java.lang.String read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     362:363:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.String) -> a
     346:346:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     346:346:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$14 -> ud:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$14 -> vd:
     368:375:java.math.BigDecimal read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     380:381:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.math.BigDecimal) -> a
     366:366:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     366:366:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$15 -> ue:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$15 -> ve:
     386:393:java.math.BigInteger read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     398:399:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.math.BigInteger) -> a
     384:384:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     384:384:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$16 -> uf:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$16 -> vf:
     407:411:java.lang.StringBuilder read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     415:416:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.StringBuilder) -> a
     404:404:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     404:404:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$17 -> ug:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$17 -> vg:
     425:429:java.lang.StringBuffer read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     433:434:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.StringBuffer) -> a
     422:422:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     422:422:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$18 -> uh:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$18 -> vh:
     443:448:java.net.URL read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     452:453:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.net.URL) -> a
     440:440:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     440:440:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$19 -> ui:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$19 -> vi:
     461:469:java.net.URI read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     474:475:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.net.URI) -> a
     458:458:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     458:458:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$2 -> uj:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$2 -> vj:
     86:123:java.util.BitSet read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     127:138:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.util.BitSet) -> a
     84:84:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     84:84:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$20 -> uk:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$20 -> vk:
     483:488:java.net.InetAddress read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     492:493:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.net.InetAddress) -> a
     480:480:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     480:480:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$21 -> ul:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$21 -> vl:
     502:506:java.util.UUID read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     510:511:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.util.UUID) -> a
     499:499:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     499:499:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$22 -> um:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$22 -> vm:
     519:524:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$22$1 -> un:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$22$1 -> vn:
     com.newrelic.com.google.gson.TypeAdapter val$dateTypeAdapter -> a
     com.newrelic.com.google.gson.internal.bind.TypeAdapters$22 this$0 -> b
     526:527:java.sql.Timestamp read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     531:532:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.sql.Timestamp) -> a
     524:524:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     524:524:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$23 -> uo:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$23 -> vo:
     547:576:java.util.Calendar read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     581:599:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.util.Calendar) -> a
     537:537:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     537:537:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$24 -> up:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$24 -> vp:
     608:631:java.util.Locale read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     636:637:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.util.Locale) -> a
     605:605:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     605:605:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$25 -> uq:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$25 -> vq:
     644:676:com.newrelic.com.google.gson.JsonElement read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     681:711:void write(com.newrelic.com.google.gson.stream.JsonWriter,com.newrelic.com.google.gson.JsonElement) -> a
     642:642:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     642:642:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$26 -> ur:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$26 -> vr:
     755:762:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$27 -> us:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$27 -> vs:
     com.newrelic.com.google.gson.reflect.TypeToken val$type -> a
     com.newrelic.com.google.gson.TypeAdapter val$typeAdapter -> b
     772:772:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$28 -> ut:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$28 -> vt:
     java.lang.Class val$type -> a
     com.newrelic.com.google.gson.TypeAdapter val$typeAdapter -> b
     782:782:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
     785:785:java.lang.String toString() -> toString
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$29 -> uu:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$29 -> vu:
     java.lang.Class val$unboxed -> a
     java.lang.Class val$boxed -> b
     com.newrelic.com.google.gson.TypeAdapter val$typeAdapter -> c
     795:796:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
     799:799:java.lang.String toString() -> toString
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$3 -> uv:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$3 -> vv:
     146:153:java.lang.Boolean read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     157:162:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Boolean) -> a
     143:143:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     143:143:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$30 -> uw:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$30 -> vw:
     java.lang.Class val$base -> a
     java.lang.Class val$sub -> b
     com.newrelic.com.google.gson.TypeAdapter val$typeAdapter -> c
     810:811:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
     814:814:java.lang.String toString() -> toString
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$31 -> ux:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$31 -> vx:
     java.lang.Class val$clazz -> a
     com.newrelic.com.google.gson.TypeAdapter val$typeAdapter -> b
     825:825:com.newrelic.com.google.gson.TypeAdapter create(com.newrelic.com.google.gson.Gson,com.newrelic.com.google.gson.reflect.TypeToken) -> create
     828:828:java.lang.String toString() -> toString
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$32 -> uy:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$32 -> vy:
     int[] $SwitchMap$com$google$gson$stream$JsonToken -> a
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$4 -> uz:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$4 -> vz:
     171:175:java.lang.Boolean read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     179:180:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Boolean) -> a
     169:169:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     169:169:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$5 -> va:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$5 -> wa:
     189:197:java.lang.Number read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     202:203:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     186:186:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     186:186:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$6 -> vb:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$6 -> wb:
     212:219:java.lang.Number read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     224:225:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     209:209:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     209:209:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$7 -> vc:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$7 -> wc:
     234:241:java.lang.Number read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     246:247:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     231:231:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     231:231:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$8 -> vd:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$8 -> wd:
     256:263:java.lang.Number read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     268:269:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     253:253:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     253:253:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$9 -> ve:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$9 -> we:
     275:279:java.lang.Number read(com.newrelic.com.google.gson.stream.JsonReader) -> a
     283:284:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Number) -> a
     272:272:java.lang.Object read(com.newrelic.com.google.gson.stream.JsonReader) -> read
     272:272:void write(com.newrelic.com.google.gson.stream.JsonWriter,java.lang.Object) -> write
-com.newrelic.com.google.gson.internal.bind.TypeAdapters$EnumTypeAdapter -> vf:
+com.newrelic.com.google.gson.internal.bind.TypeAdapters$EnumTypeAdapter -> wf:
     java.util.Map nameToConstant -> a
     java.util.Map constantToName -> b
     737:741:java.lang.Enum read(com.newrelic.com.google.gson.stream.JsonReader) -> a
@@ -9545,7 +10446,7 @@ com.newrelic.com.google.gson.stream.JsonReader -> com.newrelic.com.google.gson.s
     190:190:int access$002(com.newrelic.com.google.gson.stream.JsonReader,int) -> a
     190:190:int access$200(com.newrelic.com.google.gson.stream.JsonReader) -> c
     190:190:int access$300(com.newrelic.com.google.gson.stream.JsonReader) -> d
-com.newrelic.com.google.gson.stream.JsonReader$1 -> vg:
+com.newrelic.com.google.gson.stream.JsonReader$1 -> wg:
     1534:1552:void promoteNameToValue(com.newrelic.com.google.gson.stream.JsonReader) -> promoteNameToValue
 com.newrelic.com.google.gson.stream.JsonToken -> com.newrelic.com.google.gson.stream.JsonToken:
     com.newrelic.com.google.gson.stream.JsonToken BEGIN_ARRAY -> BEGIN_ARRAY
