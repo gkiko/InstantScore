@@ -5665,21 +5665,22 @@ com.example.instantscore.dialog.NumberDialog$2 -> ng:
     35:39:void onClick(android.content.DialogInterface,int) -> onClick
 com.example.instantscore.dialog.TestDialog -> com.example.instantscore.dialog.TestDialog:
     java.util.List itemList -> a
-    com.example.instantscore.model.Item selectedItem -> b
-    int itemIndex -> c
+    int itemIndex -> b
+    com.example.instantscore.model.Item selectedItem -> c
     java.lang.String editTextValue -> d
     android.widget.EditText numberTv -> e
-    40:69:void onBindDialogView(android.view.View) -> onBindDialogView
-    73:81:void onDialogClosed(boolean) -> onDialogClosed
-    85:92:void onClick(android.content.DialogInterface,int) -> onClick
-    95:112:void readItems() -> a
-    25:25:com.example.instantscore.model.Item access$002(com.example.instantscore.dialog.TestDialog,com.example.instantscore.model.Item) -> a
-    25:25:int access$102(com.example.instantscore.dialog.TestDialog,int) -> a
+    43:72:void onBindDialogView(android.view.View) -> onBindDialogView
+    76:85:void onDialogClosed(boolean) -> onDialogClosed
+    89:96:void onClick(android.content.DialogInterface,int) -> onClick
+    99:117:void readItems() -> a
+    120:130:int findDeviceCountryIndex(java.lang.String) -> a
+    28:28:com.example.instantscore.model.Item access$002(com.example.instantscore.dialog.TestDialog,com.example.instantscore.model.Item) -> a
+    28:28:int access$102(com.example.instantscore.dialog.TestDialog,int) -> a
 com.example.instantscore.dialog.TestDialog$1 -> nh:
     android.widget.Spinner val$p -> a
     com.example.instantscore.dialog.TestDialog this$0 -> b
-    50:52:void onItemSelected(android.widget.AdapterView,android.view.View,int,long) -> onItemSelected
-    57:57:void onNothingSelected(android.widget.AdapterView) -> onNothingSelected
+    53:55:void onItemSelected(android.widget.AdapterView,android.view.View,int,long) -> onItemSelected
+    60:60:void onNothingSelected(android.widget.AdapterView) -> onNothingSelected
 com.example.instantscore.layout.ItemView -> com.example.instantscore.layout.ItemView:
     android.widget.TextView mTitleTextView -> a
     android.widget.TextView mDescriptionTextView -> b
@@ -5690,13 +5691,16 @@ com.example.instantscore.layout.ItemView -> com.example.instantscore.layout.Item
 com.example.instantscore.model.Item -> com.example.instantscore.model.Item:
     java.lang.String countryPrefix -> a
     java.lang.String countryName -> b
-    int imgId -> c
-    18:18:java.lang.String getCountryPrefix() -> getCountryPrefix
-    22:22:java.lang.String getCountryName() -> getCountryName
-    26:26:int getImgId() -> getImgId
-    30:31:void setCountryPrefix(java.lang.String) -> setCountryPrefix
-    34:35:void setCountryName(java.lang.String) -> setCountryName
-    38:39:void setImgId(int) -> setImgId
+    java.lang.String countryIso -> c
+    int imgId -> d
+    20:20:java.lang.String getCountryPrefix() -> getCountryPrefix
+    24:24:java.lang.String getCountryName() -> getCountryName
+    28:28:java.lang.String getCountryIso() -> getCountryIso
+    32:32:int getImgId() -> getImgId
+    36:37:void setCountryPrefix(java.lang.String) -> setCountryPrefix
+    40:41:void setCountryName(java.lang.String) -> setCountryName
+    44:45:void setCountryIso(java.lang.String) -> setCountryIso
+    48:49:void setImgId(int) -> setImgId
 com.example.instantscore.model.League -> com.example.instantscore.model.League:
     java.lang.String name -> a
     java.lang.String date -> b
@@ -5726,12 +5730,13 @@ com.example.instantscore.utils.Utils -> com.example.instantscore.utils.Utils:
     java.lang.String patternDateTime -> a
     java.lang.String patternDate -> b
     java.lang.String patternTime -> c
-    15:18:java.util.Calendar buildDateTime(java.lang.String,java.lang.String) -> buildDateTime
-    22:25:java.util.Calendar buildTime(java.lang.String) -> buildTime
-    29:32:java.util.Calendar convertDateTime(java.util.Calendar) -> convertDateTime
-    36:36:java.lang.String getTimeFrom(java.util.Calendar) -> getTimeFrom
-    40:40:java.lang.String getDateFrom(java.util.Calendar) -> getDateFrom
-    44:45:java.lang.String format(java.util.Calendar,java.lang.String) -> a
+    18:21:java.util.Calendar buildDateTime(java.lang.String,java.lang.String) -> buildDateTime
+    25:28:java.util.Calendar buildTime(java.lang.String) -> buildTime
+    32:35:java.util.Calendar convertDateTime(java.util.Calendar) -> convertDateTime
+    39:39:java.lang.String getTimeFrom(java.util.Calendar) -> getTimeFrom
+    43:43:java.lang.String getDateFrom(java.util.Calendar) -> getDateFrom
+    47:48:java.lang.String format(java.util.Calendar,java.lang.String) -> a
+    52:53:java.lang.String getDeviceCountry(android.content.Context) -> getDeviceCountry
 com.example.instantscore.volley.AuthFailureError -> com.example.instantscore.volley.AuthFailureError:
     android.content.Intent mResolutionIntent -> a
     48:48:android.content.Intent getResolutionIntent() -> getResolutionIntent

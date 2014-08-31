@@ -2435,12 +2435,14 @@ com.example.instantscore.layout.ItemView: ItemView(android.content.Context,andro
 com.example.instantscore.layout.ItemView: void setItem(com.example.instantscore.model.Item)
 com.example.instantscore.layout.ItemView: com.example.instantscore.layout.ItemView inflate(android.view.ViewGroup)
 com.example.instantscore.model.Item
-com.example.instantscore.model.Item: Item(java.lang.String,java.lang.String,int)
+com.example.instantscore.model.Item: Item(java.lang.String,java.lang.String,java.lang.String,int)
 com.example.instantscore.model.Item: java.lang.String getCountryPrefix()
 com.example.instantscore.model.Item: java.lang.String getCountryName()
+com.example.instantscore.model.Item: java.lang.String getCountryIso()
 com.example.instantscore.model.Item: int getImgId()
 com.example.instantscore.model.Item: void setCountryPrefix(java.lang.String)
 com.example.instantscore.model.Item: void setCountryName(java.lang.String)
+com.example.instantscore.model.Item: void setCountryIso(java.lang.String)
 com.example.instantscore.model.Item: void setImgId(int)
 com.example.instantscore.model.League
 com.example.instantscore.model.League: League()
@@ -2467,6 +2469,7 @@ com.example.instantscore.utils.Utils: java.util.Calendar buildTime(java.lang.Str
 com.example.instantscore.utils.Utils: java.util.Calendar convertDateTime(java.util.Calendar)
 com.example.instantscore.utils.Utils: java.lang.String getTimeFrom(java.util.Calendar)
 com.example.instantscore.utils.Utils: java.lang.String getDateFrom(java.util.Calendar)
+com.example.instantscore.utils.Utils: java.lang.String getDeviceCountry(android.content.Context)
 com.example.instantscore.volley.AuthFailureError
 com.example.instantscore.volley.AuthFailureError: AuthFailureError()
 com.example.instantscore.volley.AuthFailureError: AuthFailureError(android.content.Intent)

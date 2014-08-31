@@ -6,15 +6,18 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
+import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.instantscore.R;
 import com.example.instantscore.adapter.ItemAdapter;
 import com.example.instantscore.model.Item;
+import com.example.instantscore.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +27,8 @@ import java.util.List;
  */
 public class TestDialog extends DialogPreference {
     private static List<Item> itemList;
+    private int itemIndex = 0;
     private Item selectedItem;
-    private int itemIndex;
     private String editTextValue;
 
     private EditText numberTv;
@@ -58,8 +61,8 @@ public class TestDialog extends DialogPreference {
         });
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        itemIndex = prefs.getInt("item_index", 0);
-        editTextValue = prefs.getString(getKey(),"").substring(4);
+        itemIndex = prefs.getInt("item_index", findDeviceCountryIndex(Utils.getDeviceCountry(getContext())));
+        editTextValue = prefs.getString("only_phone_num","");
 
         p.setSelection(itemIndex);
         numberTv = (EditText)view.findViewById(R.id.number_editText);
@@ -73,6 +76,7 @@ public class TestDialog extends DialogPreference {
         if(positiveResult){
             SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
             editor.putString(getKey(), selectedItem.getCountryPrefix()+editTextValue);
+            editor.putString("only_phone_num", editTextValue);
             editor.putInt("item_index", itemIndex);
             editor.commit();
         }
@@ -95,7 +99,7 @@ public class TestDialog extends DialogPreference {
         TypedArray countryCodes = getContext().getResources().obtainTypedArray(R.array.countries);
         itemList = new ArrayList<Item>();
 
-        String countryPrefix, countryName;
+        String countryPrefix, countryName, countryIso;
         int cpt = countryCodes.length(), flagId;
         for (int i = 0; i < cpt; ++i) {
             int id = countryCodes.getResourceId(i, -1);
@@ -103,11 +107,26 @@ public class TestDialog extends DialogPreference {
 
             countryPrefix = arr2.getString(0);
             countryName = arr2.getString(1);
-            flagId = arr2.getResourceId(2, -1);
-            itemList.add(new Item(countryPrefix, countryName, flagId));
+            countryIso = arr2.getString(2);
+            flagId = arr2.getResourceId(3, -1);
+            itemList.add(new Item(countryPrefix, countryName, countryIso, flagId));
             arr2.recycle();
         }
 
         countryCodes.recycle();
+    }
+
+    private int findDeviceCountryIndex(String countryName){
+        countryName = countryName.toUpperCase();
+        int i = 0, res = 0;
+        Item item;
+        for(;i<itemList.size();i++){
+            item = itemList.get(i);
+            if(item.getCountryIso().equals(countryName)){
+                res = i;
+                break;
+            }
+        }
+        return res;
     }
 }

@@ -6,11 +6,13 @@ package com.example.instantscore.model;
 public class Item {
     private String countryPrefix;
     private String countryName;
+    private String countryIso;
     private int imgId;
 
-    public Item(String countryPrefix, String countryName, int imgId){
+    public Item(String countryPrefix, String countryName, String countryIso, int imgId){
         this.countryPrefix = countryPrefix;
         this.countryName = countryName;
+        this.countryIso = countryIso;
         this.imgId = imgId;
     }
 
@@ -20,6 +22,10 @@ public class Item {
 
     public String getCountryName() {
         return countryName;
+    }
+
+    public String getCountryIso() {
+        return countryIso;
     }
 
     public int getImgId() {
@@ -32,6 +38,10 @@ public class Item {
 
     public void setCountryName(String countryName) {
         this.countryName = countryName;
+    }
+
+    public void setCountryIso(String countryIso) {
+        this.countryIso = countryIso;
     }
 
     public void setImgId(int imgId) {

@@ -1,5 +1,8 @@
 package com.example.instantscore.utils;
 
+import android.content.Context;
+import android.telephony.TelephonyManager;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -43,6 +46,11 @@ public class Utils {
     private static String format(Calendar cal, String pattern){
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         return sdf.format(cal.getTime());
+    }
+
+    public static String getDeviceCountry(Context c){
+        TelephonyManager tm = (TelephonyManager) c.getSystemService(c.TELEPHONY_SERVICE);
+        return tm.getNetworkCountryIso();
     }
 
 }
