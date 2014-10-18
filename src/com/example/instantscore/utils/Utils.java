@@ -49,7 +49,7 @@ public class Utils {
     }
 
     public static String getDeviceCountry(Context c){
-        TelephonyManager tm = (TelephonyManager) c.getSystemService(c.TELEPHONY_SERVICE);
+        TelephonyManager tm = (TelephonyManager) c.getSystemService(Context.TELEPHONY_SERVICE);
         return tm.getNetworkCountryIso();
     }
 

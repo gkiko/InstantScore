@@ -25,8 +25,12 @@ public class ItemView extends RelativeLayout {
 
     public ItemView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        LayoutInflater.from(context).inflate(R.layout.item_view_children, this, true);
+        LayoutInflater.from(context).inflate(R.layout.country_item_view_child, this, true);
         setupChildren();
+    }
+
+    public static ItemView inflate(ViewGroup parent) {
+        return (ItemView) LayoutInflater.from(parent.getContext()).inflate(R.layout.country_item_view, parent, false);
     }
 
     private void setupChildren() {
@@ -39,10 +43,5 @@ public class ItemView extends RelativeLayout {
         mTitleTextView.setText(item.getCountryName());
         mDescriptionTextView.setText(item.getCountryPrefix());
         mImageView.setImageResource(item.getImgId());
-    }
-
-    public static ItemView inflate(ViewGroup parent) {
-        ItemView itemView = (ItemView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
-        return itemView;
     }
 }

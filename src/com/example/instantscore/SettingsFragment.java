@@ -33,7 +33,7 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
 
-        Preference button = (Preference) findPreference("securitycode");
+        Preference button = findPreference("securitycode");
         button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference arg0) {
@@ -50,7 +50,7 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
 
                                 SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
                                 editor.putString(KEY_SECURITY_CODE, text);
-                                editor.commit();
+                                editor.apply();
 
                             }
                         }).setNeutralButton("Request", new DialogInterface.OnClickListener() {
@@ -109,8 +109,6 @@ public class SettingsFragment extends PreferenceFragment implements OnSharedPref
 
             }
         });
-        System.out.println("REQUESTING");
-//        request.setRetryPolicy(new DefaultRetryPolicy(0, 2, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MyVolley.getInstance(getActivity().getApplicationContext()).addToRequestQueue(request);
     }
 

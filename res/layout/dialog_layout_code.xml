@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:textSize="22sp"
         android:textColor="@android:color/holo_blue_light"
-        android:text="Security code" />
+        android:text="@string/password_dialog_hdr" />
 
     <View
         android:layout_width="fill_parent"

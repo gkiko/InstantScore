@@ -65,7 +65,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         League header = (League) getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.list_header_new, null);
+            convertView = layoutInflater.inflate(R.layout.list_header, null);
         }
 
         TextView leagueListHeader = (TextView) convertView.findViewById(R.id.header);
@@ -82,7 +82,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.list_item_new, null);
+            convertView = layoutInflater.inflate(R.layout.list_item, null);
         }
 
         TextView childTime = (TextView) convertView.findViewById(R.id.time);

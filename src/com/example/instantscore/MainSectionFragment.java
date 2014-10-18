@@ -24,10 +24,6 @@ import com.example.instantscore.volley.Request;
 import com.example.instantscore.volley.Response;
 import com.example.instantscore.volley.VolleyError;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,7 +47,6 @@ public class MainSectionFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Bundle args = getArguments();
         View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
         backgroundWarning = (RelativeLayout) rootView.findViewById(R.id.layout_warning);
 
@@ -87,24 +82,6 @@ public class MainSectionFragment extends Fragment {
     }
 
     public void onUpdate(List<League> ls) throws Exception {
-        listAdapter = new ExpandableListAdapter(getActivity(), ls);
-        highlightSelections(ls);
-        expandableListView.setAdapter(listAdapter);
-        expandGroups();
-    }
-
-    public void onUpdate(JsonArray array) throws Exception {
-        List<League> ls = gson.fromJson(array, new TypeToken<List<League>>() {}.getType());
-
-        listAdapter = new ExpandableListAdapter(getActivity(), ls);
-        highlightSelections(ls);
-        expandableListView.setAdapter(listAdapter);
-        expandGroups();
-    }
-
-    public void onUpdate(JSONArray array) throws Exception {
-        List<League> ls = gson.fromJson(array.toString(), new TypeToken<List<League>>() {}.getType());
-
         listAdapter = new ExpandableListAdapter(getActivity(), ls);
         highlightSelections(ls);
         expandableListView.setAdapter(listAdapter);
@@ -159,8 +136,7 @@ public class MainSectionFragment extends Fragment {
                     v.findViewById(R.id.progressBar3).setVisibility(View.GONE);
                 }
             }
-        }
-        );
+        });
 
         v.findViewById(R.id.progressBar3).setVisibility(View.VISIBLE);
         MyVolley.getInstance(getActivity().getApplicationContext()).addToRequestQueue(request);

@@ -63,7 +63,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         if (firstTimeRun()) {
             Editor editor = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit();
             editor.putBoolean("firsttime", false);
-            editor.commit();
+            editor.apply();
 
             showPreferences();
         }

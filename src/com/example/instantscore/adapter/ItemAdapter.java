@@ -1,6 +1,5 @@
 package com.example.instantscore.adapter;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,7 +14,7 @@ import java.util.List;
  */
 public class ItemAdapter extends BaseAdapter {
     List<Item> items;
-    public ItemAdapter(Context c, List<Item> items) {
+    public ItemAdapter(List<Item> items) {
         this.items = items;
     }
 

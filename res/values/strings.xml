@@ -21,7 +21,7 @@
     <string name="url_sms">http://ec2-54-191-136-49.us-west-2.compute.amazonaws.com:8080/InstantScore2/DataProvider</string>
 
     <!-- dialog -->
-    <string name="loading_hdr">Loading…</string>
+    <string name="password_dialog_hdr">Loading…</string>
     <string name="number_dialog_hdr">Your phone number</string>
     <string name="number_dialog_ok">Continue</string>
     <string name="number_dialog_cancel">Cancel</string>
