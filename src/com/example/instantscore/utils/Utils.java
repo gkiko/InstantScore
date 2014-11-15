@@ -9,12 +9,11 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 public class Utils {
-    private static String patternDateTime = "MMM dd HH:mm";
-    private static String patternDate = "MMM dd";
     private static String patternTime = "HH:mm";
 
 
     public static Calendar buildDateTime(String date, String time) throws ParseException {
+        String patternDateTime = "MMM dd HH:mm";
         SimpleDateFormat sdf = new SimpleDateFormat(patternDateTime);
         Calendar asd = Calendar.getInstance();
         asd.setTime(sdf.parse(date+" "+time));
@@ -40,6 +39,7 @@ public class Utils {
     }
 
     public static String getDateFrom(Calendar cal){
+        String patternDate = "MMM dd";
         return format(cal, patternDate);
     }
 

@@ -2,6 +2,7 @@ package com.example.instantscore;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -96,6 +97,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             case R.id.action_settings:
                 showPreferences();
                 return true;
+            case R.id.action_about:
+                showAboutDialog();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -168,6 +172,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, SettingsActivity.class);
         startActivityForResult(intent, 0);
+    }
+
+    private void showAboutDialog(){
+        FragmentManager fm = getFragmentManager();
+        AboutFragment editNameDialog = new AboutFragment();
+        editNameDialog.show(fm, "fragment_about");
     }
 
     @Override

@@ -1801,8 +1801,6 @@ com.example.instantscore.MainSectionFragment: MainSectionFragment()
 com.example.instantscore.MainSectionFragment: void onAttach(android.app.Activity)
 com.example.instantscore.MainSectionFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
 com.example.instantscore.MainSectionFragment: void onUpdate(java.util.List)
-com.example.instantscore.MainSectionFragment: void onUpdate(com.google.gson.JsonArray)
-com.example.instantscore.MainSectionFragment: void onUpdate(org.json.JSONArray)
 com.example.instantscore.R
 com.example.instantscore.R: R()
 com.example.instantscore.R$array
@@ -2013,7 +2011,6 @@ com.example.instantscore.R$color: int pressed_color
 com.example.instantscore.R$color: R$color()
 com.example.instantscore.R$dimen
 com.example.instantscore.R$dimen: int activity_horizontal_margin
-com.example.instantscore.R$dimen: int activity_vertical_margin
 com.example.instantscore.R$dimen: R$dimen()
 com.example.instantscore.R$drawable
 com.example.instantscore.R$drawable: int afghanistan
@@ -2247,53 +2244,39 @@ com.example.instantscore.R$drawable: int zimbabwe
 com.example.instantscore.R$drawable: R$drawable()
 com.example.instantscore.R$id
 com.example.instantscore.R$id: int action_settings
-com.example.instantscore.R$id: int awayTeam
-com.example.instantscore.R$id: int awayTeamScore
 com.example.instantscore.R$id: int date
-com.example.instantscore.R$id: int dialog_layout
 com.example.instantscore.R$id: int editText2
 com.example.instantscore.R$id: int header
-com.example.instantscore.R$id: int homeTeam
-com.example.instantscore.R$id: int homeTeamScore
-com.example.instantscore.R$id: int item_delete
 com.example.instantscore.R$id: int item_descriptionTextView
 com.example.instantscore.R$id: int item_imageView
 com.example.instantscore.R$id: int item_titleTextView
 com.example.instantscore.R$id: int layout_warning
 com.example.instantscore.R$id: int list
-com.example.instantscore.R$id: int list_header_title
 com.example.instantscore.R$id: int match_id
 com.example.instantscore.R$id: int message_text
 com.example.instantscore.R$id: int number_editText
 com.example.instantscore.R$id: int pager
-com.example.instantscore.R$id: int progressBar2
 com.example.instantscore.R$id: int progressBar3
 com.example.instantscore.R$id: int refresh
 com.example.instantscore.R$id: int score
 com.example.instantscore.R$id: int spinner
 com.example.instantscore.R$id: int team1
 com.example.instantscore.R$id: int team2
-com.example.instantscore.R$id: int textView1
 com.example.instantscore.R$id: int time
 com.example.instantscore.R$id: R$id()
 com.example.instantscore.R$layout
 com.example.instantscore.R$layout: int activity_main
+com.example.instantscore.R$layout: int country_item_view
+com.example.instantscore.R$layout: int country_item_view_child
 com.example.instantscore.R$layout: int dialog_layout_code
-com.example.instantscore.R$layout: int dialog_layout_loading
 com.example.instantscore.R$layout: int dialog_layout_number
 com.example.instantscore.R$layout: int fragment_section_launchpad
 com.example.instantscore.R$layout: int fragment_section_launchpad_old
-com.example.instantscore.R$layout: int item_view
-com.example.instantscore.R$layout: int item_view_children
 com.example.instantscore.R$layout: int list_header
-com.example.instantscore.R$layout: int list_header_new
 com.example.instantscore.R$layout: int list_item
-com.example.instantscore.R$layout: int list_item_new
 com.example.instantscore.R$layout: int list_item_new_tab3
-com.example.instantscore.R$layout: int test_layout
 com.example.instantscore.R$layout: R$layout()
 com.example.instantscore.R$menu
-com.example.instantscore.R$menu: int contextual_menu
 com.example.instantscore.R$menu: int main
 com.example.instantscore.R$menu: int settings
 com.example.instantscore.R$menu: R$menu()
@@ -2308,10 +2291,10 @@ com.example.instantscore.R$string: int already_selected
 com.example.instantscore.R$string: int app_name
 com.example.instantscore.R$string: int hello_world
 com.example.instantscore.R$string: int limit_reached
-com.example.instantscore.R$string: int loading_hdr
 com.example.instantscore.R$string: int number_dialog_cancel
 com.example.instantscore.R$string: int number_dialog_hdr
 com.example.instantscore.R$string: int number_dialog_ok
+com.example.instantscore.R$string: int password_dialog_hdr
 com.example.instantscore.R$string: int prefs_number_summary
 com.example.instantscore.R$string: int prefs_number_title
 com.example.instantscore.R$string: int prefs_security_code_summary
@@ -2378,7 +2361,7 @@ com.example.instantscore.adapter.ExpandableListAdapter: android.view.View getGro
 com.example.instantscore.adapter.ExpandableListAdapter: android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup)
 com.example.instantscore.adapter.ExpandableListAdapter: boolean isChildSelectable(int,int)
 com.example.instantscore.adapter.ItemAdapter
-com.example.instantscore.adapter.ItemAdapter: ItemAdapter(android.content.Context,java.util.List)
+com.example.instantscore.adapter.ItemAdapter: ItemAdapter(java.util.List)
 com.example.instantscore.adapter.ItemAdapter: int getCount()
 com.example.instantscore.adapter.ItemAdapter: java.lang.Object getItem(int)
 com.example.instantscore.adapter.ItemAdapter: long getItemId(int)
@@ -2417,13 +2400,6 @@ com.example.instantscore.database.InsertStatus: com.example.instantscore.databas
 com.example.instantscore.database.InsertStatus: com.example.instantscore.database.InsertStatus TOO_MANY_MATCHES
 com.example.instantscore.database.InsertStatus: com.example.instantscore.database.InsertStatus[] values()
 com.example.instantscore.database.InsertStatus: com.example.instantscore.database.InsertStatus valueOf(java.lang.String)
-com.example.instantscore.dialog.LoadingDialog
-com.example.instantscore.dialog.LoadingDialog: LoadingDialog()
-com.example.instantscore.dialog.LoadingDialog: android.app.Dialog onCreateDialog(android.os.Bundle)
-com.example.instantscore.dialog.NumberDialog
-com.example.instantscore.dialog.NumberDialog: NumberDialog()
-com.example.instantscore.dialog.NumberDialog: com.example.instantscore.dialog.NumberDialog newInstance()
-com.example.instantscore.dialog.NumberDialog: android.app.Dialog onCreateDialog(android.os.Bundle)
 com.example.instantscore.dialog.TestDialog
 com.example.instantscore.dialog.TestDialog: TestDialog(android.content.Context,android.util.AttributeSet)
 com.example.instantscore.dialog.TestDialog: void onBindDialogView(android.view.View)
@@ -2432,8 +2408,8 @@ com.example.instantscore.dialog.TestDialog: void onClick(android.content.DialogI
 com.example.instantscore.layout.ItemView
 com.example.instantscore.layout.ItemView: ItemView(android.content.Context,android.util.AttributeSet)
 com.example.instantscore.layout.ItemView: ItemView(android.content.Context,android.util.AttributeSet,int)
-com.example.instantscore.layout.ItemView: void setItem(com.example.instantscore.model.Item)
 com.example.instantscore.layout.ItemView: com.example.instantscore.layout.ItemView inflate(android.view.ViewGroup)
+com.example.instantscore.layout.ItemView: void setItem(com.example.instantscore.model.Item)
 com.example.instantscore.model.Item
 com.example.instantscore.model.Item: Item(java.lang.String,java.lang.String,java.lang.String,int)
 com.example.instantscore.model.Item: java.lang.String getCountryPrefix()

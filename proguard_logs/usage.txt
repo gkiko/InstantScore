@@ -380,9 +380,6 @@ android.support.v4.widget.ViewDragHelper:
 com.example.instantscore.database.DBHelper:
     private static final java.lang.String DATABASE_NAME
     private static final int DATABASE_VERSION
-com.example.instantscore.database.DBManager:
-    private static final int MAX_NUM_SELECTED_MATCHES_PER_DAY
-    47:47:private static boolean isSpaceForExtraMatch()
 com.example.instantscore.volley.Request:
     private static final java.lang.String DEFAULT_PARAMS_ENCODING
     private static final long SLOW_REQUEST_THRESHOLD_MS

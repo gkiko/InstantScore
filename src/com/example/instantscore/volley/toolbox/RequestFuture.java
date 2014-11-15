@@ -126,10 +126,7 @@ public class RequestFuture<T> implements Future<T>, Response.Listener<T>,
 
     @Override
     public boolean isCancelled() {
-        if (mRequest == null) {
-            return false;
-        }
-        return mRequest.isCanceled();
+        return mRequest == null?false:mRequest.isCanceled();
     }
 
     @Override

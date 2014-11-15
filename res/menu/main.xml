@@ -5,10 +5,14 @@
         android:icon="@drawable/ic_menu_refresh"
         android:showAsAction="ifRoom"
         android:title="@string/hello_world"
-        android:visible="false" />
+        android:visible="true" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="101"
+        android:title="@string/action_about" />
 
 </menu>

@@ -8,8 +8,7 @@
         style="@style/ListItemTextPrimary"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="siri vs prochi" />
+        android:gravity="center" />
 
 </RelativeLayout>
 
