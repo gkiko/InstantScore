@@ -1,0 +1,16 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Material.Light">
+        <!-- Main theme colors -->
+        <item name="android:windowActionBar">true</item>
+        <!--   your app branding color for the app bar -->
+        <item name="android:colorPrimary">#009688</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">#00695C</item>
+    </style>
+
+</resources>

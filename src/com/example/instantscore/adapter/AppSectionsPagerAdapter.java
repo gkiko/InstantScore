@@ -1,10 +1,14 @@
-package com.example.instantscore;
+package com.example.instantscore.adapter;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.instantscore.MainSectionFragment;
+import com.example.instantscore.R;
+import com.example.instantscore.SelectedSectionFragment;
 
 public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 	private transient FragmentActivity c;

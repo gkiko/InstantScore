@@ -3,7 +3,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
     android:orientation="horizontal">
 
     <TextView
@@ -15,8 +14,7 @@
         android:layout_toLeftOf="@+id/date"
         android:ellipsize="middle"
         android:singleLine="true"
-        android:scrollHorizontally="true"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:scrollHorizontally="true" />
 
     <TextView
         android:id="@+id/date"
@@ -25,7 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:singleLine="true"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:singleLine="true" />
 
 </RelativeLayout>

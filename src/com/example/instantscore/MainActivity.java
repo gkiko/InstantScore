@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 
+import com.example.instantscore.adapter.AppSectionsPagerAdapter;
 import com.example.instantscore.communication.JsonRequest;
 import com.example.instantscore.communication.MyVolley;
 import com.example.instantscore.database.DBManager;
