@@ -6,12 +6,12 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>com.example.instantscore.ide.eclipse.adt.ResourceManagerBuilder</name>
+			<name>com.kuku.instantscore.ide.eclipse.adt.ResourceManagerBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>com.example.instantscore.ide.eclipse.adt.PreCompilerBuilder</name>
+			<name>com.kuku.instantscore.ide.eclipse.adt.PreCompilerBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -21,13 +21,13 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>com.example.instantscore.ide.eclipse.adt.ApkBuilder</name>
+			<name>com.kuku.instantscore.ide.eclipse.adt.ApkBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>com.example.instantscore.ide.eclipse.adt.AndroidNature</nature>
+		<nature>com.kuku.instantscore.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>com.newrelic.agent.android.eclipse.plugin.NewRelicNature</nature>
 	</natures>

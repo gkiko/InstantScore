@@ -47,8 +47,8 @@
 -keep public class * extends android.content.ContentProvider
 -keep public class * extends android.app.backup.BackupAgentHelper
 -keep public class * extends android.preference.Preference
--keep public class com.example.instantscore.vending.licensing.ILicensingService
--dontnote com.example.instantscore.vending.licensing.ILicensingService
+-keep public class com.kuku.instantscore.vending.licensing.ILicensingService
+-dontnote com.kuku.instantscore.vending.licensing.ILicensingService
 
 
 # Explicitly preserve all serialization members. The Serializable interface

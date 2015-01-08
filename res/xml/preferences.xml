@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.example.instantscore.dialog.TestDialog
+    <com.kuku.instantscore.dialog.TestDialog
         android:key="phonenum"
         android:summary="@string/prefs_number_summary"
         android:title="@string/prefs_number_title" />
