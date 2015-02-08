@@ -6422,6 +6422,7 @@ com.kuku.instantscore.R$drawable -> com.kuku.instantscore.R$drawable:
     int ic_launcher_ -> ic_launcher_
     int ic_menu_add -> ic_menu_add
     int ic_menu_refresh -> ic_menu_refresh
+    int ic_xarata -> ic_xarata
     int iceland -> iceland
     int india -> india
     int indonesia -> indonesia

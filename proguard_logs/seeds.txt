@@ -2606,6 +2606,7 @@ com.kuku.instantscore.R$drawable: int ic_launcher
 com.kuku.instantscore.R$drawable: int ic_launcher_
 com.kuku.instantscore.R$drawable: int ic_menu_add
 com.kuku.instantscore.R$drawable: int ic_menu_refresh
+com.kuku.instantscore.R$drawable: int ic_xarata
 com.kuku.instantscore.R$drawable: int iceland
 com.kuku.instantscore.R$drawable: int india
 com.kuku.instantscore.R$drawable: int indonesia

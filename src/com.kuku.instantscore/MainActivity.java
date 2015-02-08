@@ -54,7 +54,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 actionBar.setSelectedNavigationItem(position);
             }
         });
-        NewRelic.withApplicationToken("AA907c3b86fbc007ff0ecb385c864207f3d89b8715").start(this.getApplication());
+        NewRelic.withApplicationToken("AAbf614ab7e9b54e4cf49cf1d7036992c89710edea").start(this.getApplication());
 
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mAppSectionsPagerAdapter.getCount(); i++) {
