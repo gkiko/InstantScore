@@ -29,7 +29,14 @@ public class MyVolley {
 
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
+            // Instantiate the cache
+            com.kuku.instantscore.volley.Cache cache = new com.kuku.instantscore.volley.toolbox.DiskBasedCache(mCtx.getCacheDir(), 1024 * 1024); // 1MB cap
+
+            // Set up the network to use HttpURLConnection as the HTTP client.
+            com.kuku.instantscore.volley.Network network = new com.kuku.instantscore.volley.toolbox.BasicNetwork(new com.kuku.instantscore.volley.toolbox.HurlStack());
+//            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
+            mRequestQueue = new RequestQueue(cache, network);
+            mRequestQueue.start();
         }
         return mRequestQueue;
     }
