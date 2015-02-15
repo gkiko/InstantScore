@@ -1,14 +1,14 @@
 package com.kuku.instantscore.communication;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.kuku.instantscore.model.League;
-import com.kuku.instantscore.volley.NetworkResponse;
-import com.kuku.instantscore.volley.ParseError;
-import com.kuku.instantscore.volley.Request;
-import com.kuku.instantscore.volley.Response;
-import com.kuku.instantscore.volley.toolbox.HttpHeaderParser;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;

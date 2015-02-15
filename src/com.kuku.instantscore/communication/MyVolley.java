@@ -2,9 +2,13 @@ package com.kuku.instantscore.communication;
 
 import android.content.Context;
 
-import com.kuku.instantscore.volley.Request;
-import com.kuku.instantscore.volley.RequestQueue;
-import com.kuku.instantscore.volley.toolbox.Volley;
+import com.android.volley.Cache;
+import com.android.volley.Network;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
 
 /**
  * Created by gkiko on 8/1/14.
@@ -30,10 +34,10 @@ public class MyVolley {
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
             // Instantiate the cache
-            com.kuku.instantscore.volley.Cache cache = new com.kuku.instantscore.volley.toolbox.DiskBasedCache(mCtx.getCacheDir(), 1024 * 1024); // 1MB cap
+            Cache cache = new DiskBasedCache(mCtx.getCacheDir(), 1024 * 1024); // 1MB cap
 
             // Set up the network to use HttpURLConnection as the HTTP client.
-            com.kuku.instantscore.volley.Network network = new com.kuku.instantscore.volley.toolbox.BasicNetwork(new com.kuku.instantscore.volley.toolbox.HurlStack());
+            Network network = new BasicNetwork(new HurlStack());
 //            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
             mRequestQueue = new RequestQueue(cache, network);
             mRequestQueue.start();

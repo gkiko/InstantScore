@@ -14,12 +14,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.NoConnectionError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.kuku.instantscore.communication.MyVolley;
 import com.kuku.instantscore.communication.PostRequest;
-import com.kuku.instantscore.volley.NoConnectionError;
-import com.kuku.instantscore.volley.Request;
-import com.kuku.instantscore.volley.Response;
-import com.kuku.instantscore.volley.VolleyError;
 
 import java.util.HashMap;
 import java.util.Map;

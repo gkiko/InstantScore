@@ -1,10 +1,10 @@
 package com.kuku.instantscore.communication;
 
-import com.kuku.instantscore.volley.AuthFailureError;
-import com.kuku.instantscore.volley.NetworkResponse;
-import com.kuku.instantscore.volley.Request;
-import com.kuku.instantscore.volley.Response;
-import com.kuku.instantscore.volley.toolbox.HttpHeaderParser;
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.HttpHeaderParser;
 
 import java.util.Map;
 

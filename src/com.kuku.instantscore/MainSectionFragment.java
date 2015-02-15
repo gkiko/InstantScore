@@ -13,6 +13,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.android.volley.NoConnectionError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.kuku.instantscore.adapter.ExpandableListAdapter;
 import com.kuku.instantscore.communication.MyVolley;
@@ -20,10 +24,6 @@ import com.kuku.instantscore.communication.PostRequest;
 import com.kuku.instantscore.database.DBManager;
 import com.kuku.instantscore.model.League;
 import com.kuku.instantscore.model.Match;
-import com.kuku.instantscore.volley.NoConnectionError;
-import com.kuku.instantscore.volley.Request;
-import com.kuku.instantscore.volley.Response;
-import com.kuku.instantscore.volley.VolleyError;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -110,7 +110,7 @@ public class MainSectionFragment extends Fragment {
     void submitGame(final Match match, final League league, final View v) {
         PostRequest<String> request = new PostRequest<String>(Request.Method.POST, activity.getResources().getString(R.string.url_sms),
             createSubscriptionDataToSend(match),
-            new com.kuku.instantscore.volley.Response.Listener<String>() {
+            new Response.Listener<String>() {
 
                 @Override
                 public void onResponse(String s) {

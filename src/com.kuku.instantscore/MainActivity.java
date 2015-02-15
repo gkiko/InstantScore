@@ -15,14 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.kuku.instantscore.communication.JsonRequest;
 import com.kuku.instantscore.communication.MyVolley;
 import com.kuku.instantscore.database.DBManager;
 import com.kuku.instantscore.model.League;
-import com.kuku.instantscore.volley.Request;
-import com.kuku.instantscore.volley.RequestQueue;
-import com.kuku.instantscore.volley.Response;
-import com.kuku.instantscore.volley.VolleyError;
 import com.newrelic.agent.android.NewRelic;
 
 import java.util.List;
