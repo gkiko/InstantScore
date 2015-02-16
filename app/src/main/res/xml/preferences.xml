@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.kuku.instantscore.dialog.TestDialog
+        android:key="phonenum"
+        android:summary="@string/prefs_number_summary"
+        android:title="@string/prefs_number_title" />
+
+    <Preference
+        android:key="securitycode"
+        android:summary="@string/prefs_security_code_summary"
+        android:title="@string/prefs_security_code_title" />
+
+    <ListPreference
+        android:defaultValue="10"
+        android:enabled="false"
+        android:key="messagelimit"
+        android:summary="@string/prefs_sms_limit_summary"
+        android:title="@string/prefs_sms_limit_title" />
+
+</PreferenceScreen>
