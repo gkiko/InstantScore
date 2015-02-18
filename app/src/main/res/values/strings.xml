@@ -1188,42 +1188,48 @@
         <item name="flag">@drawable/united_kingdom</item>
     </string-array>
     <string-array name="data189">
+        <item name="code">+1</item>
+        <item name="country">United States</item>
+        <item name="iso">US</item>
+        <item name="flag">@drawable/united_states_of_america</item>
+    </string-array>
+    <string-array name="data190">
         <item name="code">+598</item>
         <item name="country">Uruguay</item>
         <item name="iso">UY</item>
         <item name="flag">@drawable/uruguay</item>
     </string-array>
-    <string-array name="data190">
+    <string-array name="data191">
         <item name="code">+998</item>
         <item name="country">Uzbekistan</item>
         <item name="iso">UZ</item>
         <item name="flag">@drawable/uzbekistan</item>
     </string-array>
-    <string-array name="data191">
+    <string-array name="data192">
         <item name="code">+678</item>
         <item name="country">Vanuatu</item>
         <item name="iso">VU</item>
         <item name="flag">@drawable/vanuatu</item>
     </string-array>
-    <string-array name="data192">
+    <string-array name="data193">
         <item name="code">+58</item>
         <item name="country">Venezuela</item>
         <item name="iso">VE</item>
         <item name="flag">@drawable/venezuela</item>
     </string-array>
-    <string-array name="data193">
+    <string-array name="data194">
         <item name="code">+967</item>
         <item name="country">Yemen</item>
         <item name="iso">YE</item>
         <item name="flag">@drawable/yemen</item>
     </string-array>
-    <string-array name="data194">
+    <string-array name="data195">
         <item name="code">+260</item>
         <item name="country">Zambia</item>
         <item name="iso">ZM</item>
         <item name="flag">@drawable/zambia</item>
     </string-array>
-    <string-array name="data195">
+    <string-array name="data196">
         <item name="code">+263</item>
         <item name="country">Zimbabwe</item>
         <item name="iso">ZW</item>
@@ -1427,6 +1433,7 @@
         <item>@array/data193</item>
         <item>@array/data194</item>
         <item>@array/data195</item>
+        <item>@array/data196</item>
     </array>
 
 </resources>
